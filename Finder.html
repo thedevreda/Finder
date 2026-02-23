@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Control Panel</title>
+
+<style>
+* { box-sizing: border-box; }
+
+:root {
+    --bg: #f7f8fa;
+    --panel: #ffffff;
+    --border: #e4e6ea;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --danger: #b91c1c;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+}
+
+/* TOP BAR */
+.topbar {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-title {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* LAYOUT */
+.wrapper {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 230px;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+}
+
+.filter-btn {
+    width: 100%;
+    padding: 9px 12px;
+    margin-bottom: 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 14px;
+    transition: background 0.15s ease;
+}
+
+.filter-btn:hover {
+    background: #f1f2f4;
+}
+
+.filter-btn.active {
+    background: #eef0f3;
+    font-weight: 500;
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NOTES */
+.notes-section {
+    background: #f9fafb;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+}
+
+.notes-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--danger);
+}
+
+.notes-content {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+/* SEARCH */
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 11px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #9ca3af;
+}
+
+/* RESULTS */
+.results {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* CARDS */
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid #d1d5db;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.card.blacklist { border-left-color: #b91c1c; }
+.card.direct { border-left-color: #4b5563; }
+.card.replace { border-left-color: #6b7280; }
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 13px;
+}
+
+.card small {
+    color: var(--text-muted);
+}
+
+/* STATUS BAR */
+.statusbar {
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    padding: 9px 18px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        height: calc(100vh - 60px);
+        transform: translateX(-100%);
+        z-index: 100;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main {
+        padding: 20px;
+    }
+
+    .notes-section {
+        font-size: 12px;
+    }
+
+    .card {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="topbar-title">Email Control Panel</div>
+    </div>
+    <input type="file" id="jsonInput" accept=".json">
+</div>
+
+<div class="wrapper">
+
+    <div class="sidebar" id="sidebar">
+        <h3>Filter</h3>
+        <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+        <button class="filter-btn" onclick="setFilter('blacklist', this)">Blacklist</button>
+        <button class="filter-btn" onclick="setFilter('direct', this)">Direct Contact</button>
+        <button class="filter-btn" onclick="setFilter('replace', this)">Replacements</button>
+    </div>
+
+    <div class="main">
+
+        <div class="notes-section">
+            <div class="notes-title">Important Notes</div>
+            <div class="notes-content">
+                • No duplicate @domain.com emails<br>
+                • Double check stockmarket.com emails<br>
+                • Verify TEXT@app.partsrfq.com entries<br>
+                • Do not take action without approval
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput"
+                   placeholder="Search email, company, or keyword...">
+        </div>
+
+        <div class="results" id="results">
+            <div class="empty-state">Start typing to search</div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="statusbar" id="statusBar">Ready</div>
+
+<script>
+let blacklist = [];
+let replacements = {};
+let directContact = {};
+let currentFilter = "all";
+
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("open");
+}
+
+function normalize(text){
+    return text.toLowerCase().replace(/[^a-z0-9]/g,"");
+}
+
+function setFilter(type, btn){
+    currentFilter = type;
+    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    checkEmail();
+    if(window.innerWidth < 900){
+        toggleSidebar();
+    }
+}
+
+document.getElementById("searchInput").addEventListener("input", checkEmail);
+window.onload = () => document.getElementById("searchInput").focus();
+
+document.getElementById("jsonInput").addEventListener("change", function(event){
+    const file = event.target.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e){
+        try{
+            const data = JSON.parse(e.target.result);
+            blacklist = data.blacklist || [];
+            replacements = data.replacements || {};
+            directContact = data.directContact || {};
+            statusBar.innerText =
+                `Loaded: ${blacklist.length} blacklist | ${Object.keys(directContact).length} contacts | ${Object.keys(replacements).length} replacements`;
+        }catch{
+            alert("Invalid JSON file");
+        }
+    };
+    reader.readAsText(file);
+});
+
+function addCard(type,title,content){
+    const div = document.createElement("div");
+    div.className = "card "+type;
+    div.innerHTML = `<div class="card-title">${title}</div>${content}`;
+    results.appendChild(div);
+}
+
+function checkEmail(){
+    const results = document.getElementById("results");
+    results.innerHTML = "";
+
+    const keywordRaw = document.getElementById("searchInput").value.trim();
+    if(!keywordRaw){
+        results.innerHTML = '<div style="text-align:center;color:#6b7280;margin-top:40px;">Start typing to search</div>';
+        statusBar.innerText="Ready";
+        return;
+    }
+
+    const keyword = normalize(keywordRaw);
+    let count = 0;
+
+    if(currentFilter==="all"||currentFilter==="direct"){
+        for(let email in directContact){
+            if(normalize(email).includes(keyword) || normalize(directContact[email]).includes(keyword)){
+                addCard("direct","Direct Contact",
+                    `<small>Company:</small> ${directContact[email]}<br>
+                     <small>Email:</small> ${email}`);
+                count++;
+            }
+        }
+    }
+
+    if(currentFilter==="all"||currentFilter==="replace"){
+        for(let oldEmail in replacements){
+            if(normalize(oldEmail).includes(keyword) || normalize(replacements[oldEmail]).includes(keyword)){
+                addCard("replace","Replacement",
+                    `<small>Old:</small> ${oldEmail}<br>
+                     <small>New:</small> ${replacements[oldEmail]}`);
+                count++;
+            }
+        }
+    }
+
+    if(currentFilter==="all"||currentFilter==="blacklist"){
+        blacklist.forEach(item=>{
+            if(normalize(item).includes(keyword)){
+                addCard("blacklist","Blacklisted",item);
+                count++;
+            }
+        });
+    }
+
+    statusBar.innerText = count ? `${count} result(s)` : "No matches found";
+}
+</script>
+
+</body>
+</html>
