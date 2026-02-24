@@ -247,9 +247,12 @@ body {
         <div class="notes-section">
             <div class="notes-title">Important Notes</div>
             <div class="notes-content">
-                • No duplicate @domain.com emails<br>
-                • Double check stockmarket.com emails<br>
-                • Verify TEXT@app.partsrfq.com entries<br>
+		• <b>NO EXCHANGE</b> if you confusied ask<br>
+                • <b>No Duplicate</b> @domain.com emails<br>
+                • Double check <b>Stockmarket.com</b> emails<br>
+                • Verify <b>TEXT@app.partsrfq.com</b> entries<br>
+                • <b>Direct email</b> should be add in CC: in the main email<br>
+                • Blacklist mean either Mail not found or Blacklisted by Jadaerosapce<br>
                 • Do not take action without approval
             </div>
         </div>
@@ -335,11 +338,29 @@ function checkEmail(){
     }
 
     const keyword = normalize(keywordRaw);
+
+    // 🔥 SMART EMAIL DOMAIN EXTRACTION
+    let domainKeyword = "";
+    if(keywordRaw.includes("@")){
+        const afterAt = keywordRaw.split("@")[1] || "";
+        const beforeDot = afterAt.split(".")[0] || "";
+        domainKeyword = normalize(beforeDot);
+    }
+
     let count = 0;
 
+    function match(value){
+        const norm = normalize(value);
+        return (
+            norm.includes(keyword) ||
+            (domainKeyword && norm.includes(domainKeyword))
+        );
+    }
+
+    // DIRECT CONTACT
     if(currentFilter==="all"||currentFilter==="direct"){
         for(let email in directContact){
-            if(normalize(email).includes(keyword) || normalize(directContact[email]).includes(keyword)){
+            if(match(email) || match(directContact[email])){
                 addCard("direct","Direct Contact",
                     `<small>Company:</small> ${directContact[email]}<br>
                      <small>Email:</small> ${email}`);
@@ -348,9 +369,10 @@ function checkEmail(){
         }
     }
 
+    // REPLACEMENTS
     if(currentFilter==="all"||currentFilter==="replace"){
         for(let oldEmail in replacements){
-            if(normalize(oldEmail).includes(keyword) || normalize(replacements[oldEmail]).includes(keyword)){
+            if(match(oldEmail) || match(replacements[oldEmail])){
                 addCard("replace","Replacement",
                     `<small>Old:</small> ${oldEmail}<br>
                      <small>New:</small> ${replacements[oldEmail]}`);
@@ -359,9 +381,10 @@ function checkEmail(){
         }
     }
 
+    // BLACKLIST
     if(currentFilter==="all"||currentFilter==="blacklist"){
         blacklist.forEach(item=>{
-            if(normalize(item).includes(keyword)){
+            if(match(item)){
                 addCard("blacklist","Blacklisted",item);
                 count++;
             }
