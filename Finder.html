@@ -40,23 +40,9 @@ gap:20px;
 flex-wrap:wrap;
 }
 
-.topbar-title{
-font-size:17px;
-font-weight:600;
-}
-
-/* CLOCKS */
-.top-center{
-flex:1;
-display:flex;
-justify-content:center;
-}
-
-.time-clocks{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-}
+.topbar-title{font-size:17px;font-weight:600;}
+.top-center{flex:1;display:flex;justify-content:center;}
+.time-clocks{display:flex;gap:12px;flex-wrap:wrap;}
 
 .clock{
 background:#eef1f5;
@@ -66,23 +52,10 @@ font-size:12px;
 text-align:center;
 min-width:60px;
 }
+.clock .city{font-weight:600;font-size:11px;}
+.clock .time{font-size:12px;color:var(--text-muted);}
 
-.clock .city{
-font-weight:600;
-font-size:11px;
-}
-
-.clock .time{
-font-size:12px;
-color:var(--text-muted);
-}
-
-/* UPLOAD */
-.top-right{
-display:flex;
-align-items:center;
-gap:12px;
-}
+.top-right{display:flex;align-items:center;gap:12px;}
 
 .upload-btn{
 position:relative;
@@ -94,15 +67,8 @@ font-size:13px;
 cursor:pointer;
 transition:0.2s;
 }
-
 .upload-btn:hover{opacity:0.9}
-
-.upload-btn input{
-position:absolute;
-inset:0;
-opacity:0;
-cursor:pointer;
-}
+.upload-btn input{position:absolute;inset:0;opacity:0;cursor:pointer;}
 
 .file-name{
 font-size:12px;
@@ -113,7 +79,6 @@ overflow:hidden;
 text-overflow:ellipsis;
 }
 
-/* ===== MAIN ===== */
 .main{
 flex:1;
 padding:28px;
@@ -121,6 +86,71 @@ overflow-y:auto;
 padding-bottom:70px;
 }
 
+/* ===== REMINDER SECTION ===== */
+.reminder-section{
+background:#ffffff;
+border:1px solid var(--border);
+border-radius:8px;
+padding:16px;
+margin-bottom:20px;
+}
+.reminder-title{font-size:14px;font-weight:600;margin-bottom:10px;}
+.reminder-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+.reminder-row input{
+padding:9px;
+border:1px solid var(--border);
+border-radius:6px;
+font-size:13px;
+}
+.reminder-row button{
+padding:9px 14px;
+border:none;
+background:var(--primary);
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-size:13px;
+}
+
+.timer-card{
+background:#fbfcfe;
+border:1px solid var(--border);
+border-left:4px solid var(--primary);
+padding:10px 12px;
+margin-top:8px;
+border-radius:6px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:13px;
+}
+
+.timer-card.finished{
+border-left-color:var(--danger);
+background:#fdf2f2;
+}
+
+.timer-card.followup48{
+border-left-color:#a11a1a;
+background:#fff1f1;
+}
+.timer-card.followup48 .timer-label{
+color:#a11a1a;
+font-weight:600;
+}
+
+.timer-time{font-weight:600;}
+
+.timer-remove{
+background:#e5e9ef;
+border:none;
+padding:4px 8px;
+border-radius:4px;
+cursor:pointer;
+font-size:12px;
+}
+
+/* NOTES */
 .notes-section{
 background:#f8fafc;
 border:1px solid var(--border);
@@ -128,22 +158,20 @@ border-radius:8px;
 padding:14px 16px;
 margin-bottom:20px;
 }
-
 .notes-title{
 font-size:13px;
 font-weight:600;
 margin-bottom:6px;
 color:var(--danger);
 }
-
 .notes-content{
 font-size:13px;
 line-height:1.5;
 color:var(--text-muted);
 }
 
-.search-container{margin-bottom:10px}
-
+/* SEARCH */
+.search-container{margin-bottom:10px;}
 .search-container input{
 width:100%;
 padding:11px 12px;
@@ -152,13 +180,7 @@ border:1px solid var(--border);
 font-size:14px;
 }
 
-/* FILTERS */
-.filter-bar{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-bottom:20px;
-}
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
 
 .filter-btn{
 padding:7px 12px;
@@ -168,14 +190,12 @@ cursor:pointer;
 border-radius:6px;
 font-size:13px;
 }
-
 .filter-btn.active{
 background:var(--primary);
 color:#fff;
 border-color:var(--primary);
 }
 
-/* CARDS */
 .card{
 background:var(--panel);
 border:1px solid var(--border);
@@ -186,7 +206,6 @@ border-radius:6px;
 font-size:14px;
 position:relative;
 }
-
 .card.blacklist{background:#fdf2f2;border-left-color:#a11a1a}
 .card.direct{border-left-color:#475569}
 .card.replace{border-left-color:#64748b}
@@ -207,9 +226,6 @@ border-radius:4px;
 cursor:pointer;
 }
 
-.copy-btn:hover{background:#d8dee9}
-
-/* STATUS BAR */
 .statusbar{
 background:var(--panel);
 border-top:1px solid var(--border);
@@ -219,17 +235,6 @@ color:var(--text-muted);
 position:fixed;
 bottom:0;
 width:100%;
-}
-
-/* RESPONSIVE */
-@media (max-width:900px){
-.topbar{flex-direction:column;align-items:stretch}
-.top-center{justify-content:flex-start}
-.top-right{justify-content:space-between}
-}
-
-@media (max-width:500px){
-.clock{min-width:48px;font-size:11px;padding:4px 6px}
 }
 </style>
 </head>
@@ -259,18 +264,24 @@ Upload JSON
 
 <div class="main">
 
+<div class="reminder-section">
+<div class="reminder-title">Client Follow-Up Reminder (Default 3 Hours)</div>
+<div class="reminder-row">
+<input type="text" id="partInput" placeholder="Enter Part Number">
+<input type="number" id="hourInput" value="3" min="1" style="width:80px">
+<button onclick="startReminder()">Start</button>
+</div>
+<div id="reminderList"></div>
+</div>
+
 <div class="notes-section">
 <div class="notes-title">Important Notes</div>
 <div class="notes-content">
-		•  NO EXCHANGE  if you confusied ask<br>
-                • BLACKLIST contain BLACKLIST EMAILs, UNWANTED EMAILs <br>
-                •  No Duplicate  @domain.com emails<br>
-                • Double check  Stockmarket.com  emails<br>
-                • Verify  TEXT@app.partsrfq.com  entries<br>
-                •  Direct email  should be add in CC: in the main email<br>
-                • Blacklist mean either Mail not found or Blacklisted by Jadaerosapce<br>
-		• Use  Google/ Other Platforms   to search for Part you didn't find on Markets <br>
-		• Do not take action without approval
+• Verify QTY<br>
+• No Exchange unless confirmed<br>
+• BLACKLIST contain unwanted emails<br>
+• Avoid duplicate domain emails<br>
+• Verify EXW location before sending<br>
 </div>
 </div>
 
@@ -295,6 +306,108 @@ Upload JSON
 <div class="statusbar" id="statusBar">Ready</div>
 
 <script>
+
+/* ===== DESKTOP NOTIFICATIONS ===== */
+if ("Notification" in window && Notification.permission !== "granted") {
+Notification.requestPermission();
+}
+function showDesktopNotification(part){
+if("Notification" in window && Notification.permission==="granted"){
+new Notification("Customer Follow-Up Reminder",{
+body:"Time to follow up client for Part: "+part
+});
+}
+}
+
+/* ===== PERSISTENT REMINDER SYSTEM ===== */
+let reminders=[];
+
+function saveReminders(){
+localStorage.setItem("reminders", JSON.stringify(reminders));
+}
+
+function loadReminders(){
+const stored=localStorage.getItem("reminders");
+if(!stored) return;
+reminders=JSON.parse(stored);
+reminders.forEach(r=>createReminderCard(r));
+}
+
+function startReminder(){
+const part=document.getElementById("partInput").value.trim();
+const hours=parseInt(document.getElementById("hourInput").value);
+if(!part)return alert("Enter Part Number");
+
+const end=Date.now()+hours*3600000;
+
+const reminderObj={
+id:Date.now(),
+part,
+hours,
+end,
+finished:false
+};
+
+reminders.push(reminderObj);
+saveReminders();
+createReminderCard(reminderObj);
+document.getElementById("partInput").value="";
+}
+
+function createReminderCard(reminderObj){
+const card=document.createElement("div");
+card.className="timer-card";
+if(reminderObj.hours===48)card.classList.add("followup48");
+
+const info=document.createElement("div");
+
+let label=reminderObj.hours===48
+? `<span class="timer-label">Customer Follow-up</span><br>`
+: `<span class="timer-label">Follow-up Reminder</span><br>`;
+
+info.innerHTML=`<strong>${reminderObj.part}</strong><br>${label}<span class="timer-time">Loading...</span>`;
+
+const remove=document.createElement("button");
+remove.className="timer-remove";
+remove.innerText="Remove";
+remove.onclick=function(){
+reminders=reminders.filter(r=>r.id!==reminderObj.id);
+saveReminders();
+card.remove();
+};
+
+card.appendChild(info);
+card.appendChild(remove);
+document.getElementById("reminderList").appendChild(card);
+
+startInterval(card,reminderObj);
+}
+
+function startInterval(card,reminderObj){
+const interval=setInterval(()=>{
+const diff=reminderObj.end-Date.now();
+if(diff<=0){
+clearInterval(interval);
+card.querySelector(".timer-time").innerText="TIME UP!";
+card.classList.add("finished");
+if(!reminderObj.finished){
+showDesktopNotification(reminderObj.part);
+reminderObj.finished=true;
+saveReminders();
+}
+return;
+}
+const h=Math.floor(diff/(1000*60*60));
+const m=Math.floor((diff%(1000*60*60))/(1000*60));
+const s=Math.floor((diff%(1000*60))/1000);
+card.querySelector(".timer-time").innerText=`${h}h ${m}m ${s}s`;
+},1000);
+}
+
+loadReminders();
+
+/* ===== ORIGINAL SEARCH LOGIC (UNCHANGED) ===== */
+
 let blacklist={},replacements={},directContact={},exw={};
 let currentFilter="all";
 
@@ -369,7 +482,6 @@ const keyword=normalize(extractDomainKeyword(inputValue));
 let count=0;
 function match(value){return normalize(value).includes(keyword);}
 
-/* DIRECT */
 if(currentFilter==="all"||currentFilter==="direct"){
 for(let email in directContact){
 if(match(email)||match(directContact[email])){
@@ -381,7 +493,6 @@ count++;
 }
 }
 
-/* REPLACEMENTS */
 if(currentFilter==="all"||currentFilter==="replace"){
 for(let oldEmail in replacements){
 if(match(oldEmail)||match(replacements[oldEmail])){
@@ -393,7 +504,6 @@ count++;
 }
 }
 
-/* BLACKLIST */
 if(currentFilter==="all"||currentFilter==="blacklist"){
 for(let email in blacklist){
 if(match(email)||match(blacklist[email])){
@@ -405,7 +515,6 @@ count++;
 }
 }
 
-/* EXW */
 if(currentFilter==="all"||currentFilter==="exw"){
 for(let company in exw){
 if(match(company)||match(exw[company])){
@@ -436,7 +545,7 @@ updateClock("clockSIN","Asia/Singapore");
 }
 setInterval(startClocks,1000);
 startClocks();
-</script>
 
+</script>
 </body>
 </html>
