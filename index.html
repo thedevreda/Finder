@@ -96,7 +96,7 @@ margin-bottom:20px;
 }
 .reminder-title{font-size:14px;font-weight:600;margin-bottom:10px;}
 .reminder-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
-.reminder-row input{
+.reminder-row input,.reminder-row select{
 padding:9px;
 border:1px solid var(--border);
 border-radius:6px;
@@ -125,18 +125,20 @@ align-items:center;
 font-size:13px;
 }
 
-.timer-card.finished{
-border-left-color:var(--danger);
-background:#fdf2f2;
-}
-
-.timer-card.followup48{
+/* NEW TYPE COLORS */
+.timer-card.customer{
 border-left-color:#a11a1a;
 background:#fff1f1;
 }
-.timer-card.followup48 .timer-label{
-color:#a11a1a;
-font-weight:600;
+
+.timer-card.reminder{
+border-left-color:#3b82f6;
+background:#eef5ff;
+}
+
+.timer-card.finished{
+border-left-color:var(--danger);
+background:#fdf2f2;
 }
 
 .timer-time{font-weight:600;}
@@ -266,11 +268,23 @@ Upload JSON
 
 <div class="reminder-section">
 <div class="reminder-title">Client Follow-Up Reminder (Default 3 Hours)</div>
+
 <div class="reminder-row">
 <input type="text" id="partInput" placeholder="Enter Part Number">
 <input type="number" id="hourInput" value="3" min="1" style="width:80px">
+
+<!-- NEW COUNTRY INPUT -->
+<input type="text" id="countryInput" placeholder="Country" style="width:120px">
+
+<!-- NEW TYPE SELECT -->
+<select id="typeInput">
+<option value="customer">Customer Follow-up</option>
+<option value="reminder">Reminder Follow-up</option>
+</select>
+
 <button onclick="startReminder()">Start</button>
 </div>
+
 <div id="reminderList"></div>
 </div>
 
@@ -343,6 +357,9 @@ reminders.forEach(r=>createReminderCard(r));
 function startReminder(){
 const part=document.getElementById("partInput").value.trim();
 const hours=parseInt(document.getElementById("hourInput").value);
+const country=document.getElementById("countryInput").value.trim();
+const type=document.getElementById("typeInput").value;
+
 if(!part)return alert("Enter Part Number");
 
 const end=Date.now()+hours*3600000;
@@ -351,6 +368,8 @@ const reminderObj={
 id:Date.now(),
 part,
 hours,
+country,
+type,
 end,
 finished:false
 };
@@ -358,21 +377,28 @@ finished:false
 reminders.push(reminderObj);
 saveReminders();
 createReminderCard(reminderObj);
+
 document.getElementById("partInput").value="";
+document.getElementById("countryInput").value="";
 }
 
 function createReminderCard(reminderObj){
+
 const card=document.createElement("div");
-card.className="timer-card";
-if(reminderObj.hours===48)card.classList.add("followup48");
+card.className="timer-card "+reminderObj.type;
 
 const info=document.createElement("div");
 
-let label=reminderObj.hours===48
-? `<span class="timer-label">Customer Follow-up</span><br>`
-: `<span class="timer-label">Follow-up Reminder</span><br>`;
+let label=
+reminderObj.type==="customer"
+? `<span class="timer-label">Customer Follow-up</span>`
+: `<span class="timer-label">Reminder Follow-up</span>`;
 
-info.innerHTML=`<strong>${reminderObj.part}</strong><br>${label}<span class="timer-time">Loading...</span>`;
+info.innerHTML=`
+<strong>${reminderObj.part}</strong><br>
+${label}<br>
+<small>Country: ${reminderObj.country||"-"}</small><br>
+<span class="timer-time">Loading...</span>`;
 
 const remove=document.createElement("button");
 remove.className="timer-remove";
@@ -392,11 +418,14 @@ startInterval(card,reminderObj);
 
 function startInterval(card,reminderObj){
 const interval=setInterval(()=>{
+
 const diff=reminderObj.end-Date.now();
+
 if(diff<=0){
 clearInterval(interval);
 card.querySelector(".timer-time").innerText="TIME UP!";
 card.classList.add("finished");
+
 if(!reminderObj.finished){
 showDesktopNotification(reminderObj.part);
 reminderObj.finished=true;
@@ -404,10 +433,13 @@ saveReminders();
 }
 return;
 }
+
 const h=Math.floor(diff/(1000*60*60));
 const m=Math.floor((diff%(1000*60*60))/(1000*60));
 const s=Math.floor((diff%(1000*60))/1000);
+
 card.querySelector(".timer-time").innerText=`${h}h ${m}m ${s}s`;
+
 },1000);
 }
 
@@ -556,4 +588,3 @@ startClocks();
 </script>
 </body>
 </html>
-
