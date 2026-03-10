@@ -352,7 +352,13 @@ Upload JSON
 <div class="statusbar" id="statusBar">Ready</div>
 
 <script>
+function goMain(){
+window.location.href="index.html"
+}
 
+function goWorkflow(){
+window.location.href="workflow.html"
+}
 /* ===== DESKTOP NOTIFICATIONS ===== */
 if ("Notification" in window && Notification.permission !== "granted") {
 Notification.requestPermission();
@@ -613,5 +619,6 @@ startClocks();
 </script>
 </body>
 </html>
+
 
 
