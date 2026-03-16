@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workflow Verify</title>
+<style>
+*{box-sizing:border-box}
+:root{
+--bg:#f4f6f8;
+--panel:#fbfcfe;
+--border:#dde3ea;
+--text-main:#1e293b;
+--text-muted:#64748b;
+--danger:#a11a1a;
+--primary:#3b82f6;
+}
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+background:var(--bg);
+color:var(--text-main);
+display:flex;
+flex-direction:column;
+min-height:100vh;
+}
+.topbar{
+background:var(--panel);
+border-bottom:1px solid var(--border);
+padding:14px 24px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+.topbar-title{font-size:17px;font-weight:600;}
+.top-center{flex:1;display:flex;justify-content:center;}
+.time-clocks{display:flex;gap:12px;flex-wrap:wrap;}
+.clock{
+background:#eef1f5;
+padding:6px 10px;
+border-radius:6px;
+font-size:12px;
+text-align:center;
+min-width:60px;
+}
+.clock .city{font-weight:600;font-size:11px;}
+.clock .time{font-size:12px;color:var(--text-muted);}
+.top-right{display:flex;align-items:center;gap:12px;}
+.global-menu button{
+background:#ffffff;
+border:1px solid #dde3ea;
+padding:8px 12px;
+font-size:12px;
+border-radius:6px;
+cursor:pointer;
+box-shadow:0 1px 2px rgba(0,0,0,0.05);
+}
+.global-menu button:hover{background:#eef2f7;}
+.main{
+flex:1;
+padding:28px;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+/* TODO LIST / STEPS */
+.todo-section{
+background:#ffffff;
+border:1px solid var(--border);
+border-radius:8px;
+padding:16px;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+.todo-columns{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:14px;
+}
+.todo-col{
+background:#f8fafc;
+border:1px solid var(--border);
+border-radius:6px;
+padding:10px;
+min-height:200px;
+}
+.todo-col-title{
+font-weight:600;
+font-size:15px;
+margin-bottom:10px;
+text-align:center;
+}
+.todo-item{
+background:var(--panel);
+border:1px solid var(--border);
+border-left:3px solid var(--primary);
+padding:6px 8px;
+border-radius:5px;
+font-size:14px;
+margin-bottom:6px;
+display:flex;
+align-items:flex-start;
+gap:6px;
+}
+.todo-item.cert{border-left-color:#a11a1a;}
+.todo-item.quote{border-left-color:#3b82f6;}
+.todo-item.rfq{border-left-color:#64748b;}
+.todo-number{
+font-weight:600;
+color:var(--primary);
+width:20px;
+flex-shrink:0;
+}
+@media(max-width:900px){
+.todo-columns{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+<div class="topbar-title">VERIFY</div>
+<div class="top-center">
+<div class="time-clocks">
+<div class="clock" id="clockCDG"><div class="city">CDG</div><div class="time"></div></div>
+<div class="clock" id="clockDXB"><div class="city">DXB</div><div class="time"></div></div>
+<div class="clock" id="clockMIA"><div class="city">MIA</div><div class="time"></div></div>
+<div class="clock" id="clockSIN"><div class="city">SIN</div><div class="time"></div></div>
+</div>
+</div>
+<div class="top-right">
+<div class="global-menu">
+<button onclick="goMain()">Main Panel</button>
+
+<button onclick="goWorkflow()">PN Workflows</button>
+
+  <button onclick="goJson()">Json Data</button>
+
+</div>
+</div>
+</div>
+
+<div class="main">
+<div class="todo-section">
+<div class="todo-columns">
+
+<!-- CERTIFICATION -->
+<div class="todo-col">
+<div class="todo-col-title">Certification Steps</div>
+<div class="todo-item cert"><div class="todo-number">1.</div>Verify Block 12 is correct</div>
+<div class="todo-item cert"><div class="todo-number">2.</div>Check Part Number</div>
+<div class="todo-item cert"><div class="todo-number">3.</div>Check Serial Number</div>
+<div class="todo-item cert"><div class="todo-number">4.</div>Confirm Signature</div>
+<div class="todo-item cert"><div class="todo-number">5.</div>Verify Expiration Date</div>
+<div class="todo-item cert"><div class="todo-number">6.</div>Check Certification Type</div>
+</div>
+
+<!-- QUOTES -->
+<div class="todo-col">
+<div class="todo-col-title">Quotes Steps</div>
+<div class="todo-item quote"><div class="todo-number">1.</div>Verify Price</div>
+<div class="todo-item quote"><div class="todo-number">2.</div>Check Quantity</div>
+<div class="todo-item quote"><div class="todo-number">3.</div>Confirm Certification Included</div>
+<div class="todo-item quote"><div class="todo-number">4.</div>Verify Lead Time</div>
+<div class="todo-item quote"><div class="todo-number">5.</div>Check Shipping Terms</div>
+<div class="todo-item quote"><div class="todo-number">6.</div>Confirm Payment Terms</div>
+</div>
+
+<!-- RFQ -->
+<div class="todo-col">
+<div class="todo-col-title">RFQ Steps</div>
+<div class="todo-item rfq"><div class="todo-number">1.</div>Prepare RFQ Document</div>
+<div class="todo-item rfq"><div class="todo-number">2.</div>Send to Suppliers</div>
+<div class="todo-item rfq"><div class="todo-number">3.</div>Receive Offers</div>
+<div class="todo-item rfq"><div class="todo-number">4.</div>Compare Prices</div>
+<div class="todo-item rfq"><div class="todo-number">5.</div>Check Certification & Terms</div>
+<div class="todo-item rfq"><div class="todo-number">6.</div>Choose Best Offer</div>
+<div class="todo-item rfq"><div class="todo-number">7.</div>Send Confirmation</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+// CLOCKS
+function updateClock(id,timeZone){
+const now=new Date();
+const options={timeZone,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false};
+document.querySelector(`#${id} .time`).textContent=new Intl.DateTimeFormat('en-GB',options).format(now);
+}
+setInterval(()=>{
+updateClock("clockCDG","Europe/Paris");
+updateClock("clockDXB","Asia/Dubai");
+updateClock("clockMIA","America/New_York");
+updateClock("clockSIN","Asia/Singapore");
+},1000);
+
+// Dummy functions for menu buttons
+function goMain(){
+window.location.href="index.html"
+}
+
+function goWorkflow(){
+window.location.href="workflow.html"
+}
+
+function goVerify(){
+window.location.href="verify.html"
+}
+</script>
+</body>
+</html>
