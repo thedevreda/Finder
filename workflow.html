@@ -185,7 +185,6 @@ margin-top:30px;
 <button onclick="openMain()">Main Panel</button>
 <button onclick="location.reload()">Workflows</button>
 <button onclick="goVerify()">Verify</button>
-
 </div>
 
 </div>
@@ -202,6 +201,9 @@ margin-top:30px;
 </div>
 
 <script>
+const API_URL="https://script.google.com/macros/s/AKfycbwQSWolwtmtnifFqiDmMcHCnKcmSmfDibNfqdWClPKnNK0sEUP5q-Z7Q42IWxJg47zK/exec"
+
+let workflows={};
 
 const stepsTemplate=[
 "Search Google Sheets",
@@ -212,123 +214,118 @@ const stepsTemplate=[
 "Ask Co-workers"
 ]
 
-let workflows=JSON.parse(localStorage.getItem("pnWorkflowData")||"{}")
-
-function save(){
-localStorage.setItem("pnWorkflowData",JSON.stringify(workflows))
+// Load from Google Sheets
+async function loadWorkflow(){
+    try{
+        const res = await fetch(API_URL+"?sheet=WorkflowTasks");
+        const data = await res.json();
+        workflows = {};
+        data.forEach(row => {
+            workflows[row.pn] = {steps: JSON.parse(row.steps)};
+        });
+        render();
+    }catch(err){
+        console.error("Failed to load workflow:", err);
+    }
 }
+
+// Save to Google Sheets
+async function saveWorkflow(){
+    const data = Object.keys(workflows).map(pn => ({
+        pn,
+        steps: JSON.stringify(workflows[pn].steps)
+    }));
+    try{
+        await fetch(API_URL,{
+            method:"POST",
+            body: JSON.stringify({sheet:"WorkflowTasks", payload:data})
+        });
+    }catch(err){
+        console.error("Failed to save workflow:", err);
+    }
+}
+
+async function init(){
+    await loadWorkflow();
+}
+
+init();
 
 function openMain(){
-window.location.href="index.html"
+    window.location.href="index.html"
 }
+
 function goVerify(){
-window.location.href="verify.html"
+    window.location.href="verify.html"
 }
 
 /* ADD SINGLE PN */
-
 function addPN(){
+    const pn=document.getElementById("pnInput").value.trim();
+    if(!pn) return;
 
-const pn=document.getElementById("pnInput").value.trim()
+    if(!workflows[pn]){
+        workflows[pn]={
+            steps:stepsTemplate.map(s=>({text:s,done:false}))
+        }
+    }
 
-if(!pn)return
-
-if(!workflows[pn]){
-
-workflows[pn]={
-steps:stepsTemplate.map(s=>({text:s,done:false}))
-}
-
-}
-
-document.getElementById("pnInput").value=""
-
-save()
-
-render()
-
+    document.getElementById("pnInput").value="";
+    saveWorkflow();
+    render();
 }
 
 /* CHECK STEP */
-
 function toggleStep(pn,index){
-
-let step=workflows[pn].steps[index]
-
-step.done=!step.done
-
-save()
-
-render()
-
+    let step=workflows[pn].steps[index];
+    step.done=!step.done;
+    saveWorkflow();
+    render();
 }
 
 /* REMOVE CARD */
-
 function removeCard(pn){
-
-delete workflows[pn]
-
-save()
-
-render()
-
+    delete workflows[pn];
+    saveWorkflow();
+    render();
 }
 
 /* RENDER */
-
 function render(){
+    const container=document.getElementById("workflowList");
+    container.innerHTML="";
 
-const container=document.getElementById("workflowList")
+    if(Object.keys(workflows).length===0){
+        container.innerHTML='<div class="empty">No workflows yet</div>';
+        return;
+    }
 
-container.innerHTML=""
+    for(let pn in workflows){
+        const data=workflows[pn];
+        const card=document.createElement("div");
+        card.className="card";
 
-if(Object.keys(workflows).length===0){
+        let html=`<div class="card-title">${pn}</div>`;
 
-container.innerHTML='<div class="empty">No workflows yet</div>'
-return
+        data.steps.forEach((step,i)=>{
+            let checked=step.done?"checked":"";
+            let doneClass=step.done?"step done":"step";
+
+            html+=`
+            <div class="${doneClass}">
+                <input type="checkbox" ${checked} onclick="toggleStep('${pn}',${i})">
+                <div>${step.text}</div>
+            </div>`;
+        });
+
+        let doneCount=data.steps.filter(s=>s.done).length;
+        html+=`<div class="progress">${doneCount} / ${stepsTemplate.length} completed</div>`;
+        html+=`<button class="remove" onclick="removeCard('${pn}')">Remove</button>`;
+
+        card.innerHTML=html;
+        container.appendChild(card);
+    }
 }
-
-for(let pn in workflows){
-
-const data=workflows[pn]
-
-const card=document.createElement("div")
-card.className="card"
-
-let html=`<div class="card-title">${pn}</div>`
-
-data.steps.forEach((step,i)=>{
-
-let checked=step.done?"checked":""
-let doneClass=step.done?"step done":"step"
-
-html+=`
-<div class="${doneClass}">
-<input type="checkbox" ${checked} onclick="toggleStep('${pn}',${i})">
-<div>${step.text}</div>
-</div>
-`
-
-})
-
-let doneCount=data.steps.filter(s=>s.done).length
-
-html+=`<div class="progress">${doneCount} / 6 completed</div>`
-
-html+=`<button class="remove" onclick="removeCard('${pn}')">Remove</button>`
-
-card.innerHTML=html
-
-container.appendChild(card)
-
-}
-
-}
-
-render()
-
 </script>
-
 </body>
 </html>
