@@ -240,8 +240,6 @@ width:100%;
 }
 /* GLOBAL MENU */
 
-
-
 .global-menu button{
 background:#ffffff;
 border:1px solid #dde3ea;
@@ -354,21 +352,8 @@ Upload JSON
 <div class="statusbar" id="statusBar">Ready</div>
 
 <script>
-function goMain(){
-window.location.href="index.html"
-}
-
-function goWorkflow(){
-window.location.href="workflow.html"
-}
-
-function goVerify(){
-window.location.href="verify.html"
-}
-
-function goJson(){
-window.location.href="/admin/list.json"
-}
+/* ===== GOOGLE SHEETS BACKEND SETUP ===== */
+const API_URL="https://script.google.com/macros/s/AKfycbwQSWolwtmtnifFqiDmMcHCnKcmSmfDibNfqdWClPKnNK0sEUP5q-Z7Q42IWxJg47zK/exec"
 /* ===== DESKTOP NOTIFICATIONS ===== */
 if ("Notification" in window && Notification.permission !== "granted") {
 Notification.requestPermission();
@@ -381,20 +366,24 @@ body:"Time to follow up client for Part: "+part
 }
 }
 
-/* ===== PERSISTENT REMINDER SYSTEM ===== */
-let reminders=[];
+/* ===== PERSISTENT REMINDER SYSTEM USING GOOGLE SHEETS ===== */
+let reminders = [];
 
-function saveReminders(){
-localStorage.setItem("reminders", JSON.stringify(reminders));
+
+async function saveReminders(){
+    await fetch(API_URL, {
+        method:"POST",
+        body: JSON.stringify({sheet:"MainReminders", payload:reminders})
+    });
 }
 
-function loadReminders(){
-const stored=localStorage.getItem("reminders");
-if(!stored) return;
-reminders=JSON.parse(stored);
-reminders.forEach(r=>createReminderCard(r));
+async function loadReminders(){
+    const res = await fetch(API_URL+"?sheet=MainReminders");
+    reminders = await res.json();
+    reminders.forEach(r => createReminderCard(r));
 }
 
+/* ===== REMINDER FUNCTIONS ===== */
 function startReminder(){
 const part=document.getElementById("partInput").value.trim();
 const hours=parseInt(document.getElementById("hourInput").value);
@@ -484,10 +473,10 @@ card.querySelector(".timer-time").innerText=`${h}h ${m}m ${s}s - 48h/3h`;
 },1000);
 }
 
+/* ===== INITIAL LOAD ===== */
 loadReminders();
 
 /* ===== ORIGINAL SEARCH LOGIC (UNCHANGED) ===== */
-
 let blacklist={},replacements={},directContact={},exw={};
 let currentFilter="all";
 
@@ -626,10 +615,12 @@ updateClock("clockSIN","Asia/Singapore");
 setInterval(startClocks,1000);
 startClocks();
 
+function goMain(){window.location.href="index.html";}
+function goWorkflow(){window.location.href="workflow.html";}
+function goVerify(){window.location.href="verify.html";}
+function goJson(){window.location.href="/admin/list.json";}
+
 </script>
+
 </body>
 </html>
-
-
-
-
