@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECP Panel</title>
+<style>
+*{box-sizing:border-box}
+
+:root{
+--bg:#f4f6f8;
+--panel:#fbfcfe;
+--border:#dde3ea;
+--text-main:#1e293b;
+--text-muted:#64748b;
+--danger:#a11a1a;
+--primary:#3b82f6;
+}
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+background:var(--bg);
+color:var(--text-main);
+display:flex;
+flex-direction:column;
+height:100vh;
+overflow:hidden;
+}
+
+/* ================================================================
+   LOGIN SCREEN
+   ================================================================ */
+#loginScreen{
+position:fixed;inset:0;
+background:#f0f4fa;
+display:flex;align-items:center;justify-content:center;
+z-index:1000;
+}
+
+.login-box{
+background:#fff;
+border:1px solid var(--border);
+border-radius:12px;
+padding:36px 40px;
+width:340px;
+box-shadow:0 4px 24px rgba(0,0,0,0.08);
+}
+
+.login-logo{
+font-size:22px;font-weight:700;color:var(--primary);
+text-align:center;margin-bottom:6px;
+}
+.login-sub{
+font-size:12px;color:var(--text-muted);
+text-align:center;margin-bottom:28px;
+}
+
+.login-field{
+margin-bottom:14px;
+}
+.login-field label{
+display:block;font-size:12px;font-weight:600;
+color:var(--text-muted);margin-bottom:5px;
+}
+.login-field input{
+width:100%;padding:9px 12px;
+border:1px solid var(--border);border-radius:6px;
+font-size:13px;outline:none;
+transition:border-color 0.15s;
+}
+.login-field input:focus{border-color:var(--primary);}
+
+.login-btn{
+width:100%;padding:10px;background:var(--primary);
+color:white;border:none;border-radius:6px;
+font-size:13px;font-weight:600;cursor:pointer;margin-top:6px;
+}
+.login-btn:hover{opacity:0.9}
+
+.login-error{
+color:#a11a1a;font-size:12px;
+text-align:center;margin-top:10px;min-height:18px;
+}
+
+/* ================================================================
+   APP (hidden until logged in)
+   ================================================================ */
+#appScreen{display:none;flex-direction:column;height:100vh;}
+#appScreen.visible{display:flex;}
+
+/* ===== TOPBAR ===== */
+.topbar{
+background:var(--panel);
+border-bottom:1px solid var(--border);
+padding:10px 24px;
+display:flex;align-items:center;
+justify-content:space-between;
+gap:20px;flex-wrap:wrap;flex-shrink:0;
+}
+
+.topbar-title{font-size:17px;font-weight:600;}
+.top-center{flex:1;display:flex;justify-content:center;}
+.time-clocks{display:flex;gap:12px;flex-wrap:wrap;}
+
+.clock{
+background:#eef1f5;padding:6px 10px;border-radius:6px;
+font-size:12px;text-align:center;min-width:60px;
+}
+.clock .city{font-weight:600;font-size:11px;}
+.clock .time{font-size:12px;color:var(--text-muted);}
+
+.top-right{display:flex;align-items:center;gap:10px;}
+
+.upload-btn{
+position:relative;background:var(--primary);color:white;
+padding:7px 14px;border-radius:6px;font-size:13px;
+cursor:pointer;transition:0.2s;
+}
+.upload-btn:hover{opacity:0.9}
+.upload-btn input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+
+.file-name{
+font-size:12px;color:var(--text-muted);max-width:120px;
+white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* User badge + logout */
+.user-badge{
+display:flex;align-items:center;gap:8px;
+background:#eef4ff;border:1px solid #c7d9f8;
+border-radius:20px;padding:4px 12px 4px 8px;
+font-size:12px;
+}
+.user-avatar{
+width:24px;height:24px;border-radius:50%;
+background:var(--primary);color:white;
+display:flex;align-items:center;justify-content:center;
+font-size:11px;font-weight:700;flex-shrink:0;
+}
+.user-name{font-weight:600;color:var(--text-main);}
+.logout-btn{
+border:none;background:none;cursor:pointer;
+color:var(--text-muted);font-size:11px;padding:0;
+}
+.logout-btn:hover{color:var(--danger);}
+
+/* ===== TAB BAR ===== */
+.tabbar{
+background:var(--panel);
+border-bottom:2px solid var(--border);
+display:flex;flex-shrink:0;padding:0;
+}
+
+.tab-btn{
+flex:1;padding:11px 0;font-size:13px;font-weight:600;
+cursor:pointer;border:none;background:none;
+color:var(--text-muted);border-bottom:3px solid transparent;
+margin-bottom:-2px;transition:0.15s;text-align:center;
+}
+.tab-btn:hover{color:var(--text-main);background:#f4f6f8;}
+.tab-btn.active{
+color:var(--primary);border-bottom-color:var(--primary);background:#eef4ff;
+}
+
+/* ===== MAIN ===== */
+.main{
+flex:1;overflow-y:auto;padding:24px 28px 70px;
+}
+
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ===== REMINDER SECTION ===== */
+.reminder-section{
+background:#ffffff;border:1px solid var(--border);
+border-radius:8px;padding:16px;margin-bottom:20px;
+}
+.reminder-title{font-size:14px;font-weight:600;margin-bottom:10px;}
+.reminder-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+.reminder-row input,.reminder-row select{
+padding:9px;border:1px solid var(--border);
+border-radius:6px;font-size:13px;
+}
+.reminder-row button{
+padding:9px 14px;border:none;background:var(--primary);
+color:white;border-radius:6px;cursor:pointer;font-size:13px;
+}
+
+.timer-card{
+background:#fbfcfe;border:1px solid var(--border);
+border-left:4px solid var(--primary);
+padding:10px 12px;margin-top:8px;border-radius:6px;
+display:flex;justify-content:space-between;align-items:center;font-size:13px;
+}
+.timer-card.customer{border-left-color:#a11a1a;background:#fff1f1;}
+.timer-card.reminder{border-left-color:#3b82f6;background:#eef5ff;}
+.timer-card.finished{border-left-color:var(--danger);background:#fdf2f2;}
+.timer-time{font-weight:600;}
+.timer-remove{
+background:#e5e9ef;border:none;padding:4px 8px;
+border-radius:4px;cursor:pointer;font-size:12px;
+}
+
+/* ===== NOTES ===== */
+.notes-section{
+background:#f8fafc;border:1px solid var(--border);
+border-radius:8px;padding:14px 16px;margin-bottom:20px;
+}
+.notes-title{font-size:13px;font-weight:600;margin-bottom:6px;color:var(--danger);}
+.notes-content{font-size:13px;line-height:1.5;color:var(--text-muted);}
+
+/* ===== SEARCH ===== */
+.search-container{margin-bottom:10px;}
+.search-container input{
+width:100%;padding:11px 12px;border-radius:6px;
+border:1px solid var(--border);font-size:14px;
+}
+
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.filter-btn{
+padding:7px 12px;border:1px solid var(--border);
+background:var(--panel);cursor:pointer;border-radius:6px;font-size:13px;
+}
+.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+
+.card{
+background:var(--panel);border:1px solid var(--border);
+border-left:3px solid #cbd5e1;padding:12px 14px;
+margin-bottom:10px;border-radius:6px;font-size:14px;position:relative;
+}
+.card.blacklist{background:#fdf2f2;border-left-color:#a11a1a}
+.card.direct{border-left-color:#475569}
+.card.replace{border-left-color:#64748b}
+.card.exw{border-left-color:#3b82f6}
+.card-title{font-weight:600;margin-bottom:4px;font-size:13px}
+.card small{color:var(--text-muted)}
+
+.copy-btn{
+position:absolute;right:10px;top:10px;border:none;
+background:#e5e9ef;padding:4px 8px;font-size:12px;
+border-radius:4px;cursor:pointer;
+}
+
+/* ===== STATUSBAR ===== */
+.statusbar{
+background:var(--panel);border-top:1px solid var(--border);
+padding:10px 18px;font-size:12px;color:var(--text-muted);
+position:fixed;bottom:0;width:100%;
+}
+
+/* ===== JOURNEY ===== */
+.journey-addbar{display:flex;gap:8px;margin-bottom:18px;}
+.journey-addbar input{
+height:34px;padding:4px 10px;border:1px solid var(--border);
+border-radius:6px;font-size:13px;width:240px;
+}
+.journey-addbar button{
+height:34px;padding:0 16px;background:var(--primary);
+color:white;border:none;border-radius:6px;font-size:13px;cursor:pointer;
+}
+.journey-addbar button:hover{opacity:0.9}
+
+.pn-card{
+background:white;border:1px solid var(--border);
+border-radius:8px;margin-bottom:14px;overflow:hidden;
+}
+.pn-card-header{
+display:flex;justify-content:space-between;align-items:center;
+padding:10px 14px;background:#f4f7fb;border-bottom:1px solid var(--border);
+}
+.pn-card-title{font-weight:700;font-size:13px;color:var(--primary);}
+.pn-card-meta{display:flex;align-items:center;gap:10px;}
+.pn-progress{font-size:11px;color:var(--text-muted);}
+.pn-remove-btn{
+background:#fee2e2;color:#991b1b;border:none;
+font-size:11px;padding:3px 9px;border-radius:4px;cursor:pointer;
+}
+.pn-remove-btn:hover{background:#fecaca}
+
+.acc-step{border-bottom:1px solid #f0f2f6;}
+.acc-step:last-child{border-bottom:none;}
+
+.acc-header{
+display:flex;align-items:center;gap:10px;padding:9px 14px;
+}
+
+.acc-step-check{cursor:pointer;flex-shrink:0;width:15px;height:15px;}
+
+.acc-step-label{
+flex:1;font-size:13px;font-weight:600;color:var(--text-main);
+cursor:pointer;user-select:none;
+}
+.acc-step-label:hover{color:var(--primary);}
+.acc-step-label.done{text-decoration:line-through;color:#9ca3af;}
+
+.acc-arrow{
+font-size:11px;color:var(--text-muted);cursor:pointer;
+background:#eef1f5;border:none;border-radius:4px;
+padding:2px 8px;flex-shrink:0;
+}
+.acc-arrow:hover{background:#dde3ea}
+
+.acc-body{
+display:none;padding:6px 14px 10px 40px;
+background:#fafbfc;border-top:1px solid #f0f2f6;
+}
+.acc-body.open{display:block;}
+
+.sub-item{
+display:flex;align-items:center;justify-content:space-between;
+padding:5px 0;border-bottom:1px dashed #e5e9ef;font-size:12.5px;
+}
+.sub-item:last-child{border-bottom:none;}
+
+.sub-item-left{display:flex;align-items:center;gap:8px;flex:1;}
+
+.sub-check{cursor:pointer;flex-shrink:0;width:13px;height:13px;}
+
+.sub-text{color:#374151;transition:color 0.15s;cursor:pointer;}
+.sub-text.done{text-decoration:line-through;color:#c0c7d0;}
+
+.sub-copy{
+background:#e5e9ef;border:none;padding:2px 9px;
+font-size:11px;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;
+}
+.sub-copy:hover{background:#d0d7e2}
+
+.journey-empty{
+text-align:center;color:#9ca3af;font-size:13px;margin-top:40px;
+}
+
+/* Loading overlay */
+.loading-overlay{
+position:fixed;inset:0;background:rgba(255,255,255,0.75);
+display:flex;align-items:center;justify-content:center;
+z-index:500;font-size:13px;color:var(--text-muted);
+}
+.loading-overlay.hidden{display:none;}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     LOGIN SCREEN
+     ================================================================ -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">ECP Panel</div>
+    <div class="login-sub">Sign in to your account</div>
+
+    <div class="login-field">
+      <label>Username</label>
+      <input type="text" id="loginUser" placeholder="Enter username" autocomplete="username">
+    </div>
+    <div class="login-field">
+      <label>Password</label>
+      <input type="password" id="loginPass" placeholder="Enter password" autocomplete="current-password">
+    </div>
+    <button class="login-btn" onclick="doLogin()">Sign In</button>
+    <div class="login-error" id="loginError"></div>
+  </div>
+</div>
+
+<!-- ================================================================
+     APP SCREEN
+     ================================================================ -->
+<div id="appScreen">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-title">ECP</div>
+
+    <div class="top-center">
+      <div class="time-clocks">
+        <div class="clock" id="clockCDG"><div class="city">CDG</div><div class="time"></div></div>
+        <div class="clock" id="clockDXB"><div class="city">DXB</div><div class="time"></div></div>
+        <div class="clock" id="clockMIA"><div class="city">MIA</div><div class="time"></div></div>
+        <div class="clock" id="clockSIN"><div class="city">SIN</div><div class="time"></div></div>
+      </div>
+    </div>
+
+    <div class="top-right">
+      <label class="upload-btn">
+        Upload JSON
+        <input type="file" id="jsonInput" accept=".json">
+      </label>
+      <span id="fileName" class="file-name">No file</span>
+
+      <div class="user-badge">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <span class="user-name" id="userNameDisplay">—</span>
+        <button class="logout-btn" onclick="doLogout()" title="Sign out">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB BAR -->
+  <div class="tabbar">
+    <button class="tab-btn active" onclick="switchTab('search',this)">Search</button>
+    <button class="tab-btn" onclick="switchTab('reminders',this)">Reminders</button>
+    <button class="tab-btn" onclick="switchTab('journey',this)">Journey</button>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- SEARCH TAB -->
+    <div id="tab-search" class="tab-panel active">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search email, company, or keyword...">
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+        <button class="filter-btn" onclick="setFilter('blacklist',this)">Blacklist</button>
+        <button class="filter-btn" onclick="setFilter('direct',this)">Direct</button>
+        <button class="filter-btn" onclick="setFilter('replace',this)">Replace</button>
+        <button class="filter-btn" onclick="setFilter('exw',this)">EXW</button>
+      </div>
+      <div id="results">
+        <div style="text-align:center;color:#6b7280;margin-top:40px;">Upload a JSON file then start typing to search</div>
+      </div>
+    </div>
+
+    <!-- REMINDERS TAB -->
+    <div id="tab-reminders" class="tab-panel">
+      <div class="reminder-section">
+        <div class="reminder-title">Client Follow-Up Reminder (Default 3 Hours)</div>
+        <div class="reminder-row">
+          <input type="text" id="partInput" placeholder="Enter Part Number">
+          <input type="number" id="hourInput" value="3" min="1" style="width:80px">
+          <input type="text" id="countryInput" placeholder="Country" style="width:120px">
+          <select id="typeInput">
+            <option value="customer">Customer Follow-up</option>
+            <option value="reminder">Reminder Follow-up</option>
+          </select>
+          <button onclick="startReminder()">Start</button>
+        </div>
+        <div id="reminderList"></div>
+      </div>
+
+      <div class="notes-section">
+        <div class="notes-title">Important Notes</div>
+        <div class="notes-content">
+          • Verify the QTY<br>
+          • Re-quote the new/cheap offer<br>
+          • NO EXCHANGE if confused ask<br>
+          • BLACKLIST contain BLACKLIST EMAILs, UNWANTED EMAILs<br>
+          • No Duplicate @domain.com emails<br>
+          • Double check Stockmarket.com emails<br>
+          • Direct email should be add in CC: in the main email<br>
+          • Blacklist mean either Mail not found or Blacklisted by Jadaerospace<br>
+          • Use Google / Other Platforms to search for Part you didn't find on Markets<br>
+          • Do not take action without approval<br>
+          • Multiple EXW, look for close location to the buyer<br>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOURNEY TAB -->
+    <div id="tab-journey" class="tab-panel">
+      <div class="journey-addbar">
+        <input id="pnInput" placeholder="Enter Part Number">
+        <button onclick="addPN()">Add</button>
+      </div>
+      <div id="journeyList"></div>
+    </div>
+
+  </div><!-- /main -->
+
+  <div class="statusbar" id="statusBar">Ready</div>
+
+</div><!-- /appScreen -->
+
+<div class="loading-overlay hidden" id="loadingOverlay">Loading your data…</div>
+
+<script>
+/* ================================================================
+   CONFIG — user accounts stored here
+   Add or remove users as needed: { username, password }
+   ================================================================ */
+const API_URL = "https://script.google.com/macros/s/AKfycbzTjpqm2cS91mmTyUmLbPyI1LcDGIQ-AVp2XIv_q8_iSwFz5rx6tEW6b5XpizqBVZBk/exec";
+
+const USERS = [
+  { username: "reda@jadaero.com",   password: "reda123"  },
+  { username: "houssam@jadaero.com",   password: "houssam123"     },
+  { username: "habib@jadaero.com",   password: "habib123"     },
+  { username: "abdelkhalk@jadaero.com",   password: "abdelkhalk123"     }
+  // Add more users here as needed
+];
+
+/* ================================================================
+   SESSION — persists across page refreshes on the same PC
+   ================================================================ */
+let currentUser = null;
+
+function sessionKey(type){ return `ecp_${type}_${currentUser}`; }
+
+function tryRestoreSession(){
+  const saved = sessionStorage.getItem("ecp_session");
+  if(saved){ currentUser = saved; showApp(); }
+}
+
+/* ================================================================
+   LOGIN / LOGOUT
+   ================================================================ */
+document.getElementById("loginPass").addEventListener("keydown", e => {
+  if(e.key === "Enter") doLogin();
+});
+document.getElementById("loginUser").addEventListener("keydown", e => {
+  if(e.key === "Enter") document.getElementById("loginPass").focus();
+});
+
+function doLogin(){
+  const u = document.getElementById("loginUser").value.trim().toLowerCase();
+  const p = document.getElementById("loginPass").value;
+  const match = USERS.find(x => x.username.toLowerCase() === u && x.password === p);
+  if(!match){
+    document.getElementById("loginError").textContent = "Invalid username or password.";
+    return;
+  }
+  currentUser = match.username;
+  sessionStorage.setItem("ecp_session", currentUser);
+  document.getElementById("loginError").textContent = "";
+  showApp();
+}
+
+function doLogout(){
+  sessionStorage.removeItem("ecp_session");
+  currentUser = null;
+  reminders = [];
+  workflows = {};
+  document.getElementById("reminderList").innerHTML = "";
+  document.getElementById("appScreen").classList.remove("visible");
+  document.getElementById("loginScreen").style.display = "flex";
+  document.getElementById("loginUser").value = "";
+  document.getElementById("loginPass").value = "";
+}
+
+function showApp(){
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("appScreen").classList.add("visible");
+
+  // Show user info in topbar
+  document.getElementById("userNameDisplay").textContent = currentUser;
+  document.getElementById("userAvatar").textContent = currentUser.charAt(0).toUpperCase();
+
+  // Load this user's data
+  showLoading(true);
+  Promise.all([loadReminders(), loadWorkflow()]).finally(() => showLoading(false));
+
+  startClocks();
+}
+
+function showLoading(on){
+  document.getElementById("loadingOverlay").classList.toggle("hidden", !on);
+}
+
+/* ================================================================
+   TABS
+   ================================================================ */
+function switchTab(name, el){
+  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById("tab-" + name).classList.add("active");
+  el.classList.add("active");
+}
+
+/* ================================================================
+   CLOCKS
+   ================================================================ */
+function updateClock(id, timeZone){
+  const now = new Date();
+  const options = { timeZone, hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false };
+  document.querySelector(`#${id} .time`).textContent = new Intl.DateTimeFormat('en-GB', options).format(now);
+}
+function startClocks(){
+  updateClock("clockCDG","Europe/Paris");
+  updateClock("clockDXB","Asia/Dubai");
+  updateClock("clockMIA","America/New_York");
+  updateClock("clockSIN","Asia/Singapore");
+}
+setInterval(startClocks, 1000);
+
+/* ================================================================
+   DESKTOP NOTIFICATIONS
+   ================================================================ */
+if("Notification" in window && Notification.permission !== "granted"){
+  Notification.requestPermission();
+}
+function showDesktopNotification(part){
+  if("Notification" in window && Notification.permission === "granted"){
+    new Notification("Customer Follow-Up Reminder",{
+      body:"Time to follow up client for Part: " + part
+    });
+  }
+}
+
+/* ================================================================
+   REMINDERS — per user (sheet filtered by username)
+   ================================================================ */
+let reminders = [];
+
+async function saveReminders(){
+  // Tag each reminder with the current user before saving
+  const payload = reminders.map(r => ({ ...r, user: currentUser }));
+  await fetch(API_URL, {
+    method:"POST",
+    body: JSON.stringify({ sheet:"MainReminders", user: currentUser, payload })
+  }).catch(()=>{});
+}
+
+async function loadReminders(){
+  try{
+    const res = await fetch(`${API_URL}?sheet=MainReminders&user=${encodeURIComponent(currentUser)}`);
+    const data = await res.json();
+    reminders = Array.isArray(data) ? data : [];
+    document.getElementById("reminderList").innerHTML = "";
+    reminders.forEach(r => createReminderCard(r));
+  }catch(e){
+    console.warn("Reminder load failed", e);
+    reminders = [];
+  }
+}
+
+function startReminder(){
+  const part    = document.getElementById("partInput").value.trim();
+  const hours   = parseInt(document.getElementById("hourInput").value) || 3;
+  const country = document.getElementById("countryInput").value.trim();
+  const type    = document.getElementById("typeInput").value;
+  if(!part) return alert("Enter Part Number");
+
+  const end = Date.now() + hours * 3600000;
+  const obj = { id: Date.now(), part, hours, country, type, end, finished: false, user: currentUser };
+  reminders.push(obj);
+  saveReminders();
+  createReminderCard(obj);
+  document.getElementById("partInput").value = "";
+  document.getElementById("countryInput").value = "";
+}
+
+function createReminderCard(obj){
+  const card = document.createElement("div");
+  card.className = "timer-card " + obj.type;
+  const info = document.createElement("div");
+  const lbl = obj.type === "customer" ? "Customer Follow-up" : "Reminder Follow-up";
+  info.innerHTML = `
+    <strong>${obj.part}</strong><br>
+    <small>${lbl}</small><br>
+    <small>Country: ${obj.country||"-"}</small><br>
+    <span class="timer-time">Loading...</span>`;
+  const rmv = document.createElement("button");
+  rmv.className = "timer-remove";
+  rmv.innerText = "Remove";
+  rmv.onclick = () => {
+    reminders = reminders.filter(r => r.id !== obj.id);
+    saveReminders();
+    card.remove();
+  };
+  card.appendChild(info);
+  card.appendChild(rmv);
+  document.getElementById("reminderList").appendChild(card);
+  startInterval(card, obj);
+}
+
+function startInterval(card, obj){
+  const iv = setInterval(() => {
+    const diff = obj.end - Date.now();
+    if(diff <= 0){
+      clearInterval(iv);
+      card.querySelector(".timer-time").innerText = "TIME UP!";
+      card.classList.add("finished");
+      if(!obj.finished){
+        showDesktopNotification(obj.part);
+        obj.finished = true;
+        saveReminders();
+      }
+      return;
+    }
+    const h = Math.floor(diff/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    card.querySelector(".timer-time").innerText = `${h}h ${m}m ${s}s - 48h/3h`;
+  }, 1000);
+}
+
+/* ================================================================
+   SEARCH — shared JSON, all users see same data
+   ================================================================ */
+let blacklist={}, replacements={}, directContact={}, exw={};
+let currentFilter = "all";
+
+function normalize(text){
+  return (text||"").toLowerCase().replace(/[^a-z0-9]/g,"");
+}
+
+function setFilter(type, btn){
+  currentFilter = type;
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  checkEmail();
+}
+
+document.getElementById("searchInput").addEventListener("input", checkEmail);
+
+document.getElementById("jsonInput").addEventListener("change", function(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  document.getElementById("fileName").textContent = file.name;
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    try{
+      const data = JSON.parse(ev.target.result);
+      blacklist      = data.blacklist      || {};
+      replacements   = data.replacements   || {};
+      directContact  = data.directContact  || {};
+      exw            = data.exw            || {};
+      document.getElementById("statusBar").innerText =
+        `Loaded: ${Object.keys(blacklist).length} blacklist | ${Object.keys(directContact).length} contacts | ${Object.keys(replacements).length} replacements | ${Object.keys(exw).length} EXW`;
+    }catch{ alert("Invalid JSON file"); }
+  };
+  reader.readAsText(file);
+});
+
+function copyText(text){ navigator.clipboard.writeText(text); }
+
+function addCard(type, title, content, copyValue){
+  const div = document.createElement("div");
+  div.className = "card " + type;
+  const btn = copyValue ? `<button class="copy-btn" onclick="copyText('${copyValue}')">Copy</button>` : "";
+  div.innerHTML = `${btn}<div class="card-title">${title}</div>${content}`;
+  document.getElementById("results").appendChild(div);
+}
+
+function extractDomainKeyword(input){
+  if(input.includes("@")){
+    const parts = input.split("@");
+    if(parts[1]) return parts[1].split(".")[0];
+  }
+  return input;
+}
+
+function checkEmail(){
+  const results = document.getElementById("results");
+  results.innerHTML = "";
+  const inputValue = document.getElementById("searchInput").value.trim();
+  if(!inputValue){
+    results.innerHTML = '<div style="text-align:center;color:#6b7280;margin-top:40px;">Start typing to search</div>';
+    document.getElementById("statusBar").innerText = "Ready";
+    return;
+  }
+  const keyword = normalize(extractDomainKeyword(inputValue));
+  let count = 0;
+  function match(v){ return normalize(v).includes(keyword); }
+
+  if(currentFilter==="all"||currentFilter==="direct"){
+    for(let email in directContact){
+      if(match(email)||match(directContact[email])){
+        addCard("direct","Direct Contact",
+          `<small>Company:</small> ${directContact[email]}<br><small>Email:</small> ${email}`,email);
+        count++;
+      }
+    }
+  }
+  if(currentFilter==="all"||currentFilter==="replace"){
+    for(let oldEmail in replacements){
+      if(match(oldEmail)||match(replacements[oldEmail])){
+        addCard("replace","Replacement",
+          `<small>Old:</small> ${oldEmail}<br><small>New:</small> ${replacements[oldEmail]}`,replacements[oldEmail]);
+        count++;
+      }
+    }
+  }
+  if(currentFilter==="all"||currentFilter==="blacklist"){
+    for(let email in blacklist){
+      if(match(email)||match(blacklist[email])){
+        addCard("blacklist","Blacklisted",
+          `<small>Email:</small> ${email}<br><small>Reason:</small> ${blacklist[email]}`,email);
+        count++;
+      }
+    }
+  }
+  if(currentFilter==="all"||currentFilter==="exw"){
+    for(let company in exw){
+      if(match(company)||match(exw[company])){
+        addCard("exw","EXW",
+          `<small>Company:</small> ${company}<br><small>Location:</small> ${exw[company]}`);
+        count++;
+      }
+    }
+  }
+  document.getElementById("statusBar").innerText = count ? `${count} result(s)` : "No matches found";
+}
+
+/* ================================================================
+   JOURNEY — per user
+   ================================================================ */
+const STEP_DEFS = [
+  {
+    label:"Step 1 — Search Google Sheets",
+    items:["Open the Google Sheets database","Search the Part Number in the sheet","Copy matching supplier email(s)","Note the availability and price"]
+  },
+  {
+    label:"Step 2 — Main Platforms",
+    items:["Search on Stockmarket.com","Search on Partbase","Search on B2B","Search on Locatory","Copy the best offer details"]
+  },
+  {
+    label:"Step 3 — Other Platforms",
+    items:["Search on AJW","Search on Satair","Check any other relevant platform","Compare results with Step 2 findings"]
+  },
+  {
+    label:"Step 4 — Ask Manufacturer",
+    items:["Identify the OEM / manufacturer","Send an inquiry email to manufacturer","Copy the manufacturer contact info","Log the expected response date"]
+  },
+  {
+    label:"Step 5 — Search Google",
+    items:["Google the Part Number","Check the first 3 result pages","Note any new supplier found","Copy the supplier email or URL"]
+  },
+  {
+    label:"Step 6 — Ask Co-workers",
+    items:["Ask the team on Slack or in person","Check internal knowledge base","Log who was asked and when","Note any lead or contact found"]
+  }
+];
+
+let workflows = {};
+
+async function loadWorkflow(){
+  try{
+    const res = await fetch(`${API_URL}?sheet=WorkflowTasks&user=${encodeURIComponent(currentUser)}`);
+    const data = await res.json();
+    workflows = {};
+    if(Array.isArray(data)){
+      data.forEach(row => {
+        if(row.pn) workflows[row.pn] = { steps: JSON.parse(row.steps) };
+      });
+    }
+    renderJourney();
+  }catch(e){
+    console.warn("Workflow load failed", e);
+    workflows = {};
+    renderJourney();
+  }
+}
+
+async function saveWorkflow(){
+  const payload = Object.keys(workflows).map(pn => ({
+    pn,
+    steps: JSON.stringify(workflows[pn].steps),
+    user: currentUser
+  }));
+  await fetch(API_URL, {
+    method:"POST",
+    body: JSON.stringify({ sheet:"WorkflowTasks", user: currentUser, payload })
+  }).catch(()=>{});
+}
+
+function addPN(){
+  const pn = document.getElementById("pnInput").value.trim();
+  if(!pn) return;
+  if(!workflows[pn]){
+    workflows[pn] = {
+      steps: STEP_DEFS.map(s => ({
+        label: s.label,
+        done: false,
+        open: false,
+        subItems: s.items.map(txt => ({ text: txt, done: false }))
+      }))
+    };
+  }
+  document.getElementById("pnInput").value = "";
+  saveWorkflow();
+  renderJourney();
+}
+
+function toggleStepDone(pn, si){
+  workflows[pn].steps[si].done = !workflows[pn].steps[si].done;
+  saveWorkflow();
+  renderJourney();
+}
+
+function toggleStepOpen(pn, si){
+  workflows[pn].steps[si].open = !workflows[pn].steps[si].open;
+  renderJourney();
+}
+
+function toggleSubItem(pn, si, ii){
+  workflows[pn].steps[si].subItems[ii].done = !workflows[pn].steps[si].subItems[ii].done;
+  saveWorkflow();
+  renderJourney();
+}
+
+function removePN(pn){
+  delete workflows[pn];
+  saveWorkflow();
+  renderJourney();
+}
+
+function renderJourney(){
+  const container = document.getElementById("journeyList");
+  container.innerHTML = "";
+  if(Object.keys(workflows).length === 0){
+    container.innerHTML = '<div class="journey-empty">No part numbers yet — enter a PN above and click Add</div>';
+    return;
+  }
+
+  for(let pn in workflows){
+    const wf = workflows[pn];
+    const doneCount = wf.steps.filter(s => s.done).length;
+    const card = document.createElement("div");
+    card.className = "pn-card";
+
+    const header = document.createElement("div");
+    header.className = "pn-card-header";
+    header.innerHTML = `
+      <div class="pn-card-title">${pn}</div>
+      <div class="pn-card-meta">
+        <span class="pn-progress">${doneCount} / ${STEP_DEFS.length} steps done</span>
+        <button class="pn-remove-btn" onclick="removePN('${pn}')">Remove</button>
+      </div>`;
+    card.appendChild(header);
+
+    wf.steps.forEach((step, si) => {
+      const stepEl = document.createElement("div");
+      stepEl.className = "acc-step";
+
+      const hdr = document.createElement("div");
+      hdr.className = "acc-header";
+
+      const chk = document.createElement("input");
+      chk.type = "checkbox"; chk.className = "acc-step-check"; chk.checked = step.done;
+      chk.onclick = (e) => { e.stopPropagation(); toggleStepDone(pn, si); };
+
+      const lbl = document.createElement("div");
+      lbl.className = "acc-step-label" + (step.done ? " done" : "");
+      lbl.textContent = step.label;
+      lbl.onclick = () => toggleStepOpen(pn, si);
+
+      const arrow = document.createElement("button");
+      arrow.className = "acc-arrow";
+      arrow.textContent = step.open ? "▲ Hide" : "▼ Show";
+      arrow.onclick = () => toggleStepOpen(pn, si);
+
+      hdr.appendChild(chk); hdr.appendChild(lbl); hdr.appendChild(arrow);
+      stepEl.appendChild(hdr);
+
+      const body = document.createElement("div");
+      body.className = "acc-body" + (step.open ? " open" : "");
+
+      step.subItems.forEach((item, ii) => {
+        const row = document.createElement("div");
+        row.className = "sub-item";
+
+        const left = document.createElement("div");
+        left.className = "sub-item-left";
+
+        const subChk = document.createElement("input");
+        subChk.type = "checkbox"; subChk.className = "sub-check"; subChk.checked = item.done;
+        subChk.onclick = () => toggleSubItem(pn, si, ii);
+
+        const txt = document.createElement("span");
+        txt.className = "sub-text" + (item.done ? " done" : "");
+        txt.textContent = item.text;
+        txt.style.cursor = "pointer";
+        txt.onclick = () => toggleSubItem(pn, si, ii);
+
+        left.appendChild(subChk); left.appendChild(txt);
+
+        const cpBtn = document.createElement("button");
+        cpBtn.className = "sub-copy"; cpBtn.textContent = "Copy";
+        cpBtn.onclick = () => {
+          navigator.clipboard.writeText(item.text);
+          cpBtn.textContent = "Copied!";
+          setTimeout(() => { cpBtn.textContent = "Copy"; }, 1200);
+        };
+
+        row.appendChild(left); row.appendChild(cpBtn);
+        body.appendChild(row);
+      });
+
+      stepEl.appendChild(body);
+      card.appendChild(stepEl);
+    });
+
+    container.appendChild(card);
+  }
+}
+
+/* ================================================================
+   BOOT — try to restore session, else show login
+   ================================================================ */
+tryRestoreSession();
+</script>
+</body>
+</html>
