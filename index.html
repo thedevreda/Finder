@@ -232,15 +232,19 @@ margin-bottom:10px;border-radius:6px;font-size:14px;position:relative;
 .card.blacklist{background:#fdf2f2;border-left-color:#a11a1a}
 .card.direct{border-left-color:#475569}
 .card.replace{border-left-color:#64748b}
-.card.exw{border-left-color:#3b82f6}
-.card-title{font-weight:600;margin-bottom:4px;font-size:13px}
+.card-header-row{
+display:flex;align-items:center;justify-content:space-between;
+margin-bottom:6px;gap:8px;
+}
+.card-title{font-weight:700;font-size:13px;color:var(--text-main);flex:1;}
+.card.blacklist .card-title{color:#991b1b;}
 .card small{color:var(--text-muted)}
 
 .copy-btn{
-position:absolute;right:10px;top:10px;border:none;
-background:#e5e9ef;padding:4px 8px;font-size:12px;
-border-radius:4px;cursor:pointer;
+border:none;background:#e5e9ef;padding:4px 10px;
+font-size:12px;border-radius:4px;cursor:pointer;flex-shrink:0;
 }
+.copy-btn:hover{background:#d0d7e2;}
 
 /* ===== STATUSBAR ===== */
 .statusbar{
@@ -560,6 +564,62 @@ margin-top:1px;
 }
 .docs-glossary-def{color:#374151;line-height:1.4;}
 
+
+/* ===== GROUPED EMAIL CARDS ===== */
+.grouped-email-list{
+  margin-top:6px;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.grouped-email-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:4px 6px;
+  background:#f4f7fb;
+  border-radius:4px;
+  border:1px solid #e2e8f0;
+  gap:8px;
+}
+.card.blacklist .grouped-email-row{
+  background:#fff5f5;
+  border-color:#fecaca;
+}
+.grouped-email{
+  font-size:12.5px;
+  color:#1e293b;
+  word-break:break-all;
+  flex:1;
+}
+.card.blacklist .grouped-email{
+  color:#991b1b;
+}
+.copy-inline-btn{
+  flex-shrink:0;
+  border:none;
+  background:#e5e9ef;
+  padding:2px 9px;
+  font-size:11px;
+  border-radius:4px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.copy-inline-btn:hover{background:#d0d7e2;}
+.card.blacklist .copy-inline-btn{
+  background:#fee2e2;
+  color:#991b1b;
+}
+.card.blacklist .copy-inline-btn:hover{background:#fecaca;}
+.bl-reason{
+  font-size:11.5px;
+  color:#b91c1c;
+  margin-top:5px;
+  padding-top:4px;
+  border-top:1px dashed #fca5a5;
+  font-weight:600;
+}
+
 </style>
 </head>
 <body>
@@ -638,7 +698,6 @@ margin-top:1px;
         <button class="filter-btn" onclick="setFilter('blacklist',this)">Blacklist</button>
         <button class="filter-btn" onclick="setFilter('direct',this)">Direct</button>
         <button class="filter-btn" onclick="setFilter('replace',this)">Replace</button>
-        <button class="filter-btn" onclick="setFilter('exw',this)">EXW</button>
       </div>
       <div id="results">
         <div style="text-align:center;color:#6b7280;margin-top:40px;">Upload a JSON file then start typing to search</div>
@@ -973,13 +1032,13 @@ Thank you,
    CONFIG — user accounts stored here
    Add or remove users as needed: { username, password }
    ================================================================ */
-const API_URL = "https://script.google.com/macros/s/AKfycbwWlO-5XiW45Smks-tPrIJFDnjNVCvW7NJiAPCDT6vlB1mbP02rSkFNgB-R2xxFA_7_/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwQSWolwtmtnifFqiDmMcHCnKcmSmfDibNfqdWClPKnNK0sEUP5q-Z7Q42IWxJg47zK/exec";
 
 const USERS = [
-  { username: "reda@jadaero.com",   password: "reda123"  },
-  { username: "houssam@jadaero.com",   password: "houssam123"     },
-  { username: "habib@jadaero.com",   password: "habib123"     },
-  { username: "abdelkhalk@jadaero.com",   password: "abdelkhalk123"     }
+  { username: "admin",   password: "admin123"  },
+  { username: "user1",   password: "pass1"     },
+  { username: "user2",   password: "pass2"     },
+  { username: "user3",   password: "pass3"     }
   // Add more users here as needed
 ];
 
@@ -1181,7 +1240,7 @@ function startInterval(card, obj){
 /* ================================================================
    SEARCH — shared JSON, all users see same data
    ================================================================ */
-let blacklist={}, replacements={}, directContact={}, exw={};
+let blacklist={}, replacements={}, directContact={}, exw={}; // directContact: {company:[emails]}, blacklist: {company:{emails:[],reason:''}}
 let currentFilter = "all";
 
 function normalize(text){
@@ -1209,8 +1268,13 @@ document.getElementById("jsonInput").addEventListener("change", function(e){
       replacements   = data.replacements   || {};
       directContact  = data.directContact  || {};
       exw            = data.exw            || {};
+      // Count actual emails for status bar
+      let dcEmailCount = 0;
+      for(let c in directContact){ dcEmailCount += (directContact[c]||[]).length; }
+      let blEmailCount = 0;
+      for(let c in blacklist){ blEmailCount += (blacklist[c].emails||[]).length; }
       document.getElementById("statusBar").innerText =
-        `Loaded: ${Object.keys(blacklist).length} blacklist | ${Object.keys(directContact).length} contacts | ${Object.keys(replacements).length} replacements | ${Object.keys(exw).length} EXW`;
+        `Loaded: ${blEmailCount} blacklist emails (${Object.keys(blacklist).length} companies) | ${dcEmailCount} contacts (${Object.keys(directContact).length} companies) | ${Object.keys(replacements).length} replacements | ${Object.keys(exw).length} EXW`;
     }catch{ alert("Invalid JSON file"); }
   };
   reader.readAsText(file);
@@ -1221,8 +1285,17 @@ function copyText(text){ navigator.clipboard.writeText(text); }
 function addCard(type, title, content, copyValue){
   const div = document.createElement("div");
   div.className = "card " + type;
-  const btn = copyValue ? `<button class="copy-btn" onclick="copyText('${copyValue}')">Copy</button>` : "";
-  div.innerHTML = `${btn}<div class="card-title">${title}</div>${content}`;
+  // For grouped cards (direct/blacklist) copyValue is null — title is company name
+  // For others copyValue is the email to copy
+  let header = "";
+  if(copyValue){
+    // Simple card: title + single copy button
+    header = `<div class="card-header-row"><div class="card-title">${title}</div><button class="copy-btn" onclick="copyText('${copyValue}')">Copy</button></div>`;
+  } else {
+    // Grouped card: company name as title, no top copy button (each email row has its own)
+    header = `<div class="card-header-row"><div class="card-title">${title}</div></div>`;
+  }
+  div.innerHTML = `${header}${content}`;
   document.getElementById("results").appendChild(div);
 }
 
@@ -1247,15 +1320,24 @@ function checkEmail(){
   let count = 0;
   function match(v){ return normalize(v).includes(keyword); }
 
+  // DIRECT CONTACT — grouped by company
   if(currentFilter==="all"||currentFilter==="direct"){
-    for(let email in directContact){
-      if(match(email)||match(directContact[email])){
-        addCard("direct","Direct Contact",
-          `<small>Company:</small> ${directContact[email]}<br><small>Email:</small> ${email}`,email);
+    for(let company in directContact){
+      const emails = directContact[company] || [];
+      const companyMatch = match(company);
+      const emailMatches = emails.filter(e => match(e));
+      if(companyMatch || emailMatches.length > 0){
+        const show = companyMatch ? emails : emailMatches;
+        const rows = show.map(e =>
+          `<div class="grouped-email-row"><span class="grouped-email">${e}</span><button class="copy-inline-btn" onclick="copyText('${e.replace(/'/g,"&apos;")}')">Copy</button></div>`
+        ).join('');
+        addCard("direct", company, `<div class="grouped-email-list">${rows}</div>`, null);
         count++;
       }
     }
   }
+
+  // REPLACEMENTS — unchanged
   if(currentFilter==="all"||currentFilter==="replace"){
     for(let oldEmail in replacements){
       if(match(oldEmail)||match(replacements[oldEmail])){
@@ -1265,24 +1347,27 @@ function checkEmail(){
       }
     }
   }
+
+  // BLACKLIST — grouped by company
   if(currentFilter==="all"||currentFilter==="blacklist"){
-    for(let email in blacklist){
-      if(match(email)||match(blacklist[email])){
-        addCard("blacklist","Blacklisted",
-          `<small>Email:</small> ${email}<br><small>Reason:</small> ${blacklist[email]}`,email);
+    for(let company in blacklist){
+      const obj = blacklist[company] || {};
+      const emails = obj.emails || [];
+      const reason = obj.reason || "";
+      const companyMatch = match(company);
+      const emailMatches = emails.filter(e => match(e));
+      if(companyMatch || emailMatches.length > 0 || match(reason)){
+        const show = companyMatch ? emails : emailMatches;
+        const rows = show.map(e =>
+          `<div class="grouped-email-row"><span class="grouped-email">${e}</span><button class="copy-inline-btn" onclick="copyText('${e.replace(/'/g,"&apos;")}')">Copy</button></div>`
+        ).join('');
+        addCard("blacklist", company,
+          `<div class="grouped-email-list">${rows}</div><div class="bl-reason">&#9888; ${reason}</div>`, null);
         count++;
       }
     }
   }
-  if(currentFilter==="all"||currentFilter==="exw"){
-    for(let company in exw){
-      if(match(company)||match(exw[company])){
-        addCard("exw","EXW",
-          `<small>Company:</small> ${company}<br><small>Location:</small> ${exw[company]}`);
-        count++;
-      }
-    }
-  }
+
   document.getElementById("statusBar").innerText = count ? `${count} result(s)` : "No matches found";
 }
 
