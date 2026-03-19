@@ -246,7 +246,7 @@ border-radius:4px;cursor:pointer;
 .statusbar{
 background:var(--panel);border-top:1px solid var(--border);
 padding:10px 18px;font-size:12px;color:var(--text-muted);
-position:fixed;bottom:0;width:100%;
+position:relative;width:100%;
 }
 
 /* ===== JOURNEY ===== */
@@ -330,6 +330,40 @@ font-size:11px;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0
 text-align:center;color:#9ca3af;font-size:13px;margin-top:40px;
 }
 
+/* Step note section */
+.step-note-box{
+margin:10px 0 4px 0;
+background:#fff5f5;
+border:1px solid #fca5a5;
+border-left:3px solid #dc2626;
+border-radius:6px;
+padding:8px 10px;
+}
+.step-note-label{
+font-size:11px;font-weight:700;
+color:#dc2626;
+margin-bottom:5px;
+letter-spacing:0.4px;
+display:flex;align-items:center;gap:5px;
+}
+.step-note-label::before{content:"⚠";font-size:12px;}
+.step-note-textarea{
+width:100%;
+border:1px solid #fca5a5;
+border-radius:4px;
+background:#fff8f8;
+color:#991b1b;
+font-size:12px;
+font-family:inherit;
+padding:6px 8px;
+resize:vertical;
+min-height:52px;
+outline:none;
+transition:border-color 0.15s;
+}
+.step-note-textarea::placeholder{color:#f87171;opacity:0.8;}
+.step-note-textarea:focus{border-color:#dc2626;background:#fff;}
+
 /* Loading overlay */
 .loading-overlay{
 position:fixed;inset:0;background:rgba(255,255,255,0.75);
@@ -337,6 +371,195 @@ display:flex;align-items:center;justify-content:center;
 z-index:500;font-size:13px;color:var(--text-muted);
 }
 .loading-overlay.hidden{display:none;}
+
+/* ===== STEP WARNING NOTE BOX ===== */
+.step-warning-box{
+background:#fff1f1;
+border:1px solid #f5c2c2;
+border-left:4px solid #c62828;
+border-radius:6px;
+padding:8px 12px;
+margin-top:10px;
+}
+.step-warning-title{
+font-size:11px;
+font-weight:700;
+color:#c62828;
+text-transform:uppercase;
+letter-spacing:0.5px;
+margin-bottom:6px;
+display:flex;
+align-items:center;
+gap:5px;
+}
+.step-warning-list{
+list-style:none;
+padding:0;margin:0;
+}
+.step-warning-list li{
+font-size:12px;
+color:#b91c1c;
+padding:3px 0;
+border-bottom:1px dashed #fca5a5;
+display:flex;
+align-items:flex-start;
+gap:6px;
+}
+.step-warning-list li:last-child{border-bottom:none;}
+.step-warning-list li::before{
+content:"⚠";
+font-size:11px;
+flex-shrink:0;
+margin-top:1px;
+}
+
+
+/* ===== DOCS PANEL ===== */
+.docs-panel{
+  background:#fff;
+  border-top:2px solid var(--border);
+  flex-shrink:0;
+  max-height:42px;          /* collapsed */
+  overflow:hidden;
+  transition:max-height 0.35s ease;
+  position:relative;
+  z-index:10;
+}
+.docs-panel.open{
+  max-height:320px;
+  overflow:hidden;
+}
+
+.docs-toggle-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+  height:42px;
+  cursor:pointer;
+  user-select:none;
+  background:#f8fafc;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.docs-toggle-bar:hover{background:#f0f4fa;}
+
+.docs-toggle-title{
+  font-size:12.5px;font-weight:700;
+  color:#1e293b;
+  display:flex;align-items:center;gap:8px;
+}
+.docs-toggle-title span.badge{
+  background:#2f6fed;color:#fff;
+  font-size:10px;padding:1px 7px;border-radius:10px;font-weight:600;
+}
+.docs-arrow{
+  font-size:11px;color:var(--text-muted);
+  background:#e8ecf2;border:none;border-radius:4px;
+  padding:2px 9px;cursor:pointer;
+}
+
+.docs-body{
+  display:flex;
+  gap:0;
+  overflow-x:auto;
+  height:278px;
+}
+
+/* Category sidebar */
+.docs-sidebar{
+  width:160px;
+  flex-shrink:0;
+  border-right:1px solid var(--border);
+  background:#f4f7fb;
+  overflow-y:auto;
+}
+.docs-cat-btn{
+  display:block;width:100%;text-align:left;
+  padding:9px 14px;font-size:12px;font-weight:600;
+  border:none;background:none;cursor:pointer;
+  color:var(--text-muted);
+  border-bottom:1px solid var(--border);
+  transition:0.12s;
+}
+.docs-cat-btn:hover{background:#e8eef7;color:var(--text-main);}
+.docs-cat-btn.active{
+  background:#fff;color:var(--primary);
+  border-left:3px solid var(--primary);
+}
+
+/* Content area */
+.docs-content{
+  flex:1;overflow-y:auto;padding:14px 18px;
+}
+
+.docs-section{display:none;}
+.docs-section.active{display:block;}
+
+.docs-section-title{
+  font-size:13px;font-weight:700;
+  color:var(--text-main);margin-bottom:12px;
+  padding-bottom:6px;border-bottom:1px solid var(--border);
+}
+
+/* Cards grid */
+.docs-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:10px;
+}
+
+.docs-card{
+  background:#f8fafc;border:1px solid var(--border);
+  border-radius:6px;padding:10px 12px;
+}
+.docs-card-title{
+  font-size:11.5px;font-weight:700;color:var(--primary);
+  margin-bottom:6px;display:flex;align-items:center;gap:5px;
+}
+.docs-card ul{
+  list-style:none;padding:0;margin:0;
+}
+.docs-card ul li{
+  font-size:11.5px;color:#374151;
+  padding:2px 0;border-bottom:1px dashed #e5e9ef;
+  display:flex;align-items:flex-start;gap:5px;
+}
+.docs-card ul li:last-child{border-bottom:none;}
+.docs-card ul li::before{content:"•";color:var(--primary);flex-shrink:0;}
+
+/* Template cards */
+.docs-template{
+  background:#f0f7ff;border:1px solid #c7d9f8;
+  border-radius:6px;padding:10px 12px;margin-bottom:8px;
+  position:relative;
+}
+.docs-template-label{
+  font-size:11px;font-weight:700;color:var(--primary);margin-bottom:4px;
+}
+.docs-template-text{
+  font-size:12px;color:#374151;line-height:1.5;
+  white-space:pre-line;
+}
+.docs-template-copy{
+  position:absolute;right:8px;top:8px;
+  background:#dbeafe;border:none;border-radius:4px;
+  font-size:10px;padding:2px 7px;cursor:pointer;color:#1d4ed8;font-weight:600;
+}
+.docs-template-copy:hover{background:#bfdbfe;}
+
+/* Glossary */
+.docs-glossary-row{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:5px 0;border-bottom:1px dashed #e5e9ef;font-size:12px;
+}
+.docs-glossary-row:last-child{border-bottom:none;}
+.docs-glossary-term{
+  font-weight:700;color:var(--primary);
+  min-width:70px;flex-shrink:0;
+}
+.docs-glossary-def{color:#374151;line-height:1.4;}
+
 </style>
 </head>
 <body>
@@ -470,6 +693,277 @@ z-index:500;font-size:13px;color:var(--text-muted);
 
   <div class="statusbar" id="statusBar">Ready</div>
 
+  <!-- ===== DOCS PANEL ===== -->
+  <div class="docs-panel" id="docsPanel">
+
+    <div class="docs-toggle-bar" onclick="toggleDocs()">
+      <div class="docs-toggle-title">
+        📚 Keywords &amp; Tips — Documentation
+        <span class="badge">4 sections</span>
+      </div>
+      <button class="docs-arrow" id="docsArrow">▲ Expand</button>
+    </div>
+
+    <div class="docs-body">
+
+      <!-- SIDEBAR -->
+      <div class="docs-sidebar">
+        <button class="docs-cat-btn active" onclick="showDocsSection('platforms',this)">🔍 Platforms</button>
+        <button class="docs-cat-btn" onclick="showDocsSection('workflow',this)">⚙️ Workflow Tips</button>
+        <button class="docs-cat-btn" onclick="showDocsSection('templates',this)">✉️ Email Templates</button>
+        <button class="docs-cat-btn" onclick="showDocsSection('glossary',this)">📖 Glossary</button>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="docs-content">
+
+        <!-- PLATFORMS -->
+        <div id="docs-platforms" class="docs-section active">
+          <div class="docs-section-title">Tips &amp; Tricks per Platform</div>
+          <div class="docs-grid">
+            <div class="docs-card">
+              <div class="docs-card-title">🌐 Stockmarket.com</div>
+              <ul>
+                <li>Use exact PN — avoid spaces or dashes</li>
+                <li>Filter by condition: New / OH / AR</li>
+                <li>Check "Last Updated" date on listings</li>
+                <li>Cross-check seller reputation before RFQ</li>
+                <li>Multiple results? Sort by price first</li>
+              </ul>
+            </div>
+            <div class="docs-card">
+              <div class="docs-card-title">🔧 Partbase</div>
+              <ul>
+                <li>Try searching with and without dashes</li>
+                <li>Use "Alternate PNs" section if no results</li>
+                <li>Check cage code to verify manufacturer</li>
+                <li>Request cert docs before confirming offer</li>
+              </ul>
+            </div>
+            <div class="docs-card">
+              <div class="docs-card-title">🏭 B2B / Locatory</div>
+              <ul>
+                <li>Locatory is strong for European stock</li>
+                <li>B2B best for US-based surplus stock</li>
+                <li>Always verify EXW location before quoting</li>
+                <li>Check if listing is from broker or OEM direct</li>
+              </ul>
+            </div>
+            <div class="docs-card">
+              <div class="docs-card-title">✈️ AJW / Satair</div>
+              <ul>
+                <li>Satair = Airbus parts primarily</li>
+                <li>AJW has strong rotable inventory</li>
+                <li>Lead times on these can be long — always ask</li>
+                <li>Both require account login for full pricing</li>
+              </ul>
+            </div>
+            <div class="docs-card">
+              <div class="docs-card-title">🔎 Google Search Tips</div>
+              <ul>
+                <li>Try: "PN" + "aviation" + "supplier"</li>
+                <li>Try: "PN" + "for sale" + "aircraft"</li>
+                <li>Add site:.com or site:.aero to narrow results</li>
+                <li>Use quotes for exact PN match: "12345-6"</li>
+                <li>Check page 2 &amp; 3 — niche suppliers rank low</li>
+              </ul>
+            </div>
+            <div class="docs-card">
+              <div class="docs-card-title">📋 General Platform Rules</div>
+              <ul>
+                <li>Never send RFQ to blacklisted domains</li>
+                <li>Always note: QTY / condition / price / lead time</li>
+                <li>One RFQ per supplier per part — no duplicates</li>
+                <li>Screenshot the listing if price changes later</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- WORKFLOW TIPS -->
+        <div id="docs-workflow" class="docs-section">
+          <div class="docs-section-title">General Workflow Tips</div>
+          <div class="docs-grid">
+            <div class="docs-card">
+              <div class="docs-card-title">✅ Before You Start</div>
+              <ul>
+                <li>Confirm QTY and condition with customer first</li>
+                <li>Check if PN has alternates or supersessions</li>
+                <li>Verify the PN is not already being sourced by a colleague</li>
+                <li>Check internal Google Sheet before going external</li>
+              </ul>
+            </div>
+            <div class="docs-card">
+              <div class="docs-card-title">📧 RFQ Best Practices</div>
+              <ul>
+                <li>Always include: PN, QTY, condition required</li>
+                <li>Mention target price if customer gave one</li>
+                <li>Set a reply deadline (usually 24–48h)</li>
+                <li>CC direct contact if available</li>
+                <li>Never forward customer info to supplier</li>
+              </ul>
+            </div>
+            <div class="docs-card">
+              <div class="docs-card-title">💬 Follow-Up Rules</div>
+              <ul>
+                <li>Default follow-up: 3 hours after sending</li>
+                <li>Customer follow-up: 48 hours max</li>
+                <li>Always log result — even if no stock found</li>
+                <li>If no reply after 2 follow-ups, escalate</li>
+              </ul>
+            </div>
+            <div class="docs-card">
+              <div class="docs-card-title">🚫 Common Mistakes</div>
+              <ul>
+                <li>Sending duplicate RFQs to same supplier</li>
+                <li>Quoting without confirming availability</li>
+                <li>Forgetting to note EXW location on multi-offers</li>
+                <li>Acting without manager approval on exchanges</li>
+                <li>Using old or unverified contact emails</li>
+              </ul>
+            </div>
+            <div class="docs-card">
+              <div class="docs-card-title">📦 EXW Rules</div>
+              <ul>
+                <li>Always note the EXW city and country</li>
+                <li>Multiple EXW offers → pick closest to buyer</li>
+                <li>Confirm with logistics before promising delivery</li>
+                <li>EXW ≠ DDP — clarify Incoterms with customer</li>
+              </ul>
+            </div>
+            <div class="docs-card">
+              <div class="docs-card-title">🔄 Re-quoting Tips</div>
+              <ul>
+                <li>Always re-quote if a cheaper offer arrives</li>
+                <li>Mention "better offer received" — don't reveal price</li>
+                <li>Get written confirmation before pulling old quote</li>
+                <li>Never re-quote without customer's knowledge</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMAIL TEMPLATES -->
+        <div id="docs-templates" class="docs-section">
+          <div class="docs-section-title">Email Writing Templates &amp; Phrases</div>
+
+          <div class="docs-template">
+            <div class="docs-template-label">📩 Initial RFQ to Supplier</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Subject: RFQ – Part Number [PN] | QTY [X]
+
+Dear Team,
+
+We are looking for the following part and would appreciate your best offer:
+
+Part Number: [PN]
+Quantity: [QTY]
+Condition: [New / Overhauled / As-Removed]
+Certification: With 8130 / EASA Form 1
+
+Please provide: unit price, lead time, and EXW location.
+
+We look forward to your prompt response.
+
+Best regards,
+[Your Name]</div>
+          </div>
+
+          <div class="docs-template">
+            <div class="docs-template-label">🔔 Follow-Up Email</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Subject: Follow-Up – RFQ [PN]
+
+Dear Team,
+
+I am following up on my previous request for Part Number [PN], QTY [X].
+
+Could you please confirm if you have availability and provide pricing at your earliest convenience?
+
+Thank you,
+[Your Name]</div>
+          </div>
+
+          <div class="docs-template">
+            <div class="docs-template-label">✅ Confirming an Order</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Subject: PO Confirmation – [PN] | QTY [X]
+
+Dear Team,
+
+Please find attached our Purchase Order for:
+
+Part Number: [PN]
+Quantity: [QTY]
+Agreed Price: [USD/EUR X per unit]
+Condition: [Condition]
+Delivery Terms: EXW [Location]
+
+Kindly confirm receipt and expected shipment date.
+
+Best regards,
+[Your Name]</div>
+          </div>
+
+          <div class="docs-template">
+            <div class="docs-template-label">❌ No Longer Required</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Subject: Cancellation – RFQ [PN]
+
+Dear Team,
+
+Thank you for your offer on Part Number [PN].
+
+We regret to inform you that this requirement has been cancelled and we will not be proceeding at this time. We appreciate your time and will keep your details on file for future requirements.
+
+Best regards,
+[Your Name]</div>
+          </div>
+
+          <div class="docs-template">
+            <div class="docs-template-label">🔄 Re-quote Request</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Subject: Re-Quote Request – [PN]
+
+Dear Team,
+
+We have received a more competitive offer for Part Number [PN]. 
+
+Could you please review your pricing and advise if you are able to offer a better rate? We value our relationship and would prefer to work with you on this requirement.
+
+Thank you,
+[Your Name]</div>
+          </div>
+
+        </div>
+
+        <!-- GLOSSARY -->
+        <div id="docs-glossary" class="docs-section">
+          <div class="docs-section-title">Abbreviations &amp; Terminology Glossary</div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">PN</div><div class="docs-glossary-def">Part Number — the unique identifier for an aircraft component</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">RFQ</div><div class="docs-glossary-def">Request for Quotation — a formal request sent to suppliers asking for price and availability</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">OEM</div><div class="docs-glossary-def">Original Equipment Manufacturer — the company that originally made the part</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">EXW</div><div class="docs-glossary-def">Ex Works — the part is available at the supplier's location; buyer arranges pickup/shipping</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">DDP</div><div class="docs-glossary-def">Delivered Duty Paid — supplier delivers to buyer's door, all costs included</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">OH</div><div class="docs-glossary-def">Overhauled — part has been fully inspected, repaired, and certified</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">AR</div><div class="docs-glossary-def">As Removed — part taken off an aircraft, condition not tested or certified</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">SV</div><div class="docs-glossary-def">Serviceable — part has been inspected and cleared for use</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">NE / NEW</div><div class="docs-glossary-def">New — brand new part, never installed</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">8130</div><div class="docs-glossary-def">FAA Form 8130-3 — US airworthiness approval tag for aviation parts</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">EASA F1</div><div class="docs-glossary-def">EASA Form 1 — European equivalent of the FAA 8130 certification document</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">PO</div><div class="docs-glossary-def">Purchase Order — official document confirming an order placed with a supplier</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">TAT</div><div class="docs-glossary-def">Turn Around Time — how long a repair or overhaul will take</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">AOG</div><div class="docs-glossary-def">Aircraft on Ground — urgent situation; aircraft cannot fly until part is received</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">BER</div><div class="docs-glossary-def">Beyond Economical Repair — part is too damaged to repair cost-effectively</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">CC</div><div class="docs-glossary-def">Carbon Copy — used in emails to copy additional recipients (e.g. direct contacts)</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">Cage Code</div><div class="docs-glossary-def">5-character code identifying a manufacturer or supplier in the NATO supply system</div></div>
+          <div class="docs-glossary-row"><div class="docs-glossary-term">Incoterms</div><div class="docs-glossary-def">International trade terms defining who pays for shipping, insurance, and customs</div></div>
+        </div>
+
+      </div><!-- /docs-content -->
+    </div><!-- /docs-body -->
+  </div><!-- /docs-panel -->
+
 </div><!-- /appScreen -->
 
 <div class="loading-overlay hidden" id="loadingOverlay">Loading your data…</div>
@@ -479,7 +973,7 @@ z-index:500;font-size:13px;color:var(--text-muted);
    CONFIG — user accounts stored here
    Add or remove users as needed: { username, password }
    ================================================================ */
-const API_URL = "https://script.google.com/macros/s/AKfycbzTjpqm2cS91mmTyUmLbPyI1LcDGIQ-AVp2XIv_q8_iSwFz5rx6tEW6b5XpizqBVZBk/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwWlO-5XiW45Smks-tPrIJFDnjNVCvW7NJiAPCDT6vlB1mbP02rSkFNgB-R2xxFA_7_/exec";
 
 const USERS = [
   { username: "reda@jadaero.com",   password: "reda123"  },
@@ -797,28 +1291,156 @@ function checkEmail(){
    ================================================================ */
 const STEP_DEFS = [
   {
-    label:"Step 1 — Search Google Sheets",
-    items:["Open the Google Sheets database","Search the Part Number in the sheet","Copy matching supplier email(s)","Note the availability and price"]
+    label: "Step 1 \u2014 Reviewing The RFQ",
+    items: [
+      "Check if the PN and Description are matching",
+      "Check the QTY of the PN",
+      "Check the ALT if it is given",
+      "Check the Comments"
+    ],
+    warnings: null
   },
   {
-    label:"Step 2 — Main Platforms",
-    items:["Search on Stockmarket.com","Search on Partbase","Search on B2B","Search on Locatory","Copy the best offer details"]
+    label: "Step 2 \u2014 Creating The Template",
+    items: [
+      "Create a template for each PN",
+      "Check the quantity (QTY)",
+      "Check the description",
+      "Check the Subject PN",
+      "Check the Font & Size",
+      "Remove Spaces"
+    ],
+    warnings: null
   },
   {
-    label:"Step 3 — Other Platforms",
-    items:["Search on AJW","Search on Satair","Check any other relevant platform","Compare results with Step 2 findings"]
+    label: "Step 3 \u2014 Search The PNs",
+    items: [
+      "Search the PN on Google Sheets (to ensure if you worked it or not)",
+      "Search on Main Platforms: ILS, PARTBASE, LOCATORY, B2B, STOCKMARKET",
+      "Search on Other Platforms: Satair, AJW, Proponent",
+      "Ask Manufacturer (Use ChatGPT to look for email)",
+      "Search Google",
+      "Ask Co-workers / Check the invoice products"
+    ],
+    warnings: null
   },
   {
-    label:"Step 4 — Ask Manufacturer",
-    items:["Identify the OEM / manufacturer","Send an inquiry email to manufacturer","Copy the manufacturer contact info","Log the expected response date"]
+    label: "Step 4 \u2014 Sending The RFQs",
+    items: [
+      "Include their name in the email",
+      "Use the Direct Contact and CC: the General Sales email",
+      "Check for duplicates before sending (Search @domain.com)",
+      "Include the QTY in the email",
+      "Edit the subject header: Single RFQ: 'RFQ PN' / Multiple: 'RFQ PNs'",
+      "Be aware: PartBase clients may post offers \u2014 memorize the name, do NOT send them a quote"
+    ],
+    warnings: [
+      "BEWARE of Duplicates \u2014 always search @domain.com before sending",
+      "Always include the QTY \u2014 suppliers will not quote without it",
+      "If the RFQ client is from PartBase, they may post offers \u2014 memorize the name and do NOT send them a quote",
+      "Do NOT forget to CC the General Sales email on every RFQ",
+      "Always address the email with the contact's name \u2014 never send a generic 'Dear Sir'"
+    ]
   },
   {
-    label:"Step 5 — Search Google",
-    items:["Google the Part Number","Check the first 3 result pages","Note any new supplier found","Copy the supplier email or URL"]
+    label: "Step 5 \u2014 Quote Treatments",
+    items: [
+      "Is the PN matching the PN in your RFQ?",
+      "Is the description matching the description in your RFQ?",
+      "What condition do they have?",
+      "How many QTY do they have?",
+      "Is it Stock or with Lead Time?",
+      "Who is the Tag Src (Supplier)?",
+      "When was the PN repaired?",
+      "Is the Quote Outright or Exchange?"
+    ],
+    warnings: [
+      "Lead Time means NO certification until the part is repaired \u2014 inform the client",
+      "Add every quote to the database even if it is not good \u2014 it helps build value for the PN",
+      "Do NOT accept an Exchange offer without manager approval \u2014 always ask first",
+      "Do NOT ignore condition discrepancies \u2014 OH, AR, SV are not interchangeable without client consent"
+    ]
   },
   {
-    label:"Step 6 — Ask Co-workers",
-    items:["Ask the team on Slack or in person","Check internal knowledge base","Log who was asked and when","Note any lead or contact found"]
+    label: "Step 6 \u2014 Certification Review",
+    items: [
+      "Is the PN on the certification matching the PN on the quote?",
+      "Is the Description on the certification matching the Description on the quote?",
+      "Is the SN on the certification matching the SN on the quote?",
+      "Is the Condition on the certification matching the Condition on the quote?",
+      "Check Block 12 & 5 (ensure no supplier name is included)",
+      "Check Block 14a/14b (FAA 8130) and Block 13a (EASA FORM-1)",
+      "Ensure the date on the certification matches the date on the quote (Format: MM/DD/YYYY)",
+      "What is the date of repair?",
+      "Ensure no Signs or Marks used by suppliers are present"
+    ],
+    warnings: [
+      "Remove all unwanted paperwork before submitting the certification",
+      "Review the trace documents for more certainty",
+      "BEWARE of dates \u2014 format is MM/DD/YYYY. If confused, paste the date in Google and verify the month, year, and day",
+      "Do NOT submit a certification with a supplier name visible in Block 12 or 5",
+      "Always double-check Block 14a/14b (FAA) or Block 13a (EASA) before sending"
+    ]
+  },
+  {
+    label: "Step 7 \u2014 Sending The Reminders",
+    items: [
+      "Filter only the suppliers who did NOT quote you",
+      "Reply with a reminder after 3 hours",
+      "Include the Sales email and their name/email in the reminder"
+    ],
+    warnings: null
+  },
+  {
+    label: "Step 8 \u2014 Picking The Offer",
+    items: [
+      "Pick the newest Tag Date and preferred Condition",
+      "Check availability (Stock vs Lead Time)",
+      "Check the lowest price"
+    ],
+    warnings: [
+      "Priority order is: Tag Date > Condition > Price \u2014 never compromise Tag Date for price",
+      "Do NOT pick an offer without confirming availability with the supplier",
+      "Do NOT choose Exchange without explicit manager approval"
+    ]
+  },
+  {
+    label: "Step 9 \u2014 The Invoice Process",
+    items: [
+      "Go to Quote > Create Quote",
+      "Copy the email from the RFQ & Add the client (if not present, add manually)",
+      "Ensure the client is the correct one",
+      "Place the PN in PO Number",
+      "Add PN / Information: Description, SN, Tag Type, Tag Src, Tag Date, EXW, Warranty",
+      "Is the Description matching the certification?",
+      "Is the SN matching the certification?",
+      "Is the Tag Type matching the certification?",
+      "Is the Tag Src matching the certification?",
+      "Is the Tag Date matching the certification? (Double Check \u2014 Use Google)",
+      "Where is the EXW location?",
+      "Ensure QTY is correct (QTY each)",
+      "Ensure the price matches the picked offer (Double Check)",
+      "Include the certification (Double Check / if available)",
+      "Make sure it is set to 'Initial Email' (For Quote / Revised)",
+      "Paste the CC: emails including yourself",
+      "Check the body / header of the email"
+    ],
+    warnings: [
+      "ALWAYS fill the invoice from the CERTIFICATION, not from the quote",
+      "Review Price, Description, SN, Tag Type, Tag Src, Tag Date, and Condition from the certification before submitting",
+      "Do NOT submit without double-checking the Tag Date \u2014 use Google if unsure of the format",
+      "Do NOT forget to remove your own email when doing the 48hr follow-up",
+      "Ensure the client is correct before sending \u2014 wrong client = major error"
+    ]
+  },
+  {
+    label: "Step 10 \u2014 Follow-Up",
+    items: [
+      "Reply after 48 hours",
+      "Ensure to remove your email from the To: field",
+      "Set the To: field to the client email only"
+    ],
+    warnings: null
   }
 ];
 
@@ -863,6 +1485,7 @@ function addPN(){
         label: s.label,
         done: false,
         open: false,
+        note: "",
         subItems: s.items.map(txt => ({ text: txt, done: false }))
       }))
     };
@@ -873,7 +1496,10 @@ function addPN(){
 }
 
 function toggleStepDone(pn, si){
-  workflows[pn].steps[si].done = !workflows[pn].steps[si].done;
+  const step = workflows[pn].steps[si];
+  step.done = !step.done;
+  // Cascade: check/uncheck all sub-items to match step state
+  step.subItems.forEach(item => { item.done = step.done; });
   saveWorkflow();
   renderJourney();
 }
@@ -887,6 +1513,11 @@ function toggleSubItem(pn, si, ii){
   workflows[pn].steps[si].subItems[ii].done = !workflows[pn].steps[si].subItems[ii].done;
   saveWorkflow();
   renderJourney();
+}
+
+function saveNote(pn, si, value){
+  workflows[pn].steps[si].note = value;
+  saveWorkflow();
 }
 
 function removePN(pn){
@@ -977,12 +1608,57 @@ function renderJourney(){
         body.appendChild(row);
       });
 
+      // Warning note box (read-only, from STEP_DEFS)
+      const def = STEP_DEFS[si];
+      if(def.warnings && def.warnings.length > 0){
+        const warnBox = document.createElement("div");
+        warnBox.className = "step-warning-box";
+        const warnTitle = document.createElement("div");
+        warnTitle.className = "step-warning-title";
+        warnTitle.innerHTML = "&#9888; Things to Avoid in This Step";
+        const warnList = document.createElement("ul");
+        warnList.className = "step-warning-list";
+        def.warnings.forEach(w => {
+          const li = document.createElement("li");
+          li.textContent = w;
+          warnList.appendChild(li);
+        });
+        warnBox.appendChild(warnTitle);
+        warnBox.appendChild(warnList);
+        body.appendChild(warnBox);
+      }
+
       stepEl.appendChild(body);
       card.appendChild(stepEl);
     });
 
     container.appendChild(card);
   }
+}
+
+
+/* ================================================================
+   DOCS PANEL
+   ================================================================ */
+function toggleDocs(){
+  const panel = document.getElementById("docsPanel");
+  const arrow = document.getElementById("docsArrow");
+  const isOpen = panel.classList.toggle("open");
+  arrow.textContent = isOpen ? "▼ Collapse" : "▲ Expand";
+}
+
+function showDocsSection(name, btn){
+  document.querySelectorAll(".docs-section").forEach(s => s.classList.remove("active"));
+  document.querySelectorAll(".docs-cat-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById("docs-" + name).classList.add("active");
+  btn.classList.add("active");
+}
+
+function copyDocText(btn){
+  const text = btn.nextElementSibling.textContent;
+  navigator.clipboard.writeText(text);
+  btn.textContent = "Copied!";
+  setTimeout(() => { btn.textContent = "Copy"; }, 1500);
 }
 
 /* ================================================================
