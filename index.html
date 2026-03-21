@@ -1502,15 +1502,22 @@ async function saveReminders(){
 
 async function loadReminders(){
   const data = await apiGet("MainReminders");
+  // Always reset array and DOM before re-rendering
   reminders = [];
   document.getElementById("reminderList").innerHTML = "";
+
   if(Array.isArray(data)){
+    const seenIds = new Set(); // deduplicate by id
     data.forEach(r => {
-      // Normalise fields coming back from sheets (they may be strings)
       r.id       = Number(r.id)      || Date.now();
       r.end      = Number(r.end)     || (Date.now() + 3*3600000);
       r.hours    = Number(r.hours)   || 3;
       r.finished = r.finished === true || r.finished === 1 || r.finished === "1" || r.finished === "TRUE";
+
+      // Skip duplicate IDs (can happen if sheet has stale rows)
+      if(seenIds.has(r.id)) return;
+      seenIds.add(r.id);
+
       reminders.push(r);
       createReminderCard(r);
     });
@@ -1532,7 +1539,7 @@ function handleTypeChange(){
   }
 }
 
-function startReminder(){
+async function startReminder(){
   const part    = document.getElementById("partInput").value.trim();
   const hours   = parseInt(document.getElementById("hourInput").value) || 3;
   const country = document.getElementById("countryInput").value.trim();
@@ -1554,8 +1561,9 @@ function startReminder(){
   const end = Date.now() + hours * 3600000;
   const obj = { id: Date.now(), part, hours, country, type, end, finished: false, user: currentUser };
   reminders.push(obj);
-  saveReminders();
-  createReminderCard(obj);
+  await saveReminders();
+  // Reload from sheet so the DOM matches the sheet exactly — no duplicate cards
+  await loadReminders();
   document.getElementById("partInput").value = "";
   document.getElementById("countryInput").value = "";
 }
@@ -1591,13 +1599,13 @@ function calcStandalonePB(){
   }
 }
 
-function addStandalonePBReminder(){
+async function addStandalonePBReminder(){
   const pn = document.getElementById("spbPn").value.trim() || "Unknown PN";
   const end = Date.now() + 48*3600000;
   const obj = {id:Date.now(), part:`${pn} (Potential Client)`, hours:48, country:"", type:"customer", end, finished:false, user:currentUser};
   reminders.push(obj);
-  saveReminders();
-  createReminderCard(obj);
+  await saveReminders();
+  await loadReminders();
   const conf = document.getElementById("spbConfirm");
   if(conf){ conf.style.display="block"; setTimeout(()=>conf.style.display="none",3000); }
 }
@@ -1615,10 +1623,10 @@ function createReminderCard(obj){
   const rmv = document.createElement("button");
   rmv.className = "timer-remove";
   rmv.innerText = "Remove";
-  rmv.onclick = () => {
+  rmv.onclick = async () => {
     reminders = reminders.filter(r => r.id !== obj.id);
-    saveReminders();
-    card.remove();
+    await saveReminders();
+    await loadReminders(); // full reload keeps sheet and DOM in sync
   };
   card.appendChild(info);
   card.appendChild(rmv);
@@ -2394,30 +2402,6 @@ function renderJourney(){
         body.appendChild(panel);
       }
 
-      // ── STEP 8: POTENTIAL BUYER SCORER ──
-      if(si === 7){
-        const panel = document.createElement("div");
-        panel.className = "inline-reminder-panel";
-        panel.style.cssText = "background:#f0fdf4;border-top-color:#bbf7d0;";
-        panel.innerHTML = `
-          <div class="inline-panel-title" style="color:#15803d;">&#127941; Market Price Check &amp; Potential Buyer Score</div>
-          <div style="font-size:11px;color:#166534;margin-bottom:8px;">Rate each factor 0–2. Score &ge;7 &rarr; add to reminders as potential client.</div>
-          <div class="pb-score-grid">
-            <div class="pb-score-row"><span class="pb-factor">&#9889; Response Speed</span><select class="pb-sel" id="pb1_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – Slow/No reply</option><option value="1">1 – Medium</option><option value="2">2 – Fast reply</option></select></div>
-            <div class="pb-score-row"><span class="pb-factor">&#127941; High Condition</span><select class="pb-sel" id="pb2_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – AR/Unknown</option><option value="1">1 – SV/OH</option><option value="2">2 – New/RP</option></select></div>
-            <div class="pb-score-row"><span class="pb-factor">&#128197; Tag Date</span><select class="pb-sel" id="pb3_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – Old (2+ yrs)</option><option value="1">1 – Recent (1 yr)</option><option value="2">2 – New (&lt;6mo)</option></select></div>
-            <div class="pb-score-row"><span class="pb-factor">&#127981; Repair Credibility</span><select class="pb-sel" id="pb4_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – Unknown shop</option><option value="1">1 – Known MRO</option><option value="2">2 – OEM/Major</option></select></div>
-            <div class="pb-score-row"><span class="pb-factor">&#128176; Price vs Market</span><select class="pb-sel" id="pb5_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – Above market</option><option value="1">1 – At market</option><option value="2">2 – Below market</option></select></div>
-            <div class="pb-score-row"><span class="pb-factor">&#128269; PN Rarity</span><select class="pb-sel" id="pb6_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – Common PN</option><option value="1">1 – Medium rarity</option><option value="2">2 – Very rare PN</option></select></div>
-          </div>
-          <div class="pb-score-result" id="pbresult_${uid}">Score: <strong id="pbscore_${uid}">0</strong>/12 <span class="pb-score-badge" id="pbbadge_${uid}"></span></div>
-          <div id="pb-remind-wrap_${uid}" style="display:none;margin-top:8px;">
-            <button class="inline-set-reminder-btn" style="background:linear-gradient(135deg,#16a34a,#15803d);font-size:11px;" onclick="addPotentialBuyerReminder('${uid}','${pn}')">&#11088; Add to Reminders as Potential Client</button>
-            <div class="inline-reminder-confirm" id="pbconfirm_${uid}">&#10003; Added to reminders!</div>
-          </div>`;
-        body.appendChild(panel);
-      }
-
       // ── STEP 9: INVOICE CHECKLIST + QUOTE TEMPLATE ──
       if(si === 8){
         const invoiceItems = [
@@ -2525,7 +2509,8 @@ function calcPBScore(uid){
 function addPotentialBuyerReminder(uid,pn){
   const end=Date.now()+48*3600000;
   const obj={id:Date.now(),part:`${pn} (Potential Client)`,hours:48,country:"",type:"customer",end,finished:false,user:currentUser};
-  reminders.push(obj); saveReminders(); createReminderCard(obj);
+  reminders.push(obj);
+  saveReminders().then(()=>loadReminders());
   const conf=document.getElementById(`pbconfirm_${uid}`);
   if(conf){conf.style.display="block";setTimeout(()=>conf.style.display="none",3000);}
 }
@@ -2582,20 +2567,24 @@ function runInlineSearch(uid){
 }
 
 /* ── Inline reminders ── */
-function setInlineReminder(uid,pn){
+async function setInlineReminder(uid,pn){
   const h=parseInt(document.getElementById(`irh_${uid}`)?.value)||3;
   const c=document.getElementById(`irc_${uid}`)?.value.trim()||"";
   const t=document.getElementById(`irt_${uid}`)?.value||"reminder";
   const end=Date.now()+h*3600000;
   const obj={id:Date.now(),part:pn,hours:h,country:c,type:t,end,finished:false,user:currentUser};
-  reminders.push(obj); saveReminders(); createReminderCard(obj);
+  reminders.push(obj);
+  await saveReminders();
+  await loadReminders();
   const conf=document.getElementById(`irconfirm_${uid}`);
   if(conf){conf.style.display="block";conf.textContent=`\u2713 ${h}h reminder set for ${pn}!`;setTimeout(()=>conf.style.display="none",3000);}
 }
-function setInlineReminder48(uid,pn){
+async function setInlineReminder48(uid,pn){
   const end=Date.now()+48*3600000;
   const obj={id:Date.now(),part:pn,hours:48,country:"",type:"customer",end,finished:false,user:currentUser};
-  reminders.push(obj); saveReminders(); createReminderCard(obj);
+  reminders.push(obj);
+  await saveReminders();
+  await loadReminders();
   const conf=document.getElementById(`irconfirm48_${uid}`);
   if(conf){conf.style.display="block";setTimeout(()=>conf.style.display="none",3000);}
 }
