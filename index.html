@@ -4,614 +4,757 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ECP Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}
-
+/* ═══════════════════════════════════════════════════════
+   SATAIR MARKET — ACCURATE COLOR SYSTEM
+   Charcoal bar: #1C1C1C  /  Teal: #00B388  /  BG: #F5F5F5
+   ═══════════════════════════════════════════════════════ */
 :root{
---bg:#f4f6f8;
---panel:#fbfcfe;
---border:#dde3ea;
---text-main:#1e293b;
---text-muted:#64748b;
---danger:#a11a1a;
---primary:#3b82f6;
+  --sat-black:   #1C1C1C;
+  --sat-black2:  #111111;
+  --sat-teal:    #00B388;
+  --sat-teal2:   #009672;
+  --sat-teal-lt: #E6F9F4;
+  --sat-white:   #FFFFFF;
+  --sat-bg:      #F5F5F5;
+  --sat-bg2:     #EEEEEE;
+  --sat-border:  #E0E0E0;
+  --sat-border2: #EBEBEB;
+  --sat-text:    #1A1A1A;
+  --sat-muted:   #6B7280;
+  --sat-muted2:  #9CA3AF;
+  --sat-red:     #D32F2F;
+  --sat-orange:  #F07830;
+  --sat-purple:  #6D28D9;
+  --sat-navy:    #1E3A5F;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --radius: 3px;
 }
 
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
 body{
-margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-background:var(--bg);
-color:var(--text-main);
-display:flex;
-flex-direction:column;
-height:100vh;
-overflow:hidden;
+  font-family:var(--font);
+  background:var(--sat-bg);
+  color:var(--sat-text);
+  display:flex;flex-direction:column;
+  -webkit-font-smoothing:antialiased;
+  font-size:13px;
 }
 
-/* ================================================================
-   LOGIN SCREEN
-   ================================================================ */
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:#D0D0D0;border-radius:8px;}
+::-webkit-scrollbar-thumb:hover{background:#AAAAAA;}
+
+/* ══════════════════════════════════════════════════════
+   LOGIN — white card on charcoal bg like Satair login
+   ══════════════════════════════════════════════════════ */
 #loginScreen{
-position:fixed;inset:0;
-background:#f0f4fa;
-display:flex;align-items:center;justify-content:center;
-z-index:1000;
+  position:fixed;inset:0;z-index:1000;
+  background:var(--sat-black);
+  display:flex;align-items:center;justify-content:center;
 }
-
+#loginScreen::before{
+  content:'';position:absolute;inset:0;
+  /* Satair's diagonal stripe pattern on bg */
+  background:repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(0,179,136,0.04) 10px,
+    rgba(0,179,136,0.04) 20px
+  );
+}
 .login-box{
-background:#fff;
-border:1px solid var(--border);
-border-radius:12px;
-padding:36px 40px;
-width:340px;
-box-shadow:0 4px 24px rgba(0,0,0,0.08);
+  background:#fff;
+  border-radius:var(--radius);
+  padding:44px 48px;
+  width:380px;
+  position:relative;
+  box-shadow:0 8px 40px rgba(0,0,0,0.5);
 }
-
+.login-box::before{
+  content:'';display:block;
+  height:4px;
+  background:var(--sat-teal);
+  position:absolute;top:0;left:0;right:0;
+  border-radius:var(--radius) var(--radius) 0 0;
+}
 .login-logo{
-font-size:22px;font-weight:700;color:var(--primary);
-text-align:center;margin-bottom:6px;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  margin-bottom:6px;
 }
+.login-logo-icon{
+  width:28px;height:28px;background:var(--sat-teal);
+  border-radius:4px;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:14px;font-weight:900;flex-shrink:0;
+}
+.login-logo-text{font-size:16px;font-weight:800;color:var(--sat-text);}
 .login-sub{
-font-size:12px;color:var(--text-muted);
-text-align:center;margin-bottom:28px;
+  font-size:12px;color:var(--sat-muted);
+  text-align:center;margin-bottom:28px;
 }
-
-.login-field{
-margin-bottom:14px;
-}
+.login-field{margin-bottom:16px;}
 .login-field label{
-display:block;font-size:12px;font-weight:600;
-color:var(--text-muted);margin-bottom:5px;
+  display:block;font-size:11px;font-weight:600;
+  color:var(--sat-muted);margin-bottom:5px;
 }
 .login-field input{
-width:100%;padding:9px 12px;
-border:1px solid var(--border);border-radius:6px;
-font-size:13px;outline:none;
-transition:border-color 0.15s;
+  width:100%;padding:10px 13px;
+  border:1.5px solid var(--sat-border);
+  border-radius:var(--radius);
+  font-size:13px;font-family:var(--font);outline:none;
+  color:var(--sat-text);background:#fff;
+  transition:border-color 0.15s,box-shadow 0.15s;
 }
-.login-field input:focus{border-color:var(--primary);}
-
+.login-field input:focus{
+  border-color:var(--sat-teal);
+  box-shadow:0 0 0 3px rgba(0,179,136,0.12);
+}
 .login-btn{
-width:100%;padding:10px;background:var(--primary);
-color:white;border:none;border-radius:6px;
-font-size:13px;font-weight:600;cursor:pointer;margin-top:6px;
+  width:100%;padding:11px;
+  background:var(--sat-teal);color:#fff;
+  border:none;border-radius:var(--radius);
+  font-size:13px;font-weight:700;font-family:var(--font);
+  cursor:pointer;margin-top:8px;
+  letter-spacing:0.3px;transition:background 0.15s;
 }
-.login-btn:hover{opacity:0.9}
-
+.login-btn:hover{background:var(--sat-teal2);}
 .login-error{
-color:#a11a1a;font-size:12px;
-text-align:center;margin-top:10px;min-height:18px;
+  color:var(--sat-red);font-size:12px;
+  text-align:center;margin-top:10px;min-height:18px;
 }
 
-/* ================================================================
-   APP (hidden until logged in)
-   ================================================================ */
+/* ══════════════════════════════════════════════════════
+   APP SHELL
+   ══════════════════════════════════════════════════════ */
 #appScreen{display:none;flex-direction:column;height:100vh;}
 #appScreen.visible{display:flex;}
 
-/* ===== TOPBAR ===== */
+/* ── TOPBAR — Satair's dark charcoal bar ── */
 .topbar{
-background:var(--panel);
-border-bottom:1px solid var(--border);
-padding:10px 24px;
-display:flex;align-items:center;
-justify-content:space-between;
-gap:20px;flex-wrap:wrap;flex-shrink:0;
+  background:var(--sat-black);
+  padding:0 18px;
+  display:flex;align-items:center;
+  justify-content:space-between;
+  gap:14px;flex-shrink:0;
+  height:52px;
+  border-bottom:none;
+  position:relative;
+}
+/* Teal accent line bottom */
+.topbar::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--sat-teal);
 }
 
-.topbar-title{font-size:17px;font-weight:600;}
-.top-center{flex:1;display:flex;justify-content:center;}
-.time-clocks{display:flex;gap:12px;flex-wrap:wrap;}
+/* Brand mark */
+.topbar-title{
+  display:flex;align-items:center;gap:9px;
+  flex-shrink:0;
+}
+.topbar-brand-icon{
+  width:28px;height:28px;
+  background:var(--sat-teal);
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:900;color:#fff;flex-shrink:0;
+}
+.topbar-brand-name{
+  font-size:13px;font-weight:700;color:#fff;
+  letter-spacing:0.5px;
+  white-space:nowrap;
+}
+.topbar-brand-name span{color:var(--sat-teal);}
 
+.top-center{flex:1;display:flex;justify-content:center;overflow:hidden;}
+.time-clocks{display:flex;gap:5px;flex-wrap:nowrap;overflow:hidden;}
 .clock{
-background:#eef1f5;padding:6px 10px;border-radius:6px;
-font-size:12px;text-align:center;min-width:60px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.09);
+  padding:5px 9px;border-radius:var(--radius);
+  text-align:center;min-width:52px;flex-shrink:0;
 }
-.clock .city{font-weight:600;font-size:11px;}
-.clock .time{font-size:12px;color:var(--text-muted);}
+.clock .city{
+  font-size:9px;font-weight:700;
+  color:var(--sat-teal);
+  letter-spacing:1px;text-transform:uppercase;
+}
+.clock .time{
+  font-size:11px;color:rgba(255,255,255,0.75);
+  white-space:nowrap;font-weight:500;margin-top:1px;
+}
 
-.top-right{display:flex;align-items:center;gap:10px;}
-
+.top-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
 .file-name{
-font-size:12px;color:var(--text-muted);max-width:120px;
-white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-size:11px;color:rgba(255,255,255,0.38);
+  max-width:90px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 
-/* User badge + logout */
+/* User badge */
 .user-badge{
-display:flex;align-items:center;gap:8px;
-background:#eef4ff;border:1px solid #c7d9f8;
-border-radius:20px;padding:4px 12px 4px 8px;
-font-size:12px;
+  display:flex;align-items:center;gap:8px;cursor:default;
 }
 .user-avatar{
-width:24px;height:24px;border-radius:50%;
-background:var(--primary);color:white;
-display:flex;align-items:center;justify-content:center;
-font-size:11px;font-weight:700;flex-shrink:0;
+  width:30px;height:30px;border-radius:50%;
+  background:var(--sat-teal);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;flex-shrink:0;
 }
-.user-name{font-weight:600;color:var(--text-main);}
+.user-name{font-weight:600;color:rgba(255,255,255,0.85);font-size:12px;}
 .logout-btn{
-border:none;background:none;cursor:pointer;
-color:var(--text-muted);font-size:11px;padding:0;
+  border:1px solid rgba(255,255,255,0.15);
+  background:transparent;cursor:pointer;
+  color:rgba(255,255,255,0.4);font-size:11px;
+  padding:3px 9px;border-radius:var(--radius);
+  font-family:var(--font);font-weight:600;
+  transition:0.12s;
 }
-.logout-btn:hover{color:var(--danger);}
+.logout-btn:hover{border-color:var(--sat-teal);color:var(--sat-teal);}
 
-/* ===== TAB BAR ===== */
+/* ── TAB BAR — white bar with teal active underline ── */
 .tabbar{
-background:var(--panel);
-border-bottom:2px solid var(--border);
-display:flex;flex-shrink:0;padding:0;
+  background:var(--sat-white);
+  display:flex;flex-shrink:0;
+  padding:0 4px;
+  border-bottom:1px solid var(--sat-border);
+  box-shadow:0 1px 3px rgba(0,0,0,0.06);
 }
-
 .tab-btn{
-flex:1;padding:11px 0;font-size:13px;font-weight:600;
-cursor:pointer;border:none;background:none;
-color:var(--text-muted);border-bottom:3px solid transparent;
-margin-bottom:-2px;transition:0.15s;text-align:center;
+  padding:0 22px;height:42px;
+  font-size:12px;font-weight:600;
+  cursor:pointer;border:none;background:none;
+  color:var(--sat-muted);
+  border-bottom:3px solid transparent;
+  margin-bottom:-1px;transition:0.15s;
+  white-space:nowrap;
+  font-family:var(--font);
+  letter-spacing:0.2px;
 }
-.tab-btn:hover{color:var(--text-main);background:#f4f6f8;}
+.tab-btn:hover{color:var(--sat-text);background:var(--sat-bg);}
 .tab-btn.active{
-color:var(--primary);border-bottom-color:var(--primary);background:#eef4ff;
+  color:var(--sat-teal);
+  border-bottom-color:var(--sat-teal);
+  background:#fff;font-weight:700;
 }
 
-/* ===== MAIN ===== */
-.main{
-flex:1;overflow-y:auto;padding:24px 28px 70px;
-}
-
+/* ── MAIN ── */
+.main{flex:1;overflow-y:auto;padding:18px 20px 60px;background:var(--sat-bg);}
 .tab-panel{display:none;}
 .tab-panel.active{display:block;}
 
-/* ===== REMINDER SECTION ===== */
-.reminder-section{
-background:#ffffff;border:1px solid var(--border);
-border-radius:8px;padding:16px;margin-bottom:20px;
-}
-.reminder-title{font-size:14px;font-weight:600;margin-bottom:10px;}
-.reminder-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
-.reminder-row input,.reminder-row select{
-padding:9px;border:1px solid var(--border);
-border-radius:6px;font-size:13px;
-}
-.reminder-row button{
-padding:9px 14px;border:none;background:var(--primary);
-color:white;border-radius:6px;cursor:pointer;font-size:13px;
-}
-
-.timer-card{
-background:#fbfcfe;border:1px solid var(--border);
-border-left:4px solid var(--primary);
-padding:10px 12px;margin-top:8px;border-radius:6px;
-display:flex;justify-content:space-between;align-items:center;font-size:13px;
-}
-.timer-card.customer{border-left-color:#a11a1a;background:#fff1f1;}
-.timer-card.reminder{border-left-color:#3b82f6;background:#eef5ff;}
-.timer-card.finished{border-left-color:var(--danger);background:#fdf2f2;}
-.timer-time{font-weight:600;}
-.timer-remove{
-background:#e5e9ef;border:none;padding:4px 8px;
-border-radius:4px;cursor:pointer;font-size:12px;
-}
-
-/* ===== NOTES ===== */
-.notes-section{
-background:#f8fafc;border:1px solid var(--border);
-border-radius:8px;padding:14px 16px;margin-bottom:20px;
-}
-.notes-title{font-size:13px;font-weight:600;margin-bottom:6px;color:var(--danger);}
-.notes-content{font-size:13px;line-height:1.5;color:var(--text-muted);}
-
-/* ===== SEARCH ===== */
-.search-container{margin-bottom:10px;}
-.search-container input{
-width:100%;padding:11px 12px;border-radius:6px;
-border:1px solid var(--border);font-size:14px;
-}
-
-.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
-.filter-btn{
-padding:7px 12px;border:1px solid var(--border);
-background:var(--panel);cursor:pointer;border-radius:6px;font-size:13px;
-}
-.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary);}
-
-.card{
-background:var(--panel);border:1px solid var(--border);
-border-left:3px solid #cbd5e1;padding:12px 14px;
-margin-bottom:10px;border-radius:6px;font-size:14px;position:relative;
-}
-.card.blacklist{background:#fdf2f2;border-left-color:#a11a1a}
-.card.direct{border-left-color:#475569}
-.card.replace{border-left-color:#64748b}
-.card-header-row{
-display:flex;align-items:center;justify-content:space-between;
-margin-bottom:6px;gap:8px;
-}
-.card-title{font-weight:700;font-size:13px;color:var(--text-main);flex:1;}
-.card.blacklist .card-title{color:#991b1b;}
-.card small{color:var(--text-muted)}
-
-.copy-btn{
-border:none;background:#e5e9ef;padding:4px 10px;
-font-size:12px;border-radius:4px;cursor:pointer;flex-shrink:0;
-}
-.copy-btn:hover{background:#d0d7e2;}
-
-/* ===== STATUSBAR ===== */
+/* ── STATUS BAR ── */
 .statusbar{
-background:var(--panel);border-top:1px solid var(--border);
-padding:10px 18px;font-size:12px;color:var(--text-muted);
-position:relative;width:100%;
+  background:var(--sat-black);
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:5px 16px;font-size:10px;font-weight:500;
+  color:rgba(255,255,255,0.35);letter-spacing:0.2px;
 }
 
-/* ===== JOURNEY ===== */
-.journey-addbar{display:flex;gap:8px;margin-bottom:18px;}
-.journey-addbar input{
-height:34px;padding:4px 10px;border:1px solid var(--border);
-border-radius:6px;font-size:13px;width:240px;
-}
-.journey-addbar button{
-height:34px;padding:0 16px;background:var(--primary);
-color:white;border:none;border-radius:6px;font-size:13px;cursor:pointer;
-}
-.journey-addbar button:hover{opacity:0.9}
-
-.pn-card{
-background:white;border:1px solid var(--border);
-border-radius:8px;margin-bottom:14px;overflow:hidden;
-}
-.pn-card-header{
-display:flex;justify-content:space-between;align-items:center;
-padding:10px 14px;background:#f4f7fb;border-bottom:1px solid var(--border);
-}
-.pn-card-title{font-weight:700;font-size:13px;color:var(--primary);}
-.pn-card-meta{display:flex;align-items:center;gap:10px;}
-.pn-progress{font-size:11px;color:var(--text-muted);}
-.pn-remove-btn{
-background:#fee2e2;color:#991b1b;border:none;
-font-size:11px;padding:3px 9px;border-radius:4px;cursor:pointer;
-}
-.pn-remove-btn:hover{background:#fecaca}
-
-.acc-step{border-bottom:1px solid #f0f2f6;}
-.acc-step:last-child{border-bottom:none;}
-
-.acc-header{
-display:flex;align-items:center;gap:10px;padding:9px 14px;
-}
-
-.acc-step-check{cursor:pointer;flex-shrink:0;width:15px;height:15px;}
-
-.acc-step-label{
-flex:1;font-size:13px;font-weight:600;color:var(--text-main);
-cursor:pointer;user-select:none;
-}
-.acc-step-label:hover{color:var(--primary);}
-.acc-step-label.done{text-decoration:line-through;color:#9ca3af;}
-
-.acc-arrow{
-font-size:11px;color:var(--text-muted);cursor:pointer;
-background:#eef1f5;border:none;border-radius:4px;
-padding:2px 8px;flex-shrink:0;
-}
-.acc-arrow:hover{background:#dde3ea}
-
-.acc-body{
-display:none;padding:6px 14px 10px 40px;
-background:#fafbfc;border-top:1px solid #f0f2f6;
-}
-.acc-body.open{display:block;}
-
-.sub-item{
-display:flex;align-items:center;justify-content:space-between;
-padding:5px 0;border-bottom:1px dashed #e5e9ef;font-size:12.5px;
-}
-.sub-item:last-child{border-bottom:none;}
-
-.sub-item-left{display:flex;align-items:center;gap:8px;flex:1;}
-
-.sub-check{cursor:pointer;flex-shrink:0;width:13px;height:13px;}
-
-.sub-text{color:#374151;transition:color 0.15s;cursor:pointer;}
-.sub-text.done{text-decoration:line-through;color:#c0c7d0;}
-
-.sub-copy{
-background:#e5e9ef;border:none;padding:2px 9px;
-font-size:11px;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;
-}
-.sub-copy:hover{background:#d0d7e2}
-
-.journey-empty{
-text-align:center;color:#9ca3af;font-size:13px;margin-top:40px;
-}
-
-/* Step note section */
-.step-note-box{
-margin:10px 0 4px 0;
-background:#fff5f5;
-border:1px solid #fca5a5;
-border-left:3px solid #dc2626;
-border-radius:6px;
-padding:8px 10px;
-}
-.step-note-label{
-font-size:11px;font-weight:700;
-color:#dc2626;
-margin-bottom:5px;
-letter-spacing:0.4px;
-display:flex;align-items:center;gap:5px;
-}
-.step-note-label::before{content:"⚠";font-size:12px;}
-.step-note-textarea{
-width:100%;
-border:1px solid #fca5a5;
-border-radius:4px;
-background:#fff8f8;
-color:#991b1b;
-font-size:12px;
-font-family:inherit;
-padding:6px 8px;
-resize:vertical;
-min-height:52px;
-outline:none;
-transition:border-color 0.15s;
-}
-.step-note-textarea::placeholder{color:#f87171;opacity:0.8;}
-.step-note-textarea:focus{border-color:#dc2626;background:#fff;}
-
-/* Loading overlay */
+/* ── LOADING ── */
 .loading-overlay{
-position:fixed;inset:0;background:rgba(255,255,255,0.75);
-display:flex;align-items:center;justify-content:center;
-z-index:500;font-size:13px;color:var(--text-muted);
+  position:fixed;inset:0;background:rgba(28,28,28,0.6);
+  display:flex;align-items:center;justify-content:center;
+  z-index:500;font-size:13px;color:#fff;font-weight:600;
+  backdrop-filter:blur(3px);
 }
 .loading-overlay.hidden{display:none;}
 
-/* ===== STEP WARNING NOTE BOX ===== */
-.step-warning-box{
-background:#fff1f1;
-border:1px solid #f5c2c2;
-border-left:4px solid #c62828;
-border-radius:6px;
-padding:8px 12px;
-margin-top:10px;
-}
-.step-warning-title{
-font-size:11px;
-font-weight:700;
-color:#c62828;
-text-transform:uppercase;
-letter-spacing:0.5px;
-margin-bottom:6px;
-display:flex;
-align-items:center;
-gap:5px;
-}
-.step-warning-list{
-list-style:none;
-padding:0;margin:0;
-}
-.step-warning-list li{
-font-size:12px;
-color:#b91c1c;
-padding:3px 0;
-border-bottom:1px dashed #fca5a5;
-display:flex;
-align-items:flex-start;
-gap:6px;
-}
-.step-warning-list li:last-child{border-bottom:none;}
-.step-warning-list li::before{
-content:"⚠";
-font-size:11px;
-flex-shrink:0;
-margin-top:1px;
+/* ══════════════════════════════════════════════════════
+   TOOLS TAB — split layout
+   ══════════════════════════════════════════════════════ */
+.tools-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:700px){.tools-layout{grid-template-columns:1fr;}}
+.tools-col{min-width:0;}
+.tools-col-title{
+  font-size:11px;font-weight:700;letter-spacing:0.3px;
+  color:var(--sat-text);margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+  padding-bottom:8px;border-bottom:2px solid var(--sat-teal);
 }
 
+/* ── SEARCH INPUT ── */
+.search-container{margin-bottom:10px;}
+.search-container input{
+  width:100%;padding:10px 14px 10px 38px;
+  border:1.5px solid var(--sat-border);border-radius:var(--radius);
+  font-size:13px;font-family:var(--font);outline:none;
+  color:var(--sat-text);background:#fff;
+  transition:border-color 0.15s,box-shadow 0.15s;
+  background-image:url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='7' stroke='%239CA3AF' stroke-width='2'/%3E%3Cpath d='m21 21-4.35-4.35' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:12px center;
+}
+.search-container input:focus{
+  border-color:var(--sat-teal);
+  box-shadow:0 0 0 3px rgba(0,179,136,0.10);
+}
+.search-container input::placeholder{color:var(--sat-muted2);}
 
-/* ===== DOCS PANEL ===== */
-.docs-panel{
-  background:#fff;
-  border-top:2px solid var(--border);
-  flex-shrink:0;
-  max-height:42px;          /* collapsed */
-  overflow:hidden;
-  transition:max-height 0.35s ease;
+.filter-bar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.filter-btn{
+  padding:5px 13px;
+  border:1.5px solid var(--sat-border);
+  background:#fff;cursor:pointer;border-radius:20px;
+  font-size:11px;font-weight:600;
+  color:var(--sat-muted);transition:0.12s;
+  font-family:var(--font);
+}
+.filter-btn:hover{border-color:var(--sat-teal);color:var(--sat-teal);}
+.filter-btn.active{
+  background:var(--sat-teal);color:#fff;
+  border-color:var(--sat-teal);
+}
+
+/* Search result cards */
+.card{
+  background:#fff;border:1px solid var(--sat-border);
+  border-left:3px solid transparent;
+  padding:10px 12px;margin-bottom:7px;
+  border-radius:var(--radius);
+  font-size:13px;position:relative;
+  transition:border-left-color 0.12s,box-shadow 0.12s;
+}
+.card:hover{box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+.card.blacklist{background:#FFF8F7;border-left-color:var(--sat-red);}
+.card.direct{border-left-color:var(--sat-teal);}
+.card.replace{border-left-color:var(--sat-orange);}
+.card-header-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;gap:8px;}
+.card-title{font-weight:700;font-size:12px;color:var(--sat-text);flex:1;}
+.card.blacklist .card-title{color:var(--sat-red);}
+.card small{color:var(--sat-muted);}
+.copy-btn{
+  border:1px solid var(--sat-border);background:#fff;
+  padding:3px 10px;font-size:11px;border-radius:var(--radius);
+  cursor:pointer;font-weight:600;color:var(--sat-muted);
+  transition:0.12s;
+}
+.copy-btn:hover{background:var(--sat-teal-lt);border-color:var(--sat-teal);color:var(--sat-teal);}
+
+.grouped-email-list{display:flex;flex-direction:column;gap:3px;}
+.grouped-email-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:4px 7px;background:var(--sat-bg);border-radius:var(--radius);gap:8px;
+}
+.card.blacklist .grouped-email-row{background:#FFF0EE;}
+.grouped-email{font-size:12px;color:var(--sat-text);word-break:break-all;flex:1;}
+.card.blacklist .grouped-email{color:var(--sat-red);}
+.copy-inline-btn{
+  flex-shrink:0;border:1px solid var(--sat-border);background:#fff;
+  padding:2px 8px;font-size:10px;border-radius:var(--radius);
+  cursor:pointer;font-weight:600;color:var(--sat-muted);
+  transition:0.12s;white-space:nowrap;
+}
+.copy-inline-btn:hover{background:var(--sat-teal-lt);color:var(--sat-teal);border-color:var(--sat-teal);}
+.card.blacklist .copy-inline-btn{background:#FFF0EE;color:var(--sat-red);}
+.bl-reason{font-size:11px;color:var(--sat-red);margin-top:4px;padding-top:4px;border-top:1px dashed #FFCDD2;font-weight:600;}
+
+/* ── REMINDERS ── */
+.reminder-section{
+  background:#fff;border:1px solid var(--sat-border);
+  border-radius:var(--radius);padding:14px;margin-bottom:12px;
+}
+.reminder-title{font-size:11px;font-weight:700;color:var(--sat-muted);margin-bottom:10px;letter-spacing:0.3px;}
+.reminder-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:flex-end;}
+.reminder-row input,.reminder-row select{
+  padding:8px 10px;border:1.5px solid var(--sat-border);
+  border-radius:var(--radius);font-size:12px;font-family:var(--font);
+  color:var(--sat-text);background:#fff;outline:none;
+  transition:border-color 0.15s;
+}
+.reminder-row input:focus,.reminder-row select:focus{border-color:var(--sat-teal);}
+.reminder-row button{
+  padding:8px 16px;border:none;
+  background:var(--sat-teal);color:#fff;
+  border-radius:var(--radius);cursor:pointer;
+  font-size:12px;font-weight:700;font-family:var(--font);
+  transition:background 0.12s;
+}
+.reminder-row button:hover{background:var(--sat-teal2);}
+
+.timer-card{
+  background:#fff;border:1px solid var(--sat-border);
+  border-left:3px solid var(--sat-teal);
+  padding:10px 12px;margin-top:7px;border-radius:var(--radius);
+  display:flex;justify-content:space-between;align-items:center;font-size:12px;
+}
+.timer-card.customer{border-left-color:var(--sat-orange);background:#FFFAF7;}
+.timer-card.reminder{border-left-color:var(--sat-teal);background:#F0FDFB;}
+.timer-card.finished{border-left-color:var(--sat-red);background:#FFF8F7;}
+.timer-time{font-weight:700;color:var(--sat-text);font-size:11px;}
+.timer-remove{
+  background:var(--sat-bg);border:1px solid var(--sat-border);
+  padding:3px 9px;border-radius:var(--radius);cursor:pointer;
+  font-size:11px;color:var(--sat-muted);font-weight:600;transition:0.12s;
+}
+.timer-remove:hover{color:var(--sat-red);border-color:#FFCDD2;}
+
+/* Notes / Scorer */
+.notes-section{
+  background:#fff;border:1px solid var(--sat-border);
+  border-radius:var(--radius);padding:14px;
+}
+.notes-title{
+  font-size:12px;font-weight:700;color:var(--sat-text);
+  margin-bottom:10px;padding-bottom:6px;
+  border-bottom:2px solid var(--sat-teal);display:inline-block;
+}
+.notes-content{font-size:12px;line-height:1.7;color:var(--sat-muted);}
+
+/* ══════════════════════════════════════════════════════
+   MISSION CONTROL
+   ══════════════════════════════════════════════════════ */
+.mc-input-bar{
+  background:var(--sat-black);
+  border-radius:var(--radius);padding:16px 18px;margin-bottom:16px;
+  position:relative;overflow:hidden;
+}
+.mc-input-bar::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--sat-teal);
+}
+.mc-input-label{
+  font-size:11px;font-weight:600;
+  color:rgba(255,255,255,0.45);margin-bottom:9px;
+}
+.mc-input-row{display:flex;gap:8px;}
+.mc-pn-input{
+  flex:1;padding:10px 13px;border-radius:var(--radius);
+  font-size:14px;font-weight:600;
+  border:1.5px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.06);color:#fff;
+  outline:none;font-family:var(--font);
+  transition:border-color 0.15s;
+}
+.mc-pn-input:focus{border-color:var(--sat-teal);}
+.mc-pn-input::placeholder{color:rgba(255,255,255,0.25);font-weight:400;}
+.mc-add-btn{
+  padding:10px 22px;background:var(--sat-teal);color:#fff;
+  border:none;border-radius:var(--radius);
+  font-size:12px;font-weight:700;font-family:var(--font);
+  cursor:pointer;white-space:nowrap;
+  transition:background 0.12s;
+}
+.mc-add-btn:hover{background:var(--sat-teal2);}
+.mc-hint{font-size:11px;color:rgba(255,255,255,0.28);margin-top:6px;}
+
+/* Mission card */
+.mission-card{
+  background:#fff;border:1px solid var(--sat-border);
+  border-radius:var(--radius);margin-bottom:14px;overflow:hidden;
+  box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  transition:box-shadow 0.15s;
+}
+.mission-card:hover{box-shadow:0 3px 10px rgba(0,0,0,0.08);}
+
+.mission-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 16px;background:var(--sat-black);
   position:relative;
-  z-index:10;
 }
-.docs-panel.open{
-  max-height:320px;
-  overflow:hidden;
+.mission-header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--sat-teal);
 }
+.mission-pn-name{
+  font-weight:700;font-size:13px;color:#fff;letter-spacing:0.5px;
+}
+.mission-header-right{display:flex;align-items:center;gap:10px;}
+.mission-phase-badge{
+  font-size:10px;font-weight:600;
+  padding:3px 10px;border-radius:20px;
+  background:rgba(0,179,136,0.18);color:var(--sat-teal);
+  letter-spacing:0.3px;
+}
+.mc-remove-btn{
+  background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.4);
+  border:1px solid rgba(255,255,255,0.12);
+  font-size:11px;font-weight:600;padding:3px 10px;
+  border-radius:var(--radius);cursor:pointer;transition:0.12s;
+}
+.mc-remove-btn:hover{background:var(--sat-red);color:#fff;border-color:var(--sat-red);}
 
+/* Runway */
+.runway-wrap{
+  background:var(--sat-bg);
+  border-bottom:1px solid var(--sat-border2);
+  padding:10px 16px 8px;
+}
+.runway-label{
+  font-size:10px;font-weight:600;color:var(--sat-muted2);
+  letter-spacing:0.5px;text-transform:uppercase;margin-bottom:6px;
+}
+.runway{display:flex;gap:3px;height:6px;border-radius:20px;overflow:hidden;}
+.runway-step{
+  flex:1;height:6px;
+  background:var(--sat-border2);
+  transition:background 0.3s;cursor:pointer;border-radius:20px;
+}
+.runway-step.done{background:var(--sat-teal);}
+.runway-step.active{background:var(--sat-orange);animation:pulse-step 1.8s infinite;}
+.runway-step.locked{background:var(--sat-border2);}
+@keyframes pulse-step{0%,100%{opacity:1}50%{opacity:0.5}}
+
+.runway-labels{display:flex;margin-top:4px;gap:3px;}
+.runway-step-lbl{
+  flex:1;font-size:8px;color:var(--sat-muted2);
+  text-align:center;white-space:nowrap;overflow:hidden;
+  text-overflow:ellipsis;font-weight:600;
+}
+.runway-step-lbl.active{color:var(--sat-orange);font-weight:700;}
+.runway-step-lbl.done{color:var(--sat-teal);}
+.runway-stats{display:flex;justify-content:space-between;align-items:center;margin-top:4px;}
+.runway-pct{font-size:11px;font-weight:700;color:var(--sat-teal);}
+.runway-count{font-size:10px;color:var(--sat-muted2);font-weight:500;}
+
+/* Step spotlight */
+.step-spotlight{
+  padding:10px 16px;border-bottom:1px solid var(--sat-border2);
+  background:var(--sat-teal-lt);
+  display:flex;gap:12px;align-items:flex-start;
+}
+.spotlight-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.spotlight-body{flex:1;}
+.spotlight-title{font-size:12px;font-weight:700;color:var(--sat-text);margin-bottom:2px;}
+.spotlight-desc{font-size:11px;color:var(--sat-muted);line-height:1.55;}
+
+/* Steps accordion */
+.mc-steps-wrap{padding:1px 0;}
+.mc-step{border-bottom:1px solid var(--sat-border2);}
+.mc-step:last-child{border-bottom:none;}
+.mc-step-header{
+  display:flex;align-items:center;gap:9px;padding:8px 16px;
+  cursor:pointer;transition:background 0.1s;user-select:none;
+}
+.mc-step-header:hover{background:var(--sat-bg);}
+.mc-step-header.is-active{
+  background:var(--sat-teal-lt);
+  border-left:3px solid var(--sat-teal);
+  padding-left:13px;
+}
+.mc-step-check{
+  cursor:pointer;flex-shrink:0;width:14px;height:14px;
+  accent-color:var(--sat-teal);
+}
+.mc-step-lbl{flex:1;font-size:12px;font-weight:500;color:var(--sat-text);}
+.mc-step-lbl.done{text-decoration:line-through;color:var(--sat-muted2);}
+.mc-step-lbl.active-step{color:var(--sat-text);font-weight:700;}
+.mc-step-tag{
+  font-size:9px;padding:2px 8px;border-radius:20px;
+  font-weight:700;flex-shrink:0;letter-spacing:0.3px;
+}
+.mc-step-tag.tag-now{background:var(--sat-orange);color:#fff;}
+.mc-step-tag.tag-next{background:var(--sat-bg2);color:var(--sat-muted);}
+.mc-step-tag.tag-done{background:var(--sat-teal-lt);color:var(--sat-teal2);}
+.mc-step-arrow{font-size:9px;color:var(--sat-muted2);flex-shrink:0;margin-left:2px;}
+
+.mc-step-body{
+  display:none;padding:6px 16px 12px 40px;
+  background:var(--sat-bg);border-top:1px solid var(--sat-border2);
+}
+.mc-step-body.open{display:block;}
+
+/* Sub items */
+.mc-sub-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:5px 0;border-bottom:1px solid var(--sat-border2);font-size:12px;
+}
+.mc-sub-item:last-child{border-bottom:none;}
+.mc-sub-left{display:flex;align-items:center;gap:8px;flex:1;}
+.mc-sub-check{cursor:pointer;flex-shrink:0;width:13px;height:13px;accent-color:var(--sat-teal);}
+.mc-sub-text{color:var(--sat-muted);cursor:pointer;line-height:1.4;}
+.mc-sub-text.done{text-decoration:line-through;color:var(--sat-muted2);}
+.mc-sub-copy{
+  background:#fff;border:1px solid var(--sat-border);
+  padding:2px 8px;font-size:10px;border-radius:var(--radius);
+  cursor:pointer;white-space:nowrap;flex-shrink:0;font-weight:600;color:var(--sat-muted);
+  transition:0.12s;
+}
+.mc-sub-copy:hover{background:var(--sat-teal-lt);color:var(--sat-teal);border-color:var(--sat-teal);}
+
+/* Warnings */
+.mc-warn-box,.step-warning-box{
+  background:#FFF8F7;border:1px solid #FFCDD2;
+  border-left:3px solid var(--sat-red);
+  border-radius:var(--radius);padding:8px 12px;margin-top:10px;
+}
+.mc-warn-title,.step-warning-title{
+  font-size:10px;font-weight:700;color:var(--sat-red);
+  text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px;
+  display:flex;align-items:center;gap:4px;
+}
+.mc-warn-list,.step-warning-list{list-style:none;padding:0;margin:0;}
+.mc-warn-list li,.step-warning-list li{
+  font-size:11.5px;color:#B71C1C;padding:3px 0;
+  border-bottom:1px dashed #FFCDD2;
+  display:flex;align-items:flex-start;gap:6px;line-height:1.4;
+}
+.mc-warn-list li:last-child,.step-warning-list li:last-child{border-bottom:none;}
+.mc-warn-list li::before,.step-warning-list li::before{content:"•";color:var(--sat-red);flex-shrink:0;font-weight:900;}
+
+/* Banners */
+.mission-done-banner{
+  background:var(--sat-teal);color:#fff;text-align:center;
+  padding:10px;font-size:12px;font-weight:700;letter-spacing:0.3px;
+}
+.mc-empty{text-align:center;color:var(--sat-muted2);font-size:14px;margin:50px 0;line-height:2.2;}
+.mc-empty .mc-empty-icon{font-size:40px;margin-bottom:12px;}
+
+/* ══════════════════════════════════════════════════════
+   DOCS PANEL — bottom slide-up
+   ══════════════════════════════════════════════════════ */
+.docs-panel{
+  background:#fff;border-top:1px solid var(--sat-border);
+  flex-shrink:0;max-height:38px;overflow:hidden;
+  transition:max-height 0.3s ease;position:relative;z-index:10;
+}
+.docs-panel.open{max-height:310px;overflow:hidden;}
 .docs-toggle-bar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 20px;
-  height:42px;
-  cursor:pointer;
-  user-select:none;
-  background:#f8fafc;
-  border-bottom:1px solid var(--border);
-  flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;height:38px;cursor:pointer;user-select:none;
+  background:var(--sat-bg);border-bottom:1px solid var(--sat-border);flex-shrink:0;
 }
-.docs-toggle-bar:hover{background:#f0f4fa;}
-
+.docs-toggle-bar:hover{background:var(--sat-bg2);}
 .docs-toggle-title{
-  font-size:12.5px;font-weight:700;
-  color:#1e293b;
+  font-size:11px;font-weight:600;color:var(--sat-text);
   display:flex;align-items:center;gap:8px;
 }
 .docs-toggle-title span.badge{
-  background:#2f6fed;color:#fff;
-  font-size:10px;padding:1px 7px;border-radius:10px;font-weight:600;
+  background:var(--sat-teal);color:#fff;
+  font-size:9px;padding:1px 7px;border-radius:20px;font-weight:700;
 }
 .docs-arrow{
-  font-size:11px;color:var(--text-muted);
-  background:#e8ecf2;border:none;border-radius:4px;
-  padding:2px 9px;cursor:pointer;
+  font-size:11px;color:var(--sat-muted);
+  background:var(--sat-border2);border:none;border-radius:var(--radius);
+  padding:2px 8px;cursor:pointer;font-weight:600;font-family:var(--font);
 }
-
-.docs-body{
-  display:flex;
-  gap:0;
-  overflow-x:auto;
-  height:278px;
-}
-
-/* Category sidebar */
+.docs-body{display:flex;overflow-x:auto;height:272px;}
 .docs-sidebar{
-  width:160px;
-  flex-shrink:0;
-  border-right:1px solid var(--border);
-  background:#f4f7fb;
-  overflow-y:auto;
+  width:150px;flex-shrink:0;
+  border-right:1px solid var(--sat-border);
+  background:var(--sat-bg);overflow-y:auto;
 }
 .docs-cat-btn{
   display:block;width:100%;text-align:left;
-  padding:9px 14px;font-size:12px;font-weight:600;
+  padding:9px 14px;font-size:12px;font-weight:500;
   border:none;background:none;cursor:pointer;
-  color:var(--text-muted);
-  border-bottom:1px solid var(--border);
-  transition:0.12s;
+  color:var(--sat-muted);border-bottom:1px solid var(--sat-border2);
+  transition:0.1s;font-family:var(--font);
 }
-.docs-cat-btn:hover{background:#e8eef7;color:var(--text-main);}
+.docs-cat-btn:hover{background:#fff;color:var(--sat-text);}
 .docs-cat-btn.active{
-  background:#fff;color:var(--primary);
-  border-left:3px solid var(--primary);
+  background:#fff;color:var(--sat-teal);
+  border-left:3px solid var(--sat-teal);font-weight:700;padding-left:11px;
 }
-
-/* Content area */
-.docs-content{
-  flex:1;overflow-y:auto;padding:14px 18px;
-}
-
+.docs-content{flex:1;overflow-y:auto;padding:12px 14px;}
 .docs-section{display:none;}
 .docs-section.active{display:block;}
-
 .docs-section-title{
-  font-size:13px;font-weight:700;
-  color:var(--text-main);margin-bottom:12px;
-  padding-bottom:6px;border-bottom:1px solid var(--border);
+  font-size:12px;font-weight:700;color:var(--sat-text);
+  margin-bottom:10px;padding-bottom:6px;
+  border-bottom:1px solid var(--sat-border2);
 }
-
-/* Cards grid */
-.docs-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-  gap:10px;
-}
-
-.docs-card{
-  background:#f8fafc;border:1px solid var(--border);
-  border-radius:6px;padding:10px 12px;
-}
-.docs-card-title{
-  font-size:11.5px;font-weight:700;color:var(--primary);
-  margin-bottom:6px;display:flex;align-items:center;gap:5px;
-}
-.docs-card ul{
-  list-style:none;padding:0;margin:0;
-}
-.docs-card ul li{
-  font-size:11.5px;color:#374151;
-  padding:2px 0;border-bottom:1px dashed #e5e9ef;
-  display:flex;align-items:flex-start;gap:5px;
-}
+.docs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:8px;}
+.docs-card{background:var(--sat-bg);border:1px solid var(--sat-border);border-radius:var(--radius);padding:10px 12px;}
+.docs-card-title{font-size:11px;font-weight:700;color:var(--sat-text);margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+.docs-card ul{list-style:none;padding:0;margin:0;}
+.docs-card ul li{font-size:11px;color:var(--sat-muted);padding:2px 0;border-bottom:1px dashed var(--sat-border2);display:flex;align-items:flex-start;gap:5px;}
 .docs-card ul li:last-child{border-bottom:none;}
-.docs-card ul li::before{content:"•";color:var(--primary);flex-shrink:0;}
-
-/* Template cards */
-.docs-template{
-  background:#f0f7ff;border:1px solid #c7d9f8;
-  border-radius:6px;padding:10px 12px;margin-bottom:8px;
-  position:relative;
-}
-.docs-template-label{
-  font-size:11px;font-weight:700;color:var(--primary);margin-bottom:4px;
-}
-.docs-template-text{
-  font-size:12px;color:#374151;line-height:1.5;
-  white-space:pre-line;
-}
-.docs-template-copy{
-  position:absolute;right:8px;top:8px;
-  background:#dbeafe;border:none;border-radius:4px;
-  font-size:10px;padding:2px 7px;cursor:pointer;color:#1d4ed8;font-weight:600;
-}
-.docs-template-copy:hover{background:#bfdbfe;}
-
-/* Glossary */
-.docs-glossary-row{
-  display:flex;align-items:flex-start;gap:10px;
-  padding:5px 0;border-bottom:1px dashed #e5e9ef;font-size:12px;
-}
+.docs-card ul li::before{content:"—";color:var(--sat-teal);flex-shrink:0;}
+.docs-template{background:var(--sat-bg);border:1px solid var(--sat-border);border-left:3px solid var(--sat-teal);border-radius:var(--radius);padding:10px 12px;margin-bottom:8px;position:relative;}
+.docs-template-label{font-size:11px;font-weight:700;color:var(--sat-text);margin-bottom:4px;}
+.docs-template-text{font-size:12px;color:var(--sat-muted);line-height:1.55;white-space:pre-line;}
+.docs-template-copy{position:absolute;right:8px;top:8px;background:#fff;border:1px solid var(--sat-border);border-radius:var(--radius);font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;color:var(--sat-muted);transition:0.12s;}
+.docs-template-copy:hover{background:var(--sat-teal-lt);color:var(--sat-teal);border-color:var(--sat-teal);}
+.docs-glossary-row{display:flex;align-items:flex-start;gap:10px;padding:5px 0;border-bottom:1px solid var(--sat-border2);}
 .docs-glossary-row:last-child{border-bottom:none;}
-.docs-glossary-term{
-  font-weight:700;color:var(--primary);
-  min-width:70px;flex-shrink:0;
-}
-.docs-glossary-def{color:#374151;line-height:1.4;}
+.docs-glossary-term{font-weight:700;color:var(--sat-text);min-width:70px;flex-shrink:0;font-size:11px;}
+.docs-glossary-def{color:var(--sat-muted);line-height:1.4;font-size:11px;}
 
+/* ══════════════════════════════════════════════════════
+   INLINE PANELS
+   ══════════════════════════════════════════════════════ */
+.inline-search-panel{background:var(--sat-bg);border-top:2px solid var(--sat-teal);padding:12px 14px 14px;}
+.inline-panel-title{font-size:11px;font-weight:700;color:var(--sat-text);margin-bottom:9px;display:flex;align-items:center;gap:6px;}
+.inline-search-row{margin-bottom:7px;}
+.inline-search-input{
+  width:100%;padding:8px 11px;border-radius:var(--radius);font-size:12px;
+  border:1.5px solid var(--sat-border);outline:none;background:#fff;font-family:var(--font);
+  transition:border-color 0.15s;
+}
+.inline-search-input:focus{border-color:var(--sat-teal);}
+.inline-filter-row{display:flex;gap:5px;margin-bottom:7px;flex-wrap:wrap;}
+.inline-filter-btn{padding:3px 11px;border:1.5px solid var(--sat-border);border-radius:20px;background:#fff;font-size:10px;font-weight:600;cursor:pointer;color:var(--sat-muted);transition:0.1s;}
+.inline-filter-btn:hover{border-color:var(--sat-teal);color:var(--sat-teal);}
+.inline-filter-btn.active{background:var(--sat-teal);color:#fff;border-color:var(--sat-teal);}
+.inline-results{max-height:175px;overflow-y:auto;}
+.inline-card{background:#fff;border:1px solid var(--sat-border);border-left:3px solid transparent;border-radius:var(--radius);padding:7px 10px;margin-bottom:4px;font-size:12px;}
+.inline-card.blacklist{background:#FFF8F7;border-left-color:var(--sat-red);}
+.inline-card.direct{border-left-color:var(--sat-teal);}
+.inline-card.replace{border-left-color:var(--sat-orange);}
+.inline-card-title{font-weight:700;color:var(--sat-text);margin-bottom:3px;font-size:11px;}
+.inline-card.blacklist .inline-card-title{color:var(--sat-red);}
+.inline-email-row{display:flex;align-items:center;justify-content:space-between;padding:2px 0;gap:6px;}
+.inline-email{font-size:11.5px;color:var(--sat-text);word-break:break-all;flex:1;}
+.inline-card.blacklist .inline-email{color:var(--sat-red);}
+.inline-copy-btn{flex-shrink:0;border:1px solid var(--sat-border);background:var(--sat-bg);padding:1px 7px;font-size:10px;border-radius:var(--radius);cursor:pointer;font-weight:600;color:var(--sat-muted);transition:0.12s;}
+.inline-copy-btn:hover{background:var(--sat-teal-lt);color:var(--sat-teal);border-color:var(--sat-teal);}
+.inline-bl-reason{font-size:10px;color:var(--sat-red);font-weight:600;margin-top:3px;}
+.inline-no-results{text-align:center;color:var(--sat-muted2);font-size:12px;padding:12px 0;}
 
-/* ===== GROUPED EMAIL CARDS ===== */
-.grouped-email-list{
-  margin-top:6px;
-  display:flex;
-  flex-direction:column;
-  gap:3px;
-}
-.grouped-email-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:4px 6px;
-  background:#f4f7fb;
-  border-radius:4px;
-  border:1px solid #e2e8f0;
-  gap:8px;
-}
-.card.blacklist .grouped-email-row{
-  background:#fff5f5;
-  border-color:#fecaca;
-}
-.grouped-email{
-  font-size:12.5px;
-  color:#1e293b;
-  word-break:break-all;
-  flex:1;
-}
-.card.blacklist .grouped-email{
-  color:#991b1b;
-}
-.copy-inline-btn{
-  flex-shrink:0;
-  border:none;
-  background:#e5e9ef;
-  padding:2px 9px;
-  font-size:11px;
-  border-radius:4px;
-  cursor:pointer;
-  white-space:nowrap;
-}
-.copy-inline-btn:hover{background:#d0d7e2;}
-.card.blacklist .copy-inline-btn{
-  background:#fee2e2;
-  color:#991b1b;
-}
-.card.blacklist .copy-inline-btn:hover{background:#fecaca;}
-.bl-reason{
-  font-size:11.5px;
-  color:#b91c1c;
-  margin-top:5px;
-  padding-top:4px;
-  border-top:1px dashed #fca5a5;
-  font-weight:600;
-}
+.inline-reminder-panel{background:#FFFBF5;border-top:2px solid var(--sat-orange);padding:12px 14px 14px;}
+.inline-reminder-row{display:flex;gap:7px;flex-wrap:wrap;align-items:flex-end;margin-bottom:7px;}
+.inline-reminder-field{display:flex;flex-direction:column;gap:3px;}
+.inline-reminder-field label{font-size:10px;font-weight:600;color:var(--sat-muted);}
+.inline-reminder-field input,.inline-reminder-field select{padding:7px 10px;border:1.5px solid var(--sat-border);border-radius:var(--radius);font-size:12px;background:#fff;outline:none;font-family:var(--font);transition:border-color 0.15s;}
+.inline-reminder-field input:focus,.inline-reminder-field select:focus{border-color:var(--sat-orange);}
+.inline-set-reminder-btn{padding:8px 15px;background:var(--sat-teal);color:#fff;border:none;border-radius:var(--radius);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;white-space:nowrap;align-self:flex-end;transition:background 0.12s;}
+.inline-set-reminder-btn:hover{background:var(--sat-teal2);}
+.inline-reminder-confirm{font-size:11px;font-weight:600;color:var(--sat-teal2);background:var(--sat-teal-lt);border-radius:var(--radius);padding:5px 10px;display:none;margin-top:4px;}
 
+.inline-template-panel{background:#F0FDFB;border-top:2px solid var(--sat-teal);padding:12px 14px 14px;}
+.inline-tpl-tabs{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap;}
+.inline-tpl-tab{padding:4px 12px;border:1.5px solid var(--sat-border);border-radius:20px;background:#fff;font-size:11px;font-weight:600;cursor:pointer;color:var(--sat-muted);transition:0.1s;font-family:var(--font);}
+.inline-tpl-tab:hover{border-color:var(--sat-teal);color:var(--sat-teal);}
+.inline-tpl-tab.active{background:var(--sat-teal);color:#fff;border-color:var(--sat-teal);}
+.inline-tpl-box{background:#fff;border:1px solid var(--sat-border);border-radius:var(--radius);padding:10px 12px;position:relative;}
+.inline-tpl-text{font-size:12px;color:var(--sat-text);line-height:1.6;white-space:pre-line;}
+.inline-tpl-copy{position:absolute;right:8px;top:8px;background:var(--sat-bg);border:1px solid var(--sat-border);border-radius:var(--radius);font-size:10px;font-weight:600;padding:2px 8px;cursor:pointer;color:var(--sat-muted);transition:0.12s;}
+.inline-tpl-copy:hover{background:var(--sat-teal-lt);color:var(--sat-teal);border-color:var(--sat-teal);}
+
+.inline-invoice-panel{background:#FAF5FF;border-top:2px solid var(--sat-purple);padding:12px 14px 14px;}
+.inline-checklist{list-style:none;padding:0;margin:0;}
+.inline-checklist li{display:flex;align-items:flex-start;gap:7px;padding:4px 0;border-bottom:1px solid #EDE9FE;font-size:12px;color:var(--sat-text);}
+.inline-checklist li:last-child{border-bottom:none;}
+.inline-checklist li input[type=checkbox]{flex-shrink:0;margin-top:2px;cursor:pointer;accent-color:var(--sat-purple);}
+.inline-checklist li span.done-txt{text-decoration:line-through;color:#A78BFA;}
+.inline-inv-warn{background:#FFF8F7;border:1px solid #FFCDD2;border-left:3px solid var(--sat-red);border-radius:var(--radius);padding:8px 10px;margin-top:8px;font-size:11.5px;color:var(--sat-red);line-height:1.6;}
+.inline-inv-warn strong{display:block;margin-bottom:3px;font-size:11px;font-weight:700;}
+
+.inline-followup-panel{background:#F0FDFB;border-top:2px solid var(--sat-teal);padding:12px 14px 14px;}
+
+/* ══ LEGACY ══ */
+.journey-addbar,.acc-step,.pn-card,.sub-item,.step-note-box,.acc-body{display:none;}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:540px){
+  .topbar{padding:0 12px;height:48px;}
+  .topbar-brand-name{font-size:12px;}
+  .clock{min-width:44px;padding:3px 6px;}
+  .clock .city,.clock .time{font-size:9px;}
+  .file-name,.user-name{display:none;}
+  .tab-btn{font-size:11px;padding:0 12px;}
+  .main{padding:12px 10px 50px;}
+}
+@media(max-width:380px){
+  .time-clocks{gap:3px;}
+  .clock{min-width:36px;}
+  .tab-btn{padding:0 7px;}
+}
 </style>
 </head>
 <body>
@@ -621,7 +764,10 @@ margin-top:1px;
      ================================================================ -->
 <div id="loginScreen">
   <div class="login-box">
-    <div class="login-logo">ECP Panel</div>
+    <div class="login-logo">
+      <div class="login-logo-icon">E</div>
+      <div class="login-logo-text">ECP Panel</div>
+    </div>
     <div class="login-sub">Sign in to your account</div>
 
     <div class="login-field">
@@ -644,7 +790,10 @@ margin-top:1px;
 
   <!-- TOP BAR -->
   <div class="topbar">
-    <div class="topbar-title">ECP</div>
+    <div class="topbar-title">
+      <div class="topbar-brand-icon">E</div>
+      <div class="topbar-brand-name">ECP <span>Panel</span></div>
+    </div>
 
     <div class="top-center">
       <div class="time-clocks">
@@ -668,73 +817,141 @@ margin-top:1px;
 
   <!-- TAB BAR -->
   <div class="tabbar">
-    <button class="tab-btn active" onclick="switchTab('search',this)">Search</button>
-    <button class="tab-btn" onclick="switchTab('reminders',this)">Reminders</button>
-    <button class="tab-btn" onclick="switchTab('journey',this)">Journey</button>
+    <button class="tab-btn active" onclick="switchTab('journey',this)">🎯 Mission Control</button>
+    <button class="tab-btn" onclick="switchTab('tools',this)">🔍 Search &amp; Reminders</button>
   </div>
 
   <!-- MAIN -->
   <div class="main">
 
-    <!-- SEARCH TAB -->
-    <div id="tab-search" class="tab-panel active">
-      <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search email, company, or keyword...">
-      </div>
-      <div class="filter-bar">
-        <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
-        <button class="filter-btn" onclick="setFilter('blacklist',this)">Blacklist</button>
-        <button class="filter-btn" onclick="setFilter('direct',this)">Direct</button>
-        <button class="filter-btn" onclick="setFilter('replace',this)">Replace</button>
-      </div>
-      <div id="results">
-        <div style="text-align:center;color:#6b7280;margin-top:40px;">Upload a JSON file then start typing to search</div>
-      </div>
-    </div>
-
-    <!-- REMINDERS TAB -->
-    <div id="tab-reminders" class="tab-panel">
-      <div class="reminder-section">
-        <div class="reminder-title">Client Follow-Up Reminder (Default 3 Hours)</div>
-        <div class="reminder-row">
-          <input type="text" id="partInput" placeholder="Enter Part Number">
-          <input type="number" id="hourInput" value="3" min="1" style="width:80px">
-          <input type="text" id="countryInput" placeholder="Country" style="width:120px">
-          <select id="typeInput">
-            <option value="customer">Customer Follow-up</option>
-            <option value="reminder">Reminder Follow-up</option>
-          </select>
-          <button onclick="startReminder()">Start</button>
+    <!-- MISSION CONTROL TAB (default active) -->
+    <div id="tab-journey" class="tab-panel active">
+      <div class="mc-input-bar">
+        <div class="mc-input-label">✈ Enter Part Number(s) to launch a mission</div>
+        <div class="mc-input-row">
+          <input id="pnInput" placeholder="e.g. 0123FA2  or  14331-1C / 14331-2C" class="mc-pn-input">
+          <button onclick="addPN()" class="mc-add-btn">🚀 Launch</button>
         </div>
-        <div id="reminderList"></div>
-      </div>
-
-      <div class="notes-section">
-        <div class="notes-title">Important Notes</div>
-        <div class="notes-content">
-          • Verify the QTY<br>
-          • Re-quote the new/cheap offer<br>
-          • NO EXCHANGE if confused ask<br>
-          • BLACKLIST contain BLACKLIST EMAILs, UNWANTED EMAILs<br>
-          • No Duplicate @domain.com emails<br>
-          • Double check Stockmarket.com emails<br>
-          • Direct email should be add in CC: in the main email<br>
-          • Blacklist mean either Mail not found or Blacklisted by Jadaerospace<br>
-          • Use Google / Other Platforms to search for Part you didn't find on Markets<br>
-          • Do not take action without approval<br>
-          • Multiple EXW, look for close location to the buyer<br>
-        </div>
-      </div>
-    </div>
-
-    <!-- JOURNEY TAB -->
-    <div id="tab-journey" class="tab-panel">
-      <div class="journey-addbar">
-        <input id="pnInput" placeholder="Enter Part Number">
-        <button onclick="addPN()">Add</button>
+        <div class="mc-hint">Tip: separate multiple PNs with a slash / or comma</div>
       </div>
       <div id="journeyList"></div>
     </div>
+
+    <!-- SEARCH + REMINDERS COMBINED TAB -->
+    <div id="tab-tools" class="tab-panel">
+
+      <!-- TOP ROW: Reminders (left) + PB Scorer (right) -->
+      <div class="tools-layout" style="margin-bottom:18px;">
+
+        <!-- REMINDERS -->
+        <div class="tools-col">
+          <div class="tools-col-title">⏰ Set Reminder</div>
+          <div class="reminder-section">
+            <div class="reminder-row" id="reminderFormRow">
+              <input type="text" id="partInput" placeholder="Part Number" style="flex:1;min-width:80px">
+              <input type="number" id="hourInput" value="3" min="1" style="width:58px" title="Hours">
+              <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:80px;">
+                <input type="text" id="countryInput" placeholder="Country *" style="width:100%;" id="countryInput">
+                <span id="countryErr" style="font-size:10px;color:var(--sat-red);display:none;">Country required for customer follow-up</span>
+              </div>
+              <select id="typeInput" onchange="handleTypeChange()">
+                <option value="reminder">Supplier</option>
+                <option value="customer">Customer</option>
+              </select>
+              <button onclick="startReminder()">Start</button>
+            </div>
+            <div id="reminderList"></div>
+          </div>
+        </div>
+
+        <!-- POTENTIAL BUYER SCORER -->
+        <div class="tools-col">
+          <div class="tools-col-title">🏅 Potential Buyer Scorer</div>
+          <div class="reminder-section" style="padding:12px;">
+            <div style="font-size:11px;color:var(--sat-muted);margin-bottom:10px;line-height:1.6;">
+              Rate a supplier offer across 6 factors. Score <strong>≥7/12</strong> = add to reminders as potential client.
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;">
+              <div class="pb-score-row" style="background:var(--sat-bg);border-radius:3px;padding:5px 8px;border:1px solid var(--sat-border2);">
+                <div style="font-size:10px;font-weight:700;color:var(--sat-text);margin-bottom:3px;">⚡ Response Speed</div>
+                <select class="pb-sel" id="spb1" onchange="calcStandalonePB()" style="width:100%;font-size:11px;padding:3px 5px;border:1px solid var(--sat-border);border-radius:2px;">
+                  <option value="0">0 – Slow / No reply</option><option value="1">1 – Medium</option><option value="2">2 – Fast reply</option>
+                </select>
+              </div>
+              <div class="pb-score-row" style="background:var(--sat-bg);border-radius:3px;padding:5px 8px;border:1px solid var(--sat-border2);">
+                <div style="font-size:10px;font-weight:700;color:var(--sat-text);margin-bottom:3px;">🏅 Condition</div>
+                <select class="pb-sel" id="spb2" onchange="calcStandalonePB()" style="width:100%;font-size:11px;padding:3px 5px;border:1px solid var(--sat-border);border-radius:2px;">
+                  <option value="0">0 – AR / Unknown</option><option value="1">1 – SV / OH</option><option value="2">2 – New / RP</option>
+                </select>
+              </div>
+              <div class="pb-score-row" style="background:var(--sat-bg);border-radius:3px;padding:5px 8px;border:1px solid var(--sat-border2);">
+                <div style="font-size:10px;font-weight:700;color:var(--sat-text);margin-bottom:3px;">📅 Tag Date</div>
+                <select class="pb-sel" id="spb3" onchange="calcStandalonePB()" style="width:100%;font-size:11px;padding:3px 5px;border:1px solid var(--sat-border);border-radius:2px;">
+                  <option value="0">0 – Old (2+ yrs)</option><option value="1">1 – Recent (1 yr)</option><option value="2">2 – New (&lt;6mo)</option>
+                </select>
+              </div>
+              <div class="pb-score-row" style="background:var(--sat-bg);border-radius:3px;padding:5px 8px;border:1px solid var(--sat-border2);">
+                <div style="font-size:10px;font-weight:700;color:var(--sat-text);margin-bottom:3px;">🏭 Repair Shop</div>
+                <select class="pb-sel" id="spb4" onchange="calcStandalonePB()" style="width:100%;font-size:11px;padding:3px 5px;border:1px solid var(--sat-border);border-radius:2px;">
+                  <option value="0">0 – Unknown</option><option value="1">1 – Known MRO</option><option value="2">2 – OEM / Major</option>
+                </select>
+              </div>
+              <div class="pb-score-row" style="background:var(--sat-bg);border-radius:3px;padding:5px 8px;border:1px solid var(--sat-border2);">
+                <div style="font-size:10px;font-weight:700;color:var(--sat-text);margin-bottom:3px;">💰 Price vs Market</div>
+                <select class="pb-sel" id="spb5" onchange="calcStandalonePB()" style="width:100%;font-size:11px;padding:3px 5px;border:1px solid var(--sat-border);border-radius:2px;">
+                  <option value="0">0 – Above market</option><option value="1">1 – At market</option><option value="2">2 – Below market</option>
+                </select>
+              </div>
+              <div class="pb-score-row" style="background:var(--sat-bg);border-radius:3px;padding:5px 8px;border:1px solid var(--sat-border2);">
+                <div style="font-size:10px;font-weight:700;color:var(--sat-text);margin-bottom:3px;">🔎 PN Rarity</div>
+                <select class="pb-sel" id="spb6" onchange="calcStandalonePB()" style="width:100%;font-size:11px;padding:3px 5px;border:1px solid var(--sat-border);border-radius:2px;">
+                  <option value="0">0 – Common PN</option><option value="1">1 – Medium</option><option value="2">2 – Very rare</option>
+                </select>
+              </div>
+            </div>
+            <!-- Score result -->
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <div style="font-size:13px;font-weight:700;color:var(--sat-text);">
+                Score: <span id="spbScore" style="font-size:16px;color:var(--sat-teal);">0</span><span style="font-size:11px;color:var(--sat-muted);">/12</span>
+              </div>
+              <span id="spbBadge" style="font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;display:none;"></span>
+            </div>
+            <!-- Add to reminders -->
+            <div id="spbAction" style="display:none;margin-top:10px;">
+              <div style="display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap;">
+                <div style="flex:1;min-width:120px;">
+                  <div style="font-size:10px;font-weight:600;color:var(--sat-muted);margin-bottom:3px;">Part Number</div>
+                  <input type="text" id="spbPn" placeholder="e.g. 0123FA2" style="width:100%;padding:7px 9px;border:1.5px solid var(--sat-border);border-radius:2px;font-size:12px;font-family:var(--font);">
+                </div>
+                <button onclick="addStandalonePBReminder()" style="padding:8px 14px;background:var(--sat-teal);color:#fff;border:none;border-radius:2px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;">
+                  ⭐ Add to Reminders
+                </button>
+              </div>
+              <div id="spbConfirm" style="display:none;font-size:11px;font-weight:600;color:var(--sat-teal2);background:var(--sat-teal-lt);border-radius:2px;padding:5px 9px;margin-top:6px;">✓ Added to reminders!</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /top row -->
+
+      <!-- BOTTOM: FULL-WIDTH SEARCH -->
+      <div class="tools-col">
+        <div class="tools-col-title">🔍 Contact Search</div>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search email, company, or keyword...">
+        </div>
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+          <button class="filter-btn" onclick="setFilter('blacklist',this)">Blacklist</button>
+          <button class="filter-btn" onclick="setFilter('direct',this)">Direct</button>
+          <button class="filter-btn" onclick="setFilter('replace',this)">Replace</button>
+        </div>
+        <div id="results">
+          <div style="text-align:center;color:var(--sat-muted2);margin-top:20px;font-size:13px;">Start typing to search</div>
+        </div>
+      </div>
+
+    </div><!-- /tab-tools -->
 
   </div><!-- /main -->
 
@@ -746,7 +963,7 @@ margin-top:1px;
     <div class="docs-toggle-bar" onclick="toggleDocs()">
       <div class="docs-toggle-title">
         📚 Keywords &amp; Tips — Documentation
-        <span class="badge">4 sections</span>
+        <span class="badge">4 sections</span> <span class="badge" style="background:#16a34a">10 templates</span>
       </div>
       <button class="docs-arrow" id="docsArrow">▲ Expand</button>
     </div>
@@ -895,91 +1112,169 @@ margin-top:1px;
           <div class="docs-section-title">Email Writing Templates &amp; Phrases</div>
 
           <div class="docs-template">
-            <div class="docs-template-label">📩 Initial RFQ to Supplier</div>
+            <div class="docs-template-label">📨 RFQ Email — Single PN</div>
             <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
-            <div class="docs-template-text">Subject: RFQ – Part Number [PN] | QTY [X]
+            <div class="docs-template-text">Subject: RFQ PN [0123FA2]
 
-Dear Team,
+Hello,
 
-We are looking for the following part and would appreciate your best offer:
+Please provide your best price quote and stock availability for the following item:
 
-Part Number: [PN]
-Quantity: [QTY]
-Condition: [New / Overhauled / As-Removed]
-Certification: With 8130 / EASA Form 1
+1 PN# [0123FA2] / [SENSOR - LOW FLOW]
 
-Please provide: unit price, lead time, and EXW location.
+1 PN z/ ALT# [0123FA2] or Alt: [00000000] / [SENSOR - LOW FLOW]
 
-We look forward to your prompt response.
+Thank you.
+Best regards
 
-Best regards,
-[Your Name]</div>
+salesteam@jadaero.com</div>
           </div>
 
           <div class="docs-template">
-            <div class="docs-template-label">🔔 Follow-Up Email</div>
+            <div class="docs-template-label">📨 RFQ Email — Multiple PNs</div>
             <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
-            <div class="docs-template-text">Subject: Follow-Up – RFQ [PN]
+            <div class="docs-template-text">Subject: RFQ PNs [14331-1C / 14331-2C]
 
-Dear Team,
+Hello,
 
-I am following up on my previous request for Part Number [PN], QTY [X].
+Please provide your best price quote and stock availability for the following items:
 
-Could you please confirm if you have availability and provide pricing at your earliest convenience?
+2 PN's# [14331-1C]  /  [Outflow Valve]  / QTY: 2
+         [14331-2C]  /  [Outflow Valve]  / QTY: 2
 
-Thank you,
-[Your Name]</div>
+Thank you.
+Best regards
+
+salesteam@jadaero.com</div>
           </div>
 
           <div class="docs-template">
-            <div class="docs-template-label">✅ Confirming an Order</div>
+            <div class="docs-template-label">🔔 Supplier Reminder — Option 1</div>
             <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
-            <div class="docs-template-text">Subject: PO Confirmation – [PN] | QTY [X]
+            <div class="docs-template-text">Hello,
 
-Dear Team,
+Just a quick kind reminder regarding our RFQ. 
 
-Please find attached our Purchase Order for:
-
-Part Number: [PN]
-Quantity: [QTY]
-Agreed Price: [USD/EUR X per unit]
-Condition: [Condition]
-Delivery Terms: EXW [Location]
-
-Kindly confirm receipt and expected shipment date.
-
-Best regards,
-[Your Name]</div>
+Best regards,</div>
           </div>
 
           <div class="docs-template">
-            <div class="docs-template-label">❌ No Longer Required</div>
+            <div class="docs-template-label">🔔 Supplier Reminder — Option 2</div>
             <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
-            <div class="docs-template-text">Subject: Cancellation – RFQ [PN]
+            <div class="docs-template-text">Hello,
 
-Dear Team,
+Kind reminder about our RFQ. Looking forward to your update.
 
-Thank you for your offer on Part Number [PN].
-
-We regret to inform you that this requirement has been cancelled and we will not be proceeding at this time. We appreciate your time and will keep your details on file for future requirements.
-
-Best regards,
-[Your Name]</div>
+Best regards,</div>
           </div>
 
           <div class="docs-template">
-            <div class="docs-template-label">🔄 Re-quote Request</div>
+            <div class="docs-template-label">🔔 Supplier Reminder — Option 3</div>
             <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
-            <div class="docs-template-text">Subject: Re-Quote Request – [PN]
+            <div class="docs-template-text">Hello,
 
-Dear Team,
+A gentle reminder regarding our RFQ request.
 
-We have received a more competitive offer for Part Number [PN]. 
+Best regards,</div>
+          </div>
 
-Could you please review your pricing and advise if you are able to offer a better rate? We value our relationship and would prefer to work with you on this requirement.
+          <div class="docs-template">
+            <div class="docs-template-label">📤 Quote to Client (Single PN)</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Subject: QUOTE FOR PN: [PN#] FROM JAD AEROSPACE LLC
 
-Thank you,
-[Your Name]</div>
+Hello [Client Name],
+
+Following your RFQ please find below our quote:
+
+PN: [PN#] / Description: [DESC] / QTY: [X] each
+SN: [SN#]
+Cond: RP
+Tag Type: MFG 8130/CofC/ATA106/DUAL FAA/EASA FORM-1
+Tag Src: General MRO Aerospace Inc.
+Tag Date: 6/28/2025
+Warranty: 6 MONTHS
+EXW: USA
+Lead Time: Stock
+Asking Price: $[PRICE]
+
+Validity of quotation: 7 days or subject to prior sale.
+
+We look forward to receiving your feedback.
+
+If you have further questions, please do not hesitate to contact us.
+
+Thank you for giving us the opportunity to send you this quote.
+
+Kind regards.</div>
+          </div>
+
+          <div class="docs-template">
+            <div class="docs-template-label">📋 Invoice Checklist (Internal)</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Description: [FROM CERT]
+SN: [FROM CERT]
+Tag Type: MFG 8130/CofC/ATA106/DUAL FAA/EASA FORM-1
+Tag Src: General MRO Aerospace Inc.
+Tag Date: [FROM CERT — verify format MM/DD/YYYY]
+Warranty: 6 MONTHS
+EXW: USA
+
+— INITIAL EMAIL —
+CC: houssam@jadaero.com / moe@jadaero.com / [your email]
+PO Number: [PN] | Multiple PNs → use RFQ Code
+Subject: edit — remove "PN" if multiple, check singular/plural
+Set to: Initial Email (For Quote / Revised)</div>
+          </div>
+
+          <div class="docs-template">
+            <div class="docs-template-label">🔁 Client Follow-Up (48h) — Option 1</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Hello,
+
+Just following up on this quote. Please advise if you have received a better offer so we can work to get as close as possible. 
+
+Looking forward to your feedback.
+
+Thank you!
+Best Regards</div>
+          </div>
+
+          <div class="docs-template">
+            <div class="docs-template-label">🔁 Client Follow-Up (48h) — Option 2</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Hello,
+
+Following up on the quote we sent. Please advise if you have received a better offer so we can review and try to match it.
+
+Thank you, and we look forward to your reply.
+
+Best regards,</div>
+          </div>
+
+          <div class="docs-template">
+            <div class="docs-template-label">🔁 Client Follow-Up (48h) — Option 3</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Hello,
+
+Quick follow-up on the quote. Please let us know if you have received a better offer so we can try to work closer to it.
+
+Thank you, and we look forward to hearing from you.
+
+Best regards,</div>
+          </div>
+
+          <div class="docs-template">
+            <div class="docs-template-label">🔁 Client Follow-Up (48h) — Option 4</div>
+            <button class="docs-template-copy" onclick="copyDocText(this)">Copy</button>
+            <div class="docs-template-text">Hello,
+
+Following up on the quote we shared. Please let us know if there is a better offer so we can try to get closer.
+
+Looking forward to your feedback.
+
+Thank you!
+Best regards,</div>
           </div>
 
         </div>
@@ -1017,10 +1312,58 @@ Thank you,
 
 <script>
 /* ================================================================
-   CONFIG — user accounts stored here
-   Add or remove users as needed: { username, password }
+   CONFIG — ECP Panel
    ================================================================ */
+
+// ⚠️  REPLACE this URL with your deployed Google Apps Script URL
+// Deploy steps: Extensions → Apps Script → Deploy → New Deployment
+// Type: Web App | Execute as: Me | Access: Anyone
 const API_URL = "https://script.google.com/macros/s/AKfycbxJExcAKAZ4xRChZKus2MPkH5cEgQ51tYoE9qAiV5r0ttlcJSEnWrrEHkxIXmR4CMcq/exec";
+
+/*
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  GOOGLE SHEET STRUCTURE — your sheet must have these tabs:      │
+  │                                                                 │
+  │  Tab "MainReminders" — row 1 is headers:                        │
+  │    id | part | hours | country | type | end | finished | user  │
+  │                                                                 │
+  │  Tab "WorkflowTasks" — row 1 is headers:                        │
+  │    pn | steps | user                                            │
+  │                                                                 │
+  │  The Apps Script (Code.gs) handles all read/write.             │
+  │  GET  → ?sheet=NAME&user=EMAIL  returns JSON array             │
+  │  POST → body {sheet, user, payload:[]} full-replace per user   │
+  └─────────────────────────────────────────────────────────────────┘
+*/
+
+/* ── API helpers ── */
+async function apiGet(sheet){
+  try{
+    const url = `${API_URL}?sheet=${encodeURIComponent(sheet)}&user=${encodeURIComponent(currentUser)}&t=${Date.now()}`;
+    const res  = await fetch(url, { cache: "no-store" });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text = await res.text();
+    // Strip any BOM or extra whitespace Google Scripts sometimes adds
+    const clean = text.trim().replace(/^\uFEFF/, "");
+    return JSON.parse(clean);
+  }catch(e){
+    console.warn(`[ECP] apiGet(${sheet}) failed:`, e.message);
+    return null;
+  }
+}
+
+async function apiPost(sheet, payload){
+  try{
+    const res = await fetch(API_URL, {
+      method:  "POST",
+      headers: { "Content-Type": "text/plain" }, // text/plain avoids CORS preflight
+      body:    JSON.stringify({ sheet, user: currentUser, payload })
+    });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+  }catch(e){
+    console.warn(`[ECP] apiPost(${sheet}) failed:`, e.message);
+  }
+}
 
 const USERS = [
   { username: "reda@jadaero.com",   password: "reda123"  },
@@ -1104,8 +1447,14 @@ function showLoading(on){
 function switchTab(name, el){
   document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
   document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-  document.getElementById("tab-" + name).classList.add("active");
-  el.classList.add("active");
+  const panel = document.getElementById("tab-" + name);
+  if(panel) panel.classList.add("active");
+  if(typeof el === 'string'){
+    const found = document.querySelector(el);
+    if(found) found.classList.add("active");
+  } else if(el){
+    el.classList.add("active");
+  }
 }
 
 /* ================================================================
@@ -1144,24 +1493,42 @@ function showDesktopNotification(part){
 let reminders = [];
 
 async function saveReminders(){
-  // Tag each reminder with the current user before saving
-  const payload = reminders.map(r => ({ ...r, user: currentUser }));
-  await fetch(API_URL, {
-    method:"POST",
-    body: JSON.stringify({ sheet:"MainReminders", user: currentUser, payload })
-  }).catch(()=>{});
+  const payload = reminders.map(r => ({
+    id: r.id, part: r.part, hours: r.hours, country: r.country||"",
+    type: r.type, end: r.end, finished: r.finished ? 1 : 0, user: currentUser
+  }));
+  await apiPost("MainReminders", payload);
 }
 
 async function loadReminders(){
-  try{
-    const res = await fetch(`${API_URL}?sheet=MainReminders&user=${encodeURIComponent(currentUser)}`);
-    const data = await res.json();
-    reminders = Array.isArray(data) ? data : [];
-    document.getElementById("reminderList").innerHTML = "";
-    reminders.forEach(r => createReminderCard(r));
-  }catch(e){
-    console.warn("Reminder load failed", e);
-    reminders = [];
+  const data = await apiGet("MainReminders");
+  reminders = [];
+  document.getElementById("reminderList").innerHTML = "";
+  if(Array.isArray(data)){
+    data.forEach(r => {
+      // Normalise fields coming back from sheets (they may be strings)
+      r.id       = Number(r.id)      || Date.now();
+      r.end      = Number(r.end)     || (Date.now() + 3*3600000);
+      r.hours    = Number(r.hours)   || 3;
+      r.finished = r.finished === true || r.finished === 1 || r.finished === "1" || r.finished === "TRUE";
+      reminders.push(r);
+      createReminderCard(r);
+    });
+  }
+}
+
+function handleTypeChange(){
+  const type = document.getElementById("typeInput").value;
+  const countryInp = document.getElementById("countryInput");
+  const err = document.getElementById("countryErr");
+  if(type === "customer"){
+    countryInp.style.borderColor = "";
+    // highlight border as required
+    countryInp.setAttribute("required","required");
+  } else {
+    countryInp.style.borderColor = "";
+    countryInp.removeAttribute("required");
+    if(err) err.style.display = "none";
   }
 }
 
@@ -1170,7 +1537,19 @@ function startReminder(){
   const hours   = parseInt(document.getElementById("hourInput").value) || 3;
   const country = document.getElementById("countryInput").value.trim();
   const type    = document.getElementById("typeInput").value;
+  const err     = document.getElementById("countryErr");
+
   if(!part) return alert("Enter Part Number");
+
+  // Country required for customer follow-up
+  if(type === "customer" && !country){
+    if(err) err.style.display = "block";
+    document.getElementById("countryInput").style.borderColor = "var(--sat-red)";
+    document.getElementById("countryInput").focus();
+    return;
+  }
+  if(err) err.style.display = "none";
+  document.getElementById("countryInput").style.borderColor = "";
 
   const end = Date.now() + hours * 3600000;
   const obj = { id: Date.now(), part, hours, country, type, end, finished: false, user: currentUser };
@@ -1179,6 +1558,48 @@ function startReminder(){
   createReminderCard(obj);
   document.getElementById("partInput").value = "";
   document.getElementById("countryInput").value = "";
+}
+
+/* ── Standalone Potential Buyer Scorer ── */
+function calcStandalonePB(){
+  let score = 0;
+  for(let i=1;i<=6;i++){
+    const el = document.getElementById(`spb${i}`);
+    if(el) score += parseInt(el.value)||0;
+  }
+  const scoreEl  = document.getElementById("spbScore");
+  const badgeEl  = document.getElementById("spbBadge");
+  const actionEl = document.getElementById("spbAction");
+  if(!scoreEl) return;
+  scoreEl.textContent = score;
+
+  if(score >= 9){
+    scoreEl.style.color = "var(--sat-teal)";
+    badgeEl.textContent = "🔥 Strong Buy";
+    badgeEl.style.cssText = "background:var(--sat-teal-lt);color:var(--sat-teal2);padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;display:inline-block;";
+    actionEl.style.display = "block";
+  } else if(score >= 6){
+    scoreEl.style.color = "#F07830";
+    badgeEl.textContent = "⭐ Medium";
+    badgeEl.style.cssText = "background:#FFF3E0;color:#E65100;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;display:inline-block;";
+    actionEl.style.display = "block";
+  } else {
+    scoreEl.style.color = "var(--sat-muted)";
+    badgeEl.textContent = score >= 3 ? "📊 Low" : "";
+    badgeEl.style.cssText = "display:"+(score>=3?"inline-block":"none")+";";
+    actionEl.style.display = "none";
+  }
+}
+
+function addStandalonePBReminder(){
+  const pn = document.getElementById("spbPn").value.trim() || "Unknown PN";
+  const end = Date.now() + 48*3600000;
+  const obj = {id:Date.now(), part:`${pn} (Potential Client)`, hours:48, country:"", type:"customer", end, finished:false, user:currentUser};
+  reminders.push(obj);
+  saveReminders();
+  createReminderCard(obj);
+  const conf = document.getElementById("spbConfirm");
+  if(conf){ conf.style.display="block"; setTimeout(()=>conf.style.display="none",3000); }
 }
 
 function createReminderCard(obj){
@@ -1469,7 +1890,8 @@ const STEP_DEFS = [
     items: [
       "Pick the newest Tag Date and preferred Condition",
       "Check availability (Stock vs Lead Time)",
-      "Check the lowest price"
+      "Check the lowest price",
+      "Search for the Market Price (compare vs your offer)"
     ],
     warnings: [
       "Priority order is: Tag Date > Condition > Price \u2014 never compromise Tag Date for price",
@@ -1479,25 +1901,7 @@ const STEP_DEFS = [
   },
   {
     label: "Step 9 \u2014 The Invoice Process",
-    items: [
-      "Go to Quote > Create Quote",
-      "Copy the email from the RFQ & Add the client (if not present, add manually)",
-      "Ensure the client is the correct one",
-      "Place the PN in PO Number",
-      "Add PN / Information: Description, SN, Tag Type, Tag Src, Tag Date, EXW, Warranty",
-      "Is the Description matching the certification?",
-      "Is the SN matching the certification?",
-      "Is the Tag Type matching the certification?",
-      "Is the Tag Src matching the certification?",
-      "Is the Tag Date matching the certification? (Double Check \u2014 Use Google)",
-      "Where is the EXW location?",
-      "Ensure QTY is correct (QTY each)",
-      "Ensure the price matches the picked offer (Double Check)",
-      "Include the certification (Double Check / if available)",
-      "Make sure it is set to 'Initial Email' (For Quote / Revised)",
-      "Paste the CC: emails including yourself",
-      "Check the body / header of the email"
-    ],
+    items: [],
     warnings: [
       "ALWAYS fill the invoice from the CERTIFICATION, not from the quote",
       "Review Price, Description, SN, Tag Type, Tag Src, Tag Date, and Condition from the certification before submitting",
@@ -1520,21 +1924,19 @@ const STEP_DEFS = [
 let workflows = {};
 
 async function loadWorkflow(){
-  try{
-    const res = await fetch(`${API_URL}?sheet=WorkflowTasks&user=${encodeURIComponent(currentUser)}`);
-    const data = await res.json();
-    workflows = {};
-    if(Array.isArray(data)){
-      data.forEach(row => {
-        if(row.pn) workflows[row.pn] = { steps: JSON.parse(row.steps) };
-      });
-    }
-    renderJourney();
-  }catch(e){
-    console.warn("Workflow load failed", e);
-    workflows = {};
-    renderJourney();
+  const data = await apiGet("WorkflowTasks");
+  workflows = {};
+  if(Array.isArray(data)){
+    data.forEach(row => {
+      if(!row.pn) return;
+      try{
+        workflows[row.pn] = { steps: JSON.parse(row.steps) };
+      }catch(e){
+        console.warn("Bad steps JSON for PN", row.pn, e);
+      }
+    });
   }
+  renderJourney();
 }
 
 async function saveWorkflow(){
@@ -1543,10 +1945,7 @@ async function saveWorkflow(){
     steps: JSON.stringify(workflows[pn].steps),
     user: currentUser
   }));
-  await fetch(API_URL, {
-    method:"POST",
-    body: JSON.stringify({ sheet:"WorkflowTasks", user: currentUser, payload })
-  }).catch(()=>{});
+  await apiPost("WorkflowTasks", payload);
 }
 
 function addPN(){
@@ -1599,115 +1998,658 @@ function removePN(pn){
   renderJourney();
 }
 
+/* =====================================================================
+   INLINE PANEL STYLES — injected dynamically into Mission Control steps
+   ===================================================================== */
+(function injectInlineStyles(){
+  const s = document.createElement("style");
+  s.textContent = `
+  /* Inline search panel */
+  .inline-search-panel{
+    background:#f8fafc;border-top:1px solid #e2e8f0;
+    padding:12px 16px 14px;
+  }
+  .inline-panel-title{
+    font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+    color:#64748b;margin-bottom:10px;display:flex;align-items:center;gap:6px;
+  }
+  .inline-search-row{display:flex;gap:8px;margin-bottom:8px;}
+  .inline-search-input{
+    flex:1;padding:8px 11px;border-radius:6px;font-size:13px;
+    border:1.5px solid #cbd5e1;outline:none;background:#fff;
+    transition:border-color 0.15s;
+  }
+  .inline-search-input:focus{border-color:#3b82f6;}
+  .inline-filter-row{display:flex;gap:5px;margin-bottom:8px;flex-wrap:wrap;}
+  .inline-filter-btn{
+    padding:4px 10px;border:1px solid #cbd5e1;border-radius:12px;
+    background:#fff;font-size:11px;font-weight:600;cursor:pointer;
+    color:#64748b;transition:0.12s;
+  }
+  .inline-filter-btn.active{background:#3b82f6;color:#fff;border-color:#3b82f6;}
+  .inline-results{max-height:200px;overflow-y:auto;}
+  .inline-card{
+    background:#fff;border:1px solid #e2e8f0;border-left:3px solid #94a3b8;
+    border-radius:5px;padding:7px 10px;margin-bottom:5px;font-size:12px;
+  }
+  .inline-card.blacklist{background:#fff5f5;border-left-color:#dc2626;}
+  .inline-card.direct{border-left-color:#475569;}
+  .inline-card.replace{border-left-color:#7c3aed;}
+  .inline-card-title{font-weight:700;color:#1e293b;margin-bottom:4px;font-size:11.5px;}
+  .inline-card.blacklist .inline-card-title{color:#dc2626;}
+  .inline-email-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:2px 0;gap:6px;
+  }
+  .inline-email{font-size:11.5px;color:#1e293b;word-break:break-all;flex:1;}
+  .inline-card.blacklist .inline-email{color:#b91c1c;}
+  .inline-copy-btn{
+    flex-shrink:0;border:none;background:#e5e9ef;
+    padding:1px 7px;font-size:11px;border-radius:3px;cursor:pointer;
+  }
+  .inline-copy-btn:hover{background:#d0d7e2;}
+  .inline-bl-reason{font-size:11px;color:#b91c1c;font-weight:600;margin-top:3px;}
+  .inline-no-results{text-align:center;color:#94a3b8;font-size:12px;padding:12px 0;}
+
+  /* Inline reminder form */
+  .inline-reminder-panel{
+    background:#fffbeb;border-top:1px solid #fde68a;
+    padding:12px 16px 14px;
+  }
+  .inline-reminder-row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px;}
+  .inline-reminder-field{display:flex;flex-direction:column;gap:3px;}
+  .inline-reminder-field label{font-size:10px;font-weight:700;color:#92400e;text-transform:uppercase;}
+  .inline-reminder-field input,
+  .inline-reminder-field select{
+    padding:7px 10px;border:1.5px solid #fcd34d;border-radius:6px;
+    font-size:12.5px;background:#fff;outline:none;
+  }
+  .inline-reminder-field input:focus,
+  .inline-reminder-field select:focus{border-color:#f59e0b;}
+  .inline-set-reminder-btn{
+    padding:8px 16px;background:linear-gradient(135deg,#f59e0b,#d97706);
+    color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:700;
+    cursor:pointer;white-space:nowrap;align-self:flex-end;
+  }
+  .inline-set-reminder-btn:hover{opacity:0.9;}
+  .inline-reminder-confirm{
+    font-size:11.5px;font-weight:700;color:#16a34a;
+    background:#dcfce7;border-radius:4px;padding:5px 10px;
+    display:none;margin-top:4px;
+  }
+
+  /* Inline template panel */
+  .inline-template-panel{
+    background:#f0f9ff;border-top:1px solid #bae6fd;
+    padding:12px 16px 14px;
+  }
+  .inline-tpl-tabs{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap;}
+  .inline-tpl-tab{
+    padding:4px 10px;border:1.5px solid #bae6fd;border-radius:12px;
+    background:#fff;font-size:11px;font-weight:700;cursor:pointer;
+    color:#0369a1;transition:0.12s;
+  }
+  .inline-tpl-tab.active{background:#0ea5e9;color:#fff;border-color:#0ea5e9;}
+  .inline-tpl-box{
+    background:#fff;border:1px solid #bae6fd;border-radius:6px;
+    padding:10px 12px;position:relative;
+  }
+  .inline-tpl-text{
+    font-size:12px;color:#1e293b;line-height:1.6;
+    white-space:pre-line;
+  }
+  .inline-tpl-copy{
+    position:absolute;right:8px;top:8px;
+    background:#e0f2fe;border:none;border-radius:4px;
+    font-size:10px;font-weight:700;padding:3px 8px;cursor:pointer;
+    color:#0369a1;
+  }
+  .inline-tpl-copy:hover{background:#bae6fd;}
+
+  /* Inline invoice checklist */
+  .inline-invoice-panel{
+    background:#fdf4ff;border-top:1px solid #e9d5ff;
+    padding:12px 16px 14px;
+  }
+  .inline-checklist{list-style:none;padding:0;margin:0;}
+  .inline-checklist li{
+    display:flex;align-items:flex-start;gap:8px;
+    padding:5px 0;border-bottom:1px dashed #e9d5ff;
+    font-size:12px;color:#4b5563;
+  }
+  .inline-checklist li:last-child{border-bottom:none;}
+  .inline-checklist li input[type=checkbox]{
+    flex-shrink:0;margin-top:2px;cursor:pointer;
+    width:13px;height:13px;
+  }
+  .inline-checklist li span.done-txt{text-decoration:line-through;color:#a78bfa;}
+  .inline-inv-warn{
+    background:#fff1f1;border:1px solid #fca5a5;border-left:4px solid #dc2626;
+    border-radius:6px;padding:8px 10px;margin-top:10px;
+    font-size:11.5px;color:#b91c1c;line-height:1.6;
+  }
+  .inline-inv-warn strong{display:block;margin-bottom:4px;font-size:12px;}
+
+  /* Inline follow-up panel */
+  .inline-followup-panel{
+    background:#f0fdf4;border-top:1px solid #bbf7d0;
+    padding:12px 16px 14px;
+  }
+  `;
+  document.head.appendChild(s);
+})();
+
+// Step icons and spotlight descriptions for Mission Control
+const STEP_META = [
+  { icon:"📋", phase:"Intake",   spotlight:"Review the RFQ carefully. Check the PN, description, QTY, and any alternate PNs. Make sure you understand exactly what the client needs before moving forward." },
+  { icon:"✉️", phase:"Prepare",  spotlight:"Build your RFQ email template(s). One template per PN. Check QTY, description, subject line, font/size, and remove any extra spaces. Use the Email Templates in the Docs panel below." },
+  { icon:"🔍", phase:"Search",   spotlight:"Search the PN on all platforms: Google Sheets (check if worked), ILS, Partbase, Locatory, B2B, Stockmarket, Satair, AJW, Proponent. Also try Google and ask co-workers." },
+  { icon:"📤", phase:"Send RFQs", spotlight:"Send your RFQs. Always CC the general sales email and include the direct contact. Check for duplicates by searching @domain.com before sending. Include the QTY in every email." },
+  { icon:"📥", phase:"Quotes",   spotlight:"Review incoming quotes. Verify PN, description, condition, QTY, lead time, tag source, and whether it's outright or exchange. Add every quote to the database — even bad ones." },
+  { icon:"📜", phase:"Cert Check", spotlight:"Review the certification carefully. Match PN, description, SN, condition, block 12/5, block 14a/14b or 13a. Double-check the date format (MM/DD/YYYY). Remove unwanted paperwork." },
+  { icon:"⏰", phase:"Reminder",  spotlight:"Send reminders to suppliers who haven't replied yet. Filter them out, reply after 3 hours, include the sales email and their name. Use Reminder templates from the Docs panel." },
+  { icon:"🏆", phase:"Pick Offer", spotlight:"Pick the best offer. Priority: newest Tag Date > best Condition > lowest Price. Never compromise Tag Date for price. Confirm availability before committing." },
+  { icon:"🧾", phase:"Invoice",   spotlight:"Build the invoice/quote from the CERTIFICATION — not from the supplier quote. Fill all fields carefully. CC Houssam and Moe. Set to 'Initial Email'. Double-check the client is correct." },
+  { icon:"🔁", phase:"Follow-Up", spotlight:"Reply to the client after 48 hours. Remove your own email from the To: field. Set To: to the client only. Use a Follow-Up template from the Docs panel." }
+];
+
+
+// No copy buttons on any step sub-items
+const STEPS_WITH_COPY = new Set([]); // Removed per user request
+
 function renderJourney(){
   const container = document.getElementById("journeyList");
   container.innerHTML = "";
+
   if(Object.keys(workflows).length === 0){
-    container.innerHTML = '<div class="journey-empty">No part numbers yet — enter a PN above and click Add</div>';
+    container.innerHTML = `
+      <div class="mc-empty">
+        <div class="mc-empty-icon">🛫</div>
+        <div><strong>No active missions</strong></div>
+        <div>Enter a PN above and click Launch to start tracking a deal</div>
+      </div>`;
     return;
   }
 
   for(let pn in workflows){
     const wf = workflows[pn];
     const doneCount = wf.steps.filter(s => s.done).length;
-    const card = document.createElement("div");
-    card.className = "pn-card";
+    const totalSteps = STEP_DEFS.length;
+    const pct = Math.round((doneCount / totalSteps) * 100);
+    const allDone = doneCount === totalSteps;
+    const activeIdx = wf.steps.findIndex(s => !s.done);
+    const uid = pn.replace(/[^a-z0-9]/gi,"_");
 
-    const header = document.createElement("div");
-    header.className = "pn-card-header";
-    header.innerHTML = `
-      <div class="pn-card-title">${pn}</div>
-      <div class="pn-card-meta">
-        <span class="pn-progress">${doneCount} / ${STEP_DEFS.length} steps done</span>
-        <button class="pn-remove-btn" onclick="removePN('${pn}')">Remove</button>
+    const card = document.createElement("div");
+    card.className = "mission-card";
+
+    // Track card collapsed state per PN
+    if(wf.collapsed === undefined) wf.collapsed = false;
+
+    // ── HEADER — click to collapse/expand whole card ──
+    const meta = activeIdx >= 0 ? STEP_META[activeIdx] : STEP_META[totalSteps-1];
+    const headerDiv = document.createElement("div");
+    headerDiv.className = "mission-header";
+    headerDiv.style.cursor = "pointer";
+    headerDiv.title = wf.collapsed ? "Click to expand" : "Click to collapse";
+    const collapseIcon = wf.collapsed ? "▶" : "▼";
+    headerDiv.innerHTML = `
+      <div class="mission-pn-name">
+        <span style="font-size:10px;color:rgba(255,255,255,0.45);margin-right:6px;">${collapseIcon}</span>
+        &#9992; ${pn}
+      </div>
+      <div class="mission-header-right">
+        <span class="mission-phase-badge">${allDone ? "&#10003; Complete" : (meta.icon+" "+meta.phase)}</span>
+        <button class="mc-remove-btn" onclick="event.stopPropagation();removePN('${pn}')">&#10005; Remove</button>
       </div>`;
-    card.appendChild(header);
+    headerDiv.onclick = () => {
+      wf.collapsed = !wf.collapsed;
+      renderJourney();
+    };
+    card.appendChild(headerDiv);
+
+    if(allDone && !wf.collapsed){
+      const doneBanner = document.createElement("div");
+      doneBanner.className = "mission-done-banner";
+      doneBanner.textContent = "Mission Complete - All 10 Steps Done!";
+      card.appendChild(doneBanner);
+    }
+
+    // If collapsed, stop here — only show header
+    if(wf.collapsed){
+      container.appendChild(card);
+      continue;
+    }
+
+    // ── RUNWAY ──
+    const runwayDiv = document.createElement("div");
+    runwayDiv.className = "runway-wrap";
+    let rHtml = `<div class="runway-label">Mission Progress</div><div class="runway">`;
+    wf.steps.forEach((s,i) => {
+      const cls = s.done ? "done" : (i===activeIdx ? "active" : "locked");
+      rHtml += `<div class="runway-step ${cls}" title="${STEP_DEFS[i].label}" onclick="jumpToStep('${pn}',${i})"></div>`;
+    });
+    rHtml += `</div><div class="runway-labels">`;
+    wf.steps.forEach((s,i) => {
+      const cls = s.done ? "done" : (i===activeIdx ? "active" : "");
+      rHtml += `<span class="runway-step-lbl ${cls}">${STEP_META[i].phase}</span>`;
+    });
+    rHtml += `</div><div class="runway-stats"><span class="runway-pct">${pct}%</span><span class="runway-count">${doneCount}/${totalSteps}</span></div>`;
+    runwayDiv.innerHTML = rHtml;
+    card.appendChild(runwayDiv);
+
+    // ── SPOTLIGHT ──
+    if(!allDone && activeIdx >= 0){
+      const am = STEP_META[activeIdx];
+      const def = STEP_DEFS[activeIdx];
+      const spotDiv = document.createElement("div");
+      spotDiv.className = "step-spotlight";
+      spotDiv.innerHTML = `
+        <div class="spotlight-icon">${am.icon}</div>
+        <div class="spotlight-body">
+          <div class="spotlight-title">Now: ${def.label}</div>
+          <div class="spotlight-desc">${am.spotlight}</div>
+        </div>`;
+      card.appendChild(spotDiv);
+    }
+
+    // ── STEPS ACCORDION ──
+    const stepsWrap = document.createElement("div");
+    stepsWrap.className = "mc-steps-wrap";
 
     wf.steps.forEach((step, si) => {
+      const isActive = si === activeIdx;
+      const isOpen = isActive ? true : step.open;
       const stepEl = document.createElement("div");
-      stepEl.className = "acc-step";
+      stepEl.className = "mc-step";
+
+      let tagHtml = "";
+      if(step.done)             tagHtml = `<span class="mc-step-tag tag-done">&#10003;</span>`;
+      else if(isActive)         tagHtml = `<span class="mc-step-tag tag-now">&#9654; Now</span>`;
+      else if(si===activeIdx+1) tagHtml = `<span class="mc-step-tag tag-next">Next</span>`;
 
       const hdr = document.createElement("div");
-      hdr.className = "acc-header";
+      hdr.className = "mc-step-header"+(isActive?" is-active":"");
 
       const chk = document.createElement("input");
-      chk.type = "checkbox"; chk.className = "acc-step-check"; chk.checked = step.done;
-      chk.onclick = (e) => { e.stopPropagation(); toggleStepDone(pn, si); };
+      chk.type="checkbox"; chk.className="mc-step-check"; chk.checked=step.done;
+      chk.onclick=(e)=>{e.stopPropagation(); toggleStepDone(pn,si);};
 
       const lbl = document.createElement("div");
-      lbl.className = "acc-step-label" + (step.done ? " done" : "");
-      lbl.textContent = step.label;
-      lbl.onclick = () => toggleStepOpen(pn, si);
+      lbl.className = "mc-step-lbl"+(step.done?" done":"")+(isActive?" active-step":"");
+      lbl.textContent = STEP_DEFS[si].label;
 
-      const arrow = document.createElement("button");
-      arrow.className = "acc-arrow";
-      arrow.textContent = step.open ? "▲ Hide" : "▼ Show";
-      arrow.onclick = () => toggleStepOpen(pn, si);
+      const tag = document.createElement("span");
+      tag.innerHTML = tagHtml;
 
-      hdr.appendChild(chk); hdr.appendChild(lbl); hdr.appendChild(arrow);
+      const arrow = document.createElement("span");
+      arrow.className = "mc-step-arrow";
+      arrow.textContent = isOpen ? "\u25b2" : "\u25bc";
+
+      hdr.onclick = (e)=>{ if(e.target===chk) return; toggleStepOpen(pn,si); };
+      hdr.appendChild(chk); hdr.appendChild(lbl); hdr.appendChild(tag); hdr.appendChild(arrow);
       stepEl.appendChild(hdr);
 
+      // ── Body ──
       const body = document.createElement("div");
-      body.className = "acc-body" + (step.open ? " open" : "");
+      body.className = "mc-step-body"+(isOpen?" open":"");
 
-      step.subItems.forEach((item, ii) => {
+      // Sub-items
+      const showCopy = STEPS_WITH_COPY.has(si);
+      step.subItems.forEach((item,ii)=>{
+        if(!item.text) return;
         const row = document.createElement("div");
-        row.className = "sub-item";
-
+        row.className="mc-sub-item";
         const left = document.createElement("div");
-        left.className = "sub-item-left";
-
+        left.className="mc-sub-left";
         const subChk = document.createElement("input");
-        subChk.type = "checkbox"; subChk.className = "sub-check"; subChk.checked = item.done;
-        subChk.onclick = () => toggleSubItem(pn, si, ii);
-
+        subChk.type="checkbox"; subChk.className="mc-sub-check"; subChk.checked=item.done;
+        subChk.onclick=()=>toggleSubItem(pn,si,ii);
         const txt = document.createElement("span");
-        txt.className = "sub-text" + (item.done ? " done" : "");
-        txt.textContent = item.text;
-        txt.style.cursor = "pointer";
-        txt.onclick = () => toggleSubItem(pn, si, ii);
-
+        txt.className="mc-sub-text"+(item.done?" done":"");
+        txt.textContent=item.text;
+        txt.onclick=()=>toggleSubItem(pn,si,ii);
         left.appendChild(subChk); left.appendChild(txt);
-
-        const cpBtn = document.createElement("button");
-        cpBtn.className = "sub-copy"; cpBtn.textContent = "Copy";
-        cpBtn.onclick = () => {
-          navigator.clipboard.writeText(item.text);
-          cpBtn.textContent = "Copied!";
-          setTimeout(() => { cpBtn.textContent = "Copy"; }, 1200);
-        };
-
-        row.appendChild(left); row.appendChild(cpBtn);
+        row.appendChild(left);
+        if(showCopy){
+          const cpBtn = document.createElement("button");
+          cpBtn.className="mc-sub-copy"; cpBtn.textContent="Copy";
+          cpBtn.onclick=()=>{ navigator.clipboard.writeText(item.text); cpBtn.textContent="\u2713"; setTimeout(()=>{cpBtn.textContent="Copy";},1200); };
+          row.appendChild(cpBtn);
+        }
         body.appendChild(row);
       });
 
-      // Warning note box (read-only, from STEP_DEFS)
+      // Warnings (skip step 9 — shown in its inline panel)
       const def = STEP_DEFS[si];
-      if(def.warnings && def.warnings.length > 0){
-        const warnBox = document.createElement("div");
-        warnBox.className = "step-warning-box";
-        const warnTitle = document.createElement("div");
-        warnTitle.className = "step-warning-title";
-        warnTitle.innerHTML = "&#9888; Things to Avoid in This Step";
-        const warnList = document.createElement("ul");
-        warnList.className = "step-warning-list";
-        def.warnings.forEach(w => {
-          const li = document.createElement("li");
-          li.textContent = w;
-          warnList.appendChild(li);
-        });
-        warnBox.appendChild(warnTitle);
-        warnBox.appendChild(warnList);
-        body.appendChild(warnBox);
+      if(def.warnings && def.warnings.length > 0 && si !== 8){
+        const wb = document.createElement("div"); wb.className="mc-warn-box";
+        wb.innerHTML=`<div class="mc-warn-title">&#9888; Things to Avoid</div>`;
+        const wl = document.createElement("ul"); wl.className="mc-warn-list";
+        def.warnings.forEach(w=>{ const li=document.createElement("li"); li.textContent=w; wl.appendChild(li); });
+        wb.appendChild(wl); body.appendChild(wb);
+      }
+
+      // ── STEP 3: CONTACT SEARCH ──
+      if(si === 2){
+        const panel = document.createElement("div");
+        panel.className = "inline-search-panel";
+        panel.id = `inline-search-${uid}`;
+        panel.innerHTML = `
+          <div class="inline-panel-title">&#128269; Contact Search</div>
+          <div class="inline-search-row">
+            <input class="inline-search-input" id="isearch_${uid}" placeholder="Company, email, keyword…" oninput="runInlineSearch('${uid}')">
+          </div>
+          <div class="inline-filter-row">
+            <button class="inline-filter-btn active" onclick="setInlineFilter('${uid}','all',this)">All</button>
+            <button class="inline-filter-btn" onclick="setInlineFilter('${uid}','blacklist',this)">Blacklist</button>
+            <button class="inline-filter-btn" onclick="setInlineFilter('${uid}','direct',this)">Direct</button>
+            <button class="inline-filter-btn" onclick="setInlineFilter('${uid}','replace',this)">Replace</button>
+          </div>
+          <div class="inline-results" id="iresults_${uid}"><div class="inline-no-results">Start typing…</div></div>`;
+        body.appendChild(panel);
+      }
+
+      // ── STEP 4: REMINDER SETTER ──
+      if(si === 3){
+        const panel = document.createElement("div");
+        panel.className = "inline-reminder-panel";
+        panel.innerHTML = `
+          <div class="inline-panel-title">&#9200; Set Supplier Reminder</div>
+          <div class="inline-reminder-row">
+            <div class="inline-reminder-field"><label>Hours</label><input type="number" id="irh_${uid}" value="3" min="1" style="width:64px"></div>
+            <div class="inline-reminder-field"><label>Country</label><input type="text" id="irc_${uid}" placeholder="Country" style="width:100px"></div>
+            <div class="inline-reminder-field"><label>Type</label>
+              <select id="irt_${uid}">
+                <option value="reminder">Supplier</option>
+                <option value="customer">Customer</option>
+              </select>
+            </div>
+            <button class="inline-set-reminder-btn" onclick="setInlineReminder('${uid}','${pn}')">&#9200; Start</button>
+          </div>
+          <div class="inline-reminder-confirm" id="irconfirm_${uid}">&#10003; Reminder started!</div>`;
+        body.appendChild(panel);
+      }
+
+      // ── STEP 7: REMINDER TEMPLATES ──
+      if(si === 6){
+        const tpls = [
+          { label:"Opt 1", text:"Hello,\n\nJust a quick kind reminder regarding our RFQ.\n\nBest regards," },
+          { label:"Opt 2", text:"Hello,\n\nKind reminder about our RFQ. Looking forward to your update.\n\nBest regards," },
+          { label:"Opt 3", text:"Hello,\n\nA gentle reminder regarding our RFQ request.\n\nBest regards," }
+        ];
+        const panel = document.createElement("div");
+        panel.className = "inline-template-panel";
+        panel.id = `itplpanel_${uid}_r`;
+        panel.dataset.tpls = JSON.stringify(tpls);
+        panel.innerHTML = `
+          <div class="inline-panel-title">&#9993; Supplier Reminder Templates</div>
+          <div class="inline-tpl-tabs">
+            ${tpls.map((t,i)=>`<button class="inline-tpl-tab${i===0?" active":""}" onclick="switchInlineTpl('${uid}_r',${i},this)">${t.label}</button>`).join("")}
+          </div>
+          <div class="inline-tpl-box">
+            <button class="inline-tpl-copy" onclick="copyInlineTpl('${uid}_r')">Copy</button>
+            <div class="inline-tpl-text" id="itpl_${uid}_r">${tpls[0].text}</div>
+          </div>`;
+        body.appendChild(panel);
+      }
+
+      // ── STEP 8: POTENTIAL BUYER SCORER ──
+      if(si === 7){
+        const panel = document.createElement("div");
+        panel.className = "inline-reminder-panel";
+        panel.style.cssText = "background:#f0fdf4;border-top-color:#bbf7d0;";
+        panel.innerHTML = `
+          <div class="inline-panel-title" style="color:#15803d;">&#127941; Market Price Check &amp; Potential Buyer Score</div>
+          <div style="font-size:11px;color:#166534;margin-bottom:8px;">Rate each factor 0–2. Score &ge;7 &rarr; add to reminders as potential client.</div>
+          <div class="pb-score-grid">
+            <div class="pb-score-row"><span class="pb-factor">&#9889; Response Speed</span><select class="pb-sel" id="pb1_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – Slow/No reply</option><option value="1">1 – Medium</option><option value="2">2 – Fast reply</option></select></div>
+            <div class="pb-score-row"><span class="pb-factor">&#127941; High Condition</span><select class="pb-sel" id="pb2_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – AR/Unknown</option><option value="1">1 – SV/OH</option><option value="2">2 – New/RP</option></select></div>
+            <div class="pb-score-row"><span class="pb-factor">&#128197; Tag Date</span><select class="pb-sel" id="pb3_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – Old (2+ yrs)</option><option value="1">1 – Recent (1 yr)</option><option value="2">2 – New (&lt;6mo)</option></select></div>
+            <div class="pb-score-row"><span class="pb-factor">&#127981; Repair Credibility</span><select class="pb-sel" id="pb4_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – Unknown shop</option><option value="1">1 – Known MRO</option><option value="2">2 – OEM/Major</option></select></div>
+            <div class="pb-score-row"><span class="pb-factor">&#128176; Price vs Market</span><select class="pb-sel" id="pb5_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – Above market</option><option value="1">1 – At market</option><option value="2">2 – Below market</option></select></div>
+            <div class="pb-score-row"><span class="pb-factor">&#128269; PN Rarity</span><select class="pb-sel" id="pb6_${uid}" onchange="calcPBScore('${uid}')"><option value="0">0 – Common PN</option><option value="1">1 – Medium rarity</option><option value="2">2 – Very rare PN</option></select></div>
+          </div>
+          <div class="pb-score-result" id="pbresult_${uid}">Score: <strong id="pbscore_${uid}">0</strong>/12 <span class="pb-score-badge" id="pbbadge_${uid}"></span></div>
+          <div id="pb-remind-wrap_${uid}" style="display:none;margin-top:8px;">
+            <button class="inline-set-reminder-btn" style="background:linear-gradient(135deg,#16a34a,#15803d);font-size:11px;" onclick="addPotentialBuyerReminder('${uid}','${pn}')">&#11088; Add to Reminders as Potential Client</button>
+            <div class="inline-reminder-confirm" id="pbconfirm_${uid}">&#10003; Added to reminders!</div>
+          </div>`;
+        body.appendChild(panel);
+      }
+
+      // ── STEP 9: INVOICE CHECKLIST + QUOTE TEMPLATE ──
+      if(si === 8){
+        const invoiceItems = [
+          "Go to Quote \u2192 Create Quote",
+          "Copy the RFQ email & add the client",
+          "Ensure the client is the CORRECT one",
+          "Place PN in the PO Number field",
+          "Description \u2014 fill from CERTIFICATION",
+          "SN \u2014 fill from CERTIFICATION",
+          "Tag Type: MFG 8130/CofC/ATA106/DUAL FAA/EASA FORM-1",
+          "Tag Src: General MRO Aerospace Inc.",
+          "Tag Date \u2014 CERTIFICATION (verify MM/DD/YYYY)",
+          "EXW \u2014 fill from CERTIFICATION",
+          "Verify QTY (each)",
+          "Price matches picked offer (Double Check)",
+          "Attach certification (if available)",
+          "Set to 'Initial Email' (Quote/Revised)",
+          "CC: houssam@jadaero.com / moe@jadaero.com / your email",
+          "Review body & header before sending"
+        ];
+        const quoteTpl = "Subject: QUOTE FOR PN: [PN#] FROM JAD AEROSPACE LLC\n\nHello [Client Name],\n\nFollowing your RFQ please find below our quote:\n\nPN: [PN#] / Description: [DESC] / QTY: [X] each\nSN: [SN#]\nCond: RP\nTag Type: MFG 8130/CofC/ATA106/DUAL FAA/EASA FORM-1\nTag Src: General MRO Aerospace Inc.\nTag Date: [MM/DD/YYYY]\nWarranty: 6 MONTHS\nEXW: USA\nLead Time: Stock\nAsking Price: $[PRICE]\n\nValidity of quotation: 7 days or subject to prior sale.\n\nWe look forward to receiving your feedback.\n\nIf you have further questions, please do not hesitate to contact us.\n\nThank you for giving us the opportunity to send you this quote.\n\nKind regards.";
+
+        const panel = document.createElement("div");
+        panel.className = "inline-invoice-panel";
+        panel.innerHTML = `
+          <div class="inline-panel-title">&#129534; Invoice Process &mdash; Checklist &amp; Quote Template</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;">
+            <div>
+              <div style="font-size:10px;font-weight:800;text-transform:uppercase;color:#7e22ce;letter-spacing:0.8px;margin-bottom:6px;">&#10003; Checklist</div>
+              <ul class="inline-checklist" id="iinv_${uid}">
+                ${invoiceItems.map((item,i)=>`<li id="invitem_${uid}_${i}"><input type="checkbox" onchange="toggleInvItem('${uid}',${i},this)"><span id="invtxt_${uid}_${i}">${item}</span></li>`).join("")}
+              </ul>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:800;text-transform:uppercase;color:#7e22ce;letter-spacing:0.8px;margin-bottom:6px;">&#128228; Quote Email</div>
+              <div class="inline-tpl-box" style="background:#faf5ff;border-color:#d8b4fe;position:relative;">
+                <button class="inline-tpl-copy" style="background:#ede9fe;color:#7c3aed;" onclick="navigator.clipboard.writeText(document.getElementById('qtpl_${uid}').textContent);this.textContent='&#10003;';setTimeout(()=>{this.textContent='Copy'},1500)">Copy</button>
+                <div class="inline-tpl-text" id="qtpl_${uid}" style="font-size:11px;">${quoteTpl}</div>
+              </div>
+            </div>
+          </div>
+          <div class="inline-inv-warn"><strong>&#9888; Critical</strong> Fill from CERTIFICATION only. Verify Tag Date MM/DD/YYYY. Wrong client = major error.</div>`;
+        body.appendChild(panel);
+
+        // Step 9 warnings
+        const def9 = STEP_DEFS[8];
+        if(def9.warnings && def9.warnings.length){
+          const wb = document.createElement("div"); wb.className="mc-warn-box"; wb.style.marginTop="8px";
+          wb.innerHTML=`<div class="mc-warn-title">&#9888; Things to Avoid</div>`;
+          const wl = document.createElement("ul"); wl.className="mc-warn-list";
+          def9.warnings.forEach(w=>{ const li=document.createElement("li"); li.textContent=w; wl.appendChild(li); });
+          wb.appendChild(wl); body.appendChild(wb);
+        }
+      }
+
+      // ── STEP 10: FOLLOW-UP TEMPLATES + 48H REMINDER ──
+      if(si === 9){
+        const fuTpls = [
+          { label:"Opt 1", text:"Hello,\n\nJust following up on this quote. Please advise if you have received a better offer so we can work to get as close as possible.\n\nLooking forward to your feedback.\n\nThank you!\nBest Regards" },
+          { label:"Opt 2", text:"Hello,\n\nFollowing up on the quote we sent. Please advise if you have received a better offer so we can review and try to match it.\n\nThank you, and we look forward to your reply.\n\nBest regards," },
+          { label:"Opt 3", text:"Hello,\n\nQuick follow-up on the quote. Please let us know if you have received a better offer so we can try to work closer to it.\n\nThank you, and we look forward to hearing from you.\n\nBest regards," },
+          { label:"Opt 4", text:"Hello,\n\nFollowing up on the quote we shared. Please let us know if there is a better offer so we can try to get closer.\n\nLooking forward to your feedback.\n\nThank you!\nBest regards," }
+        ];
+        const panel = document.createElement("div");
+        panel.className = "inline-followup-panel";
+        panel.id = `itplpanel_${uid}_fu`;
+        panel.dataset.tpls = JSON.stringify(fuTpls);
+        panel.innerHTML = `
+          <div class="inline-panel-title">&#128260; Client Follow-Up Templates &amp; 48h Reminder</div>
+          <div class="inline-tpl-tabs">
+            ${fuTpls.map((t,i)=>`<button class="inline-tpl-tab${i===0?" active":""}" onclick="switchInlineTpl('${uid}_fu',${i},this)">${t.label}</button>`).join("")}
+          </div>
+          <div class="inline-tpl-box" style="margin-bottom:10px;">
+            <button class="inline-tpl-copy" onclick="copyInlineTpl('${uid}_fu')">Copy</button>
+            <div class="inline-tpl-text" id="itpl_${uid}_fu">${fuTpls[0].text}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <button class="inline-set-reminder-btn" style="background:linear-gradient(135deg,#16a34a,#15803d);" onclick="setInlineReminder48('${uid}','${pn}')">&#9200; Set 48h Reminder</button>
+            <div class="inline-reminder-confirm" id="irconfirm48_${uid}">&#10003; 48h Reminder started!</div>
+          </div>
+          <div style="font-size:11px;color:#166534;font-weight:600;margin-top:6px;">&#9888; Remove your own email from To: — set To: to client only</div>`;
+        body.appendChild(panel);
       }
 
       stepEl.appendChild(body);
-      card.appendChild(stepEl);
+      stepsWrap.appendChild(stepEl);
     });
 
+    card.appendChild(stepsWrap);
     container.appendChild(card);
   }
 }
+
+/* ── Potential Buyer Scoring ── */
+function calcPBScore(uid){
+  let score = 0;
+  for(let i=1;i<=6;i++){ const el=document.getElementById(`pb${i}_${uid}`); if(el) score+=parseInt(el.value)||0; }
+  const scoreEl=document.getElementById(`pbscore_${uid}`), badge=document.getElementById(`pbbadge_${uid}`), wrap=document.getElementById(`pb-remind-wrap_${uid}`);
+  if(!scoreEl) return;
+  scoreEl.textContent=score;
+  if(score>=9){ badge.textContent="Strong"; badge.style.cssText="background:#dcfce7;color:#16a34a;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;"; wrap.style.display="block"; }
+  else if(score>=6){ badge.textContent="Medium"; badge.style.cssText="background:#fef9c3;color:#b45309;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;"; wrap.style.display="block"; }
+  else { badge.textContent=score>=3?"Low":""; badge.style.cssText=""; wrap.style.display="none"; }
+}
+function addPotentialBuyerReminder(uid,pn){
+  const end=Date.now()+48*3600000;
+  const obj={id:Date.now(),part:`${pn} (Potential Client)`,hours:48,country:"",type:"customer",end,finished:false,user:currentUser};
+  reminders.push(obj); saveReminders(); createReminderCard(obj);
+  const conf=document.getElementById(`pbconfirm_${uid}`);
+  if(conf){conf.style.display="block";setTimeout(()=>conf.style.display="none",3000);}
+}
+
+/* ── Inline search ── */
+const _inlineFilters = {};
+function setInlineFilter(uid,type,btn){
+  _inlineFilters[uid]=type;
+  const panel=document.getElementById(`inline-search-${uid}`);
+  if(!panel) return;
+  panel.querySelectorAll(".inline-filter-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  runInlineSearch(uid);
+}
+function runInlineSearch(uid){
+  const inp=document.getElementById(`isearch_${uid}`), res=document.getElementById(`iresults_${uid}`);
+  if(!inp||!res) return;
+  const val=inp.value.trim();
+  if(!val){res.innerHTML='<div class="inline-no-results">Start typing…</div>';return;}
+  const filter=_inlineFilters[uid]||"all";
+  const keyword=normalize(extractDomainKeyword(val));
+  function match(v){return normalize(v).includes(keyword);}
+  let html="",count=0;
+  if(filter==="all"||filter==="direct"){
+    for(let company in directContact){
+      const emails=directContact[company]||[];
+      const compMatch=match(company), emailMatches=emails.filter(e=>match(e));
+      if(compMatch||emailMatches.length){
+        const show=compMatch?emails:emailMatches;
+        const rows=show.map(e=>`<div class="inline-email-row"><span class="inline-email">${e}</span><button class="inline-copy-btn" onclick="navigator.clipboard.writeText('${e.replace(/'/g,"&apos;")}');this.textContent='&#10003;';setTimeout(()=>{this.textContent='Copy'},1200)">Copy</button></div>`).join("");
+        html+=`<div class="inline-card direct"><div class="inline-card-title">${company}</div>${rows}</div>`;count++;
+      }
+    }
+  }
+  if(filter==="all"||filter==="replace"){
+    for(let oldE in replacements){
+      if(match(oldE)||match(replacements[oldE])){
+        html+=`<div class="inline-card replace"><div class="inline-card-title">Replace</div><div style="font-size:11px;color:#374151">Old: ${oldE}<br>New: <span style="color:#7c3aed;font-weight:600">${replacements[oldE]}</span></div><button class="inline-copy-btn" onclick="navigator.clipboard.writeText('${replacements[oldE].replace(/'/g,"&apos;")}');this.textContent='&#10003;';setTimeout(()=>{this.textContent='Copy'},1200)" style="margin-top:4px">Copy New</button></div>`;count++;
+      }
+    }
+  }
+  if(filter==="all"||filter==="blacklist"){
+    for(let company in blacklist){
+      const obj=blacklist[company]||{}, emails=obj.emails||[], reason=obj.reason||"";
+      const compMatch=match(company), emailMatches=emails.filter(e=>match(e));
+      if(compMatch||emailMatches.length||match(reason)){
+        const show=compMatch?emails:emailMatches;
+        const rows=show.map(e=>`<div class="inline-email-row"><span class="inline-email">${e}</span><button class="inline-copy-btn" onclick="navigator.clipboard.writeText('${e.replace(/'/g,"&apos;")}');this.textContent='&#10003;';setTimeout(()=>{this.textContent='Copy'},1200)">Copy</button></div>`).join("");
+        html+=`<div class="inline-card blacklist"><div class="inline-card-title">${company}</div>${rows}<div class="inline-bl-reason">&#9888; ${reason}</div></div>`;count++;
+      }
+    }
+  }
+  res.innerHTML=count?html:'<div class="inline-no-results">No matches found</div>';
+}
+
+/* ── Inline reminders ── */
+function setInlineReminder(uid,pn){
+  const h=parseInt(document.getElementById(`irh_${uid}`)?.value)||3;
+  const c=document.getElementById(`irc_${uid}`)?.value.trim()||"";
+  const t=document.getElementById(`irt_${uid}`)?.value||"reminder";
+  const end=Date.now()+h*3600000;
+  const obj={id:Date.now(),part:pn,hours:h,country:c,type:t,end,finished:false,user:currentUser};
+  reminders.push(obj); saveReminders(); createReminderCard(obj);
+  const conf=document.getElementById(`irconfirm_${uid}`);
+  if(conf){conf.style.display="block";conf.textContent=`\u2713 ${h}h reminder set for ${pn}!`;setTimeout(()=>conf.style.display="none",3000);}
+}
+function setInlineReminder48(uid,pn){
+  const end=Date.now()+48*3600000;
+  const obj={id:Date.now(),part:pn,hours:48,country:"",type:"customer",end,finished:false,user:currentUser};
+  reminders.push(obj); saveReminders(); createReminderCard(obj);
+  const conf=document.getElementById(`irconfirm48_${uid}`);
+  if(conf){conf.style.display="block";setTimeout(()=>conf.style.display="none",3000);}
+}
+
+/* ── Inline templates ── */
+function switchInlineTpl(key,idx,btn){
+  const panel=document.getElementById(`itplpanel_${key}`);
+  if(!panel) return;
+  const tpls=JSON.parse(panel.dataset.tpls||"[]");
+  if(!tpls[idx]) return;
+  document.getElementById(`itpl_${key}`).textContent=tpls[idx].text;
+  panel.querySelectorAll(".inline-tpl-tab").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+}
+function copyInlineTpl(key){
+  const el=document.getElementById(`itpl_${key}`);
+  if(el) navigator.clipboard.writeText(el.textContent);
+  const btn=el?.closest(".inline-tpl-box")?.querySelector(".inline-tpl-copy");
+  if(btn){btn.textContent="\u2713 Copied!";setTimeout(()=>btn.textContent="Copy",1500);}
+}
+
+/* ── Invoice item toggle ── */
+function toggleInvItem(uid,idx,chk){
+  const txt=document.getElementById(`invtxt_${uid}_${idx}`);
+  if(txt) txt.className=chk.checked?"done-txt":"";
+}
+
+/* ── jumpToStep ── */
+function jumpToStep(pn,si){
+  workflows[pn].steps.forEach((s,i)=>{ s.open=(i===si); });
+  renderJourney();
+}
+
+/* ── pb-score CSS injected once ── */
+(function(){
+  const s=document.createElement("style");
+  s.textContent=`
+  .pb-score-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px;}
+  @media(max-width:500px){.pb-score-grid{grid-template-columns:1fr;}}
+  .pb-score-row{display:flex;align-items:center;gap:6px;background:#fff;border-radius:5px;padding:4px 7px;border:1px solid #bbf7d0;}
+  .pb-factor{font-size:11px;font-weight:700;color:#166534;flex:1;white-space:nowrap;}
+  .pb-sel{font-size:11px;padding:2px 4px;border:1px solid #bbf7d0;border-radius:4px;background:#f0fdf4;flex:1;min-width:0;}
+  .pb-score-result{font-size:12px;font-weight:700;color:#1e293b;display:flex;align-items:center;gap:8px;}
+  .pb-score-badge{border-radius:8px;padding:1px 7px;font-size:10px;font-weight:700;}
+  `;
+  document.head.appendChild(s);
+})();
+
+
+
+
+
+
+
 
 
 /* ================================================================
