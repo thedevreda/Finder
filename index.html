@@ -658,7 +658,7 @@ button { font-family: var(--font); cursor: pointer; }
 .inline-filter-row { display: flex; gap: 4px; margin-bottom: 7px; flex-wrap: wrap; }
 .inline-filter-btn { padding: 3px 10px; border: 1.5px solid var(--border); border-radius: 20px; background: var(--white); font-size: 10px; font-weight: 600; cursor: pointer; color: var(--muted); transition: 0.1s; }
 .inline-filter-btn.active { background: var(--brand); color: #fff; border-color: var(--brand); }
-.inline-results { max-height: 175px; overflow-y: auto; }
+.inline-results { max-height: fit-content; overflow-y: auto; }
 .inline-card { background: var(--white); border: 1px solid var(--border); border-left: 3px solid transparent; border-radius: var(--radius); padding: 6px 9px; margin-bottom: 4px; font-size: 12px; }
 .inline-card.blacklist { background: var(--red-lt); border-left-color: var(--red); }
 .inline-card.direct { border-left-color: var(--brand); }
