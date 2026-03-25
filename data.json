@@ -1,4 +1,254 @@
 {
+  "blacklist": {
+    "a2aviation.com": "Blacklisted for higher price or not answering",
+    "sales@aahparts.com": "NOT EXIST",
+    "adaircraft.com": "Blacklisted for higher price or not answering",
+    "rfq@aero-bay.com": "Blacklisted for higher price or not answering",
+    "Zak@aerocomp.net": "mail not found",
+    "jasper@aeroned.com": "NOT FOUND",
+    "Mark@aeroned.com": "NOT FOUND",
+    "Arjen.Verkooij@aeroned.com": "NOT FOUND",
+    "aeropartsaog.com": "Blacklisted for higher price or not answering",
+    "aeropb.com": "Blacklisted for higher price or not answering",
+    "ADIMAIL@aerospaceprecision.com": "mail not found",
+    "markv@aerospacerotables.com": "MAIL NOT FOUND",
+    "luan@aerospacetacticalsolutions.com": "NOT EXIST",
+    "luan@aerospacetechsolutions.com": "not deliverd",
+    "@aerotechnic-usa.com": "Blacklisted for higher price or not answering",
+    "aerotechnic-usa.com": "Blacklisted for higher price or not answering",
+    "parts@aerothrust.com": "mail not found",
+    "rspringthorpe@aeroturbine.com": "Mail not found",
+    "jgawlik@aerovision": "NOT FOUND",
+    "leo@aircapitalav.com": "mail not found",
+    "dennis@aircraftsparesintl.com": "MAIL NOT FOUND",
+    "airctrading.com": "Blacklisted for higher price or not answering",
+    "airhubaviation.com": "Blacklisted for higher price or not answering",
+    "@airpartstock.com": "Blacklisted for higher price or not answering",
+    "luke@all.aeros": "mail not found",
+    "ammacaircraft.com": "Blacklisted for higher price or not answering",
+    "bryon@aoaaviation.com": "mail not found",
+    "sales@aogteamservices.com": "NOT EXIST",
+    "croberts7453@aol.com": "mail not found",
+    "ccuriel@apld.us": "mail not found",
+    "apocaviation.com": "Blacklisted for higher price or not answering",
+    "aaguiar@artmx.us": "mail not found",
+    "asaltd.uk": "MANAGER TELL",
+    "@asapsemi.com": "ASAP SEMI",
+    "wendy.foo@asia.thalesgroup.com": "NOT EXIST",
+    "Kathiek@asiaero.net": "NOT EXIST",
+    "sales@atxaeroparts.com": "NOT FOUND",
+    "kevin@avadag.com": "mail not found",
+    "avair.aero": "Blacklisted for higher price or not answering",
+    "robertas.negudinas@aviaam.com": "Blacklisted for higher price or not answering",
+    "s.shilin@aviaremcomponent.aero": "mail not found",
+    "supply@aviasap.com": "delivery incomplete",
+    "enquires@aviatechnique.co.uk": "mail not found",
+    "paola@aviationexcess.com": "NOT EXIST",
+    "karisma@aviationrotables.com": "Blacklisted for higher price or not answering",
+    "awsam.farjo@aviatorsolutions.com": "Blacklisted for higher price or not answering",
+    "aviatorsolutions.com": "Blacklisted for higher price or not answering",
+    "sales@aviodirect.com": "Blacklisted for higher price or not answering",
+    "jesus@aviodirect.com": "Blacklisted for higher price or not answering",
+    "aviodirect.com": "Blacklisted for higher price or not answering",
+    "sales@avitrading.net": "NOT FOUND",
+    "avsparessolutions.com": "Blacklisted for higher price or not answering",
+    "ales@avtrade.co.uk": "mail not found",
+    "repairquote@barfieldinc.com": "Blacklisted for higher price or not answering",
+    "bayviewaviation.com": "KYC PASS",
+    "tuba.ruacan@be-aero.com": "Blacklisted for higher price or not answering",
+    "erospace@beaerospace-systems.com": "NOT EXIST",
+    "ljabel@bfaerospace.com": "mail not found",
+    "wliang@bnyintl.com": "NOT EXIST",
+    "quotes@brancoraviation.com": "mail not found",
+    "info@brigmanaviation.com": "mail not found",
+    "brooks-maldini.net": "Blacklisted",
+    "callforquote@brownhelicopter.com": "MAIL NOT FOUND",
+    "contact@buyaircraftparts.com": "mail not found",
+    "bfeugret@cal-aviation.com": "Email blocked",
+    "feugret@cal-aviation.com": "Email blocked",
+    "sales@californiaairsales.com": "NOT FOUND",
+    "sales@chabaircraftparts.com": "Blacklisted for higher price or not answering",
+    "sebastian.hintze@chair.ch": "MAIL NOT FOUND",
+    "rfq@channelfor.com": "DELIVERY INCOMPLETE",
+    "parts@clubjet.ne": "mail not found",
+    "brian@cocoplumaero.com": "Blacklisted for higher price or not answering",
+    "cocoplumaero.com": "Blacklisted for higher price or not answering",
+    "crosswind.me": "Blacklisted for higher price or not answering",
+    "chris@crs-aero.com": "mail not found",
+    "cyoung@ctgnow.com": "Blacklisted for higher price or not answering",
+    "dap-aero": "Blacklisted for higher price or not answering",
+    "sales@destinyaero.com": "NOT FOUND",
+    "supply@dorinaviation.com": "Blacklisted for higher price or not answering",
+    "eastair.com": "Blacklisted for higher price or not answering",
+    "sales@echoairo.com": "NOT FOUND",
+    "purchase@edaviation.net": "mail not found",
+    "info@eftec.aero": "mail not found",
+    "orangeair@email.com": "mail not found",
+    "maintenance@euinspectionservice.com": "Blacklisted for higher price or not answering",
+    "firstclassairsupport.com": "Blacklisted for higher price or not answering",
+    "fleetcareaero.com": "Blacklisted for higher price or not answering",
+    "erick.g@flighttheory.net": "mail not found",
+    "sales@flightwise.ae": "KYC PASS",
+    "sales@futureglobalaerospace.com": "NOT EXIST",
+    "gary@gahsm.com": "NOT FOUND",
+    "zach.mccrary@gecas.com": "mail not found",
+    "ezra@genairsupport.com": "mailt not found",
+    "gfa": "Blacklisted for higher price or not answering",
+    "@globalmena.aero": "Blacklisted for higher price or not answering",
+    "parts@globalmena.aero": "Blacklisted for higher price or not answering",
+    "sales@globalmena.aero": "Blacklisted for higher price or not answering",
+    "globalmena.aero": "Blacklisted for higher price or not answering",
+    "parts@globalmena.aeros": "Blacklisted for higher price or not answering",
+    "eden.aerothings@gmail.com": "Blacklisted for higher price or not answering",
+    "sandybosch7@gmail.com": "Blacklisted for higher price or not answering",
+    "aircraftpartsnsupplies@gmail.com": "Blacklisted for higher price or not answering",
+    "gmdcinc.com": "Blacklisted for higher price or not answering",
+    "mnur.arifin@gmf-aeroasia.co.id": "NOT FOUND",
+    "Tamam.Umara@gmf-aeroasia.co.id": "NOT FOUND",
+    "haps.aero": "Blacklisted for higher price or not answering",
+    "hawkquotes@hawkaviation.com": "Blacklisted for higher price or not answering",
+    "@hawkaviation.com": "Blacklisted for higher price or not answering",
+    "hawkaviation.com": "Blacklisted for higher price or not answering",
+    "op_domestic@hna-ml.com": "MAIL NOT FOUND",
+    "icrsaerospace.com": "Blacklisted for higher price or not answering",
+    "sales@intaircraftrepairs.com": "mail not found",
+    "parts@international-aviation.com": "NOT TO SEND",
+    "carmen.cordovac@its.aero": "mail not found",
+    "info@jetaire.com": "NOT EXIST",
+    "Jane@jetassets.com": "delivery incomplete",
+    "Ashley.Santee@jetmidwest.com": "NOT FOUND",
+    "Sales@jgenterprises.us": "mailt not found",
+    "jxavtech.com": "Blacklisted for higher price or not answering",
+    "leaerospace": "Blacklisted for higher price or not answering",
+    "sales@liberty-aero.com": "Blacklisted for higher price or not answering",
+    "dainius.meilunas@locatory.com": "MAIL NOT FOUND",
+    "Info@lotusaeroke.com": "Blacklisted for higher price or not answering",
+    "masslyaero.com": "Blacklisted for higher price or not answering",
+    "sales@midamaero.com": "message blocked",
+    "mtraviation.com": "Blacklisted for higher price or not answering",
+    "dale@nac.co.za": "MAIL NOT FOUND",
+    "neswair.com": "Blacklisted for higher price or not answering",
+    "sales@oapinc.com": "NOT EXIST",
+    "sales@oneskyav.com": "mail not found",
+    "mstemwedel@pat-pag.comm": "mail not found",
+    "nasser.arabiat@petraairline.com": "Message not delivered",
+    "shelby@platinumjet.ca": "mail not found",
+    "hennessey@powerjetaviation.com": "NOT EXIST",
+    "jsitkowski@presidioaircraftleasing.com": "delivery incomplete",
+    "mdamron@pts-aviation.com": "delivery incomplete",
+    "sandra@q1aviation.com": "mail not found",
+    "mtutor@qwestairparts.com": "mailt not found",
+    "Rmackey@rangeraav.com": "NOT FOUND",
+    "shreejismailbox@rediffmail.com": "mail not found",
+    "claudio@relianceaerospace.net": "mail not found",
+    "sales@rvmaerospace.com": "mail not found",
+    "info@satair.com": "message blocked",
+    "@sentry.aero": "Blacklisted for higher price or not answering",
+    "sentry.aero": "Blacklisted for higher price or not answering",
+    "raquel@shopaviationstore.com": "NOT EXIST",
+    "sales@skyairsupply.com": "Blacklisted for higher price or not answering",
+    "contact@skyfuture.aero": "NOT EXIST",
+    "@sourceonespares.com": "Blacklisted for higher price or not answering",
+    "sourceonespares.com": "Blacklisted for higher price or not answering",
+    "sales@staero-arl.com": "mail not found",
+    "rod@steint.com": "mail not found",
+    "aogsupplies@stengg.com": "NOT EXIST",
+    "aviation@stofanet.dk": "NOT FOUND",
+    "sales@szaviation.com": "mail not found",
+    "tallamond.aero": "Blacklisted for higher price or not answering",
+    "tasfzc.com": "Blacklisted for higher price or not answering",
+    "amy@tasrepair.aero": "MAIL NOT FOUND",
+    "sales@tcas-ltd.com": "mail not found",
+    "Faisal.Daghestany@tcasaero.com": "NOT EXIST",
+    "Nibal.Salim@tcasaero.com": "NOT EXIST",
+    "tecnicaaerospace.com": "Blacklisted for higher price or not answering",
+    "bmcguinness@texasaircomposites.com": "mail not found",
+    "TASA-RFQ@triumphgroup.com": "Mail not found",
+    "turbanasolutions.com": "Blacklisted for higher price or not answering",
+    "katya@turbanasolutions.com": "Blacklisted for higher price or not answering",
+    "jims@unicorpok.com": "mail not found",
+    "mwoodcock@uniquip.com": "MAIL NOT FOUND",
+    "cascencio@universalaircorp.com": "mail not found",
+    "sales@utdmro.com": "mail not found",
+    "ales@vcaerospace.com": "mail not found",
+    "rfq@volanttech.com": "delivery incomplete",
+    "sales@western-spark.com": "Blacklisted for higher price or not answering",
+    "Alandolfi@willisaero.com": "NOT EXIST",
+    "sales@wingedtycoons.com": "Blacklisted for higher price or not answering",
+    "@duncanaviation.com": "not found",
+    "sales@odsaerospace.com": "not found",
+    "lellsworth@worthingtonav.com": "not found",
+    "MarthaA@gatelesis.com": "not found",
+    "kozverir@primaaviation.com": "not found",
+    "ALynn@emeryair.net": "not found",
+    "j.escalante@landmerk.com": "not found",
+    "sales@av8aog.com": "not found",
+    "mjadczak@pilotshq.co": "not found",
+    "customer.support@leonardo.com": "not found",
+    "farah.alsafartee@atsaviation.com": "not found",
+    "sales@kakaair.com": "not found",
+    "mlahmar@chromalloy.com": "don't send to her, send to pattek",
+    "s.creanga@actc-aero.com": "not found",
+    "gavin.comer@aero-technics.com": "not found",
+    "sales@altamontaviation.com": "not found",
+    "airpartsme.com": "not found"
+  },
+  "replacements": {
+    "production@skysmart.co.uk": "callum@skysmart.co.uk",
+    "aar-allen@app.partsrfq.com": "sales@aarcorp.com",
+    "PBS@UEAVIATION.COM": "Sales@ueaviation.com",
+    "sales@marchaviation.com": "quotes@marchaviation.com",
+    "sales-miami@vseaviation.com": "support@vseaviaition.com",
+    "customerservice@oceanair.aero": "sales@oceanair.aero",
+    "rfq@saywell.us": "cinthia@saywell.us",
+    "parts@ras.de": "A.Bustin-Gelton@ras.de",
+    "aog@fltechnics.com": "natalja.melnikova@fltechnics.com",
+    "crc.commercial.support@support.parker.com": "meggittreferral@proponent.com",
+    "sales@sts-cs.com": "https://www.stsaviationgroup.com/aircraft-parts-rfq-form/",
+    "quality@aviatechnique.co.uk": "suzie@aviatechnique.co.uk",
+    "quality@gatelesis.com": "sales@gatelesis.com",
+    "parts@aeroasg.com": "sales@aeroasg.com",
+    "websales@wingcontrol.com": "sales@wingcontrol.com",
+    "info@aels.nl": "sales@aels.nl",
+    "trading@oemservices.aero": "trading-quote@oemservices.aero",
+    "info@flgtechnics.com": "sales@flgtechnics.com",
+    "hhzhscyxb@hnair.com": "ar-sales@hnair.com",
+    "support@vseaviation.com": "sales@vseaviation.com",
+    "jfilion@aircollc.com": "jwilson@aircollc.com, pcisneros@aircollc.com, mlor@aircollc.com",
+    "sales@aerotechnic-asia.com, sales@aerotechnic-group.com": "sales@aerotechnic-usa.com",
+    "RFQ@fokker.com": "sales@fokkertechniek.com",
+    "quality@semasamro.com": "partsales@semasamro.com",
+    "mpbhusal@yog-kshem.com": "sales.europe@yog-kshem.com",
+    "ddesormes@relianceaircraft.com": "sales@relianceaircraft.com",
+    "salesusa@magellangroup.net": "sales@magellangroup.net",
+    "components@genesis.aero": "sales@genesys-aerosystems.com",
+    "purchasing@nextstepnet.net": "sales@nextstepnet.net",
+    "parellano@techopssolutions.com": "sales@techopssolutions.com",
+    "fortearoma@yahoo.com": "sales@farstation145.com",
+    "osaud@aqair.com": "sales@aqa.aero",
+    "aog@quantumairs.com": "sales@quantumairs.com",
+    "mmontalvo@interskyaero.com": "info@interskyaero.com",
+    "info@aileaviation.com": "rfq@aileaviation.com",
+    "info@jalaramaero.com": "sales@jalaramaero.com",
+    "mstemwedel@pat-pag.com": "mstemwedel@pat-pag.com",
+    "info@businessaerotech.com": "sales@businessaerotech.com",
+    "info@regionalone.com": "rfqs@regionalone.com",
+    "a.vanson@eirtradeaviation.com": "airframe@eirtradeaviation.com",
+    "qualityassurance@kellstromaerospace.com": "sales@kellstromaerospace.com",
+    "info@jetsetaerospace.com": "rfq@jetsetaerospace.com",
+    "Jolin.kwok@dbraviation.com": "joyce.j@dbraviation.com",
+    "gahsm@gahsm.com": "GHASM",
+    "SALES@bii.aero": "Ava@bii.aero",
+    "sales@seaerospace.com": "https://www.seaerospace.com/sales",
+    "parts@rotorlink.com": "rotorlink-mp@app.partsrfq.com",
+    "sales@magneticgroup.co": "info@magneticmro.com",
+    "sales@gtsmro.com": "quality@gtsmro.com",
+    "HOP-Sales@hutchinsoninc.com": "sales.bcas@hutchinson.fr",
+    "sales@jcaviationservices.com": "info@jcaviationservices.com",
+    "sales@aerotechnic-asia.com": "sales@aerotechnic-group.com",
+    "jgawlik@aerovi.com": "qfowler@aerovi.com / jvanderkooi@aerovi.com"
+  },
+  "exw":{"reda":"reda"},
   "directContact": {
     "10AERONAUTICA": [
       "contato@10aeronautica.com.br"
@@ -205,10 +455,8 @@
       "sales@acinv.com",
       "Seamos@acinv.com"
     ],
-    "ACME CHIP": [
-      "Eva: sale2@acme-chip.com"
-    ],
-    "ACME-AERO": [
+    "ACME": [
+      "Eva: sale2@acme-chip.com",
       "sales@acme-aero.com"
     ],
     "ACMEPUMPPARTS": [
@@ -304,9 +552,7 @@
       "sales@aecoaircraft.com"
     ],
     "AEHIGROUP": [
-      "info@aehigroup.com"
-    ],
-    "AEHIINC": [
+      "info@aehigroup.com",
       "info@aehiinc.com"
     ],
     "AEI": [
@@ -320,11 +566,9 @@
       "JMichael@aelfinc.com",
       "nsilva@aelfinc.com"
     ],
-    "AELPARTS": [
+    "AELPARTS / AELS": [
       "ashley@aelparts.com",
-      "parts@aelparts.com"
-    ],
-    "AELS": [
+      "parts@aelparts.com",
       "david@aels.nl",
       "ali@aels.nl",
       "hageman@aels.org",
@@ -420,13 +664,6 @@
       "mihalisv@aero-apartion.com",
       "nikosp@aero-apartion.com",
       "vangelish@aero-apartion.com"
-    ],
-    "AERO ENGINES SOLUTIONS": [
-      "grichardson@aeroenginesolutions.com"
-    ],
-    "AERO MARINE & POWER": [
-      "fred@ampfla.com",
-      "camoy@ampfla.com"
     ],
     "AERO PRODUCTS INDIA": [
       "sales_2@aeroproductsindia.com",
@@ -584,12 +821,11 @@
     "AEROEAGLEASIA": [
       "juliuschan@aeroeagleasia.com"
     ],
-    "AEROENGINESERVICES": [
+    "AEROENGINESESERVICES": [
+      "grichardson@aeroenginesolutions.com",
       "charlotte@aeroengineservices.com",
       "nicholas@aeroengineservices.com",
-      "sales@aeroengineservices.com"
-    ],
-    "AEROENGINESOLUTIONS": [
+      "sales@aeroengineservices.com",
       "vstanek@aeroenginesolutions.com",
       "amccain@aeroenginesolutions.com",
       "Jrehacek@aeroenginesolutions.com",
@@ -664,6 +900,24 @@
       "rfq@aeromanaviation.com",
       "sales@aeromanaviation.com"
     ],
+    "AEROMARINE": [
+      "fred@ampfla.com",
+      "camoy@ampfla.com",
+      "lsabido@amp-aero.com",
+      "ayush@amp-aero.com",
+      "prince@amp-aero.com",
+      "aambalik@amp-aero.com",
+      "anoop@amp-aero.com",
+      "yuvraj@amp-aero.com",
+      "furkan@amp-aero.com",
+      "gaurav@amp-aero.com",
+      "herard@amp-aero.com",
+      "danish@amp-aero.com",
+      "Navdeep@amp-aero.com",
+      "RFQ@amp-aero.com",
+      "sales@amp-aero.com",
+      "kayra@amp-aero.com"
+    ],
     "AEROMARINEAMERICA": [
       "sales@aeromarineamerica.com"
     ],
@@ -677,16 +931,14 @@
       "quotes@aeromavia.com"
     ],
     "AEROMEC": [
-      "s.nunes@aeromec.pt"
+      "s.nunes@aeromec.pt",
+      "sales@aeromotion.ca"
     ],
     "AEROMETPRO": [
       "sales@aerometpro.aero"
     ],
     "AEROMISSILE": [
       "mspillane@aeromissile.com"
-    ],
-    "AEROMOTION": [
-      "sales@aeromotion.ca"
     ],
     "AEROMOZE": [
       "munal@aeromoze.com"
@@ -842,9 +1094,6 @@
       "lisa.kelly@aerospace.ie",
       "seamus.collins@aerospace.ie"
     ],
-    "AEROSPACE SUPPORT INTERNATIONAL": [
-      "rudy@aerospacesupportintl.com"
-    ],
     "AEROSPACEACES": [
       "sales@aerospaceaces.com"
     ],
@@ -866,16 +1115,15 @@
       "RFQ@aerospacefittings.com"
     ],
     "AEROSPACEINTL": [
-      "sales@aerospaceintl.com"
+      "rudy@aerospacesupportintl.com",
+      "sales@aerospaceintl.com",
+      "Sales@aerospacesupportintl.com"
     ],
     "AEROSPACEPURCHASING": [
       "sales@aerospacepurchasing.com"
     ],
     "AEROSPACESOLUTIONSINTL": [
       "asi@aerospacesolutionsintl.com"
-    ],
-    "AEROSPACESUPPORTINTL": [
-      "Sales@aerospacesupportintl.com"
     ],
     "AEROSPAREPARTS": [
       "Rfq_partsbase_eur@aerospareparts.com"
@@ -914,20 +1162,14 @@
     "AEROTECH": [
       "purchasing@aerotech.ae"
     ],
-    "AEROTECHNIC BG": [
+    "AEROTECHNIC": [
       "mcherpeliyska@aerotechnic-bg.com",
-      "ehadzhiivanova@aerotechnic-bg.com"
-    ],
-    "AEROTECHNIC USA": [
+      "ehadzhiivanova@aerotechnic-bg.com",
       "j.cante@aerotechnic-usa.com",
       "ils@aerotechnic-usa.com",
       "salesteam@aerotechnic-usa.com",
-      "j.farias@aerotechnic-usa.com"
-    ],
-    "AEROTECHNIC-ASIA": [
-      "sales@aerotechnic-asia.com"
-    ],
-    "AEROTECHNIC-GROUP": [
+      "j.farias@aerotechnic-usa.com",
+      "sales@aerotechnic-asia.com",
       "sales@aerotechnic-group.com"
     ],
     "AEROTECHSOLUTIONS": [
@@ -1146,13 +1388,11 @@
     "AIRCLASS": [
       "sgonzalez@airclass.com.uy"
     ],
-    "AIRCO LLC": [
+    "AIRCO": [
       "pcisneros@aircollc.com",
       "sales@aircollc.com",
       "martha.arana@aircollc.com",
-      "jfilion@aircollc.com"
-    ],
-    "AIRCO-ICT": [
+      "jfilion@aircollc.com",
       "sales@airco-ict.com"
     ],
     "AIRCOMAVIATION": [
@@ -1234,10 +1474,8 @@
       "componentsolutions@airfrance.fr",
       "mail.afi.repairs@airfrance.fr"
     ],
-    "AIRHUBAVIAITION": [
-      "shaikh.moiez@airhubaviaition.com"
-    ],
-    "AIRHUBAVIATION": [
+    "AIRHUB AVIATION": [
+      "shaikh.moiez@airhubaviaition.com",
       "orinta.mazrimaite@airhubaviation.com",
       "rfq@airhubaviation.com",
       "shaikh.moiez@airhubaviation.com",
@@ -1388,13 +1626,11 @@
       "sigita@ajsupport.com",
       "tomasz@ajsupport.com"
     ],
-    "AJW": [
+    "AJW GROUP": [
       "Timothy.Ross@ajw-group.com",
       "ajw-group@app.partsrfq.com",
       "ilssales@ajw-group.com",
-      "todd.haverstock@ajw-group.com"
-    ],
-    "AJW GROUP": [
+      "todd.haverstock@ajw-group.com",
       "hannah.parsons@ajw-group.com",
       "ajwengines@ajw-group.com",
       "aog@ajw-group.com",
@@ -1406,9 +1642,7 @@
       "joel.colbran@ajw-group.com",
       "jordan.kaye@ajw-group.com",
       "natalja.dimitrova@ajw-group.com",
-      "Samuel.Ayling@ajw-group.com"
-    ],
-    "AJW-AVIATION": [
+      "Samuel.Ayling@ajw-group.com",
       "AJWENGINES@ajw-aviation.com"
     ],
     "ALACORPORATION": [
@@ -1586,22 +1820,6 @@
       "paolo.lucatelli@amministrazionestraordinariaalitaliasai.com",
       "paolo.lucatelli@amministrazionestraordinariaalitaliasai.con"
     ],
-    "AMP AERO": [
-      "lsabido@amp-aero.com",
-      "ayush@amp-aero.com",
-      "prince@amp-aero.com",
-      "aambalik@amp-aero.com",
-      "anoop@amp-aero.com",
-      "yuvraj@amp-aero.com",
-      "furkan@amp-aero.com",
-      "gaurav@amp-aero.com",
-      "herard@amp-aero.com",
-      "danish@amp-aero.com",
-      "Navdeep@amp-aero.com",
-      "RFQ@amp-aero.com",
-      "sales@amp-aero.com",
-      "kayra@amp-aero.com"
-    ],
     "AMPFLA": [
       "sales@ampfla.com"
     ],
@@ -1677,13 +1895,9 @@
     "AOGREACTION": [
       "rfq@aogreaction.com"
     ],
-    "AOGSPARES": [
-      "john@aogspares.com"
-    ],
-    "AOGTEAMSERVICE": [
-      "sales@aogteamservice.com"
-    ],
-    "AOGTEAMSERVICES": [
+    "AOGSPARES / AOGTEAM": [
+      "john@aogspares.com",
+      "sales@aogteamservice.com",
       "endusers@aogteamservices.com"
     ],
     "AOL": [
@@ -1880,8 +2094,10 @@
       "marek.halata@apram.cz",
       "sales@apram.cz"
     ],
-    "APS": [
-      "apapalia@aps.parts"
+    "APS AVIATION": [
+      "apapalia@aps.parts",
+      "sales@aps-aviation.com",
+      "vincent@aps-aviation.be"
     ],
     "APS-AIRPARTS": [
       "Jane.losk@aps-airparts.com",
@@ -1890,10 +2106,6 @@
       "vlad@aps-airparts.com",
       "yogev.levy@aps-airparts.com",
       "Yogevl@aps-airparts.com"
-    ],
-    "APS-AVIATION": [
-      "sales@aps-aviation.com",
-      "vincent@aps-aviation.be"
     ],
     "APSIAVIATION": [
       "ej@apsiaviation.com"
@@ -1977,20 +2189,16 @@
       "emantrana@artmx.us",
       "egarcia@artmx.us"
     ],
-    "ARTS": [
+    "ARTS AERO": [
       "mahmoud.zarif@arts.aero",
       "CONTACT HER: emilyn.vergara@arts.aero",
       "charitha.ileperuma@arts.aero",
-      "dev.kanakan@arts.aero"
-    ],
-    "ARTS AERO": [
+      "dev.kanakan@arts.aero",
       "emilyn.vergara@arts.aero"
     ],
     "ASA": [
       "fleur.woodage@asa.uk.com",
-      "imogen.woodage@asa.uk.com"
-    ],
-    "ASA LTD": [
+      "imogen.woodage@asa.uk.com",
       "Sally@asaltd.uk",
       "fleur.woodage@asaltd.uk",
       "imogen.woodage@asaltd.uk"
@@ -2242,10 +2450,6 @@
       "mrowe@aviapool.com",
       "sales@aviapool.com"
     ],
-    "AVIA TECHNIQUE UK/ASIA": [
-      "suzie@aviatechnique.co.uk",
-      "amir.hakim@aviatechnique.asia"
-    ],
     "AVIA-RADIO": [
       "sales@avia-radio.dk"
     ],
@@ -2295,6 +2499,8 @@
       "customer.services.france@aviatec.aero"
     ],
     "AVIATECHNIQUE": [
+      "suzie@aviatechnique.co.uk",
+      "amir.hakim@aviatechnique.asia",
       "enquiries@aviatechnique.co.uk",
       "melissa.salmon@aviatechnique.co.uk",
       "orders@aviatechnique.co.uk",
@@ -2317,6 +2523,11 @@
       "ale@aviationexcess.com",
       "martin@aviationexcess.com",
       "sales@aviationexcess.com"
+    ],
+    "AVIATION SOLUTIONS": [
+      "alex@aviationsolutions.ca",
+      "mark@aviationsolutions-intl.com",
+      "sales@aviationsolutions-intl.com"
     ],
     "AVIATION-ASSISTANCE": [
       "jochen.knebel@aviation-assistance.de",
@@ -2411,13 +2622,6 @@
     ],
     "AVIATIONSCOUTS": [
       "henry@aviationscouts.com"
-    ],
-    "AVIATIONSOLUTIONS": [
-      "alex@aviationsolutions.ca"
-    ],
-    "AVIATIONSOLUTIONS-INTL": [
-      "mark@aviationsolutions-intl.com",
-      "sales@aviationsolutions-intl.com"
     ],
     "AVIATIONSPARES": [
       "sales@aviationspares.com"
@@ -3489,10 +3693,8 @@
     "CROSSWIND": [
       "imanauwar@crosswind.me"
     ],
-    "CRS-AERO": [
-      "Glen@crs-aero.com"
-    ],
-    "CRS-TECHNICS": [
+    "CRS AERO": [
+      "Glen@crs-aero.com",
       "KCampton@crs-technics.com",
       "sales@crs-technics.com"
     ],
@@ -3788,9 +3990,7 @@
       "christian.avelino@duncanaviation.com",
       "chris.fields@duncanaviation.com",
       "Robert.Blahak@duncanaviation.com",
-      "Rob.Blahak@duncanaviation.com"
-    ],
-    "DUNCAN-ENG": [
+      "Rob.Blahak@duncanaviation.com",
       "info@duncan-eng.com"
     ],
     "DUNELMAVIATION": [
@@ -3850,10 +4050,8 @@
     "EARTHLINK": [
       "durcy@earthlink.net"
     ],
-    "EAS-AVIATION-GROUP": [
-      "maja.milojevic@eas-aviation-group.com"
-    ],
-    "EAS-AVIATION-SERVICES": [
+    "EAS AVIATION": [
+      "maja.milojevic@eas-aviation-group.com",
       "inventory@eas-aviation-services.com"
     ],
     "EASTAIR": [
@@ -4305,7 +4503,10 @@
       "rfq@fltechnics.com",
       "sales@fltechnics.com",
       "tatjana.ivanova@fltechnics.com",
-      "ugnius.aleksynas@fltechnics.com"
+      "ugnius.aleksynas@fltechnics.com",
+      "info@flgtechnics.com",
+      "pauline.esty@flgtechnics.com",
+      "sales@flgtechnics.com"
     ],
     "FLAGSHIPAERO": [
       "mike@flagshipaero.com",
@@ -4318,11 +4519,6 @@
       "salman.khalid@flapsup.aero",
       "baghdad.bailiche@flapsup.aero",
       "sales@flapsup.aero"
-    ],
-    "FLGTECHNICS": [
-      "info@flgtechnics.com",
-      "pauline.esty@flgtechnics.com",
-      "sales@flgtechnics.com"
     ],
     "FLIGHTAEROTECH": [
       "Santi@flightaerotech.com",
@@ -4695,9 +4891,7 @@
     "GLENDALE": [
       "rfq@glendale-int.co.uk",
       "andy@glendale-int.co.uk",
-      "sarah@glendale-int.co.uk&gt;"
-    ],
-    "GLENDALE-INT": [
+      "sarah@glendale-int.co.uk&gt;",
       "adam@glendale-int.co.uk",
       "john@glendale-int.co.uk",
       "sarah@glendale-int.co.uk"
@@ -4848,10 +5042,11 @@
     "GME": [
       "CS@gme.aero"
     ],
-    "GMF-AEROASIA": [
+    "GMF AEROASIA": [
       "list-tms4@gmf-aeroasia.co.id",
       "ogdesk@gmf-aeroasia.co.id",
-      "retno.dn@gmf-aeroasia.co.id"
+      "retno.dn@gmf-aeroasia.co.id",
+      "mnur.arifin@gmf-aeroasia.co.id"
     ],
     "GMKELECTRO": [
       "gabrielle@gmkelectro.com"
@@ -4943,9 +5138,7 @@
     ],
     "GTSAVIATION": [
       "rfq@gtsaviation.com",
-      "sales@gtsaviation.com"
-    ],
-    "GTSMRO": [
+      "sales@gtsaviation.com",
       "sales@gtsmro.com",
       "craig.kerr@gtsmro.com"
     ],
@@ -5205,9 +5398,6 @@
     "HONEYWELLAEROSPACE": [
       "ABIESER.LOPEZ@honeywellaerospace.com"
     ],
-    "HOP": [
-      "ventesdm@hop.fr"
-    ],
     "HORIX": [
       "info@horix.ch"
     ],
@@ -5253,17 +5443,14 @@
       "info@hurricaneaerospace.com"
     ],
     "HUTCHINSON": [
+      "ventesdm@hop.fr",
       "romain.bresler@hutchinson.com",
       "info.hutchinsonchemille@hutchinson.com",
       "pascal.lethien@hutchinson.com",
-      "sales.bcas@hutchinson.fr"
-    ],
-    "HUTCHINSONINC": [
+      "sales.bcas@hutchinson.fr",
       "Ashley.Loya@hutchinsoninc.com",
       "rafael.domont-garrido@hutchinsoninc.com",
-      "JJ.Osmecki@hutchinsoninc.com"
-    ],
-    "HUTCHINSONNA": [
+      "JJ.Osmecki@hutchinsoninc.com",
       "Rosa.Rodriguez@hutchinsonna.com"
     ],
     "HYDREP": [
@@ -5967,25 +6154,21 @@
       "kelli@kell-air.com",
       "sales@kell-air.com"
     ],
-    "KELLSTROM AEROSPACE": [
+    "KELLSTROM": [
       "marvin.avilez@kellstromaerospace.com",
       "Christopher.Bracero@kellstromaerospace.com",
       "AOG@kellstromaerospace.com",
       "Distribution@kellstromaerospace.com",
       "Miguel.Rosas@kellstromaerospace.com",
       "partsbase@kellstromaerospace.com",
-      "Steven.Torres@kellstromaerospace.com"
-    ],
-    "KELLSTROMDEFENSE": [
+      "Steven.Torres@kellstromaerospace.com",
       "lyonel.blaise@kellstromdefense.com"
     ],
     "KGAR": [
       "mstellabotte@kgar.com",
       "sales@kgar.com",
       "stores@kgar.com",
-      "usasales@kgar.com"
-    ],
-    "KGAR USA": [
+      "usasales@kgar.com",
       "mstellabotte@kgarusa.com",
       "SALES@kgarusa.com"
     ],
@@ -6109,15 +6292,13 @@
     "LCI": [
       "sales@lci.aero"
     ],
-    "LCLX": [
+    "LCLX AVIATION": [
       "dan.wadley@lclx.aero",
       "dw@lclx.aero",
       "dwadley@lclx.aero",
       "mn@lclx.aero",
       "rfq@lclx.aero",
-      "sales@lclx.aero"
-    ],
-    "LCLX AVIATION": [
+      "sales@lclx.aero",
       "HOLIDAY:rr@lclx.aero / CONTACT SALES@lclx.aero"
     ],
     "LDGAVIATION": [
@@ -6137,15 +6318,13 @@
       "nphillips@legacypart.com",
       "sales@legacypart.com"
     ],
-    "LEKI AVIATION": [
+    "LEKI": [
       "SEND DIRECTLY TO: jonh@lekiaviation.com",
       "emily.sellick@lekiaviation.com",
       "chrysolineh@lekiaviation.com",
       "emilym@lekiaviation.com",
       "jonh@lekiaviation.com",
-      "rfq@lekiaviation.com"
-    ],
-    "LEKITECH": [
+      "rfq@lekiaviation.com",
       "info@lekitech.com"
     ],
     "LEVEL": [
@@ -6359,9 +6538,7 @@
       "skelly@mageeplastics.com"
     ],
     "MAGELLAN": [
-      "engineparts@magellan.com"
-    ],
-    "MAGELLAN GROUP": [
+      "engineparts@magellan.com",
       "conor.twomey@magellangroup.net",
       "aog.SNN@magellangroup.net",
       "asiaRFQs@magellangroup.net",
@@ -6380,19 +6557,15 @@
       "tricia.allen@magellangroup.net",
       "will.williams@magellangroup.net"
     ],
-    "MAGNETIC": [
+    "MAGNETIC MRO": [
       "christian.mejia@magneticgroup.co",
-      "walter.pedroza@magneticgroup.co"
-    ],
-    "MAGNETICGROUP": [
+      "walter.pedroza@magneticgroup.co",
       "furkan.oz@magneticgroup.co",
       "jonas.oksas@magneticgroup.co",
       "julius.kalindra@magneticgroup.co",
       "mantas.krasnickas@magneticgroup.co",
       "mindaugas.pilvelis@magneticgroup.co",
-      "support@magneticgroup.co"
-    ],
-    "MAGNETICMRO": [
+      "support@magneticgroup.co",
       "info@magneticmro.com",
       "RFQ@magneticmro.com"
     ],
@@ -6866,11 +7039,9 @@
     "NEUAERO": [
       "shawn@neuaero.com"
     ],
-    "NEWCASTLE": [
+    "NEWCASTLE AVIATION": [
       "GraysonS@newcastleaviation.com",
-      "RahulV@newcastleaviation.com"
-    ],
-    "NEWCASTLEAVIATION": [
+      "RahulV@newcastleaviation.com",
       "laural@newcastleaviation.com",
       "supplychain@newcastleaviation.com",
       "tiffanym@newcastleaviation.com"
@@ -6891,15 +7062,11 @@
     "NEWTECHSOURCING": [
       "sales@newtechsourcing.com"
     ],
-    "NEXGAERO": [
-      "choleyang@nexgaero.com"
-    ],
-    "NEXGEN": [
+    "NEXGEN AERO": [
+      "choleyang@nexgaero.com",
       "dlamb@nexgen.aero",
       "sales@nexgen.aero",
-      "omartinez@nexgen.aero"
-    ],
-    "NEXGEN-AERO": [
+      "omartinez@nexgen.aero",
       "sales@nexgen-aero.com"
     ],
     "NEXT MRO": [
@@ -6985,10 +7152,8 @@
       "moosthuizen@nordam.com",
       "NRD_Sales@nordam.com"
     ],
-    "NORDIC145": [
-      "sales@nordic145.com"
-    ],
-    "NORDICAS": [
+    "NORDIC AVIATION": [
+      "sales@nordic145.com",
       "SALES@nordicas.eu"
     ],
     "NORTHBAYAVIATION": [
@@ -7699,6 +7864,9 @@
       "rfq@rasg.net",
       "sales@rasg.net"
     ],
+    "RASJETAERO": [
+      "RFQ@RASJETAERO.COM"
+    ],
     "RBCBEARINGS": [
       "aeroinfo@rbcbearings.com"
     ],
@@ -7931,10 +8099,8 @@
     "SAAINC": [
       "sales@saainc.aero"
     ],
-    "SABENA-ENGINEERING": [
-      "Enver.Yilmaz@sabena-engineering.com"
-    ],
-    "SABENATECHNICS": [
+    "SABENA TECHNICS": [
+      "Enver.Yilmaz@sabena-engineering.com",
       "componentservices@sabenatechnics.com",
       "sales@sabenatechnics.com"
     ],
@@ -8102,10 +8268,8 @@
     "SEARCHRESCUEELEC": [
       "jj@searchrescueelec.com"
     ],
-    "SEATTLE AVIONICS": [
-      "steven.szefler@seattleav.com"
-    ],
     "SEATTLEAV": [
+      "steven.szefler@seattleav.com",
       "m.altork@seattleav.com",
       "daniel.brindley@seattleav.com",
       "customersupport@seattleav.com",
@@ -8116,14 +8280,11 @@
       "omar.altork@seattleav.com",
       "rfq@seattleav.com",
       "richard.hickson@seattleav.com",
-      "yazan.aljoulani@seattleav.com",
-      "steven.szefler@seattleav.com"
+      "yazan.aljoulani@seattleav.com"
     ],
-    "SEDA": [
+    "SEDA AEROSPACE": [
       "James@seda.aero",
-      "katherine@seda.aero"
-    ],
-    "SEDA-AEROSPACE": [
+      "katherine@seda.aero",
       "sales@seda-aerospace.com"
     ],
     "SEIAVIATION": [
@@ -8152,9 +8313,7 @@
     "SENTRY": [
       "josiah@sentry.aero",
       "rfqusa@sentry.aero",
-      "salesuk@sentry.aero"
-    ],
-    "SENTRYAEROSPACE": [
+      "salesuk@sentry.aero",
       "Franco@sentryaerospace.com"
     ],
     "SETAERO": [
@@ -8311,15 +8470,11 @@
       "aroberts@skyline-aero.com",
       "SALES@skyline-aero.com"
     ],
-    "SKYLINKAVIATION": [
-      "sales@skylinkaviation.co.uk"
-    ],
-    "SKYLINKINTL": [
+    "SKYLINK": [
+      "sales@skylinkaviation.co.uk",
       "german@skylinkintl.com",
       "SALES@skylinkintl.com",
-      "tyler@skylinkintl.com"
-    ],
-    "SKYLINKSVC": [
+      "tyler@skylinkintl.com",
       "sales@skylinksvc.com"
     ],
     "SKYMONTAVIATION": [
@@ -8403,10 +8558,8 @@
     "SODAB-EST": [
       "quotes@sodab-est.com"
     ],
-    "SOLAERO": [
-      "Andy@solaero.net"
-    ],
-    "SOLAIRGROUP": [
+    "SOLAIR GROUP": [
+      "Andy@solaero.net",
       "tiffany@solairgroup.com"
     ],
     "SOLUTIONAVIATIONPARTS": [
@@ -8595,7 +8748,7 @@
     "STAIRSERVICES": [
       "info@stairservices.in"
     ],
-    "STANDARDAERO": [
+    "STANDARD AERO": [
       "jan.hallmark@standardaero.com",
       "john.driehuis@standardaero.com",
       "josue.vazquez@standardaero.com",
@@ -8604,12 +8757,8 @@
       "Randy.Alzate@standardaero.com",
       "samantha.rogers@standardaero.com",
       "sfs.expendables@standardaero.com",
-      "SFS.Sales@standardaero.com"
-    ],
-    "STANDARDAEROPARTS": [
-      "jessica.kent@standardaeroparts.com"
-    ],
-    "STANDARDAEROSPARES": [
+      "SFS.Sales@standardaero.com",
+      "jessica.kent@standardaeroparts.com",
       "parts@standardaerospares.com"
     ],
     "STAPINDUSTRIES": [
@@ -8678,14 +8827,10 @@
     "STREWREIB": [
       "Jaap@strewreib.be"
     ],
-    "STS-CS": [
+    "STS AVIATION": [
       "cs.rfq@sts-cs.com",
-      "sales@sts-cs.com"
-    ],
-    "STS-DS": [
-      "sales@sts-ds.com"
-    ],
-    "STSAVIATIONSERVICES": [
+      "sales@sts-cs.com",
+      "sales@sts-ds.com",
       "AOG@stsaviationservices.com"
     ],
     "SUMMITMRO": [
@@ -8794,12 +8939,10 @@
       "Joshua.Holmes@taeaerospace.com",
       "Matt.Hart@taeaerospace.com"
     ],
-    "TAG": [
+    "TAG AVIATION": [
       "cberrier@tag.aero",
       "mthomas@tag.aero",
-      "TRoper@tag.aero"
-    ],
-    "TAG-AVIATION": [
+      "TRoper@tag.aero",
       "mike@tag-aviation.co.uk",
       "sales@tag-aviation.co.uk",
       "Trevor@tag-aviation.co.uk",
@@ -8898,7 +9041,7 @@
     "TD": [
       "Taner.Akyuz@td.klm.com"
     ],
-    "TDA": [
+    "TDA AVIATION": [
       "adithya.shet@tda.aero",
       "AOG@tda.aero",
       "heisam.saleh@tda.aero",
@@ -8908,19 +9051,13 @@
       "quality@tda.aero",
       "reno@tda.aero",
       "sales-asia@tda.aero",
-      "SALES-USA@tda.aero"
-    ],
-    "TDA (TOUCHDOWN AVIATION)": [
+      "SALES-USA@tda.aero",
       "javier.maturrell@tda.aero",
       "Holiday: mark@tda.aero",
-      "faris.chanda@tda.aero"
-    ],
-    "TDA AVIATION CENTER": [
+      "faris.chanda@tda.aero",
       "danny@tdaviationcenter.com",
       "jhon@tdaviationcenter.com",
-      "richard@tdaviationcenter.com"
-    ],
-    "TDAVIATIONCENTER": [
+      "richard@tdaviationcenter.com",
       "camille@tdaviationcenter.com",
       "john@tdaviationcenter.com"
     ],
@@ -9094,15 +9231,11 @@
     "TOPAVIATION-TOOLS": [
       "sales@topaviation-tools.com.cn"
     ],
-    "TOPCAST": [
+    "TOPCAST AVIATION": [
       "inquiries@topcast.com",
       "terri.cheung@topcast.com",
-      "Jeffrey.Darmadi@topcast.com"
-    ],
-    "TOPCAST AVIATION": [
-      "janeth.franco@topcast.com"
-    ],
-    "TOPCASTUSA": [
+      "Jeffrey.Darmadi@topcast.com",
+      "janeth.franco@topcast.com",
       "janeth.franco@topcastusa.com",
       "Jeffrey.Darmadi@topcastusa.com",
       "USA@topcastusa.com"
@@ -9173,10 +9306,8 @@
     "TRADEWINDINTERNATIONAL": [
       "info@tradewindinternational.com"
     ],
-    "TRAMEC-AERO": [
-      "katia@tramec-aero.com"
-    ],
-    "TRAMEK-AERO": [
+    "TRAMEC AERO": [
+      "katia@tramec-aero.com",
       "Katia@tramek-aero.com",
       "sales@tramek-aero.com"
     ],
@@ -9417,10 +9548,8 @@
     "UNITEDAEROSPACE": [
       "uacsales@unitedaerospace.com"
     ],
-    "UNIVERSAL AEROSPACE SYSTEMS": [
-      "makilesh@uas-aero.com"
-    ],
-    "UNIVERSAL-AERO": [
+    "UNIVERSAL AERO": [
+      "makilesh@uas-aero.com",
       "rfq@universal-aero.com",
       "sales@universalaero.com"
     ],
@@ -9506,10 +9635,8 @@
       "angela@vcdisplays.com",
       "rob@vcdisplays.com"
     ],
-    "VEGA AVAITION": [
-      "altay@vegaaviation.com"
-    ],
-    "VEGAAVIATION": [
+    "VEGA AVIATION": [
+      "altay@vegaaviation.com",
       "quote@vegaaviation.com"
     ],
     "VELAROAPEX": [
@@ -9815,9 +9942,7 @@
       "sbarnes@worthingtonav.com",
       "kchalmers@worthingtonav.com",
       "bmehrtens@worthingtonav.com",
-      "jboth@worthingtonav.com"
-    ],
-    "WORTHINGTONAV": [
+      "jboth@worthingtonav.com",
       "afrein@worthingtonav.com",
       "anattile@worthingtonav.com",
       "RegionalJet@worthingtonav.com",
@@ -9955,1045 +10080,5 @@
       "jelly.li@zyaviation.cn",
       "simon@zyaviation.cn"
     ]
-  },
-  "blacklist": {
-    "A2AVIATION": {
-      "emails": [
-        "a2aviation.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AAHPARTS": {
-      "emails": [
-        "sales@aahparts.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "ADAIRCRAFT": {
-      "emails": [
-        "adaircraft.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AERO-BAY": {
-      "emails": [
-        "rfq@aero-bay.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AEROCOMP": {
-      "emails": [
-        "Zak@aerocomp.net"
-      ],
-      "reason": "mail not found"
-    },
-    "AERONED": {
-      "emails": [
-        "jasper@aeroned.com",
-        "Mark@aeroned.com",
-        "Arjen.Verkooij@aeroned.com"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "AEROPARTSAOG": {
-      "emails": [
-        "aeropartsaog.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AEROPB": {
-      "emails": [
-        "aeropb.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AEROSPACEPRECISION": {
-      "emails": [
-        "ADIMAIL@aerospaceprecision.com"
-      ],
-      "reason": "mail not found"
-    },
-    "AEROSPACEROTABLES": {
-      "emails": [
-        "markv@aerospacerotables.com"
-      ],
-      "reason": "MAIL NOT FOUND"
-    },
-    "AEROSPACETACTICALSOLUTIONS": {
-      "emails": [
-        "luan@aerospacetacticalsolutions.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "AEROSPACETECHSOLUTIONS": {
-      "emails": [
-        "luan@aerospacetechsolutions.com"
-      ],
-      "reason": "not deliverd"
-    },
-    "AEROTECHNIC-USA": {
-      "emails": [
-        "@aerotechnic-usa.com",
-        "aerotechnic-usa.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AEROTHRUST": {
-      "emails": [
-        "parts@aerothrust.com"
-      ],
-      "reason": "mail not found"
-    },
-    "AEROTURBINE": {
-      "emails": [
-        "rspringthorpe@aeroturbine.com"
-      ],
-      "reason": "Mail not found"
-    },
-    "AEROVISION": {
-      "emails": [
-        "jgawlik@aerovision"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "AIRCAPITALAV": {
-      "emails": [
-        "leo@aircapitalav.com"
-      ],
-      "reason": "mail not found"
-    },
-    "AIRCRAFTSPARESINTL": {
-      "emails": [
-        "dennis@aircraftsparesintl.com"
-      ],
-      "reason": "MAIL NOT FOUND"
-    },
-    "AIRCTRADING": {
-      "emails": [
-        "airctrading.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AIRHUBAVIATION": {
-      "emails": [
-        "airhubaviation.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AIRPARTSTOCK": {
-      "emails": [
-        "@airpartstock.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "ALLS": {
-      "emails": [
-        "luke@all.aeros"
-      ],
-      "reason": "mail not found"
-    },
-    "AMMACAIRCRAFT": {
-      "emails": [
-        "ammacaircraft.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AOAAVIATION": {
-      "emails": [
-        "bryon@aoaaviation.com"
-      ],
-      "reason": "mail not found"
-    },
-    "AOGTEAMSERVICES": {
-      "emails": [
-        "sales@aogteamservices.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "AOL": {
-      "emails": [
-        "croberts7453@aol.com"
-      ],
-      "reason": "mail not found"
-    },
-    "APLD.US": {
-      "emails": [
-        "ccuriel@apld.us"
-      ],
-      "reason": "mail not found"
-    },
-    "APOCAVIATION": {
-      "emails": [
-        "apocaviation.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "ARTMX.US": {
-      "emails": [
-        "aaguiar@artmx.us"
-      ],
-      "reason": "mail not found"
-    },
-    "ASALTD": {
-      "emails": [
-        "asaltd.uk"
-      ],
-      "reason": "MANAGER TELL"
-    },
-    "ASAPSEMI": {
-      "emails": [
-        "@asapsemi.com"
-      ],
-      "reason": "ASAP SEMI"
-    },
-    "ASIA.THALESGROUP": {
-      "emails": [
-        "wendy.foo@asia.thalesgroup.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "ASIAERO": {
-      "emails": [
-        "Kathiek@asiaero.net"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "ATXAEROPARTS": {
-      "emails": [
-        "sales@atxaeroparts.com"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "AVADAG": {
-      "emails": [
-        "kevin@avadag.com"
-      ],
-      "reason": "mail not found"
-    },
-    "AVAIR": {
-      "emails": [
-        "avair.aero"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AVIAAM": {
-      "emails": [
-        "robertas.negudinas@aviaam.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AVIAREMCOMPONENT": {
-      "emails": [
-        "s.shilin@aviaremcomponent.aero"
-      ],
-      "reason": "mail not found"
-    },
-    "AVIASAP": {
-      "emails": [
-        "supply@aviasap.com"
-      ],
-      "reason": "delivery incomplete"
-    },
-    "AVIATECHNIQUE": {
-      "emails": [
-        "enquires@aviatechnique.co.uk"
-      ],
-      "reason": "mail not found"
-    },
-    "AVIATIONEXCESS": {
-      "emails": [
-        "paola@aviationexcess.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "AVIATIONROTABLES": {
-      "emails": [
-        "karisma@aviationrotables.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AVIATORSOLUTIONS": {
-      "emails": [
-        "awsam.farjo@aviatorsolutions.com",
-        "aviatorsolutions.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AVIODIRECT": {
-      "emails": [
-        "sales@aviodirect.com",
-        "jesus@aviodirect.com",
-        "aviodirect.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AVITRADING": {
-      "emails": [
-        "sales@avitrading.net"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "AVSPARESSOLUTIONS": {
-      "emails": [
-        "avsparessolutions.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "AVTRADE": {
-      "emails": [
-        "ales@avtrade.co.uk"
-      ],
-      "reason": "mail not found"
-    },
-    "BARFIELDINC": {
-      "emails": [
-        "repairquote@barfieldinc.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "BAYVIEWAVIATION": {
-      "emails": [
-        "bayviewaviation.com"
-      ],
-      "reason": "KYC PASS"
-    },
-    "BE-AERO": {
-      "emails": [
-        "tuba.ruacan@be-aero.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "BEAEROSPACE-SYSTEMS": {
-      "emails": [
-        "erospace@beaerospace-systems.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "BFAEROSPACE": {
-      "emails": [
-        "ljabel@bfaerospace.com"
-      ],
-      "reason": "mail not found"
-    },
-    "BNYINTL": {
-      "emails": [
-        "wliang@bnyintl.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "BRANCORAVIATION": {
-      "emails": [
-        "quotes@brancoraviation.com"
-      ],
-      "reason": "mail not found"
-    },
-    "BRIGMANAVIATION": {
-      "emails": [
-        "info@brigmanaviation.com"
-      ],
-      "reason": "mail not found"
-    },
-    "BROOKS-MALDINI": {
-      "emails": [
-        "brooks-maldini.net"
-      ],
-      "reason": "Blacklisted"
-    },
-    "BROWNHELICOPTER": {
-      "emails": [
-        "callforquote@brownhelicopter.com"
-      ],
-      "reason": "MAIL NOT FOUND"
-    },
-    "BUYAIRCRAFTPARTS": {
-      "emails": [
-        "contact@buyaircraftparts.com"
-      ],
-      "reason": "mail not found"
-    },
-    "CAL-AVIATION": {
-      "emails": [
-        "bfeugret@cal-aviation.com",
-        "feugret@cal-aviation.com"
-      ],
-      "reason": "Email blocked"
-    },
-    "CALIFORNIAAIRSALES": {
-      "emails": [
-        "sales@californiaairsales.com"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "CHABAIRCRAFTPARTS": {
-      "emails": [
-        "sales@chabaircraftparts.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "CHAIR.CH": {
-      "emails": [
-        "sebastian.hintze@chair.ch"
-      ],
-      "reason": "MAIL NOT FOUND"
-    },
-    "CHANNELFOR": {
-      "emails": [
-        "rfq@channelfor.com"
-      ],
-      "reason": "DELIVERY INCOMPLETE"
-    },
-    "CLUBJET.NE": {
-      "emails": [
-        "parts@clubjet.ne"
-      ],
-      "reason": "mail not found"
-    },
-    "COCOPLUMAERO": {
-      "emails": [
-        "brian@cocoplumaero.com",
-        "cocoplumaero.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "CROSSWIND.ME": {
-      "emails": [
-        "crosswind.me"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "CRS-AERO": {
-      "emails": [
-        "chris@crs-aero.com"
-      ],
-      "reason": "mail not found"
-    },
-    "CTGNOW": {
-      "emails": [
-        "cyoung@ctgnow.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "DAP-AERO": {
-      "emails": [
-        "dap-aero"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "DESTINYAERO": {
-      "emails": [
-        "sales@destinyaero.com"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "DORINAVIATION": {
-      "emails": [
-        "supply@dorinaviation.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "EASTAIR": {
-      "emails": [
-        "eastair.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "ECHOAIRO": {
-      "emails": [
-        "sales@echoairo.com"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "EDAVIATION": {
-      "emails": [
-        "purchase@edaviation.net"
-      ],
-      "reason": "mail not found"
-    },
-    "EFTEC": {
-      "emails": [
-        "info@eftec.aero"
-      ],
-      "reason": "mail not found"
-    },
-    "EMAIL": {
-      "emails": [
-        "orangeair@email.com"
-      ],
-      "reason": "mail not found"
-    },
-    "EUINSPECTIONSERVICE": {
-      "emails": [
-        "maintenance@euinspectionservice.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "FIRSTCLASSAIRSUPPORT": {
-      "emails": [
-        "firstclassairsupport.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "FLEETCAREAERO": {
-      "emails": [
-        "fleetcareaero.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "FLIGHTTHEORY": {
-      "emails": [
-        "erick.g@flighttheory.net"
-      ],
-      "reason": "mail not found"
-    },
-    "FLIGHTWISE.AE": {
-      "emails": [
-        "sales@flightwise.ae"
-      ],
-      "reason": "KYC PASS"
-    },
-    "FUTUREGLOBALAEROSPACE": {
-      "emails": [
-        "sales@futureglobalaerospace.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "GAHSM": {
-      "emails": [
-        "gary@gahsm.com"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "GECAS": {
-      "emails": [
-        "zach.mccrary@gecas.com"
-      ],
-      "reason": "mail not found"
-    },
-    "GENAIRSUPPORT": {
-      "emails": [
-        "ezra@genairsupport.com"
-      ],
-      "reason": "mailt not found"
-    },
-    "GFA": {
-      "emails": [
-        "gfa"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "GLOBALMENA": {
-      "emails": [
-        "@globalmena.aero",
-        "parts@globalmena.aero",
-        "sales@globalmena.aero",
-        "globalmena.aero"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "GLOBALMENAS": {
-      "emails": [
-        "parts@globalmena.aeros"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "GMAIL": {
-      "emails": [
-        "eden.aerothings@gmail.com",
-        "sandybosch7@gmail.com",
-        "aircraftpartsnsupplies@gmail.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "GMDCINC": {
-      "emails": [
-        "gmdcinc.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "GMF AEROASIA": {
-      "emails": [
-        "mnur.arifin@gmf-aeroasia.co.id",
-        "Tamam.Umara@gmf-aeroasia.co.id"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "GMFAEROASIA": {
-      "emails": [
-        "mnur.arifin@gmf-aeroasia.co.id",
-        "Tamam.Umara@gmf-aeroasia.co.id"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "HAPS": {
-      "emails": [
-        "haps.aero"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "HAWKAVIATION": {
-      "emails": [
-        "hawkquotes@hawkaviation.com",
-        "@hawkaviation.com",
-        "hawkaviation.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "HNA-ML": {
-      "emails": [
-        "op_domestic@hna-ml.com"
-      ],
-      "reason": "MAIL NOT FOUND"
-    },
-    "ICRSAEROSPACE": {
-      "emails": [
-        "icrsaerospace.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "INTAIRCRAFTREPAIRS": {
-      "emails": [
-        "sales@intaircraftrepairs.com"
-      ],
-      "reason": "mail not found"
-    },
-    "INTERNATIONAL-AVIATION": {
-      "emails": [
-        "parts@international-aviation.com"
-      ],
-      "reason": "NOT TO SEND"
-    },
-    "ITS": {
-      "emails": [
-        "carmen.cordovac@its.aero"
-      ],
-      "reason": "mail not found"
-    },
-    "JETAIRE": {
-      "emails": [
-        "info@jetaire.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "JETASSETS": {
-      "emails": [
-        "Jane@jetassets.com"
-      ],
-      "reason": "delivery incomplete"
-    },
-    "JETMIDWEST": {
-      "emails": [
-        "Ashley.Santee@jetmidwest.com"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "JGENTERPRISES.US": {
-      "emails": [
-        "Sales@jgenterprises.us"
-      ],
-      "reason": "mailt not found"
-    },
-    "JXAVTECH": {
-      "emails": [
-        "jxavtech.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "LEAEROSPACE": {
-      "emails": [
-        "leaerospace"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "LIBERTY-AERO": {
-      "emails": [
-        "sales@liberty-aero.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "LOCATORY": {
-      "emails": [
-        "dainius.meilunas@locatory.com"
-      ],
-      "reason": "MAIL NOT FOUND"
-    },
-    "LOTUSAEROKE": {
-      "emails": [
-        "Info@lotusaeroke.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "MASSLYAERO": {
-      "emails": [
-        "masslyaero.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "MIDAMAERO": {
-      "emails": [
-        "sales@midamaero.com"
-      ],
-      "reason": "message blocked"
-    },
-    "MTRAVIATION": {
-      "emails": [
-        "mtraviation.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "NAC.CO.ZA": {
-      "emails": [
-        "dale@nac.co.za"
-      ],
-      "reason": "MAIL NOT FOUND"
-    },
-    "NESWAIR": {
-      "emails": [
-        "neswair.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "OAPINC": {
-      "emails": [
-        "sales@oapinc.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "ONESKYAV": {
-      "emails": [
-        "sales@oneskyav.com"
-      ],
-      "reason": "mail not found"
-    },
-    "PAT-PAGM": {
-      "emails": [
-        "mstemwedel@pat-pag.comm"
-      ],
-      "reason": "mail not found"
-    },
-    "PETRAAIRLINE": {
-      "emails": [
-        "nasser.arabiat@petraairline.com"
-      ],
-      "reason": "Message not delivered"
-    },
-    "PLATINUMJET.CA": {
-      "emails": [
-        "shelby@platinumjet.ca"
-      ],
-      "reason": "mail not found"
-    },
-    "POWERJETAVIATION": {
-      "emails": [
-        "hennessey@powerjetaviation.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "PRESIDIOAIRCRAFTLEASING": {
-      "emails": [
-        "jsitkowski@presidioaircraftleasing.com"
-      ],
-      "reason": "delivery incomplete"
-    },
-    "PTS-AVIATION": {
-      "emails": [
-        "mdamron@pts-aviation.com"
-      ],
-      "reason": "delivery incomplete"
-    },
-    "Q1AVIATION": {
-      "emails": [
-        "sandra@q1aviation.com"
-      ],
-      "reason": "mail not found"
-    },
-    "QWESTAIRPARTS": {
-      "emails": [
-        "mtutor@qwestairparts.com"
-      ],
-      "reason": "mailt not found"
-    },
-    "RANGERAAV": {
-      "emails": [
-        "Rmackey@rangeraav.com"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "REDIFFMAIL": {
-      "emails": [
-        "shreejismailbox@rediffmail.com"
-      ],
-      "reason": "mail not found"
-    },
-    "RELIANCEAEROSPACE": {
-      "emails": [
-        "claudio@relianceaerospace.net"
-      ],
-      "reason": "mail not found"
-    },
-    "RVMAEROSPACE": {
-      "emails": [
-        "sales@rvmaerospace.com"
-      ],
-      "reason": "mail not found"
-    },
-    "SATAIR": {
-      "emails": [
-        "info@satair.com"
-      ],
-      "reason": "message blocked"
-    },
-    "SENTRY": {
-      "emails": [
-        "@sentry.aero",
-        "sentry.aero"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "SHOPAVIATIONSTORE": {
-      "emails": [
-        "raquel@shopaviationstore.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "SKYAIRSUPPLY": {
-      "emails": [
-        "sales@skyairsupply.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "SKYFUTURE": {
-      "emails": [
-        "contact@skyfuture.aero"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "SOURCEONESPARES": {
-      "emails": [
-        "@sourceonespares.com",
-        "sourceonespares.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "STAERO-ARL": {
-      "emails": [
-        "sales@staero-arl.com"
-      ],
-      "reason": "mail not found"
-    },
-    "STEINT": {
-      "emails": [
-        "rod@steint.com"
-      ],
-      "reason": "mail not found"
-    },
-    "STENGG": {
-      "emails": [
-        "aogsupplies@stengg.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "STOFANET": {
-      "emails": [
-        "aviation@stofanet.dk"
-      ],
-      "reason": "NOT FOUND"
-    },
-    "SZAVIATION": {
-      "emails": [
-        "sales@szaviation.com"
-      ],
-      "reason": "mail not found"
-    },
-    "TALLAMOND": {
-      "emails": [
-        "tallamond.aero"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "TASFZC": {
-      "emails": [
-        "tasfzc.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "TASREPAIR": {
-      "emails": [
-        "amy@tasrepair.aero"
-      ],
-      "reason": "MAIL NOT FOUND"
-    },
-    "TCAS-LTD": {
-      "emails": [
-        "sales@tcas-ltd.com"
-      ],
-      "reason": "mail not found"
-    },
-    "TCASAERO": {
-      "emails": [
-        "Faisal.Daghestany@tcasaero.com",
-        "Nibal.Salim@tcasaero.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "TECNICAAEROSPACE": {
-      "emails": [
-        "tecnicaaerospace.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "TEXASAIRCOMPOSITES": {
-      "emails": [
-        "bmcguinness@texasaircomposites.com"
-      ],
-      "reason": "mail not found"
-    },
-    "TRIUMPHGROUP": {
-      "emails": [
-        "TASA-RFQ@triumphgroup.com"
-      ],
-      "reason": "Mail not found"
-    },
-    "TURBANASOLUTIONS": {
-      "emails": [
-        "turbanasolutions.com",
-        "katya@turbanasolutions.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "UNICORPOK": {
-      "emails": [
-        "jims@unicorpok.com"
-      ],
-      "reason": "mail not found"
-    },
-    "UNIQUIP": {
-      "emails": [
-        "mwoodcock@uniquip.com"
-      ],
-      "reason": "MAIL NOT FOUND"
-    },
-    "UNIVERSALAIRCORP": {
-      "emails": [
-        "cascencio@universalaircorp.com"
-      ],
-      "reason": "mail not found"
-    },
-    "UTDMRO": {
-      "emails": [
-        "sales@utdmro.com"
-      ],
-      "reason": "mail not found"
-    },
-    "VCAEROSPACE": {
-      "emails": [
-        "ales@vcaerospace.com"
-      ],
-      "reason": "mail not found"
-    },
-    "VOLANTTECH": {
-      "emails": [
-        "rfq@volanttech.com"
-      ],
-      "reason": "delivery incomplete"
-    },
-    "WESTERN-SPARK": {
-      "emails": [
-        "sales@western-spark.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    },
-    "WILLISAERO": {
-      "emails": [
-        "Alandolfi@willisaero.com"
-      ],
-      "reason": "NOT EXIST"
-    },
-    "WINGEDTYCOONS": {
-      "emails": [
-        "sales@wingedtycoons.com"
-      ],
-      "reason": "Blacklisted for higher price or not answering"
-    }
-  },
-  "replacements": {
-    "production@skysmart.co.uk": "callum@skysmart.co.uk",
-    "aar-allen@app.partsrfq.com": "sales@aarcorp.com",
-    "PBS@UEAVIATION.COM": "Sales@ueaviation.com",
-    "sales@marchaviation.com": "quotes@marchaviation.com",
-    "sales-miami@vseaviation.com": "support@vseaviaition.com",
-    "customerservice@oceanair.aero": "sales@oceanair.aero",
-    "rfq@saywell.us": "cinthia@saywell.us",
-    "parts@ras.de": "A.Bustin-Gelton@ras.de",
-    "aog@fltechnics.com": "natalja.melnikova@fltechnics.com",
-    "crc.commercial.support@support.parker.com": "meggittreferral@proponent.com",
-    "sales@sts-cs.com": "https://www.stsaviationgroup.com/aircraft-parts-rfq-form/",
-    "quality@aviatechnique.co.uk": "suzie@aviatechnique.co.uk",
-    "quality@gatelesis.com": "sales@gatelesis.com",
-    "parts@aeroasg.com": "sales@aeroasg.com",
-    "websales@wingcontrol.com": "sales@wingcontrol.com",
-    "info@aels.nl": "sales@aels.nl",
-    "trading@oemservices.aero": "trading-quote@oemservices.aero",
-    "info@flgtechnics.com": "sales@flgtechnics.com",
-    "hhzhscyxb@hnair.com": "ar-sales@hnair.com",
-    "support@vseaviation.com": "sales@vseaviation.com",
-    "jfilion@aircollc.com": "jwilson@aircollc.com, pcisneros@aircollc.com, mlor@aircollc.com",
-    "sales@aerotechnic-asia.com, sales@aerotechnic-group.com": "sales@aerotechnic-usa.com",
-    "RFQ@fokker.com": "sales@fokkertechniek.com",
-    "quality@semasamro.com": "partsales@semasamro.com",
-    "mpbhusal@yog-kshem.com": "sales.europe@yog-kshem.com",
-    "ddesormes@relianceaircraft.com": "sales@relianceaircraft.com",
-    "salesusa@magellangroup.net": "sales@magellangroup.net",
-    "components@genesis.aero": "sales@genesys-aerosystems.com",
-    "purchasing@nextstepnet.net": "sales@nextstepnet.net",
-    "parellano@techopssolutions.com": "sales@techopssolutions.com",
-    "fortearoma@yahoo.com": "sales@farstation145.com",
-    "osaud@aqair.com": "sales@aqa.aero",
-    "aog@quantumairs.com": "sales@quantumairs.com",
-    "mmontalvo@interskyaero.com": "info@interskyaero.com",
-    "info@aileaviation.com": "rfq@aileaviation.com",
-    "info@jalaramaero.com": "sales@jalaramaero.com",
-    "mstemwedel@pat-pag.com": "mstemwedel@pat-pag.com",
-    "info@businessaerotech.com": "sales@businessaerotech.com",
-    "info@regionalone.com": "rfqs@regionalone.com",
-    "a.vanson@eirtradeaviation.com": "airframe@eirtradeaviation.com",
-    "qualityassurance@kellstromaerospace.com": "sales@kellstromaerospace.com",
-    "info@jetsetaerospace.com": "rfq@jetsetaerospace.com",
-    "Jolin.kwok@dbraviation.com": "joyce.j@dbraviation.com",
-    "gahsm@gahsm.com": "GHASM",
-    "SALES@bii.aero": "Ava@bii.aero",
-    "sales@seaerospace.com": "https://www.seaerospace.com/sales",
-    "parts@rotorlink.com": "rotorlink-mp@app.partsrfq.com",
-    "sales@magneticgroup.co": "info@magneticmro.com",
-    "sales@gtsmro.com": "quality@gtsmro.com",
-    "HOP-Sales@hutchinsoninc.com": "sales.bcas@hutchinson.fr",
-    "sales@jcaviationservices.com": "info@jcaviationservices.com",
-    "sales@aerotechnic-asia.com": "sales@aerotechnic-group.com"
-  },
-  "exw": {
-    "ALARIS AEROSPACE": "Miami, Belgium, New Delhi, Dubai, Kuala Lumpur, and Sanford FL",
-    "AMP AERO MARINE & POWER": "USA",
-    "Lufthansa Technik Component": "USA",
-    "SAT AIR": "Check the offer stock",
-    "PIN AIT TECH CORP": "USA",
-    "53 NORTH AVIATION": "UK",
-    "APT AVPARTS TRADE FZC": "UAE",
-    "CORAX": "DENMARK",
-    "AERO ZONE": "USA/Europe",
-    "FIRE TEC": "USA",
-    "RYBRIDGE AIR": "BEIJING",
-    "Jet Direct Aerospace": "USA",
-    "GLOBAL AIRSERVICES, LLC": "USA",
-    "B/E AEROSAPCE SYSTEMS GMBH.": "Europe",
-    "LEKI": "CPH",
-    "CMI AIRCRAFT": "USA",
-    "PENIEL AEROSPACE": "MIAMI",
-    "Fly Alliance, LLC": "USA",
-    "ICON AEROSPACE": "USA",
-    "AIRCRAFT COMPOMEMT SUPPLY": "Netherlands",
-    "AVIENTUM": "UK",
-    "JMF": "USA",
-    "TDA": "Amsterdam, London, Miami and Singapore",
-    "KGAR": "UK, USA",
-    "BURWOOD": "UK"
   }
 }
