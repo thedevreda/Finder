@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ECP Panel</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<link href="./ECP Panel_files/css2" rel="stylesheet">
-<script src="./ECP Panel_files/firebase-app-compat.js.download"></script>
-<script src="./ECP Panel_files/firebase-database-compat.js.download"></script>
-<script src="./ECP Panel_files/firebase-auth-compat.js.download"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <style>
 :root {
   --brand:#0F6FDE; --brand-d:#0A56B0; --brand-lt:#EBF3FF;
@@ -22,8 +22,9 @@
   --r:6px; --r2:10px;
   --sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.05);
   --sh2:0 4px 16px rgba(0,0,0,.10);
-  --font: 'DM Sans', -apple-system, sans-serif;
-  --mono: 'DM Mono', monospace;
+  --font:'Inter',-apple-system,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --nav-w:230px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden}
@@ -99,7 +100,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13
 /* ════════════════════════════════
    DOCS PANEL — GitBook style
 ════════════════════════════════ */
-.docs-shell{display:flex;flex:1;overflow:hidden;height:100%;position:relative}
+.docs-shell{display:flex;flex:1;overflow:hidden;height:100%}
 
 /* Side nav */
 .docs-nav{width:var(--nav-w);flex-shrink:0;background:var(--white);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;transition:width .2s}
@@ -118,8 +119,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13
 
 /* Content area */
 .docs-content{flex:1;overflow-y:auto;background:var(--bg)}
-.docs-content-header{display:none;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--border2);background:var(--white)}
-.docs-content-title{font-size:13px;font-weight:600;color:var(--text)}
 .docs-inner{max-width:800px;margin:0 auto;padding:32px 36px 80px}
 
 /* Search bar notification */
@@ -141,8 +140,8 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 
 /* Lists */
 .item-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:3px}
-.item-list li{align-items:flex-start;gap:8px;font-size:12.5px;color:var(--text);padding:6px 10px;background:var(--white);border:1px solid var(--border2);border-radius:var(--r);line-height:1.5}
-.item-list li::before{content:"›"; margin: 5px;color:var(--brand);font-weight:700;flex-shrink:0;font-size:15px;margin-top:-.5px}
+.item-list li{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:var(--text);padding:6px 10px;background:var(--white);border:1px solid var(--border2);border-radius:var(--r);line-height:1.5}
+.item-list li::before{content:"›";color:var(--brand);font-weight:700;flex-shrink:0;font-size:15px;margin-top:-.5px}
 .item-list.num{counter-reset:nc}
 .item-list.num li::before{content:counter(nc);counter-increment:nc;background:var(--brand);color:#fff;width:18px;height:18px;border-radius:50%;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 
@@ -241,16 +240,6 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 .bl-reason{font-size:11px;color:var(--red);margin-top:4px;padding-top:4px;border-top:1px dashed #FFCDD2;font-weight:500}
 .data-notice{background:#FFFBEB;border:1px solid #FDE68A;border-left:3px solid var(--orange);border-radius:var(--r);padding:10px 14px;font-size:12px;color:#92400E;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 
-/* Mobile Nav Toggle Button */
-.nav-toggle{display:none;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--border);background:var(--white);border-radius:var(--r);cursor:pointer;flex-shrink:0;transition:.12s}
-.nav-toggle:hover{background:var(--bg);border-color:var(--brand)}
-.nav-toggle svg{width:18px;height:18px;color:var(--muted)}
-.nav-toggle:hover svg{color:var(--brand)}
-
-/* Mobile Nav Overlay */
-.docs-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99;opacity:0;transition:opacity .2s}
-.docs-nav-overlay.show{display:block;opacity:1}
-
 /* ════════════════════════════════
    RESPONSIVE
 ════════════════════════════════ */
@@ -260,11 +249,8 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   .pg-title{font-size:20px}
 }
 @media(max-width:680px){
-  :root{--nav-w:260px}
-  .nav-toggle{display:flex}
-  .docs-content-header{display:flex}
-  .docs-nav{position:fixed;left:0;top:0;bottom:0;z-index:100;transform:translateX(-100%);box-shadow:var(--sh2)}
-  .docs-nav.open{transform:translateX(0)}
+  :root{--nav-w:0px}
+  .docs-nav{display:none}
   .tools-grid{grid-template-columns:1fr}
   .plat-grid{grid-template-columns:1fr 1fr}
   .docs-inner{padding:16px 14px 40px}
@@ -279,18 +265,19 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   .auth-card{width:calc(100vw - 32px);padding:28px 20px}
 }
 </style>
+</head>
 <body>
 
 <!-- AUTH -->
-<div id="loginScreen" style="display: none;">
+<div id="loginScreen">
   <div class="auth-card">
     <div class="auth-logo">
       <div class="auth-logo-icon">E</div>
       <div class="auth-logo-text">ECP Panel</div>
     </div>
     <div class="auth-tabs">
-      <button class="auth-tab active" id="tabSI" onclick="authTab(&#39;signin&#39;)">Sign In</button>
-      <button class="auth-tab" id="tabSU" onclick="authTab(&#39;signup&#39;)">Sign Up</button>
+      <button class="auth-tab active" id="tabSI" onclick="authTab('signin')">Sign In</button>
+      <button class="auth-tab" id="tabSU" onclick="authTab('signup')">Sign Up</button>
     </div>
     <div class="auth-panel active" id="pSI">
       <div class="auth-sub">Welcome back — sign in to continue.</div>
@@ -316,7 +303,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 </div>
 
 <!-- APP -->
-<div id="appScreen" class="visible">
+<div id="appScreen">
   <div class="topbar">
     <div class="tb-brand">
       <div class="tb-brand-icon">E</div>
@@ -324,25 +311,25 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
     </div>
     <div class="tb-center">
       <div class="clocks">
-        <div class="ck" id="ckCDG"><div class="cy">CDG</div><div class="ct">17:48:50</div></div>
-        <div class="ck" id="ckDXB"><div class="cy">DXB</div><div class="ct">20:48:50</div></div>
-        <div class="ck" id="ckMIA"><div class="cy">MIA</div><div class="ct">12:48:50</div></div>
-        <div class="ck" id="ckSIN"><div class="cy">SIN</div><div class="ct">00:48:50</div></div>
+        <div class="ck" id="ckCDG"><div class="cy">CDG</div><div class="ct"></div></div>
+        <div class="ck" id="ckDXB"><div class="cy">DXB</div><div class="ct"></div></div>
+        <div class="ck" id="ckMIA"><div class="cy">MIA</div><div class="ct"></div></div>
+        <div class="ck" id="ckSIN"><div class="cy">SIN</div><div class="ct"></div></div>
       </div>
     </div>
     <div class="tb-right">
-      <span class="fn" id="fileName">⚠ No data.json</span>
+      <span class="fn" id="fileName">Loading…</span>
       <div class="ub">
-        <div class="ua" id="userAvatar">R</div>
-        <span class="un" id="userNameDisplay">Rida Amelloul</span>
+        <div class="ua" id="userAvatar">?</div>
+        <span class="un" id="userNameDisplay">—</span>
         <button class="lo-btn" onclick="doLogout()">✕ Logout</button>
       </div>
     </div>
   </div>
 
   <div class="tabbar">
-    <button class="tbtn active" onclick="switchTab(&#39;docs&#39;,this)">📚 Docs</button>
-    <button class="tbtn" onclick="switchTab(&#39;tools&#39;,this)">🔍 Search &amp; Reminders</button>
+    <button class="tbtn active" onclick="switchTab('docs',this)">📚 Docs</button>
+    <button class="tbtn" onclick="switchTab('tools',this)">🔍 Search &amp; Reminders</button>
   </div>
 
   <div class="app-body">
@@ -351,9 +338,6 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       <!-- ═══ DOCS PANEL ═══ -->
       <div id="panel-docs" class="panel active">
         <div class="docs-shell">
-          
-          <!-- Mobile Nav Overlay -->
-          <div class="docs-nav-overlay" id="navOverlay" onclick="closeNav()"></div>
 
           <!-- SIDE NAV -->
           <div class="docs-nav" id="docsNav">
@@ -364,33 +348,27 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
             </div>
             <div class="nav-scroll">
               <div class="nav-group-label">Workflow Steps</div>
-              <button class="nav-item active" onclick="showPage(&#39;s1&#39;,this)"><span class="ni">1</span>Reviewing RFQ</button>
-              <button class="nav-item" onclick="showPage(&#39;s2&#39;,this)"><span class="ni">2</span>Creating Template</button>
-              <button class="nav-item" onclick="showPage(&#39;s3&#39;,this)"><span class="ni">3</span>PN Search</button>
-              <button class="nav-item" onclick="showPage(&#39;s4&#39;,this)"><span class="ni">4</span>Sending RFQs</button>
-              <button class="nav-item" onclick="showPage(&#39;s5&#39;,this)"><span class="ni">5</span>Quote Treatment</button>
-              <button class="nav-item" onclick="showPage(&#39;s6&#39;,this)"><span class="ni">6</span>Certification</button>
-              <button class="nav-item" onclick="showPage(&#39;s7&#39;,this)"><span class="ni">7</span>Trace &amp; PPW</button>
-              <button class="nav-item" onclick="showPage(&#39;s8&#39;,this)"><span class="ni">8</span>Sending Reminders</button>
-              <button class="nav-item" onclick="showPage(&#39;s9&#39;,this)"><span class="ni">9</span>Picking the Offer</button>
-              <button class="nav-item" onclick="showPage(&#39;s10&#39;,this)"><span class="ni">10</span>Invoice Process</button>
-              <button class="nav-item" onclick="showPage(&#39;s11&#39;,this)"><span class="ni">11</span>Follow-Up</button>
+              <button class="nav-item active" onclick="showPage('s1',this)"><span class="ni">1</span>Reviewing RFQ</button>
+              <button class="nav-item" onclick="showPage('s2',this)"><span class="ni">2</span>Creating Template</button>
+              <button class="nav-item" onclick="showPage('s3',this)"><span class="ni">3</span>PN Search</button>
+              <button class="nav-item" onclick="showPage('s4',this)"><span class="ni">4</span>Sending RFQs</button>
+              <button class="nav-item" onclick="showPage('s5',this)"><span class="ni">5</span>Quote Treatment</button>
+              <button class="nav-item" onclick="showPage('s6',this)"><span class="ni">6</span>Certification</button>
+              <button class="nav-item" onclick="showPage('s7',this)"><span class="ni">7</span>Trace &amp; PPW</button>
+              <button class="nav-item" onclick="showPage('s8',this)"><span class="ni">8</span>Sending Reminders</button>
+              <button class="nav-item" onclick="showPage('s9',this)"><span class="ni">9</span>Picking the Offer</button>
+              <button class="nav-item" onclick="showPage('s10',this)"><span class="ni">10</span>Invoice Process</button>
+              <button class="nav-item" onclick="showPage('s11',this)"><span class="ni">11</span>Follow-Up</button>
               <div class="nav-group-label">Reference</div>
-              <button class="nav-item" onclick="showPage(&#39;platforms&#39;,this)"><span class="ni">🌐</span>Platforms</button>
-              <button class="nav-item" onclick="showPage(&#39;glossary&#39;,this)"><span class="ni">📖</span>Terminology</button>
-              <button class="nav-item" onclick="showPage(&#39;templates&#39;,this)"><span class="ni">✉️</span>Email Templates</button>
-              <button class="nav-item" onclick="showPage(&#39;tips&#39;,this)"><span class="ni">💡</span>Pro Tips</button>
+              <button class="nav-item" onclick="showPage('platforms',this)"><span class="ni">🌐</span>Platforms</button>
+              <button class="nav-item" onclick="showPage('glossary',this)"><span class="ni">📖</span>Terminology</button>
+              <button class="nav-item" onclick="showPage('templates',this)"><span class="ni">✉️</span>Email Templates</button>
+              <button class="nav-item" onclick="showPage('tips',this)"><span class="ni">💡</span>Pro Tips</button>
             </div>
           </div>
 
           <!-- CONTENT -->
           <div class="docs-content" id="docsContent">
-            <div class="docs-content-header">
-              <button class="nav-toggle" id="navToggle" onclick="toggleNav()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-              </button>
-              <span class="docs-content-title">Documentation</span>
-            </div>
             <div class="docs-search-notify" id="docsSN">
               <span>🔍 Results for: <strong id="docsSNterm"></strong></span>
               <button class="dsn-clear" onclick="clearSearch()">✕ Clear</button>
@@ -437,7 +415,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   <div class="sec-title">📨 What to send</div>
   <div class="tpl-block" id="tb-s2">
     <div class="tpl-head"><div class="tpl-label">📨 RFQ Email</div>
-      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl(&#39;s2&#39;,0,this)">Single PN</button><button class="tpl-tab" onclick="swTpl(&#39;s2&#39;,1,this)">Multiple PNs</button></div>
+      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s2',0,this)">Single PN</button><button class="tpl-tab" onclick="swTpl('s2',1,this)">Multiple PNs</button></div>
     </div>
     <div class="tpl-body"><div class="tpl-text" id="tt-s2">Subject: RFQ PN [0123FA2]
 
@@ -448,7 +426,7 @@ Please provide your best price quote and stock availability for the following it
 1 PN# [0123FA2] / [SENSOR - LOW FLOW]
 
 Thank you.
-Best regards</div><button class="tpl-copy" onclick="cpTpl(&#39;tt-s2&#39;,this)">Copy</button></div>
+Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s2',this)">Copy</button></div>
   </div>
 </div>
 <div class="pg-section">
@@ -510,7 +488,7 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl(&#39;tt-s2&#39;,this)"
   <div class="sec-title">📨 What to send</div>
   <div class="tpl-block" id="tb-s4">
     <div class="tpl-head"><div class="tpl-label">📨 RFQ Email</div>
-      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl(&#39;s4&#39;,0,this)">Single PN</button><button class="tpl-tab" onclick="swTpl(&#39;s4&#39;,1,this)">Multiple PNs</button></div>
+      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s4',0,this)">Single PN</button><button class="tpl-tab" onclick="swTpl('s4',1,this)">Multiple PNs</button></div>
     </div>
     <div class="tpl-body"><div class="tpl-text" id="tt-s4">Subject: RFQ PN [0123FA2]
 
@@ -521,7 +499,7 @@ Please provide your best price quote and stock availability for the following it
 1 PN# [0123FA2] / [SENSOR - LOW FLOW]
 
 Thank you.
-Best regards</div><button class="tpl-copy" onclick="cpTpl(&#39;tt-s4&#39;,this)">Copy</button></div>
+Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</button></div>
   </div>
 </div>
 <div class="pg-section">
@@ -651,13 +629,13 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl(&#39;tt-s4&#39;,this)"
   <div class="sec-title">📨 What to send</div>
   <div class="tpl-block" id="tb-s8">
     <div class="tpl-head"><div class="tpl-label">🔔 Supplier Reminder</div>
-      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl(&#39;s8&#39;,0,this)">Option 1</button><button class="tpl-tab" onclick="swTpl(&#39;s8&#39;,1,this)">Option 2</button><button class="tpl-tab" onclick="swTpl(&#39;s8&#39;,2,this)">Option 3</button></div>
+      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s8',0,this)">Option 1</button><button class="tpl-tab" onclick="swTpl('s8',1,this)">Option 2</button><button class="tpl-tab" onclick="swTpl('s8',2,this)">Option 3</button></div>
     </div>
     <div class="tpl-body"><div class="tpl-text" id="tt-s8">Hello,
 
 Just a quick kind reminder regarding our RFQ. 
 
-Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;tt-s8&#39;,this)">Copy</button></div>
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</button></div>
   </div>
 </div>
 <div class="pg-section">
@@ -720,7 +698,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;tt-s8&#39;,this)
   <div class="sec-title">📨 What to send</div>
   <div class="tpl-block" id="tb-s10">
     <div class="tpl-head"><div class="tpl-label">📤 Client Quote</div>
-      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl(&#39;s10&#39;,0,this)">Single PN</button></div>
+      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s10',0,this)">Single PN</button></div>
     </div>
     <div class="tpl-body"><div class="tpl-text" id="tt-s10">Subject: QUOTE FOR PN: [PN#] FROM JAD AEROSPACE LLC
 
@@ -745,7 +723,7 @@ We look forward to receiving your feedback.
 
 Thank you for giving us the opportunity to send you this quote.
 
-Kind regards.</div><button class="tpl-copy" onclick="cpTpl(&#39;tt-s10&#39;,this)">Copy</button></div>
+Kind regards.</div><button class="tpl-copy" onclick="cpTpl('tt-s10',this)">Copy</button></div>
   </div>
 </div>
 <div class="pg-section">
@@ -773,7 +751,7 @@ Kind regards.</div><button class="tpl-copy" onclick="cpTpl(&#39;tt-s10&#39;,this
   <div class="sec-title">📨 What to send</div>
   <div class="tpl-block" id="tb-s11">
     <div class="tpl-head"><div class="tpl-label">🔁 Client Follow-Up (48h)</div>
-      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl(&#39;s11&#39;,0,this)">Opt 1</button><button class="tpl-tab" onclick="swTpl(&#39;s11&#39;,1,this)">Opt 2</button><button class="tpl-tab" onclick="swTpl(&#39;s11&#39;,2,this)">Opt 3</button><button class="tpl-tab" onclick="swTpl(&#39;s11&#39;,3,this)">Opt 4</button></div>
+      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s11',0,this)">Opt 1</button><button class="tpl-tab" onclick="swTpl('s11',1,this)">Opt 2</button><button class="tpl-tab" onclick="swTpl('s11',2,this)">Opt 3</button><button class="tpl-tab" onclick="swTpl('s11',3,this)">Opt 4</button></div>
     </div>
     <div class="tpl-body"><div class="tpl-text" id="tt-s11">Hello,
 
@@ -782,7 +760,7 @@ Just following up on this quote. Please advise if you have received a better off
 Looking forward to your feedback.
 
 Thank you!
-Best Regards</div><button class="tpl-copy" onclick="cpTpl(&#39;tt-s11&#39;,this)">Copy</button></div>
+Best Regards</div><button class="tpl-copy" onclick="cpTpl('tt-s11',this)">Copy</button></div>
   </div>
 </div>
 <div class="pg-section">
@@ -868,7 +846,7 @@ Please provide your best price quote and stock availability for the following it
 1 PN# [0123FA2] / [SENSOR - LOW FLOW]
 
 Thank you.
-Best regards</div><button class="tpl-copy" onclick="cpTpl(&#39;teTa&#39;,this)">Copy</button></div></div>
+Best regards</div><button class="tpl-copy" onclick="cpTpl('teTa',this)">Copy</button></div></div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Multiple PN RFQ</div></div><div class="tpl-body"><div class="tpl-text" id="teTb">Subject: RFQ PNs [14331-1C / 14331-2C]
 
 Hello [Name],
@@ -879,24 +857,24 @@ Please provide your best price quote and stock availability for the following it
          [14331-2C]  /  [Outflow Valve]  / QTY: 2
 
 Thank you.
-Best regards</div><button class="tpl-copy" onclick="cpTpl(&#39;teTb&#39;,this)">Copy</button></div></div>
+Best regards</div><button class="tpl-copy" onclick="cpTpl('teTb',this)">Copy</button></div></div>
 </div>
 <div class="pg-section"><div class="sec-title">🔔 Supplier Reminders</div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Reminder 1</div></div><div class="tpl-body"><div class="tpl-text" id="teR1">Hello,
 
 Just a quick kind reminder regarding our RFQ. 
 
-Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;teR1&#39;,this)">Copy</button></div></div>
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('teR1',this)">Copy</button></div></div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Reminder 2</div></div><div class="tpl-body"><div class="tpl-text" id="teR2">Hello,
 
 Kind reminder about our RFQ. Looking forward to your update.
 
-Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;teR2&#39;,this)">Copy</button></div></div>
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('teR2',this)">Copy</button></div></div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Reminder 3</div></div><div class="tpl-body"><div class="tpl-text" id="teR3">Hello,
 
 A gentle reminder regarding our RFQ request.
 
-Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;teR3&#39;,this)">Copy</button></div></div>
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('teR3',this)">Copy</button></div></div>
 </div>
 <div class="pg-section"><div class="sec-title">📤 Quote to Client</div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Client Quote — Single PN</div></div><div class="tpl-body"><div class="tpl-text" id="teCQ">Subject: QUOTE FOR PN: [PN#] FROM JAD AEROSPACE LLC
@@ -922,7 +900,7 @@ We look forward to receiving your feedback.
 
 Thank you for giving us the opportunity to send you this quote.
 
-Kind regards.</div><button class="tpl-copy" onclick="cpTpl(&#39;teCQ&#39;,this)">Copy</button></div></div>
+Kind regards.</div><button class="tpl-copy" onclick="cpTpl('teCQ',this)">Copy</button></div></div>
 </div>
 <div class="pg-section"><div class="sec-title">🔁 Client Follow-Up (48h)</div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Follow-Up 1</div></div><div class="tpl-body"><div class="tpl-text" id="teF1">Hello,
@@ -932,21 +910,21 @@ Just following up on this quote. Please advise if you have received a better off
 Looking forward to your feedback.
 
 Thank you!
-Best Regards</div><button class="tpl-copy" onclick="cpTpl(&#39;teF1&#39;,this)">Copy</button></div></div>
+Best Regards</div><button class="tpl-copy" onclick="cpTpl('teF1',this)">Copy</button></div></div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Follow-Up 2</div></div><div class="tpl-body"><div class="tpl-text" id="teF2">Hello,
 
 Following up on the quote we sent. Please advise if you have received a better offer so we can review and try to match it.
 
 Thank you, and we look forward to your reply.
 
-Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;teF2&#39;,this)">Copy</button></div></div>
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF2',this)">Copy</button></div></div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Follow-Up 3</div></div><div class="tpl-body"><div class="tpl-text" id="teF3">Hello,
 
 Quick follow-up on the quote. Please let us know if you have received a better offer so we can try to work closer to it.
 
 Thank you, and we look forward to hearing from you.
 
-Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;teF3&#39;,this)">Copy</button></div></div>
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF3',this)">Copy</button></div></div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Follow-Up 4</div></div><div class="tpl-body"><div class="tpl-text" id="teF4">Hello,
 
 Following up on the quote we shared. Please let us know if there is a better offer so we can try to get closer.
@@ -954,7 +932,7 @@ Following up on the quote we shared. Please let us know if there is a better off
 Looking forward to your feedback.
 
 Thank you!
-Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;teF4&#39;,this)">Copy</button></div></div>
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</button></div></div>
 </div>
 </div>
 
@@ -996,7 +974,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;teF4&#39;,this)"
       <!-- ═══ TOOLS PANEL ═══ -->
       <div id="panel-tools" class="panel">
         <div class="tools-scroll">
-          <div id="dataNotice" class="data-notice" style="display: flex;">
+          <div id="dataNotice" class="data-notice" style="display:none;">
             <span>⚠</span><span><strong>No email data loaded.</strong> Place <code>data.json</code> in the same folder as this HTML file and reload to enable Contact Search.</span>
           </div>
           <div class="tools-grid">
@@ -1010,7 +988,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;teF4&#39;,this)"
                   <div class="rf" style="width:110px"><label>Type</label><select id="typeInput" onchange="handleTypeChange()" style="width:100%"><option value="reminder">Supplier</option><option value="customer">Customer</option></select></div>
                   <button class="rm-btn" onclick="startReminder()" style="align-self:flex-end">Start</button>
                 </div>
-                <div id="reminderList"><div class="tc customer"><div><strong>Quote-14860 For PN 9024-15704-03 from Jad Aerospace LLC</strong><br><small>Customer Follow-up</small><br><small>Country: CHINA</small><br><span class="tt">14h 25m 22s</span></div><button class="tr-btn">Remove</button></div><div class="tc customer"><div><strong>Quote-14866 For PN 45332-8039 from Jad Aerospace LLC</strong><br><small>Customer Follow-up</small><br><small>Country: CHINA</small><br><span class="tt">25h 28m 5s</span></div><button class="tr-btn">Remove</button></div><div class="tc customer"><div><strong>Quote-14856 For PN D2557231000600 from Jad Aerospace LLC</strong><br><small>Customer Follow-up</small><br><small>Country: USA</small><br><span class="tt">18h 28m 37s</span></div><button class="tr-btn">Remove</button></div><div class="tc customer"><div><strong>Quote-14857 For PN TS17125741 from Jad Aerospace LLC</strong><br><small>Customer Follow-up</small><br><small>Country: TURKY</small><br><span class="tt">20h 29m 26s</span></div><button class="tr-btn">Remove</button></div><div class="tc customer"><div><strong>Quote-14775 For PN 65C26841-49 from Jad Aerospace LLC</strong><br><small>Customer Follow-up</small><br><small>Country: CHINA</small><br><span class="tt">41h 1m 27s</span></div><button class="tr-btn">Remove</button></div><div class="tc customer"><div><strong>Quote-14888 For PN Z014H000231B from Jad Aerospace LLC</strong><br><small>Customer Follow-up</small><br><small>Country: UAE</small><br><span class="tt">44h 27m 36s</span></div><button class="tr-btn">Remove</button></div><div class="tc reminder"><div><strong>3352-90-15600</strong><br><small>Supplier Reminder</small><br><small>Country: -</small><br><span class="tt">0h 25m 3s</span></div><button class="tr-btn">Remove</button></div><div class="tc customer"><div><strong>Revised Quote-14857 For PN TS17125741 from Jad Aerospace LLC</strong><br><small>Customer Follow-up</small><br><small>Country: TURKY</small><br><span class="tt">46h 11m 30s</span></div><button class="tr-btn">Remove</button></div></div>
+                <div id="reminderList"></div>
               </div>
             </div>
             <div class="sc">
@@ -1018,10 +996,10 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;teF4&#39;,this)"
               <div class="sc-body">
                 <div class="sw"><input type="text" id="searchInput" placeholder="Search company, email, or keyword…"></div>
                 <div class="fb">
-                  <button class="fbtn active" onclick="setFilter(&#39;all&#39;,this)">All</button>
-                  <button class="fbtn" onclick="setFilter(&#39;blacklist&#39;,this)">Blacklist</button>
-                  <button class="fbtn" onclick="setFilter(&#39;direct&#39;,this)">Direct</button>
-                  <button class="fbtn" onclick="setFilter(&#39;replace&#39;,this)">Replace</button>
+                  <button class="fbtn active" onclick="setFilter('all',this)">All</button>
+                  <button class="fbtn" onclick="setFilter('blacklist',this)">Blacklist</button>
+                  <button class="fbtn" onclick="setFilter('direct',this)">Direct</button>
+                  <button class="fbtn" onclick="setFilter('replace',this)">Replace</button>
                 </div>
                 <div id="results" style="max-height:240px;overflow-y:auto"><div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div></div>
               </div>
@@ -1031,7 +1009,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl(&#39;teF4&#39;,this)"
       </div><!-- /panel-tools -->
 
     </div><!-- /panels -->
-    <div class="statusbar" id="statusBar">No email data loaded — place data.json in same folder and reload.</div>
+    <div class="statusbar" id="statusBar">Ready</div>
   </div><!-- /app-body -->
 </div><!-- /appScreen -->
 
@@ -1048,13 +1026,7 @@ const FIREBASE_CONFIG = {
   messagingSenderId:"729435923454",
   appId:"1:729435923454:web:2a1f4edcdb2897ebea16af"
 };
-fetch('./data.json')
-  .then(r => {
-    console.log("status:", r.status);
-    return r.text();
-  })
-  .then(t => console.log(t))
-  .catch(e => console.error(e));
+
 /* ── DATA ── */
 let blacklist={},replacements={},directContact={},exw={},dataLoaded=false;
 
@@ -1211,30 +1183,18 @@ function checkEmail(){
   if(!iv){res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:30px">Start typing to search</div>';document.getElementById("statusBar").innerText="Ready";return;}
   if(!dataLoaded){res.innerHTML='<div style="text-align:center;color:var(--orange);margin-top:20px;font-size:12px">⚠ No data.json loaded — contact search unavailable.</div>';return;}
   const kw=norm(domKey(iv));let count=0;function match(v){return norm(v).includes(kw);}
-  // Blacklist results appear FIRST
-  if(cf==="all"||cf==="blacklist"){for(let c in blacklist){const obj=blacklist[c]||{},em=obj.emails||[],reason=obj.reason||"";const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length||match(reason)){const sh=cm?em:em2;const rows=sh.map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="cpText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');addCard("blacklist",c,`<div class="gel">${rows}</div><div class="bl-reason">⚠ ${reason}</div>`,null);count++;}}}
   if(cf==="all"||cf==="direct"){for(let c in directContact){const em=directContact[c]||[];const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length){const sh=cm?em:em2;const rows=sh.map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="cpText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');addCard("direct",c,`<div class="gel">${rows}</div>`,null);count++;}}}
   if(cf==="all"||cf==="replace"){for(let old in replacements){if(match(old)||match(replacements[old])){addCard("replace","Replacement",`<small>Old:</small> ${old}<br><small>New:</small> ${replacements[old]}`,replacements[old]);count++;}}}
+  if(cf==="all"||cf==="blacklist"){for(let c in blacklist){const obj=blacklist[c]||{},em=obj.emails||[],reason=obj.reason||"";const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length||match(reason)){const sh=cm?em:em2;const rows=sh.map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="cpText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');addCard("blacklist",c,`<div class="gel">${rows}</div><div class="bl-reason">⚠ ${reason}</div>`,null);count++;}}}
   document.getElementById("statusBar").innerText=count?`${count} result(s) for "${iv}"`:"No matches found";
 }
 
 /* ── DOCS NAV ── */
-function toggleNav(){
-  const nav=document.getElementById("docsNav");
-  const overlay=document.getElementById("navOverlay");
-  nav.classList.toggle("open");
-  overlay.classList.toggle("show");
-}
-function closeNav(){
-  document.getElementById("docsNav").classList.remove("open");
-  document.getElementById("navOverlay").classList.remove("show");
-}
 function showPage(name,btn){
   document.querySelectorAll(".doc-page").forEach(p=>p.classList.remove("active"));
   document.querySelectorAll(".nav-item").forEach(b=>b.classList.remove("active"));
   const pg=document.getElementById("pg-"+name);if(pg){pg.classList.add("active");document.getElementById("docsContent").scrollTop=0;}
   if(btn)btn.classList.add("active");
-  closeNav();
 }
 
 /* ── DOCS SEARCH ── */
@@ -1305,6 +1265,5 @@ function cpTpl(id,btn){
 /* ── INIT ── */
 initAuth();
 </script>
-
-
-</body></html>
+</body>
+</html>
