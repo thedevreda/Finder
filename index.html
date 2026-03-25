@@ -1048,7 +1048,13 @@ const FIREBASE_CONFIG = {
   messagingSenderId:"729435923454",
   appId:"1:729435923454:web:2a1f4edcdb2897ebea16af"
 };
-
+fetch('./data.json')
+  .then(r => {
+    console.log("status:", r.status);
+    return r.text();
+  })
+  .then(t => console.log(t))
+  .catch(e => console.error(e));
 /* ── DATA ── */
 let blacklist={},replacements={},directContact={},exw={},dataLoaded=false;
 
