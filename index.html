@@ -406,16 +406,14 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
             <div class="nav-scroll">
               <div class="nav-group-label">Workflow Steps</div>
               <button class="nav-item active" onclick="showPage('s1',this)"><span class="ni">1</span>Reviewing RFQ</button>
-              <button class="nav-item" onclick="showPage('s2',this)"><span class="ni">2</span>Creating Template</button>
-              <button class="nav-item" onclick="showPage('s3',this)"><span class="ni">3</span>PN Search</button>
-              <button class="nav-item" onclick="showPage('s4',this)"><span class="ni">4</span>Sending RFQs</button>
-              <button class="nav-item" onclick="showPage('s5',this)"><span class="ni">5</span>Quote Treatment</button>
-              <button class="nav-item" onclick="showPage('s6',this)"><span class="ni">6</span>Certification</button>
-              <button class="nav-item" onclick="showPage('s7',this)"><span class="ni">7</span>Trace &amp; PPW</button>
-              <button class="nav-item" onclick="showPage('s8',this)"><span class="ni">8</span>Sending Reminders</button>
-              <button class="nav-item" onclick="showPage('s9',this)"><span class="ni">9</span>Picking the Offer</button>
-              <button class="nav-item" onclick="showPage('s10',this)"><span class="ni">10</span>Invoice Process</button>
-              <button class="nav-item" onclick="showPage('s11',this)"><span class="ni">11</span>Follow-Up</button>
+              <button class="nav-item" onclick="showPage('s2',this)"><span class="ni">2</span>Template &amp; PN Search</button>
+              <button class="nav-item" onclick="showPage('s4',this)"><span class="ni">3</span>Sending RFQs</button>
+              <button class="nav-item" onclick="showPage('s5',this)"><span class="ni">4</span>Quote &amp; Certification</button>
+              <button class="nav-item" onclick="showPage('s7',this)"><span class="ni">5</span>Trace &amp; PPW</button>
+              <button class="nav-item" onclick="showPage('s8',this)"><span class="ni">6</span>Sending Reminders</button>
+              <button class="nav-item" onclick="showPage('s9',this)"><span class="ni">7</span>Picking the Offer</button>
+              <button class="nav-item" onclick="showPage('s10',this)"><span class="ni">8</span>Invoice Process</button>
+              <button class="nav-item" onclick="showPage('s11',this)"><span class="ni">9</span>Follow-Up</button>
               <div class="nav-group-label">Reference</div>
               <button class="nav-item" onclick="showPage('platforms',this)"><span class="ni">🌐</span>Platforms</button>
               <button class="nav-item" onclick="showPage('glossary',this)"><span class="ni">📖</span>Terminology</button>
@@ -439,7 +437,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
                   <span class="dpn-title" id="dpnPrevTitle">—</span>
                 </span>
               </button>
-              <span class="dpn-center" id="dpnCounter">1 / 15</span>
+              <span class="dpn-center" id="dpnCounter">1 / 13</span>
               <button class="dpn-btn next" id="dpnNext" onclick="navPage(1)">
                 <span class="dpn-arrow">→</span>
                 <span class="dpn-label">
@@ -471,10 +469,19 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 </div>
 </div>
 
-<!-- ── PAGE S2 ── -->
+<!-- ── PAGE S2 (merged: Template + PN Search) ── -->
 <div class="doc-page" id="pg-s2">
-<div class="pg-title">Step 2 — Creating The Template</div>
-<div class="pg-sub">Build a clean, professional email draft before reaching out to any supplier. Getting this right saves you from corrections later.</div>
+<div class="pg-title">Step 2 — Template &amp; PN Search</div>
+<div class="pg-sub">Build a clean email draft and search all platforms for stock before reaching out to any supplier.</div>
+
+<!-- SUB-STEP TABS -->
+<div style="display:flex;gap:0;margin-bottom:20px;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;flex-shrink:0">
+  <button id="s2tab-tpl" onclick="s2switchTab('tpl')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--brand);color:#fff;transition:.15s">📨 Creating Template</button>
+  <button id="s2tab-search" onclick="s2switchTab('search')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--bg2);color:var(--muted);transition:.15s;border-left:1.5px solid var(--border)">🔍 PN Search</button>
+</div>
+
+<!-- TAB: Creating Template -->
+<div id="s2pane-tpl">
 <div class="pg-section">
   <div class="sec-title">✅ What to do</div>
   <ul class="item-list">
@@ -510,10 +517,8 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s2',this)">Copy</b
 </div>
 </div>
 
-<!-- ── PAGE S3 ── -->
-<div class="doc-page" id="pg-s3">
-<div class="pg-title">Step 3 — PN Search</div>
-<div class="pg-sub">Find stock across all platforms before reaching out. Cast a wide net, then narrow down to the best options.</div>
+<!-- TAB: PN Search -->
+<div id="s2pane-search" style="display:none">
 <div class="pg-section">
   <div class="sec-title">✅ What to do</div>
   <ul class="item-list">
@@ -544,9 +549,12 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s2',this)">Copy</b
 </div>
 </div>
 
+</div>
+<!-- ── OLD PAGE S3 hidden (merged into S2) ── -->
+
 <!-- ── PAGE S4 ── -->
 <div class="doc-page" id="pg-s4">
-<div class="pg-title">Step 4 — Sending The RFQs</div>
+<div class="pg-title">Step 3 — Sending The RFQs</div>
 <div class="pg-sub">Send requests carefully. Every duplicate or missing detail wastes time and damages your reputation with suppliers.</div>
 <div class="pg-section">
   <div class="sec-title">✅ What to do</div>
@@ -585,10 +593,19 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 </div>
 </div>
 
-<!-- ── PAGE S5 ── -->
+<!-- ── PAGE S5 (merged: Quote Treatment + Certification) ── -->
 <div class="doc-page" id="pg-s5">
-<div class="pg-title">Step 5 — Quote Treatment</div>
-<div class="pg-sub">When a supplier responds, validate every field carefully before taking any action.</div>
+<div class="pg-title">Step 4 — Quote Treatment &amp; Certification</div>
+<div class="pg-sub">Validate every field of a supplier's response carefully, and review the certification when one is available.</div>
+
+<!-- SUB-STEP TABS -->
+<div style="display:flex;gap:0;margin-bottom:20px;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;flex-shrink:0">
+  <button id="s5tab-quote" onclick="s5switchTab('quote')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--brand);color:#fff;transition:.15s">📋 Quote Treatment</button>
+  <button id="s5tab-cert" onclick="s5switchTab('cert')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--bg2);color:var(--muted);transition:.15s;border-left:1.5px solid var(--border)">🏷️ Certification Review</button>
+</div>
+
+<!-- TAB: Quote Treatment -->
+<div id="s5pane-quote">
 <div class="pg-section">
   <div class="sec-title">✅ What to verify</div>
   <ul class="item-list">
@@ -615,12 +632,26 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
   <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Add All Quotes — Even Bad Ones</div>Record every quote in the database — even if sold, overpriced, or wrong condition. Future requests for the same PN benefit from this data, and revised quotes need the history.</div></div>
   <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">When to Ask for Certification</div>Request the cert only when: price is good + tag date is recent + condition is right + part is in stock. Don't ask from every supplier — it wastes their time and yours, and can put you in an awkward position.</div></div>
 </div>
+
+<!-- CERTIFICATION AVAILABILITY TOGGLE -->
+<div class="pg-section">
+  <div class="sec-title">🏷️ Certification Available?</div>
+  <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);margin-bottom:10px">
+    <span style="font-size:13px;font-weight:600;color:var(--text)">Is a certification available for this part?</span>
+    <label style="display:flex;align-items:center;gap:6px;cursor:pointer;margin-left:auto">
+      <input type="checkbox" id="certAvailToggle" onchange="toggleCertSection()" style="width:16px;height:16px;accent-color:var(--brand);cursor:pointer">
+      <span style="font-size:12px;font-weight:600;color:var(--brand)" id="certToggleLabel">No</span>
+    </label>
+  </div>
+  <div id="certQuickPanel" style="display:none">
+    <div class="callout c-tip"><div class="callout-icon">✅</div><div class="callout-body"><div class="callout-title">Certification is available — proceed to review it</div>Switch to the <strong>Certification Review</strong> tab above to verify all cert fields before proceeding to the invoice step.</div></div>
+    <button onclick="s5switchTab('cert')" style="margin-top:8px;padding:8px 18px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:600;font-family:var(--font);cursor:pointer">→ Go to Certification Review</button>
+  </div>
+</div>
 </div>
 
-<!-- ── PAGE S6 ── -->
-<div class="doc-page" id="pg-s6">
-<div class="pg-title">Step 6 — Certification Review</div>
-<div class="pg-sub">The certification is the most critical document in the entire process. Every single field must match. One wrong date can invalidate the deal.</div>
+<!-- TAB: Certification Review -->
+<div id="s5pane-cert" style="display:none">
 <div class="pg-section">
   <div class="sec-title">✅ What to check</div>
   <ul class="item-list">
@@ -651,9 +682,12 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 </div>
 </div>
 
+</div>
+<!-- ── OLD PAGE S6 hidden (merged into S5) ── -->
+
 <!-- ── PAGE S7 ── -->
 <div class="doc-page" id="pg-s7">
-<div class="pg-title">Step 7 — Trace &amp; PPW</div>
+<div class="pg-title">Step 5 — Trace &amp; PPW</div>
 <div class="pg-sub">Trace documentation proves the complete history of a part. This section is ready for you to fill in manually with your specific requirements and scenarios.</div>
 <div class="pg-section">
   <div class="sec-title">📋 What is Trace / PPW?</div>
@@ -689,7 +723,7 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 
 <!-- ── PAGE S8 ── -->
 <div class="doc-page" id="pg-s8">
-<div class="pg-title">Step 8 — Sending The Reminders</div>
+<div class="pg-title">Step 6 — Sending The Reminders</div>
 <div class="pg-sub">Follow up with suppliers who haven't replied. The default follow-up window is 3 hours after the initial RFQ was sent.</div>
 <div class="pg-section">
   <div class="sec-title">✅ What to do</div>
@@ -721,7 +755,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</
 
 <!-- ── PAGE S9 ── -->
 <div class="doc-page" id="pg-s9">
-<div class="pg-title">Step 9 — Picking The Offer</div>
+<div class="pg-title">Step 7 — Picking The Offer</div>
 <div class="pg-sub">Compare all quotes received and select the best one using a strict priority order. Never compromise the Tag Date for a lower price.</div>
 <div class="pg-section">
   <div class="sec-title">✅ Priority Order (top to bottom)</div>
@@ -751,7 +785,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</
 
 <!-- ── PAGE S10 ── -->
 <div class="doc-page" id="pg-s10">
-<div class="pg-title">Step 10 — Invoice Process</div>
+<div class="pg-title">Step 8 — Invoice Process</div>
 <div class="pg-sub">Fill every field from the CERTIFICATION — never from the quote. One wrong field means the client rejects the invoice and you start over.</div>
 <div class="pg-section">
   <div class="sec-title">✅ What to do</div>
@@ -811,7 +845,7 @@ Kind regards.</div><button class="tpl-copy" onclick="cpTpl('tt-s10',this)">Copy<
 
 <!-- ── PAGE S11 ── -->
 <div class="doc-page" id="pg-s11">
-<div class="pg-title">Step 11 — Client Follow-Up</div>
+<div class="pg-title">Step 9 — Client Follow-Up</div>
 <div class="pg-sub">Follow up with the client 48 hours after sending the quote. Keeps the deal alive and shows professionalism.</div>
 <div class="pg-section">
   <div class="sec-title">✅ What to do</div>
@@ -1236,7 +1270,7 @@ function mkReminderCard(obj){
   rmv.onclick=async()=>{reminders=reminders.filter(r=>r.id!==obj.id);await saveReminders();await loadReminders();};
   card.appendChild(info);card.appendChild(rmv);document.getElementById("reminderList").appendChild(card);
   const te=info.querySelector(".tt");
-  function tick(){const rem=obj.end-Date.now();if(obj.finished){te.textContent="✓ Done";card.classList.add("finished");return;}if(rem<=0){te.textContent="⏰ EXPIRED";card.classList.add("finished");if(obj.type==="customer")showNotif(obj.part);return;}const h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000),s=Math.floor((rem%60000)/1000);te.textContent=`${h}h ${m}m ${s}s`;setTimeout(tick,1000);}
+  function tick(){const rem=obj.end-Date.now();if(obj.finished){te.textContent="✓ Done";card.classList.add("finished");return;}if(rem<=0){te.textContent="⏰ TIME'S UP";card.classList.add("finished");showReminderPopup(obj);return;}const h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000),s=Math.floor((rem%60000)/1000);te.textContent=`${h}h ${m}m ${s}s`;setTimeout(tick,1000);}
   tick();
 }
 
@@ -1269,11 +1303,9 @@ function checkEmail(){
 // Page order matches the nav-item list
 const DOC_PAGES=[
   {id:'s1',  title:'Reviewing RFQ'},
-  {id:'s2',  title:'Creating Template'},
-  {id:'s3',  title:'PN Search'},
+  {id:'s2',  title:'Template & PN Search'},
   {id:'s4',  title:'Sending RFQs'},
-  {id:'s5',  title:'Quote Treatment'},
-  {id:'s6',  title:'Certification'},
+  {id:'s5',  title:'Quote & Certification'},
   {id:'s7',  title:'Trace & PPW'},
   {id:'s8',  title:'Sending Reminders'},
   {id:'s9',  title:'Picking the Offer'},
@@ -1405,6 +1437,82 @@ function cpTpl(id,btn){const el=document.getElementById(id);if(!el)return;naviga
 
 /* ── INIT ── */
 initAuth();
+</script>
+
+<!-- ── REMINDER POPUP MODAL ── -->
+<div id="reminderPopup" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.45);backdrop-filter:blur(3px);align-items:center;justify-content:center">
+  <div style="background:var(--white);border-radius:14px;box-shadow:0 8px 40px rgba(0,0,0,.22);width:360px;max-width:calc(100vw - 32px);padding:0;overflow:hidden;animation:popIn .25s cubic-bezier(.34,1.56,.64,1)">
+    <div style="background:linear-gradient(135deg,var(--brand) 0%,#1a7fe8 100%);padding:20px 24px 16px;color:#fff">
+      <div style="font-size:28px;margin-bottom:6px">⏰</div>
+      <div style="font-size:16px;font-weight:700;letter-spacing:-.2px">Reminder — Time's Up!</div>
+      <div style="font-size:12px;opacity:.85;margin-top:3px">Your follow-up window has expired</div>
+    </div>
+    <div style="padding:20px 24px">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;font-size:10px">Part Number</div>
+      <div id="popupPartName" style="font-size:18px;font-weight:700;color:var(--text);font-family:var(--mono);margin-bottom:14px">—</div>
+      <div id="popupTypeLabel" style="display:inline-block;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:600;background:var(--brand-lt);color:var(--brand);margin-bottom:16px">Supplier Reminder</div>
+      <div id="popupCountryRow" style="display:none;font-size:12px;color:var(--muted);margin-bottom:16px">🌍 Country: <strong id="popupCountry"></strong></div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6;background:var(--bg);border-radius:var(--r);padding:10px 12px;margin-bottom:18px">
+        Go through your sent emails and follow up with everyone who hasn't replied yet.
+      </div>
+      <div style="display:flex;gap:8px">
+        <button onclick="dismissPopup()" style="flex:1;padding:10px;background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);font-size:13px;font-weight:600;font-family:var(--font);cursor:pointer;color:var(--muted);transition:.12s" onmouseover="this.style.borderColor='var(--brand)';this.style.color='var(--brand)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Dismiss</button>
+        <button onclick="dismissPopup()" style="flex:1;padding:10px;background:var(--brand);border:none;border-radius:var(--r);font-size:13px;font-weight:600;font-family:var(--font);cursor:pointer;color:#fff;transition:.12s" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">✓ Got it</button>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+@keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+</style>
+
+<script>
+/* ── POPUP NOTIFICATION ── */
+const firedPopups=new Set();
+function showReminderPopup(obj){
+  if(firedPopups.has(obj.id))return;
+  firedPopups.add(obj.id);
+  document.getElementById("popupPartName").textContent=obj.part||"—";
+  const lbl=obj.type==="customer"?"Customer Follow-up":"Supplier Reminder";
+  const badge=document.getElementById("popupTypeLabel");
+  badge.textContent=lbl;
+  badge.style.background=obj.type==="customer"?"var(--orange-lt)":"var(--brand-lt)";
+  badge.style.color=obj.type==="customer"?"var(--orange)":"var(--brand)";
+  const cr=document.getElementById("popupCountryRow");
+  if(obj.country){cr.style.display="block";document.getElementById("popupCountry").textContent=obj.country;}else{cr.style.display="none";}
+  const popup=document.getElementById("reminderPopup");
+  popup.style.display="flex";
+  // Also fire browser notification
+  if("Notification"in window&&Notification.permission==="granted"){
+    new Notification("⏰ Reminder — Time's Up!",{body:"Follow-up for: "+obj.part,icon:"./icon.png"});
+  }
+}
+function dismissPopup(){document.getElementById("reminderPopup").style.display="none";}
+// Close on backdrop click
+document.getElementById("reminderPopup").addEventListener("click",function(e){if(e.target===this)dismissPopup();});
+
+/* ── TAB SWITCHERS ── */
+function s2switchTab(tab){
+  document.getElementById("s2pane-tpl").style.display=tab==="tpl"?"block":"none";
+  document.getElementById("s2pane-search").style.display=tab==="search"?"block":"none";
+  const btnTpl=document.getElementById("s2tab-tpl"),btnSearch=document.getElementById("s2tab-search");
+  if(tab==="tpl"){btnTpl.style.background="var(--brand)";btnTpl.style.color="#fff";btnSearch.style.background="var(--bg2)";btnSearch.style.color="var(--muted)";}
+  else{btnSearch.style.background="var(--brand)";btnSearch.style.color="#fff";btnTpl.style.background="var(--bg2)";btnTpl.style.color="var(--muted)";}
+}
+function s5switchTab(tab){
+  document.getElementById("s5pane-quote").style.display=tab==="quote"?"block":"none";
+  document.getElementById("s5pane-cert").style.display=tab==="cert"?"block":"none";
+  const btnQ=document.getElementById("s5tab-quote"),btnC=document.getElementById("s5tab-cert");
+  if(tab==="quote"){btnQ.style.background="var(--brand)";btnQ.style.color="#fff";btnC.style.background="var(--bg2)";btnC.style.color="var(--muted)";}
+  else{btnC.style.background="var(--brand)";btnC.style.color="#fff";btnQ.style.background="var(--bg2)";btnQ.style.color="var(--muted)";}
+}
+function toggleCertSection(){
+  const cb=document.getElementById("certAvailToggle");
+  const panel=document.getElementById("certQuickPanel");
+  const lbl=document.getElementById("certToggleLabel");
+  if(cb.checked){panel.style.display="block";lbl.textContent="Yes";}
+  else{panel.style.display="none";lbl.textContent="No";}
+}
 </script>
 </body>
 </html>
