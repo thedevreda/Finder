@@ -406,14 +406,13 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
             <div class="nav-scroll">
               <div class="nav-group-label">Workflow Steps</div>
               <button class="nav-item active" onclick="showPage('s1',this)"><span class="ni">1</span>Reviewing RFQ</button>
-              <button class="nav-item" onclick="showPage('s2',this)"><span class="ni">2</span>Template &amp; PN Search</button>
-              <button class="nav-item" onclick="showPage('s4',this)"><span class="ni">3</span>Sending RFQs</button>
-              <button class="nav-item" onclick="showPage('s5',this)"><span class="ni">4</span>Quote &amp; Certification</button>
-              <button class="nav-item" onclick="showPage('s7',this)"><span class="ni">5</span>Trace &amp; PPW</button>
-              <button class="nav-item" onclick="showPage('s8',this)"><span class="ni">6</span>Sending Reminders</button>
-              <button class="nav-item" onclick="showPage('s9',this)"><span class="ni">7</span>Picking the Offer</button>
-              <button class="nav-item" onclick="showPage('s10',this)"><span class="ni">8</span>Invoice Process</button>
-              <button class="nav-item" onclick="showPage('s11',this)"><span class="ni">9</span>Follow-Up</button>
+              <button class="nav-item" onclick="showPage('s2',this)"><span class="ni">2</span>Template, Search &amp; Sending</button>
+              <button class="nav-item" onclick="showPage('s5',this)"><span class="ni">3</span>Quote &amp; Certification</button>
+              <button class="nav-item" onclick="showPage('s7',this)"><span class="ni">4</span>Trace &amp; PPW</button>
+              <button class="nav-item" onclick="showPage('s8',this)"><span class="ni">5</span>Sending Reminders</button>
+              <button class="nav-item" onclick="showPage('s9',this)"><span class="ni">6</span>Picking the Offer</button>
+              <button class="nav-item" onclick="showPage('s10',this)"><span class="ni">7</span>Invoice Process</button>
+              <button class="nav-item" onclick="showPage('s11',this)"><span class="ni">8</span>Follow-Up</button>
               <div class="nav-group-label">Reference</div>
               <button class="nav-item" onclick="showPage('platforms',this)"><span class="ni">🌐</span>Platforms</button>
               <button class="nav-item" onclick="showPage('glossary',this)"><span class="ni">📖</span>Terminology</button>
@@ -471,13 +470,14 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 
 <!-- ── PAGE S2 (merged: Template + PN Search) ── -->
 <div class="doc-page" id="pg-s2">
-<div class="pg-title">Step 2 — Template &amp; PN Search</div>
-<div class="pg-sub">Build a clean email draft and search all platforms for stock before reaching out to any supplier.</div>
+<div class="pg-title">Step 2 — Template, PN Search &amp; Sending</div>
+<div class="pg-sub">Build your email, search all platforms for stock, then send your RFQs — all in one step.</div>
 
 <!-- SUB-STEP TABS -->
 <div style="display:flex;gap:0;margin-bottom:20px;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;flex-shrink:0">
   <button id="s2tab-tpl" onclick="s2switchTab('tpl')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--brand);color:#fff;transition:.15s">📨 Creating Template</button>
   <button id="s2tab-search" onclick="s2switchTab('search')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--bg2);color:var(--muted);transition:.15s;border-left:1.5px solid var(--border)">🔍 PN Search</button>
+  <button id="s2tab-send" onclick="s2switchTab('send')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--bg2);color:var(--muted);transition:.15s;border-left:1.5px solid var(--border)">📤 Sending RFQs</button>
 </div>
 
 <!-- TAB: Creating Template -->
@@ -576,61 +576,131 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   };
 
   // ── Variant definitions ──
-  // Each variant: { label, greet, body(items), sign }
+  // Each variant: { label, greet, body(items), sign, useCert }
+  // useCert=true → output uses HTML bold for "the certification" in the pre block
+  // We store a plain-text version for copy and an HTML version for display
+
+  function buildItemLines(items){
+    return items.map(i=>{
+      let l=i.pn;
+      if(i.alt) l+=` / ${i.alt}`;
+      if(i.desc) l+=` / ${i.desc}`;
+      if(i.qty) l+=` / QTY: ${i.qty}`;
+      return l;
+    }).join('\n');
+  }
+
   const VARIANTS=[
-    {
-      label:'Standard',
-      greet:'Hello,',
-      body:(items,multi)=>`Please provide your best price quote and stock availability for the following item${multi?'s':''}:\n\n`+items.map(i=>{let l=i.pn;if(i.alt)l+=` / ${i.alt}`;if(i.desc)l+=` / ${i.desc}`;if(i.qty)l+=` / QTY: ${i.qty}`;return l;}).join('\n'),
-      sign:'Thank you.\nBest regards'
-    },
-    {
-      label:'Formal',
-      greet:'Good day,',
-      body:(items,multi)=>`We would appreciate your best price and availability for the item${multi?'s':''}  below:\n\n`+items.map(i=>{let l=i.pn;if(i.alt)l+=` / ${i.alt}`;if(i.desc)l+=` / ${i.desc}`;if(i.qty)l+=` / QTY: ${i.qty}`;return l;}).join('\n'),
-      sign:'We look forward to your response.\nKind regards'
-    },
-    {
-      label:'Short',
-      greet:'Hi,',
-      body:(items,multi)=>`Quick RFQ — please send best price & availability:\n\n`+items.map(i=>{let l=i.pn;if(i.alt)l+=` / ${i.alt}`;if(i.desc)l+=` / ${i.desc}`;if(i.qty)l+=` / QTY: ${i.qty}`;return l;}).join('\n'),
-      sign:'Thanks!'
-    },
-    {
-      label:'Sending RFA',
-      greet:'Hello,',
-      body:(items,multi)=>`We previously sent you an RFQ for the following item${multi?'s':''} and wanted to follow up. Could you please confirm price and availability?\n\n`+items.map(i=>{let l=i.pn;if(i.alt)l+=` / ${i.alt}`;if(i.desc)l+=` / ${i.desc}`;if(i.qty)l+=` / QTY: ${i.qty}`;return l;}).join('\n'),
-      sign:'Thank you for your time.\nBest regards'
-    },
+    // ── Check Availability (no cert) ──
     {
       label:'Check Availability',
-      greet:'Dear team,',
-      body:(items,multi)=>{
-        const line=items.map(i=>{let l=i.pn;if(i.desc)l+=` / ${i.desc}`;if(i.qty)l+=` / QTY: ${i.qty}`;return l;}).join(' / ');
-        return `Is this offer still valid for ${line}?`;
-      },
-      sign:'Thank you.'
+      cert:false,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `Subject: RFQ PN ${items[0].pn}`;
+        const lines=items.map(i=>{let l=i.pn;if(i.desc)l+=` / ${i.desc}`;if(i.qty)l+=` / QTY: ${i.qty}`;return l;}).join('\n');
+        return {
+          plain:`${subj}\n\nDear team,\n\nIs this offer still valid for:\n\n${lines}\n\nThank you.`,
+          html:  `${subj}\n\nDear team,\n\nIs this offer still valid for:\n\n${lines}\n\nThank you.`
+        };
+      }
     },
+    // ── Option 1 — Standard ──
     {
-      label:'Best Price Request',
-      greet:'Hello,',
-      body:(items,multi)=>`Could you please provide your most competitive price and current availability for the following item${multi?'s':''}? We are actively sourcing and looking to place an order shortly.\n\n`+items.map(i=>{let l=i.pn;if(i.alt)l+=` / ${i.alt}`;if(i.desc)l+=` / ${i.desc}`;if(i.qty)l+=` / QTY: ${i.qty}`;return l;}).join('\n'),
-      sign:'We look forward to your offer.\nBest regards'
+      label:'Option 1',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `Subject: RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`${subj}\n\nHello,\n\nPlease provide your best price quote and stock availability and the certification for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`;
+        const html= `${subj}\n\nHello,\n\nPlease provide your best price quote and stock availability and <b>the certification</b> for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`;
+        return {plain,html};
+      }
+    },
+    // ── Option 2 — Formal ──
+    {
+      label:'Option 2',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `Subject: RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`${subj}\n\nGood day,\n\nWe would appreciate your best price, availability and the certification for the item${multi?'s':''} below:\n\n${lines}\n\nWe look forward to your response.\nKind regards`;
+        const html= `${subj}\n\nGood day,\n\nWe would appreciate your best price, availability and <b>the certification</b> for the item${multi?'s':''} below:\n\n${lines}\n\nWe look forward to your response.\nKind regards`;
+        return {plain,html};
+      }
+    },
+    // ── Option 3 — Short ──
+    {
+      label:'Option 3',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `Subject: RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`${subj}\n\nHi,\n\nQuick RFQ — please send best price, availability & the certification:\n\n${lines}\n\nThanks!`;
+        const html= `${subj}\n\nHi,\n\nQuick RFQ — please send best price, availability & <b>the certification</b>:\n\n${lines}\n\nThanks!`;
+        return {plain,html};
+      }
+    },
+    // ── Option 4 — Sending RFA ──
+    {
+      label:'Option 4',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `Subject: RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`${subj}\n\nHello,\n\nWe previously sent you an RFQ for the following item${multi?'s':''} and wanted to follow up. Could you please confirm price, availability and the certification?\n\n${lines}\n\nThank you for your time.\nBest regards`;
+        const html= `${subj}\n\nHello,\n\nWe previously sent you an RFQ for the following item${multi?'s':''} and wanted to follow up. Could you please confirm price, availability and <b>the certification</b>?\n\n${lines}\n\nThank you for your time.\nBest regards`;
+        return {plain,html};
+      }
+    },
+    // ── Option 5 — Best Price ──
+    {
+      label:'Option 5',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `Subject: RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`${subj}\n\nHello,\n\nCould you please provide your most competitive price, current availability and the certification for the following item${multi?'s':''}? We are actively sourcing and looking to place an order shortly.\n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
+        const html= `${subj}\n\nHello,\n\nCould you please provide your most competitive price, current availability and <b>the certification</b> for the following item${multi?'s':''}? We are actively sourcing and looking to place an order shortly.\n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
+        return {plain,html};
+      }
+    },
+    // ── Option 6 — Urgent ──
+    {
+      label:'Option 6',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `Subject: RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`${subj}\n\nHello,\n\nWe urgently need your best price, stock availability and the certification for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
+        const html= `${subj}\n\nHello,\n\nWe urgently need your best price, stock availability and <b>the certification</b> for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
+        return {plain,html};
+      }
     }
   ];
 
   function buildEmail(v, items){
-    const multi=items.length>1;
-    // Subject
-    let subj;
-    if(!multi){
-      const p=items[0];
-      subj='Subject: RFQ PN '+(p.alt?`${p.pn} / ${p.alt}`:p.pn);
-    } else {
-      const pnList=items.map(i=>i.alt?`${i.pn} / ${i.alt}`:i.pn).join(' / ');
-      subj=`Subject: RFQ PN's ${pnList}`;
-    }
-    return `${subj}\n\n${v.greet}\n\n${v.body(items,multi)}\n\n${v.sign}`;
+    return v.build(items);
   }
 
   window.rfqGenerate=function(){
@@ -649,10 +719,19 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
     }
     if(!items.length){alert('Add at least one Part Number.');return;}
 
-    // Render all variant tabs
     const wrap=document.getElementById('rfqOutputWrap');
     const tabBar=document.getElementById('rfqVariantTabs');
     const outputEl=document.getElementById('rfqOutput');
+
+    // Store current plain text for copy
+    let currentPlain='';
+
+    function renderVariant(v){
+      const result=buildEmail(v,items);
+      currentPlain=result.plain;
+      // Render HTML (bold certification) in the pre block
+      outputEl.innerHTML=result.html.replace(/\n/g,'<br>').replace(/<b>/g,'<b style="font-weight:700">');
+    }
 
     tabBar.innerHTML='';
     VARIANTS.forEach((v,i)=>{
@@ -662,7 +741,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       btn.onclick=()=>{
         document.querySelectorAll('.rfq-vtab').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
-        outputEl.textContent=buildEmail(v,items);
+        renderVariant(v);
         document.getElementById('rfqCopyBtn').textContent='Copy';
         document.getElementById('rfqCopyBtn').style.background='var(--bg)';
         document.getElementById('rfqCopyBtn').style.color='var(--muted)';
@@ -671,22 +750,22 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       tabBar.appendChild(btn);
     });
 
-    outputEl.textContent=buildEmail(VARIANTS[0],items);
+    renderVariant(VARIANTS[0]);
     document.getElementById('rfqCopyBtn').textContent='Copy';
     wrap.style.display='block';
     wrap.scrollIntoView({behavior:'smooth',block:'nearest'});
-  };
 
-  window.rfqCopy=function(){
-    const txt=document.getElementById('rfqOutput').textContent;
-    navigator.clipboard.writeText(txt).then(()=>{
-      const btn=document.getElementById('rfqCopyBtn');
-      btn.textContent='✓ Copied!';
-      btn.style.background='var(--green)';
-      btn.style.color='#fff';
-      btn.style.borderColor='var(--green)';
-      setTimeout(()=>{btn.textContent='Copy';btn.style.background='var(--bg)';btn.style.color='var(--muted)';btn.style.borderColor='var(--border)';},1800);
-    });
+    // Override copy to use plain text (no HTML tags)
+    window.rfqCopy=function(){
+      navigator.clipboard.writeText(currentPlain).then(()=>{
+        const btn=document.getElementById('rfqCopyBtn');
+        btn.textContent='✓ Copied!';
+        btn.style.background='var(--green)';
+        btn.style.color='#fff';
+        btn.style.borderColor='var(--green)';
+        setTimeout(()=>{btn.textContent='Copy';btn.style.background='var(--bg)';btn.style.color='var(--muted)';btn.style.borderColor='var(--border)';},1800);
+      });
+    };
   };
 
   window.rfqClear=function(){
@@ -738,13 +817,8 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 </div>
 </div>
 
-</div>
-<!-- ── OLD PAGE S3 hidden (merged into S2) ── -->
-
-<!-- ── PAGE S4 ── -->
-<div class="doc-page" id="pg-s4">
-<div class="pg-title">Step 3 — Sending The RFQs</div>
-<div class="pg-sub">Send requests carefully. Every duplicate or missing detail wastes time and damages your reputation with suppliers.</div>
+<!-- TAB: Sending RFQs -->
+<div id="s2pane-send" style="display:none">
 <div class="pg-section">
   <div class="sec-title">✅ What to do</div>
   <ul class="item-list">
@@ -778,9 +852,13 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
   <div class="sec-title">⚠️ Important Notes</div>
   <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Avoid Duplicates — Search by Domain</div>Search <span class="kw">@domainname.com</span> in Contact Search — not one specific address. This catches all variants at the same company: rfq@, sales@, parts@, purchasing@ etc.</div></div>
   <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Don't Blow Up the Market</div>Sending RFQs to too many suppliers creates fake demand and inflates prices. Target your trusted partners first, then expand if needed.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Client Not Answering?</div>Call the company → Call them directly → Find other contacts at same company → Email <span class="kw"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99eaf8f5fcead9faf6f4e9f8f7e0b7faf6f4">[email&#160;protected]</a></span> → Search each platform (PB, ILS, Locatory, Stockmarket) for alternative emails.</div></div>
+  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Client Not Answering?</div>Call the company → Call them directly → Find other contacts at same company → Search each platform (PB, ILS, Locatory, Stockmarket) for alternative emails.</div></div>
 </div>
 </div>
+
+</div>
+<!-- ── OLD PAGE S3 hidden (merged into S2) ── -->
+<!-- ── OLD PAGE S4 merged into S2 third tab ── -->
 
 <!-- ── PAGE S5 (merged: Quote Treatment + Certification) ── -->
 <div class="doc-page" id="pg-s5">
@@ -1492,8 +1570,7 @@ function checkEmail(){
 // Page order matches the nav-item list
 const DOC_PAGES=[
   {id:'s1',  title:'Reviewing RFQ'},
-  {id:'s2',  title:'Template & PN Search'},
-  {id:'s4',  title:'Sending RFQs'},
+  {id:'s2',  title:'Template, Search & Sending'},
   {id:'s5',  title:'Quote & Certification'},
   {id:'s7',  title:'Trace & PPW'},
   {id:'s8',  title:'Sending Reminders'},
@@ -1684,9 +1761,11 @@ document.getElementById("reminderPopup").addEventListener("click",function(e){if
 function s2switchTab(tab){
   document.getElementById("s2pane-tpl").style.display=tab==="tpl"?"block":"none";
   document.getElementById("s2pane-search").style.display=tab==="search"?"block":"none";
-  const btnTpl=document.getElementById("s2tab-tpl"),btnSearch=document.getElementById("s2tab-search");
-  if(tab==="tpl"){btnTpl.style.background="var(--brand)";btnTpl.style.color="#fff";btnSearch.style.background="var(--bg2)";btnSearch.style.color="var(--muted)";}
-  else{btnSearch.style.background="var(--brand)";btnSearch.style.color="#fff";btnTpl.style.background="var(--bg2)";btnTpl.style.color="var(--muted)";}
+  document.getElementById("s2pane-send").style.display=tab==="send"?"block":"none";
+  const btnTpl=document.getElementById("s2tab-tpl"),btnSearch=document.getElementById("s2tab-search"),btnSend=document.getElementById("s2tab-send");
+  [btnTpl,btnSearch,btnSend].forEach(b=>{b.style.background="var(--bg2)";b.style.color="var(--muted)";});
+  const active=tab==="tpl"?btnTpl:tab==="search"?btnSearch:btnSend;
+  active.style.background="var(--brand)";active.style.color="#fff";
 }
 function s5switchTab(tab){
   document.getElementById("s5pane-quote").style.display=tab==="quote"?"block":"none";
