@@ -191,7 +191,34 @@
     "s.creanga@actc-aero.com": "not found",
     "gavin.comer@aero-technics.com": "not found",
     "sales@altamontaviation.com": "not found",
-    "airpartsme.com": "not found"
+    "airpartsme.com": "not found",
+    "@aogteamservices.com": "not found",
+    "CAMARAC.COM": "not found",
+    "michael@royalaero.com": "not found",
+    "alouden@hawkaviation.com": "not found",
+    "Lfaviation@talktalk.net": "not found",
+    "Brandon.smith@aerfin.com": "not found",
+    "teisenbarth@andersonaermotive.com": "not found",
+    "aog@aeroned.com": "not found",
+    "eusales@prime.com": "not found",
+    "sarla.sudra@eas-aviation-services.com": "not found",
+    "karim.elsedawy@ectaviation.com": "not found",
+    "Dalia.Hatem@ectaviation.com": "not found",
+    "Mahmoud.ElShimy@ectaviation.com": "not found",
+    "Abdelrahman.Khedr@ectaviation.com": "not found",
+    "dhiraj.shah@vantage-ic.com": "not found",
+    "LSIsales@astronics.com": "not found",
+    "Larry.saunders@luminator.com": "not found",
+    "ssweet@heads-up.com": "not found",
+    "marcin@sentry.aero": "not found",
+    "sales@ataa.aero": "not found",
+    "websales@teci.com": "not found",
+    "sales@altitudeaero.net": "not found",
+    "ira@expediters.com": "not found",
+    "alexis@expediters.com": "not found",
+    "jacquie@expediters.com": "not found",
+    "jesse@expediters.com": "not found",
+    "juan@expediters.com": "not found"
   },
   "replacements": {
     "production@skysmart.co.uk": "callum@skysmart.co.uk",
@@ -246,9 +273,13 @@
     "HOP-Sales@hutchinsoninc.com": "sales.bcas@hutchinson.fr",
     "sales@jcaviationservices.com": "info@jcaviationservices.com",
     "sales@aerotechnic-asia.com": "sales@aerotechnic-group.com",
-    "jgawlik@aerovi.com": "qfowler@aerovi.com / jvanderkooi@aerovi.com"
+    "jgawlik@aerovi.com": "qfowler@aerovi.com/ jvanderkooi@aerovi.com",
+    "info@capapc.com": "aog@capapc.com",
+    "Denea.Brown@cfmmaterials.com": "Ariel.Ramirez@cfmmaterials.com"
   },
-  "exw":{"reda":"reda"},
+  "exw": {
+    "reda": "reda"
+  },
   "directContact": {
     "10AERONAUTICA": [
       "contato@10aeronautica.com.br"
@@ -4576,7 +4607,7 @@
     "FLY ALLIANCE": [
       "HOLIDAY: steven.szefler@flyalliance.com",
       "manny.perez@flyalliance.com",
-      "partsales@flyalliance.com​",
+      "partsales@flyalliance.com\u200b",
       "alvin.velazquez@flyalliance.com",
       "gina.donatelli@flyalliance.com",
       "partsales@flyalliance.com",
@@ -5548,7 +5579,7 @@
     ],
     "INAVLLC": [
       "AshleyH@inavllc.com",
-      "Joe.O’Donnel@inavllc.com",
+      "Joe.O\u2019Donnel@inavllc.com",
       "joe.O@inavllc.com",
       "joedonnell@inavllc.com",
       "joeo@inavllc.com",
