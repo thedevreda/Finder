@@ -385,7 +385,6 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   <div class="tabbar">
     <button class="nav-toggle" id="navToggleBtn" onclick="toggleDocsNav()" title="Toggle menu">☰</button>
     <button class="tbtn active" onclick="switchTab('docs',this)">📚 Docs</button>
-    <button class="tbtn" onclick="switchTab('tools',this)">🔍 Search &amp; Reminders</button>
   </div>
   <div class="nav-overlay" id="navOverlay" onclick="closeDocsNav()"></div>
 
@@ -418,6 +417,8 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
               <button class="nav-item" onclick="showPage('glossary',this)"><span class="ni">📖</span>Terminology</button>
               <button class="nav-item" onclick="showPage('templates',this)"><span class="ni">✉️</span>Email Templates</button>
               <button class="nav-item" onclick="showPage('tips',this)"><span class="ni">💡</span>Pro Tips</button>
+              <button class="nav-item" onclick="showPage('search-tool',this)"><span class="ni">🔍</span>Contact Search</button>
+              <button class="nav-item" onclick="showPage('reminders-tool',this)"><span class="ni">⏰</span>Reminders</button>
             </div>
           </div>
 
@@ -516,6 +517,15 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
     <!-- Rows container -->
     <div id="rfqRows" style="padding:6px 12px 10px;display:flex;flex-direction:column;gap:6px"></div>
 
+    <!-- Subject field (independent) -->
+    <div style="padding:10px 12px 0;border-top:1px solid var(--border2)">
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r)">
+        <span style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;flex-shrink:0">Subject</span>
+        <input type="text" id="rfqSubject" placeholder="Auto-generated — edit if needed" style="flex:1;border:none;outline:none;font-size:12px;font-family:var(--font);background:transparent;color:var(--text)" autocomplete="off">
+        <button onclick="(function(){var el=document.getElementById('rfqSubject');if(!el||!el.value)return;navigator.clipboard.writeText(el.value);var b=event.target;var o=b.textContent;b.textContent='✓';setTimeout(()=>b.textContent=o,1400);})()" style="padding:3px 9px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font);flex-shrink:0">Copy</button>
+      </div>
+    </div>
+
     <!-- Generate button -->
     <div style="padding:10px 12px;border-top:1px solid var(--border2);display:flex;gap:8px;align-items:center;flex-wrap:wrap">
       <button onclick="rfqGenerate()" style="padding:8px 20px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;transition:.12s;letter-spacing:.1px" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">⚡ Generate Template</button>
@@ -583,8 +593,12 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   function buildItemLines(items){
     return items.map(i=>{
       let l=i.pn;
-      if(i.alt) l+=` / ${i.alt}`;
-      if(i.desc) l+=` / ${i.desc}`;
+      if(i.alt){
+        l+=` / ALT: ${i.alt}`;
+        if(i.desc) l+=` / DESC: ${i.desc}`;
+      } else {
+        if(i.desc) l+=` / ${i.desc}`;
+      }
       if(i.qty) l+=` / QTY: ${i.qty}`;
       return l;
     }).join('\n');
@@ -598,12 +612,19 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       build:(items)=>{
         const multi=items.length>1;
         const subj=multi
-          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
-          : `Subject: RFQ PN ${items[0].pn}`;
-        const lines=items.map(i=>{let l=i.pn;if(i.desc)l+=` / ${i.desc}`;if(i.qty)l+=` / QTY: ${i.qty}`;return l;}).join('\n');
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
+        const lines=items.map(i=>{
+          let l=i.pn;
+          if(i.alt){ l+=` / ALT: ${i.alt}`; if(i.desc) l+=` / DESC: ${i.desc}`; } else { if(i.desc) l+=` / ${i.desc}`; }
+          if(i.qty) l+=` / QTY: ${i.qty}`;
+          return l;
+        }).join('\n');
+        const body=`Dear team,\n\nIs this offer still valid for:\n\n${lines}\n\nThank you.`;
         return {
-          plain:`${subj}\n\nDear team,\n\nIs this offer still valid for:\n\n${lines}\n\nThank you.`,
-          html:  `${subj}\n\nDear team,\n\nIs this offer still valid for:\n\n${lines}\n\nThank you.`
+          subject: subj,
+          plain: body,
+          html: body
         };
       }
     },
@@ -614,12 +635,12 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       build:(items)=>{
         const multi=items.length>1;
         const subj=multi
-          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
-          : `Subject: RFQ PN ${items[0].pn}`;
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
         const lines=buildItemLines(items);
-        const plain=`${subj}\n\nHello,\n\nPlease provide your best price quote and stock availability and the certification for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`;
-        const html= `${subj}\n\nHello,\n\nPlease provide your best price quote and stock availability and <b>the certification</b> for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`;
-        return {plain,html};
+        const plain=`Hello,\n\nPlease provide your best price quote and stock availability and the certification for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`;
+        const html= `Hello,\n\nPlease provide your best price quote and stock availability and <b>the certification</b> for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`;
+        return {subject:subj,plain,html};
       }
     },
     // ── Option 2 — Formal ──
@@ -629,12 +650,12 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       build:(items)=>{
         const multi=items.length>1;
         const subj=multi
-          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
-          : `Subject: RFQ PN ${items[0].pn}`;
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
         const lines=buildItemLines(items);
-        const plain=`${subj}\n\nGood day,\n\nWe would appreciate your best price, availability and the certification for the item${multi?'s':''} below:\n\n${lines}\n\nWe look forward to your response.\nKind regards`;
-        const html= `${subj}\n\nGood day,\n\nWe would appreciate your best price, availability and <b>the certification</b> for the item${multi?'s':''} below:\n\n${lines}\n\nWe look forward to your response.\nKind regards`;
-        return {plain,html};
+        const plain=`Good day,\n\nWe would appreciate your best price, availability and the certification for the item${multi?'s':''} below:\n\n${lines}\n\nWe look forward to your response.\nKind regards`;
+        const html= `Good day,\n\nWe would appreciate your best price, availability and <b>the certification</b> for the item${multi?'s':''} below:\n\n${lines}\n\nWe look forward to your response.\nKind regards`;
+        return {subject:subj,plain,html};
       }
     },
     // ── Option 3 — Short ──
@@ -644,12 +665,12 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       build:(items)=>{
         const multi=items.length>1;
         const subj=multi
-          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
-          : `Subject: RFQ PN ${items[0].pn}`;
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
         const lines=buildItemLines(items);
-        const plain=`${subj}\n\nHi,\n\nQuick RFQ — please send best price, availability & the certification:\n\n${lines}\n\nThanks!`;
-        const html= `${subj}\n\nHi,\n\nQuick RFQ — please send best price, availability & <b>the certification</b>:\n\n${lines}\n\nThanks!`;
-        return {plain,html};
+        const plain=`Hi,\n\nQuick RFQ — please send best price, availability & the certification:\n\n${lines}\n\nThanks!`;
+        const html= `Hi,\n\nQuick RFQ — please send best price, availability & <b>the certification</b>:\n\n${lines}\n\nThanks!`;
+        return {subject:subj,plain,html};
       }
     },
     // ── Option 4 — Sending RFA ──
@@ -659,12 +680,12 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       build:(items)=>{
         const multi=items.length>1;
         const subj=multi
-          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
-          : `Subject: RFQ PN ${items[0].pn}`;
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
         const lines=buildItemLines(items);
-        const plain=`${subj}\n\nHello,\n\nWe previously sent you an RFQ for the following item${multi?'s':''} and wanted to follow up. Could you please confirm price, availability and the certification?\n\n${lines}\n\nThank you for your time.\nBest regards`;
-        const html= `${subj}\n\nHello,\n\nWe previously sent you an RFQ for the following item${multi?'s':''} and wanted to follow up. Could you please confirm price, availability and <b>the certification</b>?\n\n${lines}\n\nThank you for your time.\nBest regards`;
-        return {plain,html};
+        const plain=`Hello,\n\nWe previously sent you an RFQ for the following item${multi?'s':''} and wanted to follow up. Could you please confirm price, availability and the certification?\n\n${lines}\n\nThank you for your time.\nBest regards`;
+        const html= `Hello,\n\nWe previously sent you an RFQ for the following item${multi?'s':''} and wanted to follow up. Could you please confirm price, availability and <b>the certification</b>?\n\n${lines}\n\nThank you for your time.\nBest regards`;
+        return {subject:subj,plain,html};
       }
     },
     // ── Option 5 — Best Price ──
@@ -674,12 +695,12 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       build:(items)=>{
         const multi=items.length>1;
         const subj=multi
-          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
-          : `Subject: RFQ PN ${items[0].pn}`;
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
         const lines=buildItemLines(items);
-        const plain=`${subj}\n\nHello,\n\nCould you please provide your most competitive price, current availability and the certification for the following item${multi?'s':''}? We are actively sourcing and looking to place an order shortly.\n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
-        const html= `${subj}\n\nHello,\n\nCould you please provide your most competitive price, current availability and <b>the certification</b> for the following item${multi?'s':''}? We are actively sourcing and looking to place an order shortly.\n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
-        return {plain,html};
+        const plain=`Hello,\n\nCould you please provide your most competitive price, current availability and the certification for the following item${multi?'s':''}? We are actively sourcing and looking to place an order shortly.\n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
+        const html= `Hello,\n\nCould you please provide your most competitive price, current availability and <b>the certification</b> for the following item${multi?'s':''}? We are actively sourcing and looking to place an order shortly.\n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
+        return {subject:subj,plain,html};
       }
     },
     // ── Option 6 — Urgent ──
@@ -689,12 +710,12 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       build:(items)=>{
         const multi=items.length>1;
         const subj=multi
-          ? `Subject: RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
-          : `Subject: RFQ PN ${items[0].pn}`;
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
         const lines=buildItemLines(items);
-        const plain=`${subj}\n\nHello,\n\nWe urgently need your best price, stock availability and the certification for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
-        const html= `${subj}\n\nHello,\n\nWe urgently need your best price, stock availability and <b>the certification</b> for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
-        return {plain,html};
+        const plain=`Hello,\n\nWe urgently need your best price, stock availability and the certification for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
+        const html= `Hello,\n\nWe urgently need your best price, stock availability and <b>the certification</b> for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
+        return {subject:subj,plain,html};
       }
     }
   ];
@@ -729,7 +750,10 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
     function renderVariant(v){
       const result=buildEmail(v,items);
       currentPlain=result.plain;
-      // Render HTML (bold certification) in the pre block
+      // Put subject in the subject input field (strip "Subject: " prefix)
+      const subjEl=document.getElementById('rfqSubject');
+      if(subjEl && result.subject) subjEl.value=result.subject;
+      // Render HTML (bold certification) in the pre block (body only, no subject line)
       outputEl.innerHTML=result.html.replace(/\n/g,'<br>').replace(/<b>/g,'<b style="font-weight:700">');
     }
 
@@ -814,6 +838,21 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   <div class="callout c-info"><div class="callout-icon">🛠️</div><div class="callout-body"><div class="callout-title">GetProspect Extension</div>GetProspect is a browser extension that extracts professional emails from LinkedIn profiles. Use it when you need a direct contact at a supplier or manufacturer — especially for OEM outreach.</div></div>
   <div class="callout c-info"><div class="callout-icon">✈️</div><div class="callout-body"><div class="callout-title">Aviation Alphabet on the Phone</div>When calling a supplier to spell a PN or email, always use the aviation phonetic alphabet (Alpha, Bravo, Charlie, Delta…). Avoids costly confusion between similar-sounding letters like B/D, M/N, or S/F.</div></div>
   <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">AR — Last Resort Option</div>As Removed (AR) can only be offered after finding no certified stock anywhere. AR parts have a <strong>removal tag only</strong> — not a certification — since they haven't been sent to a repair shop yet.</div></div>
+</div>
+
+<div class="pg-section">
+  <div class="sec-title">🔍 Contact Search</div>
+  <div id="dataNoticeSearch" class="data-notice" style="display:none;">
+    <span>⚠</span><span><strong>No email data loaded.</strong> Place <code>data.json</code> in the same folder and reload.</span>
+  </div>
+  <div class="sw"><input type="text" id="searchInputSearch" placeholder="Search company, email, or keyword…" oninput="doSearchSearch(this.value)"></div>
+  <div class="fb">
+    <button class="fbtn active" onclick="setFilterSearch('all',this)">All</button>
+    <button class="fbtn" onclick="setFilterSearch('blacklist',this)">Blacklist</button>
+    <button class="fbtn" onclick="setFilterSearch('direct',this)">Direct</button>
+    <button class="fbtn" onclick="setFilterSearch('replace',this)">Replace</button>
+  </div>
+  <div id="resultsSearch" style="overflow-y:auto;max-height:50vh"><div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div></div>
 </div>
 </div>
 
@@ -1342,13 +1381,51 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
 </div>
 </div>
 
+<!-- ── PAGE: CONTACT SEARCH ── -->
+<div class="doc-page" id="pg-search-tool">
+<div class="pg-title">Contact Search</div>
+<div class="pg-sub">Search suppliers by company name, email, or keyword. Use domain search (@company.com) to avoid duplicate RFQs.</div>
+<div class="pg-section">
+  <div id="dataNoticeDoc" class="data-notice" style="display:none;">
+    <span>⚠</span><span><strong>No email data loaded.</strong> Place <code>data.json</code> in the same folder as this HTML file and reload to enable Contact Search.</span>
+  </div>
+  <div class="sw"><input type="text" id="searchInputDoc" placeholder="Search company, email, or keyword…" oninput="doSearchDoc(this.value)"></div>
+  <div class="fb">
+    <button class="fbtn active" onclick="setFilterDoc('all',this)">All</button>
+    <button class="fbtn" onclick="setFilterDoc('blacklist',this)">Blacklist</button>
+    <button class="fbtn" onclick="setFilterDoc('direct',this)">Direct</button>
+    <button class="fbtn" onclick="setFilterDoc('replace',this)">Replace</button>
+  </div>
+  <div id="resultsDoc" style="overflow-y:auto;max-height:60vh"><div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div></div>
+</div>
+</div>
+
+<!-- ── PAGE: REMINDERS ── -->
+<div class="doc-page" id="pg-reminders-tool">
+<div class="pg-title">Reminders</div>
+<div class="pg-sub">Set timed reminders for supplier follow-ups (3h) and customer follow-ups (48h). A popup fires when time is up.</div>
+<div class="pg-section">
+  <div class="sec-title">⏰ Set Reminder</div>
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--sh)">
+    <div class="rf-row">
+      <div class="rf" style="flex:2;min-width:100px"><label>Part Number</label><input type="text" id="partInputDoc" placeholder="e.g. 0123FA2" style="width:100%"></div>
+      <div class="rf" style="width:60px"><label>Hours</label><input type="number" id="hourInputDoc" value="3" min="1" style="width:100%"></div>
+      <div class="rf" style="flex:1;min-width:80px"><label>Country</label><input type="text" id="countryInputDoc" placeholder="Country" style="width:100%"><span id="countryErrDoc" style="font-size:10px;color:var(--red);display:none">Required for customer</span></div>
+      <div class="rf" style="width:110px"><label>Type</label><select id="typeInputDoc" onchange="handleTypeChangeDoc()" style="width:100%"><option value="reminder">Supplier</option><option value="customer">Customer</option></select></div>
+      <button class="rm-btn" onclick="startReminderDoc()" style="align-self:flex-end">Start</button>
+    </div>
+    <div id="reminderListDoc"></div>
+  </div>
+</div>
+</div>
+
             </div><!-- /docs-inner -->
           </div><!-- /docs-content -->
         </div><!-- /docs-shell -->
       </div><!-- /panel-docs -->
 
-      <!-- ═══ TOOLS PANEL ═══ -->
-      <div id="panel-tools" class="panel">
+      <!-- ═══ TOOLS PANEL (hidden, kept for data functions) ═══ -->
+      <div id="panel-tools" class="panel" style="display:none!important">
         <div class="tools-scroll">
           <div id="dataNotice" class="data-notice" style="display:none;">
             <span>⚠</span><span><strong>No email data loaded.</strong> Place <code>data.json</code> in the same folder as this HTML file and reload to enable Contact Search.</span>
@@ -1419,6 +1496,11 @@ async function tryLoadDataJson(){
       else{blacklist[key]=val;}
     }
     replacements=data.replacements||{};directContact=data.directContact||{};exw=data.exw||{};dataLoaded=true;
+    // Build flat array for doc-page search
+    window._contactData=[];
+    for(const c in directContact){window._contactData.push({company:c,emails:directContact[c]||[],type:'direct'});}
+    for(const c in blacklist){const obj=blacklist[c]||{};window._contactData.push({company:c,emails:obj.emails||[],notes:obj.reason||'',type:'blacklist',reason:obj.reason||''});}
+    for(const old in replacements){window._contactData.push({company:'Replace: '+old,emails:[replacements[old]],type:'replace'});}
     let dcCount=0;for(let c in directContact)dcCount+=(directContact[c]||[]).length;
     let blCount=Object.keys(blacklist).length;
     document.getElementById("fileName").textContent="✓ "+Object.keys(directContact).length+" companies";
@@ -1518,7 +1600,9 @@ function showNotif(p){if("Notification"in window&&Notification.permission==="gra
 let reminders=[];
 async function saveReminders(){const pl={};reminders.forEach(r=>{pl[String(r.id)]={id:r.id,part:r.part,hours:r.hours,country:r.country||"",type:r.type,end:r.end,finished:r.finished?1:0,user:r.user};});await fbSet(`reminders/${currentUID}`,pl);}
 async function loadReminders(){
-  const data=await fbGet(`reminders/${currentUID}`);reminders=[];document.getElementById("reminderList").innerHTML="";
+  const data=await fbGet(`reminders/${currentUID}`);reminders=[];
+  document.getElementById("reminderList").innerHTML="";
+  const docList=document.getElementById("reminderListDoc");if(docList)docList.innerHTML="";
   if(data&&typeof data==="object"){const seen=new Set();Object.values(data).forEach(r=>{r.id=Number(r.id)||Date.now();r.end=Number(r.end)||(Date.now()+3*3600000);r.hours=Number(r.hours)||3;r.finished=r.finished===true||r.finished===1||r.finished==="1"||r.finished==="TRUE";if(seen.has(r.id))return;seen.add(r.id);reminders.push(r);mkReminderCard(r);});}
 }
 function handleTypeChange(){const t=document.getElementById("typeInput").value,e=document.getElementById("countryErr");if(t==="customer"){document.getElementById("countryInput").setAttribute("required","required");}else{document.getElementById("countryInput").removeAttribute("required");if(e)e.style.display="none";}}
@@ -1530,15 +1614,20 @@ async function startReminder(){
   reminders.push(obj);await saveReminders();await loadReminders();document.getElementById("partInput").value="";document.getElementById("countryInput").value="";
 }
 function mkReminderCard(obj){
-  const card=document.createElement("div");card.className="tc "+obj.type;
-  const lbl=obj.type==="customer"?"Customer Follow-up":"Supplier Reminder";
-  const info=document.createElement("div");info.innerHTML=`<strong>${obj.part}</strong><br><small>${lbl}</small><br><small>Country: ${obj.country||"-"}</small><br><span class="tt">Loading...</span>`;
-  const rmv=document.createElement("button");rmv.className="tr-btn";rmv.innerText="Remove";
-  rmv.onclick=async()=>{reminders=reminders.filter(r=>r.id!==obj.id);await saveReminders();await loadReminders();};
-  card.appendChild(info);card.appendChild(rmv);document.getElementById("reminderList").appendChild(card);
-  const te=info.querySelector(".tt");
-  function tick(){const rem=obj.end-Date.now();if(obj.finished){te.textContent="✓ Done";card.classList.add("finished");return;}if(rem<=0){te.textContent="⏰ TIME'S UP";card.classList.add("finished");showReminderPopup(obj);return;}const h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000),s=Math.floor((rem%60000)/1000);te.textContent=`${h}h ${m}m ${s}s`;setTimeout(tick,1000);}
-  tick();
+  function buildCard(listEl){
+    if(!listEl)return;
+    const card=document.createElement("div");card.className="tc "+obj.type;
+    const lbl=obj.type==="customer"?"Customer Follow-up":"Supplier Reminder";
+    const info=document.createElement("div");info.innerHTML=`<strong>${obj.part}</strong><br><small>${lbl}</small><br><small>Country: ${obj.country||"-"}</small><br><span class="tt">Loading...</span>`;
+    const rmv=document.createElement("button");rmv.className="tr-btn";rmv.innerText="Remove";
+    rmv.onclick=async()=>{reminders=reminders.filter(r=>r.id!==obj.id);await saveReminders();await loadReminders();};
+    card.appendChild(info);card.appendChild(rmv);listEl.appendChild(card);
+    const te=info.querySelector(".tt");
+    function tick(){const rem=obj.end-Date.now();if(obj.finished){te.textContent="✓ Done";card.classList.add("finished");return;}if(rem<=0){te.textContent="⏰ TIME'S UP";card.classList.add("finished");showReminderPopup(obj);return;}const h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000),s=Math.floor((rem%60000)/1000);te.textContent=`${h}h ${m}m ${s}s`;setTimeout(tick,1000);}
+    tick();
+  }
+  buildCard(document.getElementById("reminderList"));
+  buildCard(document.getElementById("reminderListDoc"));
 }
 
 /* ── CONTACT SEARCH ── */
@@ -1581,6 +1670,8 @@ const DOC_PAGES=[
   {id:'glossary',  title:'Terminology'},
   {id:'templates', title:'Email Templates'},
   {id:'tips',      title:'Pro Tips'},
+  {id:'search-tool', title:'Contact Search'},
+  {id:'reminders-tool', title:'Reminders'},
 ];
 function currentPageIndex(){
   for(let i=0;i<DOC_PAGES.length;i++){
@@ -1781,6 +1872,99 @@ function toggleCertSection(){
   if(cb.checked){panel.style.display="block";lbl.textContent="Yes";}
   else{panel.style.display="none";lbl.textContent="No";}
 }
+
+/* ── INLINE SEARCH (PN Search tab) ── */
+(function(){
+  let filterSearch='all';
+  window.setFilterSearch=function(f,btn){
+    filterSearch=f;
+    document.querySelectorAll('#s2pane-search .fbtn').forEach(b=>b.classList.remove('active'));
+    if(btn)btn.classList.add('active');
+    doSearchSearch(document.getElementById('searchInputSearch')?.value||'');
+  };
+  window.doSearchSearch=function(q){
+    const resultsEl=document.getElementById('resultsSearch');
+    if(!resultsEl)return;
+    const data=window._contactData||[];
+    if(!data.length){
+      const n=document.getElementById('dataNoticeSearch');if(n)n.style.display='flex';
+      resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No data loaded</div>';return;
+    }
+    const t=q.trim().toLowerCase();
+    if(!t){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div>';return;}
+    let filtered=data.filter(c=>{
+      if(filterSearch!=='all'&&c.type!==filterSearch)return false;
+      return(c.company||'').toLowerCase().includes(t)||(c.emails||[]).some(e=>e.toLowerCase().includes(t))||(c.notes||'').toLowerCase().includes(t);
+    });
+    if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
+    resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
+      const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
+      const emails=(c.emails||[]).map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="navigator.clipboard.writeText('${e.replace(/'/g,'&apos;')}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');
+      const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
+      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`;
+    }).join('');
+  };
+})();
+
+/* ── DOC-PAGE CONTACT SEARCH ── */
+(function(){
+  let filterDoc='all';
+  window.setFilterDoc=function(f,btn){
+    filterDoc=f;
+    document.querySelectorAll('#pg-search-tool .fbtn').forEach(b=>{b.classList.remove('active');});
+    if(btn)btn.classList.add('active');
+    doSearchDoc(document.getElementById('searchInputDoc')?.value||'');
+  };
+  window.doSearchDoc=function(q){
+    const resultsEl=document.getElementById('resultsDoc');
+    if(!resultsEl)return;
+    // Re-use the same contactData and search logic as the tools panel
+    const data=window._contactData||[];
+    if(!data.length){
+      document.getElementById('dataNoticeDoc').style.display='flex';
+      resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No data loaded</div>';
+      return;
+    }
+    const t=q.trim().toLowerCase();
+    if(!t){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div>';return;}
+    let filtered=data.filter(c=>{
+      if(filterDoc!=='all'&&c.type!==filterDoc)return false;
+      return(c.company||'').toLowerCase().includes(t)||(c.emails||[]).some(e=>e.toLowerCase().includes(t))||(c.notes||'').toLowerCase().includes(t);
+    });
+    if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
+    resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
+      const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
+      const emails=(c.emails||[]).map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="navigator.clipboard.writeText('${e}')">Copy</button></div>`).join('');
+      const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
+      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`;
+    }).join('');
+  };
+})();
+
+/* ── DOC-PAGE REMINDERS — same Firebase logic as main ── */
+window.handleTypeChangeDoc=function(){
+  const t=document.getElementById('typeInputDoc')?.value;
+  const h=document.getElementById('hourInputDoc');
+  const e=document.getElementById('countryErrDoc');
+  if(t==='customer'){if(h)h.value=48;}else{if(h)h.value=3;if(e)e.style.display='none';}
+};
+window.startReminderDoc=async function(){
+  const part=(document.getElementById('partInputDoc')?.value||'').trim();
+  const hours=parseInt(document.getElementById('hourInputDoc')?.value)||3;
+  const country=(document.getElementById('countryInputDoc')?.value||'').trim();
+  const type=document.getElementById('typeInputDoc')?.value||'reminder';
+  const err=document.getElementById('countryErrDoc');
+  if(err)err.style.display='none';
+  if(!part){alert('Enter Part Number');return;}
+  if(type==='customer'&&!country){if(err)err.style.display='block';document.getElementById('countryInputDoc')?.focus();return;}
+  const end=Date.now()+hours*3600000;
+  const obj={id:Date.now(),part,hours,country,type,end,finished:false,user:currentUser};
+  reminders.push(obj);
+  await saveReminders();
+  await loadReminders();
+  if(document.getElementById('partInputDoc'))document.getElementById('partInputDoc').value='';
+  if(document.getElementById('countryInputDoc'))document.getElementById('countryInputDoc').value='';
+};
 </script>
 </body>
 </html>
