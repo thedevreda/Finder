@@ -616,7 +616,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
           : `RFQ PN ${items[0].pn}`;
         const lines=items.map(i=>{
           let l=i.pn;
-          if(i.alt){ l+=` / ALT: ${i.alt}`; if(i.desc) l+=` / DESC: ${i.desc}`; } else { if(i.desc) l+=` / ${i.desc}`; }
+          if(i.alt){ l+=` / ALT: ${i.alt}`; if(i.desc) l+=` / ${i.desc}`; } else { if(i.desc) l+=` / ${i.desc}`; }
           if(i.qty) l+=` / QTY: ${i.qty}`;
           return l;
         }).join('\n');
