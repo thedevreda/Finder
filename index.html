@@ -395,7 +395,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   <div class="tabbar">
     <button class="nav-toggle" id="navToggleBtn" onclick="toggleDocsNav()" title="Toggle menu">☰</button>
     <button class="tbtn active" onclick="switchTab('docs',this)">📚 Docs</button>
-    <button class="tbtn" id="emailDashTab" onclick="switchTab('emaildash',this)" style="display:none">✉️ Email Dashboard</button>
+    <button class="tbtn" id="emailDashTab" onclick="edOpenTab(this)" style="display:none">✉️ Email Dashboard</button>
   </div>
   <div class="nav-overlay" id="navOverlay" onclick="closeDocsNav()"></div>
 
@@ -856,7 +856,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   <div id="dataNoticeSearch" class="data-notice" style="display:none;">
     <span>⚠</span><span><strong>No email data loaded.</strong> Place <code>data.json</code> in the same folder and reload.</span>
   </div>
-  <div class="sw"><input type="text" id="searchInputSearch" placeholder="Search company, email, or keyword…" oninput="lazyLoadData().then(()=>doSearchSearch(this.value))"></div>
+  <div class="sw"><input type="text" id="searchInputSearch" placeholder="Search company, email, or keyword…" oninput="lazyThenCall(()=>doSearchSearch(this.value))"></div>
   <div class="fb">
     <button class="fbtn active" onclick="setFilterSearch('all',this)">All</button>
     <button class="fbtn" onclick="setFilterSearch('blacklist',this)">Blacklist</button>
@@ -1033,9 +1033,118 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
   <div class="callout c-info"><div class="callout-icon">⏱️</div><div class="callout-body"><div class="callout-title">TAT — Turn Around Time</div>How long the repair shop takes to complete work on the part — from receiving it to releasing it certified. Always ask for TAT on lead time parts so you can give the client a realistic delivery estimate.</div></div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">📝 Your Notes — Fill Manually</div>
-  <div class="callout c-warn"><div class="callout-icon">📝</div><div class="callout-body"><div class="callout-title">Section In Progress</div>This section is reserved for your team's specific trace requirements, client-specific scenarios, and internal procedures. Add your content here directly in the HTML file.</div></div>
+  <div class="sec-title">&#128196; Trace &amp; PPW — Example Documents</div>
+  <div class="callout c-info"><div class="callout-icon">&#128204;</div><div class="callout-body"><div class="callout-title">Example PDFs</div>The documents below are real examples of Trace &amp; PPW paperwork your team will encounter. Use the tabs to navigate between document types.</div></div>
+
+  <style>
+  .ppw-wrap{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:12px;box-shadow:var(--sh2)}
+  .ppw-tabbar{display:flex;background:var(--bg2);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+  .ppw-tabbar::-webkit-scrollbar{display:none}
+  .ppw-t{padding:9px 16px;font-size:11px;font-weight:600;border:none;background:none;cursor:pointer;color:var(--muted);white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:var(--font);transition:.12s}
+  .ppw-t:hover{color:var(--text)}.ppw-t.on{color:var(--brand);border-bottom-color:var(--brand);background:var(--white)}
+  .ppw-pane{display:none}.ppw-pane.on{display:block}
+  .ppw-bar{display:flex;align-items:center;padding:9px 16px;background:var(--bg);border-bottom:1px solid var(--border2);gap:8px}
+  .ppw-fn{font-size:11.5px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:7px}
+  .ppw-bx{background:var(--brand-lt);color:var(--brand);font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;letter-spacing:.4px}
+  .ppw-bx.cert{background:#f0fdf4;color:#16a34a}
+  .ppw-frame{width:100%;height:580px;border:none;display:block;background:#525659}
+  .ppw-desc{padding:10px 16px 14px;font-size:11.5px;color:var(--muted);line-height:1.6;background:var(--bg);border-top:1px solid var(--border2)}
+  .ppw-nofile{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 16px;gap:10px;color:var(--muted2);text-align:center}
+  .ppw-nofile-icon{font-size:40px;opacity:.25}
+  .ppw-nofile-title{font-size:13px;font-weight:600;color:var(--text)}
+  .ppw-nofile-sub{font-size:11.5px;color:var(--muted);max-width:320px;line-height:1.6}
+  .ppw-nofile-path{margin-top:8px;font-size:10px;color:var(--muted2);font-family:var(--mono);background:var(--bg2);border:1px solid var(--border);padding:3px 10px;border-radius:5px}
+  </style>
+
+  <div class="ppw-wrap">
+    <div class="ppw-tabbar">
+      <button class="ppw-t on" onclick="ppwGo(0,this)">&#128196; Removal Tag</button>
+      <button class="ppw-t"    onclick="ppwGo(1,this)">&#128196; 8130 / EASA Form 1</button>
+      <button class="ppw-t"    onclick="ppwGo(2,this)">&#128196; Work Order</button>
+      <button class="ppw-t"    onclick="ppwGo(3,this)">&#128196; Shop Findings</button>
+      <button class="ppw-t"    onclick="ppwGo(4,this)">&#128196; Overhaul Record</button>
+    </div>
+
+    <div class="ppw-pane on" id="ppPane0">
+      <div class="ppw-bar"><div class="ppw-fn">&#128196; Removal Tag <span class="ppw-bx">TRACE DOC</span></div></div>
+      <div id="ppBody0"></div>
+    </div>
+    <div class="ppw-pane" id="ppPane1">
+      <div class="ppw-bar"><div class="ppw-fn">&#128196; 8130-3 / EASA Form 1 <span class="ppw-bx cert">CERT DOC</span></div></div>
+      <div id="ppBody1"></div>
+    </div>
+    <div class="ppw-pane" id="ppPane2">
+      <div class="ppw-bar"><div class="ppw-fn">&#128196; Work Order <span class="ppw-bx">TRACE DOC</span></div></div>
+      <div id="ppBody2"></div>
+    </div>
+    <div class="ppw-pane" id="ppPane3">
+      <div class="ppw-bar"><div class="ppw-fn">&#128196; Shop Findings <span class="ppw-bx">TRACE DOC</span></div></div>
+      <div id="ppBody3"></div>
+    </div>
+    <div class="ppw-pane" id="ppPane4">
+      <div class="ppw-bar"><div class="ppw-fn">&#128196; Overhaul Record <span class="ppw-bx">TRACE DOC</span></div></div>
+      <div id="ppBody4"></div>
+    </div>
+  </div>
+
+  <script>
+  // ── Edit these paths to match the PDFs you upload to your server ──
+  var PPW_FILES = [
+    { path: "./trace_removal_tag.pdf",   title: "Removal Tag",         desc: "Confirms the part was physically removed from a specific aircraft tail number at a specific date, flight hour and cycle count. The very first document in the trace chain — proves where the part came from." },
+    { path: "./trace_8130.pdf",          title: "8130-3 / EASA Form 1",desc: "The primary airworthiness release document (FAA 8130-3 or EASA Form 1). Proves the part was inspected and approved for return to service by an authorized repair station." },
+    { path: "./trace_work_order.pdf",    title: "Work Order",          desc: "Records every task performed during repair or overhaul: inspections carried out, parts replaced, measurements taken, and technician sign-offs." },
+    { path: "./trace_shop_findings.pdf", title: "Shop Findings",       desc: "Describes what the shop found on inspection — defects identified, wear measurements, non-conformances found, and corrective actions taken." },
+    { path: "./trace_overhaul.pdf",      title: "Overhaul Record",     desc: "Full overhaul records showing TAT, work scope, parts replaced during overhaul, and overhaul station details. Critical for life-limited part traceability." }
+  ];
+
+  function ppwGo(idx, btn) {
+    document.querySelectorAll('.ppw-t').forEach(function(t){ t.classList.remove('on'); });
+    document.querySelectorAll('.ppw-pane').forEach(function(p){ p.classList.remove('on'); });
+    btn.classList.add('on');
+    document.getElementById('ppPane'+idx).classList.add('on');
+    ppwLoad(idx);
+  }
+
+  function ppwLoad(idx) {
+    var body = document.getElementById('ppBody'+idx);
+    if (!body || body.dataset.loaded) return;
+    body.dataset.loaded = '1';
+    var f = PPW_FILES[idx];
+
+    // Create iframe pointing to server PDF
+    var iframe = document.createElement('iframe');
+    iframe.className = 'ppw-frame';
+    iframe.title = f.title;
+    iframe.src = f.path + '#toolbar=1&navpanes=0&scrollbar=1';
+
+    // Description bar below
+    var desc = document.createElement('div');
+    desc.className = 'ppw-desc';
+    desc.textContent = f.desc;
+
+    // Fallback shown if PDF fails to load
+    iframe.onerror = function(){ ppwFallback(idx, f); };
+
+    body.innerHTML = '';
+    body.appendChild(iframe);
+    body.appendChild(desc);
+  }
+
+  function ppwFallback(idx, f) {
+    var body = document.getElementById('ppBody'+idx);
+    body.innerHTML = '<div class="ppw-nofile">'
+      + '<div class="ppw-nofile-icon">&#128196;</div>'
+      + '<div class="ppw-nofile-title">' + f.title + '</div>'
+      + '<div class="ppw-nofile-sub">' + f.desc + '</div>'
+      + '<div class="ppw-nofile-path">' + f.path + '</div>'
+      + '</div>';
+  }
+
+  // Load first pane immediately
+  (function(){ ppwLoad(0); })();
+  </script>
 </div>
+
 </div>
 
 <!-- ── PAGE S8 ── -->
@@ -1400,7 +1509,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
   <div id="dataNoticeDoc" class="data-notice" style="display:none;">
     <span>⚠</span><span><strong>No email data loaded.</strong> Place <code>data.json</code> in the same folder as this HTML file and reload to enable Contact Search.</span>
   </div>
-  <div class="sw"><input type="text" id="searchInputDoc" placeholder="Search company, email, or keyword…" oninput="lazyLoadData().then(()=>doSearchDoc(this.value))"></div>
+  <div class="sw"><input type="text" id="searchInputDoc" placeholder="Search company, email, or keyword…" oninput="lazyThenCall(()=>doSearchDoc(this.value))"></div>
   <div class="fb">
     <button class="fbtn active" onclick="setFilterDoc('all',this)">All</button>
     <button class="fbtn" onclick="setFilterDoc('blacklist',this)">Blacklist</button>
@@ -1435,17 +1544,17 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
         </div><!-- /docs-shell -->
       </div><!-- /panel-docs -->
 
-      <!-- ═══ EMAIL DASHBOARD PANEL — REDA ONLY ═══ -->
+      <!-- ═══ EMAIL DASHBOARD — reda@jadaero.com ONLY ═══ -->
       <div id="panel-emaildash" class="panel" style="flex-direction:column;overflow:hidden;background:#F7F9FC">
         <style>
         .ed-topbar{background:#fff;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;gap:8px;align-items:center;flex-shrink:0;flex-wrap:wrap}
-        .ed-tabs{display:flex;gap:0;background:#eef0f4;border-radius:6px;padding:3px;flex-shrink:0}
+        .ed-tabs{display:flex;background:#eef0f4;border-radius:6px;padding:3px;flex-shrink:0}
         .ed-tab{padding:5px 14px;border:none;background:transparent;font-family:var(--font);font-size:11px;font-weight:600;cursor:pointer;color:var(--muted);border-radius:4px;transition:.12s;white-space:nowrap}
         .ed-tab.active{background:#fff;color:var(--text);box-shadow:var(--sh)}
         .ed-swrap{position:relative;flex:1;min-width:150px;max-width:300px}
         .ed-swrap::before{content:'🔍';position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:11px;pointer-events:none}
-        .ed-search{width:100%;padding:7px 12px 7px 30px;border:1.5px solid var(--border);border-radius:var(--r);font-family:var(--font);font-size:12px;outline:none;background:var(--bg);color:var(--text);transition:.12s}
-        .ed-search:focus{border-color:var(--brand);background:#fff;box-shadow:0 0 0 3px rgba(15,111,222,.1)}
+        .ed-sinput{width:100%;padding:7px 12px 7px 30px;border:1.5px solid var(--border);border-radius:var(--r);font-family:var(--font);font-size:12px;outline:none;background:var(--bg);color:var(--text);transition:.12s}
+        .ed-sinput:focus{border-color:var(--brand);background:#fff;box-shadow:0 0 0 3px rgba(15,111,222,.1)}
         .ed-fchips{display:flex;gap:4px;flex-wrap:wrap}
         .ed-fc{padding:4px 10px;border:1px solid var(--border);border-radius:20px;background:transparent;font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font);transition:.12s}
         .ed-fc:hover{border-color:var(--brand);color:var(--brand)}
@@ -1455,7 +1564,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
         .ed-addbtn:hover{background:var(--brand-d)}
         .ed-savebtn{background:#fff;color:var(--brand);border:1.5px solid var(--brand);padding:7px 13px;border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:.12s;white-space:nowrap}
         .ed-savebtn:hover{background:var(--brand-lt)}
-        .ed-body{flex:1;padding:14px 16px}
+        .ed-body{flex:1;overflow-y:auto;padding:14px 16px}
         .ed-card{background:#fff;border:1px solid var(--border2);border-radius:8px;padding:11px 14px;margin-bottom:7px;transition:border-color .12s}
         .ed-card:hover{border-color:var(--brand)}
         .ed-card.bl-card{border-left:3px solid var(--red)}
@@ -1464,15 +1573,15 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
         .ed-card-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:6px}
         .ed-company{font-size:12px;font-weight:700;color:var(--text)}
         .ed-actions{display:flex;gap:5px;flex-shrink:0}
-        .ed-btn{width:26px;height:26px;border:1.5px solid var(--border);background:#fff;border-radius:var(--r);cursor:pointer;font-size:12px;color:var(--muted2);display:flex;align-items:center;justify-content:center;transition:.12s;flex-shrink:0;padding:0}
-        .ed-btn:hover{color:var(--text)}
-        .ed-btn.del:hover{border-color:var(--red);color:var(--red);background:var(--red-lt)}
-        .ed-btn.blk:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-lt)}
-        .ed-btn.edt:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-lt)}
+        .ed-ibtn{width:26px;height:26px;border:1.5px solid var(--border);background:#fff;border-radius:var(--r);cursor:pointer;font-size:12px;color:var(--muted2);display:flex;align-items:center;justify-content:center;transition:.12s;flex-shrink:0;padding:0;font-family:var(--font)}
+        .ed-ibtn:hover{color:var(--text)}
+        .ed-ibtn.del:hover{border-color:var(--red);color:var(--red);background:var(--red-lt)}
+        .ed-ibtn.blk:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-lt)}
+        .ed-ibtn.edt:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-lt)}
         .ed-emails{display:flex;flex-wrap:wrap;gap:5px}
         .ed-chip{display:inline-flex;align-items:center;gap:5px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;padding:3px 8px;font-size:11px;color:var(--muted);font-family:var(--mono)}
         .ed-chip .eml{color:var(--text)}
-        .ed-stbadge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;cursor:pointer;border:none;font-family:var(--font);letter-spacing:.3px;text-transform:uppercase;white-space:nowrap;transition:.12s}
+        .ed-stbadge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;cursor:pointer;border:none;font-family:var(--font);letter-spacing:.3px;text-transform:uppercase;white-space:nowrap}
         .st-Unknown{background:var(--bg2);color:var(--muted)}
         .st-Answering{background:var(--green-lt);color:var(--green)}
         .st-Not-Answering{background:var(--red-lt);color:var(--red)}
@@ -1495,21 +1604,19 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
         .ed-field input,.ed-field select{width:100%;padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--r);font-size:12px;font-family:var(--font);outline:none;transition:.12s;background:var(--bg);color:var(--text)}
         .ed-field input:focus,.ed-field select:focus{border-color:var(--brand);background:#fff;box-shadow:0 0 0 3px rgba(15,111,222,.1)}
         .ed-mactions{display:flex;gap:8px;justify-content:flex-end;margin-top:18px}
-        .ed-mcancel{background:var(--bg2);border:1px solid var(--border);color:var(--muted);padding:7px 18px;border-radius:var(--r);cursor:pointer;font-family:var(--font);font-size:12px;transition:.12s}
+        .ed-mcancel{background:var(--bg2);border:1px solid var(--border);color:var(--muted);padding:7px 18px;border-radius:var(--r);cursor:pointer;font-family:var(--font);font-size:12px}
         .ed-mcancel:hover{color:var(--text)}
-        .ed-mok{background:var(--brand);border:none;color:#fff;padding:7px 18px;border-radius:var(--r);cursor:pointer;font-family:var(--font);font-size:12px;font-weight:600;transition:.12s}
+        .ed-mok{background:var(--brand);border:none;color:#fff;padding:7px 18px;border-radius:var(--r);cursor:pointer;font-family:var(--font);font-size:12px;font-weight:600}
         .ed-mok:hover{background:var(--brand-d)}
         .ed-mok.red{background:var(--red)}.ed-mok.red:hover{background:#b91c1c}
-        .ed-email-row{display:flex;gap:6px;align-items:center;margin-bottom:7px}
-        .ed-email-row input{flex:1}
-        .ed-email-row select{width:130px;flex-shrink:0}
+        .ed-erow{display:flex;gap:6px;align-items:center;margin-bottom:7px}
+        .ed-erow input{flex:1}.ed-erow select{width:130px;flex-shrink:0}
         .ed-rm{width:28px;height:28px;border:1.5px solid var(--border);background:#fff;border-radius:var(--r);cursor:pointer;color:var(--red);font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.12s;padding:0}
         .ed-rm:hover{background:var(--red-lt);border-color:var(--red)}
         .ed-addemail{width:100%;padding:6px;border:1.5px dashed var(--border);background:transparent;border-radius:var(--r);font-size:11px;color:var(--brand);cursor:pointer;font-family:var(--font);transition:.12s;margin-top:4px}
         .ed-addemail:hover{border-color:var(--brand);background:var(--brand-lt)}
         .ed-toast{position:fixed;bottom:20px;right:20px;background:var(--text);color:#fff;border-radius:8px;padding:10px 18px;font-size:12px;font-family:var(--font);font-weight:600;z-index:9999;transform:translateY(60px);opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
         .ed-toast.show{transform:translateY(0);opacity:1}
-        .ed-loading{text-align:center;padding:40px;color:var(--muted2);font-size:12px;font-family:var(--font)}
         </style>
 
         <div class="ed-topbar">
@@ -1518,9 +1625,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
             <button class="ed-tab" onclick="edSwitch('bl',this)">Blacklist</button>
             <button class="ed-tab" onclick="edSwitch('rp',this)">Replacements</button>
           </div>
-          <div class="ed-swrap">
-            <input class="ed-search" id="edSearch" type="text" placeholder="Search…" oninput="edRender()">
-          </div>
+          <div class="ed-swrap"><input class="ed-sinput" id="edSearch" type="text" placeholder="Search…" oninput="edRender()"></div>
           <div class="ed-fchips" id="edFchips">
             <button class="ed-fc active" onclick="edSetFilter('all',this)">All</button>
             <button class="ed-fc" onclick="edSetFilter('Answering',this)">Answering</button>
@@ -1532,7 +1637,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
           <button class="ed-addbtn" onclick="edOpenAdd()">+ Add</button>
           <button class="ed-savebtn" onclick="edSaveJSON()">⬇ Save JSON</button>
         </div>
-        <div class="ed-body" id="edBody"><div class="ed-loading">Loading contact data…</div></div>
+        <div class="ed-body" id="edBody"></div>
 
         <!-- DC Modal -->
         <div class="ed-overlay" id="edDCModal">
@@ -1540,153 +1645,6 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
             <h3 id="edDCTitle">Add Direct Contact</h3>
             <div class="ed-field"><label>Company Name</label><input type="text" id="edDCCompany" placeholder="COMPANY NAME"></div>
             <div class="ed-field"><label>Emails</label><div id="edDCEmails"></div><button class="ed-addemail" onclick="edAddEmailRow()">+ Add Email</button></div>
-            <div class="ed-mactions">
-              <button class="ed-mcancel" onclick="edCloseModal('edDCModal')">Cancel</button>
-              <button class="ed-mok" onclick="edSaveDC()">Save</button>
-            </div>
-          </div>
-        </div>
-        <!-- BL Modal -->
-        <div class="ed-overlay" id="edBLModal">
-          <div class="ed-modal">
-            <h3 id="edBLTitle">Add to Blacklist</h3>
-            <div class="ed-field"><label>Email / Domain</label><input type="text" id="edBLEmail" placeholder="email@domain.com or domain.com"></div>
-            <div class="ed-field"><label>Reason</label><input type="text" id="edBLReason" placeholder="e.g. Not answering, Mail not found…"></div>
-            <div class="ed-mactions">
-              <button class="ed-mcancel" onclick="edCloseModal('edBLModal')">Cancel</button>
-              <button class="ed-mok red" onclick="edSaveBL()">Save</button>
-            </div>
-          </div>
-        </div>
-        <!-- RP Modal -->
-        <div class="ed-overlay" id="edRPModal">
-          <div class="ed-modal">
-            <h3 id="edRPTitle">Add Replacement</h3>
-            <div class="ed-field"><label>Original Email</label><input type="text" id="edRPFrom" placeholder="old@email.com"></div>
-            <div class="ed-field"><label>Replacement Email</label><input type="text" id="edRPTo" placeholder="new@email.com"></div>
-            <div class="ed-mactions">
-              <button class="ed-mcancel" onclick="edCloseModal('edRPModal')">Cancel</button>
-              <button class="ed-mok" onclick="edSaveRP()">Save</button>
-            </div>
-          </div>
-        </div>
-        <!-- Delete Modal -->
-        <div class="ed-overlay" id="edDelModal">
-          <div class="ed-modal" style="max-width:380px">
-            <h3>Delete Entry</h3>
-            <p style="color:var(--muted);font-size:12.5px;margin-bottom:16px">Delete <strong id="edDelTarget" style="color:var(--red)"></strong>? This cannot be undone.</p>
-            <div class="ed-mactions">
-              <button class="ed-mcancel" onclick="edCloseModal('edDelModal')">Cancel</button>
-              <button class="ed-mok red" onclick="edConfirmDelete()">Delete</button>
-            </div>
-          </div>
-        </div>
-        <div class="ed-toast" id="edToast"></div>
-      </div><!-- /panel-emaildash -->
-
-      <!-- ═══ EMAIL DASHBOARD PANEL — REDA ONLY ═══ -->
-      <div id="panel-emaildash" class="panel" style="flex-direction:column;overflow:hidden">
-        <style>
-        #panel-emaildash{background:#f7f9fc}
-        .ed-topbar{background:#fff;border-bottom:1px solid var(--border);padding:8px 16px;display:flex;gap:8px;align-items:center;flex-shrink:0;flex-wrap:wrap}
-        .ed-tabs{display:flex;gap:0;background:#f0f2f6;border-radius:6px;padding:3px;flex-shrink:0}
-        .ed-tab{padding:5px 14px;border:none;background:transparent;font-family:var(--font);font-size:11px;font-weight:600;cursor:pointer;color:var(--muted);border-radius:4px;transition:.12s;white-space:nowrap}
-        .ed-tab.active{background:#fff;color:var(--text);box-shadow:var(--sh)}
-        .ed-search{flex:1;min-width:150px;max-width:300px;padding:7px 12px 7px 30px;border:1.5px solid var(--border);border-radius:var(--r);font-family:var(--font);font-size:12px;outline:none;background:var(--bg);color:var(--text);transition:.12s}
-        .ed-search:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(15,111,222,.1);background:#fff}
-        .ed-search-wrap{position:relative;flex:1;min-width:150px;max-width:300px}
-        .ed-search-wrap::before{content:'🔍';position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:11px;pointer-events:none}
-        .ed-cnt{font-size:11px;color:var(--muted2);white-space:nowrap;flex-shrink:0;background:var(--bg2);border:1px solid var(--border2);padding:4px 10px;border-radius:20px;font-weight:600}
-        .ed-addbtn{background:var(--brand);color:#fff;border:none;padding:7px 14px;border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:.12s;white-space:nowrap;flex-shrink:0}
-        .ed-addbtn:hover{background:var(--brand-d)}
-        .ed-savebtn{background:#fff;color:var(--brand);border:1.5px solid var(--brand);padding:7px 14px;border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:.12s;white-space:nowrap;flex-shrink:0}
-        .ed-savebtn:hover{background:var(--brand-lt)}
-        .ed-body{flex:1;overflow-y:auto;padding:14px 16px}
-        .ed-loading{text-align:center;padding:60px 20px;color:var(--muted2);font-size:13px}
-        .ed-card{background:#fff;border:1px solid var(--border2);border-radius:8px;padding:11px 14px;margin-bottom:7px;transition:border-color .12s}
-        .ed-card:hover{border-color:var(--brand)}
-        .ed-card.bl-card{border-left:3px solid var(--red)}
-        .ed-card.dc-card{border-left:3px solid var(--green)}
-        .ed-card.rp-card{border-left:3px solid var(--purple)}
-        .ed-card-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:6px}
-        .ed-company{font-size:12px;font-weight:700;color:var(--text);letter-spacing:-.1px}
-        .ed-actions{display:flex;gap:5px;flex-shrink:0}
-        .ed-btn{width:26px;height:26px;border:1.5px solid var(--border);background:#fff;border-radius:var(--r);cursor:pointer;font-size:12px;color:var(--muted2);display:flex;align-items:center;justify-content:center;transition:.12s;flex-shrink:0;font-family:var(--font)}
-        .ed-btn:hover{border-color:var(--border);color:var(--text)}
-        .ed-btn.del:hover{border-color:var(--red);color:var(--red);background:var(--red-lt)}
-        .ed-btn.blk:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-lt)}
-        .ed-btn.edt:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-lt)}
-        .ed-emails{display:flex;flex-wrap:wrap;gap:5px}
-        .ed-chip{display:inline-flex;align-items:center;gap:5px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;padding:3px 8px;font-size:11px;color:var(--muted);font-family:var(--mono)}
-        .ed-chip .eml{color:var(--text)}
-        .ed-stbadge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;cursor:pointer;border:none;font-family:var(--font);letter-spacing:.3px;text-transform:uppercase;white-space:nowrap;transition:.12s}
-        .st-Unknown{background:var(--bg2);color:var(--muted)}
-        .st-Answering{background:var(--green-lt);color:var(--green)}
-        .st-Not-Answering{background:var(--red-lt);color:var(--red)}
-        .st-Holiday{background:#FFFBEB;color:#D97706}
-        .st-Repair-Shop{background:#FFF7ED;color:#EA580C}
-        .st-Not-Found{background:var(--red-lt);color:var(--muted)}
-        .ed-reason{font-size:10px;color:var(--muted);margin-top:5px;padding:4px 8px;background:var(--orange-lt);border-radius:4px;border-left:2px solid var(--orange)}
-        .ed-reparr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px}
-        .ed-rep-from{color:var(--muted2);text-decoration:line-through;font-family:var(--mono)}
-        .ed-rep-to{color:var(--green);font-weight:600;font-family:var(--mono)}
-        .ed-empty{text-align:center;padding:48px 20px;color:var(--muted2);font-size:13px}
-        .ed-copy{background:transparent;border:none;color:var(--muted2);cursor:pointer;font-size:10px;padding:1px 4px;border-radius:3px;font-family:var(--font);transition:.1s}
-        .ed-copy:hover{color:var(--brand);background:var(--brand-lt)}
-        .ed-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(3px);z-index:4000;display:none;align-items:center;justify-content:center;padding:20px}
-        .ed-overlay.open{display:flex}
-        .ed-modal{background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px 28px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto;box-shadow:var(--sh2)}
-        .ed-modal h3{font-size:15px;font-weight:700;margin-bottom:18px;color:var(--text)}
-        .ed-field{margin-bottom:12px}
-        .ed-field label{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;font-family:var(--font)}
-        .ed-field input,.ed-field select{width:100%;padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--r);font-size:12px;font-family:var(--font);outline:none;transition:.12s;background:var(--bg);color:var(--text)}
-        .ed-field input:focus,.ed-field select:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(15,111,222,.1);background:#fff}
-        .ed-mactions{display:flex;gap:8px;justify-content:flex-end;margin-top:18px}
-        .ed-mcancel{background:var(--bg2);border:1px solid var(--border);color:var(--muted);padding:7px 18px;border-radius:var(--r);cursor:pointer;font-family:var(--font);font-size:12px;transition:.12s}
-        .ed-mcancel:hover{color:var(--text)}
-        .ed-mok{background:var(--brand);border:none;color:#fff;padding:7px 18px;border-radius:var(--r);cursor:pointer;font-family:var(--font);font-size:12px;font-weight:600;transition:.12s}
-        .ed-mok:hover{background:var(--brand-d)}
-        .ed-email-row{display:flex;gap:6px;align-items:center;margin-bottom:7px}
-        .ed-email-row input{flex:1}
-        .ed-email-row select{width:130px;flex-shrink:0}
-        .ed-email-row .rm{width:28px;height:28px;border:1.5px solid var(--border);background:#fff;border-radius:var(--r);cursor:pointer;color:var(--red);font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.12s}
-        .ed-email-row .rm:hover{background:var(--red-lt);border-color:var(--red)}
-        .ed-add-email{width:100%;padding:6px;border:1.5px dashed var(--border);background:transparent;border-radius:var(--r);font-size:11px;color:var(--brand);cursor:pointer;font-family:var(--font);transition:.12s;margin-top:4px}
-        .ed-add-email:hover{border-color:var(--brand);background:var(--brand-lt)}
-        .ed-fchips{display:flex;gap:5px;flex-wrap:wrap}
-        .ed-fc{padding:4px 11px;border:1px solid var(--border);border-radius:20px;background:transparent;font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font);transition:.12s}
-        .ed-fc:hover{border-color:var(--brand);color:var(--brand)}
-        .ed-fc.active{background:var(--brand);color:#fff;border-color:var(--brand)}
-        .ed-toast{position:fixed;bottom:20px;right:20px;background:var(--text);color:#fff;border-radius:8px;padding:10px 18px;font-size:12px;font-family:var(--font);font-weight:600;z-index:9999;transform:translateY(60px);opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
-        .ed-toast.show{transform:translateY(0);opacity:1}
-        </style>
-        <div class="ed-topbar">
-          <div class="ed-tabs">
-            <button class="ed-tab active" onclick="edSwitch('dc',this)">Direct Contacts</button>
-            <button class="ed-tab" onclick="edSwitch('bl',this)">Blacklist</button>
-            <button class="ed-tab" onclick="edSwitch('rp',this)">Replacements</button>
-          </div>
-          <div class="ed-search-wrap">
-            <input class="ed-search" id="edSearch" type="text" placeholder="Search…" oninput="edRender()">
-          </div>
-          <div class="ed-fchips" id="edFchips">
-            <button class="ed-fc active" onclick="edSetFilter('all',this)">All</button>
-            <button class="ed-fc" onclick="edSetFilter('Answering',this)">Answering</button>
-            <button class="ed-fc" onclick="edSetFilter('Not Answering',this)">Not Answering</button>
-            <button class="ed-fc" onclick="edSetFilter('Unknown',this)">Unknown</button>
-            <button class="ed-fc" onclick="edSetFilter('Holiday',this)">Holiday</button>
-          </div>
-          <span class="ed-cnt" id="edCnt">—</span>
-          <button class="ed-addbtn" onclick="edOpenAdd()">+ Add</button>
-          <button class="ed-savebtn" onclick="edSaveJSON()">⬇ Save JSON</button>
-        </div>
-        <div class="ed-body" id="edBody"><div class="ed-loading">Loading data…</div></div>
-        <!-- DC Modal -->
-        <div class="ed-overlay" id="edDCModal">
-          <div class="ed-modal">
-            <h3 id="edDCTitle">Add Direct Contact</h3>
-            <div class="ed-field"><label>Company Name</label><input type="text" id="edDCCompany" placeholder="COMPANY NAME"></div>
-            <div class="ed-field"><label>Emails</label><div id="edDCEmails"></div><button class="ed-add-email" onclick="edAddEmailRow()">+ Add Email</button></div>
             <div class="ed-mactions"><button class="ed-mcancel" onclick="edCloseModal('edDCModal')">Cancel</button><button class="ed-mok" onclick="edSaveDC()">Save</button></div>
           </div>
         </div>
@@ -1695,8 +1653,8 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
           <div class="ed-modal">
             <h3 id="edBLTitle">Add to Blacklist</h3>
             <div class="ed-field"><label>Email / Domain</label><input type="text" id="edBLEmail" placeholder="email@domain.com or domain.com"></div>
-            <div class="ed-field"><label>Reason</label><input type="text" id="edBLReason" placeholder="e.g. Not answering…"></div>
-            <div class="ed-mactions"><button class="ed-mcancel" onclick="edCloseModal('edBLModal')">Cancel</button><button class="ed-mok" style="background:var(--red)" onclick="edSaveBL()">Save</button></div>
+            <div class="ed-field"><label>Reason</label><input type="text" id="edBLReason" placeholder="e.g. Not answering, Mail not found…"></div>
+            <div class="ed-mactions"><button class="ed-mcancel" onclick="edCloseModal('edBLModal')">Cancel</button><button class="ed-mok red" onclick="edSaveBL()">Save</button></div>
           </div>
         </div>
         <!-- RP Modal -->
@@ -1713,7 +1671,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
           <div class="ed-modal" style="max-width:380px">
             <h3>Delete Entry</h3>
             <p style="color:var(--muted);font-size:12.5px;margin-bottom:16px">Delete <strong id="edDelTarget" style="color:var(--red)"></strong>? This cannot be undone.</p>
-            <div class="ed-mactions"><button class="ed-mcancel" onclick="edCloseModal('edDelModal')">Cancel</button><button class="ed-mok" style="background:var(--red)" onclick="edConfirmDelete()">Delete</button></div>
+            <div class="ed-mactions"><button class="ed-mcancel" onclick="edCloseModal('edDelModal')">Cancel</button><button class="ed-mok red" onclick="edConfirmDelete()">Delete</button></div>
           </div>
         </div>
         <div class="ed-toast" id="edToast"></div>
@@ -1778,12 +1736,16 @@ const FIREBASE_CONFIG = {
 /* ── DATA ── */
 let blacklist={},replacements={},directContact={},exw={},dataLoaded=false;
 
-/* ── LAZY DATA LOAD ── */
+/* ── LAZY LOAD GATE ── */
 let _dataLoadPromise=null;
 function lazyLoadData(){
   if(_dataLoadPromise)return _dataLoadPromise;
   _dataLoadPromise=tryLoadDataJson();
   return _dataLoadPromise;
+}
+async function lazyThenCall(fn){
+  await lazyLoadData();
+  try{fn();}catch(e){}
 }
 
 async function tryLoadDataJson(){
@@ -1791,6 +1753,7 @@ async function tryLoadDataJson(){
     const res=await fetch('./data.json',{cache:'no-store'});
     if(!res.ok)throw new Error('not found');
     const data=await res.json();
+    window._rawJSON=data;
     const rawBl=data.blacklist||{};
     blacklist={};
     for(const key in rawBl){
@@ -1898,8 +1861,8 @@ function showApp(u){
   const d=u.displayName||u.email;
   document.getElementById("loginScreen").style.display="none";document.getElementById("appScreen").classList.add("visible");
   document.getElementById("userNameDisplay").textContent=d;document.getElementById("userAvatar").textContent=d.charAt(0).toUpperCase();
-  // Data loads lazily — only when contact search is used or Email Dashboard opens
-  loadReminders().finally(()=>showLoading(false));startClocks();updatePageNav(0);
+  document.getElementById("statusBar").innerText="Ready — data loads on first search";
+  showLoading(true);loadReminders().finally(()=>showLoading(false));startClocks();updatePageNav(0);
 }
 function showLoading(on){document.getElementById("loadingOverlay").classList.toggle("hidden",!on);}
 
@@ -2311,30 +2274,29 @@ window.startReminderDoc=async function(){
   const STATUSES=['Unknown','Answering','Not Answering','Holiday','Repair Shop','Not Found'];
   let edView='dc',edFilter='all',edEditMode=null,edPendingDel=null,edToastTmr;
 
-  /* ── access gate ── */
+  /* ── access check ── */
   function edCheckAccess(){
     const tab=document.getElementById('emailDashTab');
     if(!tab)return;
     tab.style.display=(currentUser&&currentUser.toLowerCase()===ALLOWED)?'':'none';
   }
   const _origShowApp=window.showApp;
-  window.showApp=function(u){_origShowApp&&_origShowApp(u);setTimeout(edCheckAccess,200);};
+  window.showApp=function(u){_origShowApp&&_origShowApp(u);setTimeout(edCheckAccess,300);};
   const _origLogout=window.doLogout;
   window.doLogout=async function(){await(_origLogout&&_origLogout());edCheckAccess();};
 
-  /* ── open tab — lazy-loads data first ── */
+  /* ── open tab: lazy-load data first, then render ── */
   window.edOpenTab=function(btn){
     if(!currentUser||currentUser.toLowerCase()!==ALLOWED){edToast('Access denied',1);return;}
-    // switch UI immediately
     document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
     document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
     document.getElementById('panel-emaildash').classList.add('active');
     btn.classList.add('active');
-    // lazy load then render
+    document.getElementById('edBody').innerHTML='<div style="text-align:center;padding:40px;color:var(--muted2);font-size:12px">Loading data…</div>';
     lazyThenCall(()=>edRender());
   };
 
-  /* ── sub-tab switch ── */
+  /* ── sub-tab / filter ── */
   window.edSwitch=function(v,btn){
     edView=v;
     document.querySelectorAll('.ed-tab').forEach(b=>b.classList.remove('active'));
@@ -2368,7 +2330,7 @@ window.startReminderDoc=async function(){
   function A(s){return String(s||'').replace(/'/g,'&#39;').replace(/\\/g,'\\\\');}
   function edToast(msg,err){
     const t=document.getElementById('edToast');
-    t.textContent=msg;t.style.background=err?'var(--red)':'var(--text)';
+    t.textContent=msg;t.style.background=err?'var(--red)':'#1e293b';
     t.classList.add('show');clearTimeout(edToastTmr);
     edToastTmr=setTimeout(()=>t.classList.remove('show'),2400);
   }
@@ -2378,33 +2340,34 @@ window.startReminderDoc=async function(){
   document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.ed-overlay.open').forEach(m=>m.classList.remove('open'));});
   window.edCp=function(txt,btn){navigator.clipboard.writeText(txt).then(()=>{const o=btn.textContent;btn.textContent='✓';setTimeout(()=>btn.textContent=o,1200);});};
 
-  /* ── RENDER DC ── */
+  /* ─────────────────────────────────────────
+     RENDER — DIRECT CONTACTS
+  ───────────────────────────────────────── */
   function edRenderDC(){
     const dc=window._originalDC||{};
     const q=(document.getElementById('edSearch').value||'').trim().toLowerCase();
+    const body=document.getElementById('edBody');
+    if(!q){document.getElementById('edCnt').textContent='';body.innerHTML='<div class="ed-empty" style="padding:40px 0;font-size:13px">&#128269; Type a company name or email to search</div>';return;}
     let entries=Object.entries(dc).filter(([co,arr])=>{
       arr=Array.isArray(arr)?arr:[];
       if(edFilter!=='all'&&!arr.some(c=>c.status===edFilter))return false;
-      if(!q)return true;
       return co.toLowerCase().includes(q)||arr.some(c=>(c.email||'').toLowerCase().includes(q));
     });
     document.getElementById('edCnt').textContent=entries.length+' entries';
-    const body=document.getElementById('edBody');
     if(!entries.length){body.innerHTML='<div class="ed-empty">∅ No contacts found</div>';return;}
     body.innerHTML=entries.map(([co,arr])=>{
       arr=Array.isArray(arr)?arr:[];
       const chips=arr.map((c,i)=>{
         const st=c.status||'Unknown',sc='st-'+st.replace(/\s+/g,'-');
-        return `<div class="ed-chip"><span class="eml">${H(c.email)}</span><button class="ed-stbadge ${sc}" onclick="edCycleStatus('${A(co)}',${i})">${H(st)}</button><button class="ed-cp" onclick="edCp('${A(c.email)}',this)">⎘</button><button class="ed-btn del" style="width:18px;height:18px;font-size:10px;border-radius:3px" onclick="edRemoveEmail('${A(co)}',${i})">✕</button></div>`;
+        return `<div class="ed-chip"><span class="eml">${H(c.email)}</span><button class="ed-stbadge ${sc}" onclick="edCycleStatus('${A(co)}',${i})">${H(st)}</button><button class="ed-cp" onclick="edCp('${A(c.email)}',this)">⎘</button><button class="ed-ibtn del" style="width:18px;height:18px;font-size:10px;border-radius:3px" onclick="edRemoveEmail('${A(co)}',${i})">✕</button></div>`;
       }).join('');
-      return `<div class="ed-card dc-card"><div class="ed-card-row"><span class="ed-company">${H(co)}</span><div class="ed-actions"><button class="ed-btn blk" title="Move to blacklist" onclick="edMoveToBlacklist('${A(co)}')">⊘</button><button class="ed-btn edt" title="Edit" onclick="edOpenDCModal('${A(co)}')">✎</button><button class="ed-btn del" title="Delete" onclick="edAskDelete('dc','${A(co)}')">✕</button></div></div><div class="ed-emails">${chips}</div></div>`;
+      return `<div class="ed-card dc-card"><div class="ed-card-row"><span class="ed-company">${H(co)}</span><div class="ed-actions"><button class="ed-ibtn blk" title="Move to blacklist" onclick="edMoveToBlacklist('${A(co)}')">⊘</button><button class="ed-ibtn edt" title="Edit" onclick="edOpenDCModal('${A(co)}')">✎</button><button class="ed-ibtn del" title="Delete" onclick="edAskDelete('dc','${A(co)}')">✕</button></div></div><div class="ed-emails">${chips}</div></div>`;
     }).join('');
   }
-
   window.edCycleStatus=function(co,i){
     const dc=window._originalDC||{};if(!dc[co]||!dc[co][i])return;
-    const cur=dc[co][i].status||'Unknown',idx=STATUSES.indexOf(cur);
-    dc[co][i].status=STATUSES[(idx+1)%STATUSES.length];
+    const cur=dc[co][i].status||'Unknown';
+    dc[co][i].status=STATUSES[(STATUSES.indexOf(cur)+1)%STATUSES.length];
     edRenderDC();edToast('Status → '+dc[co][i].status);
   };
   window.edRemoveEmail=function(co,i){
@@ -2420,37 +2383,48 @@ window.startReminderDoc=async function(){
     edRenderDC();edToast(co+' moved to Blacklist');
   };
 
-  /* ── RENDER BL ── */
+  /* ─────────────────────────────────────────
+     RENDER — BLACKLIST
+  ───────────────────────────────────────── */
   function edRenderBL(){
     const bl=window.blacklist||{};
     const q=(document.getElementById('edSearch').value||'').trim().toLowerCase();
+    const body=document.getElementById('edBody');
+    if(!q){document.getElementById('edCnt').textContent='';body.innerHTML='<div class="ed-empty" style="padding:40px 0;font-size:13px">&#128269; Type an email or reason to search</div>';return;}
     let entries=Object.entries(bl).filter(([k,v])=>{
-      if(!q)return true;
       const r=typeof v==='object'?v.reason||'':String(v);
       return k.toLowerCase().includes(q)||r.toLowerCase().includes(q);
     });
     document.getElementById('edCnt').textContent=entries.length+' entries';
-    const body=document.getElementById('edBody');
     if(!entries.length){body.innerHTML='<div class="ed-empty">∅ No blacklist entries</div>';return;}
     body.innerHTML=entries.map(([k,v])=>{
       const r=typeof v==='object'?v.reason||'':String(v)||'';
-      return `<div class="ed-card bl-card"><div class="ed-card-row"><span style="font-family:var(--mono);font-size:11.5px;color:var(--text)">${H(k)}</span><div class="ed-actions"><button class="ed-cp" style="border:1px solid var(--border2);padding:2px 8px;border-radius:4px" onclick="edCp('${A(k)}',this)">⎘</button><button class="ed-btn edt" onclick="edOpenBLModal('${A(k)}')">✎</button><button class="ed-btn del" onclick="edAskDelete('bl','${A(k)}')">✕</button></div></div>${r?`<div class="ed-reason">⚠ ${H(r)}</div>`:''}</div>`;
+      return `<div class="ed-card bl-card"><div class="ed-card-row"><span style="font-family:var(--mono);font-size:11.5px;color:var(--text)">${H(k)}</span><div class="ed-actions"><button class="ed-cp" style="border:1px solid var(--border2);padding:2px 8px;border-radius:4px" onclick="edCp('${A(k)}',this)">⎘</button><button class="ed-ibtn edt" onclick="edOpenBLModal('${A(k)}')">✎</button><button class="ed-ibtn del" onclick="edAskDelete('bl','${A(k)}')">✕</button></div></div>${r?`<div class="ed-reason">⚠ ${H(r)}</div>`:''}</div>`;
     }).join('');
   }
 
-  /* ── RENDER RP ── */
+  /* ─────────────────────────────────────────
+     RENDER — REPLACEMENTS
+  ───────────────────────────────────────── */
   function edRenderRP(){
     const rp=window.replacements||{};
     const q=(document.getElementById('edSearch').value||'').trim().toLowerCase();
-    let entries=Object.entries(rp).filter(([f,t])=>!q||f.toLowerCase().includes(q)||(t||'').toLowerCase().includes(q));
-    document.getElementById('edCnt').textContent=entries.length+' entries';
     const body=document.getElementById('edBody');
+    if(!q){document.getElementById('edCnt').textContent='';body.innerHTML='<div class="ed-empty" style="padding:40px 0;font-size:13px">&#128269; Type an email to search replacements</div>';return;}
+    let entries=Object.entries(rp).filter(([f,t])=>f.toLowerCase().includes(q)||(t||'').toLowerCase().includes(q));
+    document.getElementById('edCnt').textContent=entries.length+' entries';
     if(!entries.length){body.innerHTML='<div class="ed-empty">∅ No replacements</div>';return;}
-    body.innerHTML=entries.map(([f,t])=>`<div class="ed-card rp-card"><div class="ed-card-row"><div class="ed-reparr"><span class="ed-rep-from">${H(f)}</span><span style="color:var(--muted2)">→</span><span class="ed-rep-to">${H(t)}</span></div><div class="ed-actions"><button class="ed-btn edt" onclick="edOpenRPModal('${A(f)}')">✎</button><button class="ed-btn del" onclick="edAskDelete('rp','${A(f)}')">✕</button></div></div></div>`).join('');
+    body.innerHTML=entries.map(([f,t])=>`<div class="ed-card rp-card"><div class="ed-card-row"><div class="ed-reparr"><span class="ed-rep-from">${H(f)}</span><span style="color:var(--muted2)">→</span><span class="ed-rep-to">${H(t)}</span></div><div class="ed-actions"><button class="ed-ibtn edt" onclick="edOpenRPModal('${A(f)}')">✎</button><button class="ed-ibtn del" onclick="edAskDelete('rp','${A(f)}')">✕</button></div></div></div>`).join('');
   }
 
-  /* ── DELETE ── */
-  window.edAskDelete=function(type,key){edPendingDel={type,key};document.getElementById('edDelTarget').textContent=key;openM('edDelModal');};
+  /* ─────────────────────────────────────────
+     DELETE
+  ───────────────────────────────────────── */
+  window.edAskDelete=function(type,key){
+    edPendingDel={type,key};
+    document.getElementById('edDelTarget').textContent=key;
+    openM('edDelModal');
+  };
   window.edConfirmDelete=function(){
     if(!edPendingDel)return;
     const{type,key}=edPendingDel;
@@ -2460,33 +2434,37 @@ window.startReminderDoc=async function(){
     edCloseModal('edDelModal');edRender();edToast('Entry deleted');edPendingDel=null;
   };
 
-  /* ── DC MODAL ── */
+  /* ─────────────────────────────────────────
+     DC MODAL
+  ───────────────────────────────────────── */
   window.edOpenDCModal=function(co){
     edEditMode=co?{type:'dc',key:co}:null;
     document.getElementById('edDCTitle').textContent=co?'Edit: '+co:'Add Direct Contact';
     document.getElementById('edDCCompany').value=co||'';
     document.getElementById('edDCEmails').innerHTML='';
     if(co){((window._originalDC||{})[co]||[]).forEach(c=>edAddEmailRow(c.email,c.status));}
-    if(!document.querySelector('#edDCEmails .ed-email-row'))edAddEmailRow();
+    if(!document.querySelector('#edDCEmails .ed-erow'))edAddEmailRow();
     openM('edDCModal');
   };
   window.edAddEmailRow=function(email='',status='Unknown'){
-    const row=document.createElement('div');row.className='ed-email-row';
+    const row=document.createElement('div');row.className='ed-erow';
     row.innerHTML=`<input type="text" placeholder="email@domain.com" value="${H(email)}"><select>${STATUSES.map(s=>`<option value="${s}"${s===status?' selected':''}>${s}</option>`).join('')}</select><button class="ed-rm" onclick="this.parentElement.remove()">✕</button>`;
     document.getElementById('edDCEmails').appendChild(row);
   };
   window.edSaveDC=function(){
     const co=(document.getElementById('edDCCompany').value||'').trim().toUpperCase();
     if(!co){edToast('Company name required',1);return;}
-    const emails=[...document.querySelectorAll('#edDCEmails .ed-email-row')].map(r=>({email:r.querySelector('input').value.trim(),status:r.querySelector('select').value})).filter(e=>e.email);
+    const emails=[...document.querySelectorAll('#edDCEmails .ed-erow')].map(r=>({email:r.querySelector('input').value.trim(),status:r.querySelector('select').value})).filter(e=>e.email);
     if(!emails.length){edToast('At least one email required',1);return;}
     if(edEditMode&&edEditMode.key!==co){delete(window._originalDC||{})[edEditMode.key];delete(window.directContact||{})[edEditMode.key];}
     (window._originalDC=window._originalDC||{})[co]=emails;
     (window.directContact=window.directContact||{})[co]=emails.map(e=>e.email);
-    edCloseModal('edDCModal');edRenderDC();edToast('Contact saved');
+    edCloseModal('edDCModal');edRenderDC();edShowFullJSON();edToast('Saved');
   };
 
-  /* ── BL MODAL ── */
+  /* ─────────────────────────────────────────
+     BL MODAL
+  ───────────────────────────────────────── */
   window.edOpenBLModal=function(key){
     edEditMode=key?{type:'bl',key}:null;
     document.getElementById('edBLTitle').textContent=key?'Edit Blacklist Entry':'Add to Blacklist';
@@ -2501,10 +2479,12 @@ window.startReminderDoc=async function(){
     if(!email){edToast('Email required',1);return;}
     if(edEditMode&&edEditMode.key!==email)delete(window.blacklist||{})[edEditMode.key];
     (window.blacklist=window.blacklist||{})[email]={emails:email.includes('@')?[email]:[],reason};
-    edCloseModal('edBLModal');edRenderBL();edToast('Blacklist entry saved');
+    edCloseModal('edBLModal');edRenderBL();edShowFullJSON();edToast('Saved');
   };
 
-  /* ── RP MODAL ── */
+  /* ─────────────────────────────────────────
+     RP MODAL
+  ───────────────────────────────────────── */
   window.edOpenRPModal=function(from){
     edEditMode=from?{type:'rp',key:from}:null;
     document.getElementById('edRPTitle').textContent=from?'Edit Replacement':'Add Replacement';
@@ -2518,19 +2498,66 @@ window.startReminderDoc=async function(){
     if(!from||!to){edToast('Both emails required',1);return;}
     if(edEditMode&&edEditMode.key!==from)delete(window.replacements||{})[edEditMode.key];
     (window.replacements=window.replacements||{})[from]=to;
-    edCloseModal('edRPModal');edRenderRP();edToast('Replacement saved');
+    edCloseModal('edRPModal');edRenderRP();edShowFullJSON();edToast('Saved');
   };
 
-  /* ── SAVE JSON ── */
-  window.edSaveJSON=function(){
-    const bl={};
-    for(const k in(window.blacklist||{})){const v=window.blacklist[k];bl[k]=typeof v==='object'?v.reason||'':String(v);}
-    const out={blacklist:bl,replacements:window.replacements||{},exw:window.exw||{},directContact:window._originalDC||{}};
-    const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+  /* ─────────────────────────────────────────
+     SAVE JSON
+     Starts from the full _rawJSON that was stored
+     when data.json was fetched, then overlays ONLY
+     the three sections with current in-memory data.
+     Every other key in the original file is preserved.
+  ───────────────────────────────────────── */
+    function edShowFullJSON(){
+    var base=window._rawJSON?JSON.parse(JSON.stringify(window._rawJSON)):{};
+    var blOut={};
+    for(var k in(window.blacklist||{})){var v=window.blacklist[k];blOut[k]=typeof v==='object'?v.reason||'':String(v);}
+    base.blacklist=blOut;
+    base.replacements=Object.assign({},window.replacements||{});
+    base.directContact=Object.assign({},window._originalDC||{});
+    var json=JSON.stringify(base,null,2);
+    var ex=document.getElementById('edJSONPreview');
+    if(ex)ex.remove();
+    var p=document.createElement('div');
+    p.id='edJSONPreview';
+    p.style.cssText='position:fixed;top:0;right:0;bottom:0;width:500px;background:#0f1623;color:#e2e8f0;z-index:9000;display:flex;flex-direction:column;box-shadow:-4px 0 24px rgba(0,0,0,.35)';
+    var safe=json.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    p.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#1e293b;border-bottom:1px solid #334155;flex-shrink:0">'
+      +'<span style="font-size:12px;font-weight:700;color:#94a3b8">&#10003; Full JSON — All Sections</span>'
+      +'<div style="display:flex;gap:8px">'
+      +'<button onclick="edSaveJSON();document.getElementById(\'edJSONPreview\').remove()" style="padding:5px 14px;background:#0F6FDE;color:#fff;border:none;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer">&#8595; Download JSON</button>'
+      +'<button onclick="document.getElementById(\'edJSONPreview\').remove()" style="padding:5px 10px;background:#334155;color:#94a3b8;border:none;border-radius:5px;font-size:12px;cursor:pointer">&#10005;</button>'
+      +'</div></div>'
+      +'<div style="flex:1;overflow-y:auto;padding:14px 16px">'
+      +'<pre style="font-size:11px;line-height:1.65;white-space:pre-wrap;word-break:break-all;margin:0">'+safe+'</pre></div>';
+    document.body.appendChild(p);
+  }
+
+window.edSaveJSON=function(){
+    /* base = full original file (all keys intact) */
+    const base=window._rawJSON ? JSON.parse(JSON.stringify(window._rawJSON)) : {};
+
+    /* overwrite blacklist — convert back to plain string format */
+    const blOut={};
+    for(const k in(window.blacklist||{})){
+      const v=window.blacklist[k];
+      blOut[k]=typeof v==='object'?v.reason||'':String(v);
+    }
+    base.blacklist=blOut;
+
+    /* overwrite replacements */
+    base.replacements=Object.assign({},window.replacements||{});
+
+    /* overwrite directContact — already in {email,status}[] format */
+    base.directContact=Object.assign({},window._originalDC||{});
+
+    const blob=new Blob([JSON.stringify(base,null,2)],{type:'application/json'});
     const url=URL.createObjectURL(blob);
     const a=document.createElement('a');a.href=url;a.download='data.json';a.click();
-    URL.revokeObjectURL(url);edToast('✓ data.json saved!');
+    URL.revokeObjectURL(url);
+    edToast('✓ data.json saved — all sections included');
   };
+
 })();
 </script>
 </body>
