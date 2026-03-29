@@ -1762,6 +1762,8 @@ async function tryLoadDataJson(){
       else{blacklist[key]=val;}
     }
     replacements=data.replacements||{};exw=data.exw||{};dataLoaded=true;
+    window.blacklist=blacklist;
+    window.replacements=replacements;
     // directContact: array of {email, status} objects per company
     const rawDC=data.directContact||{};
     directContact={};window._emailStatus={};
