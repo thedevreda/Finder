@@ -489,6 +489,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 <div style="display:flex;gap:0;margin-bottom:20px;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;flex-shrink:0">
   <button id="s2tab-tpl" onclick="s2switchTab('tpl')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--brand);color:#fff;transition:.15s">📨 Creating Template</button>
   <button id="s2tab-search" onclick="s2switchTab('search')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--bg2);color:var(--muted);transition:.15s;border-left:1.5px solid var(--border)">🔍 PN Search</button>
+  <button id="s2tab-send" onclick="s2switchTab('send')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--bg2);color:var(--muted);transition:.15s;border-left:1.5px solid var(--border)">📤 Sending RFQs</button>
 </div>
 
 <!-- TAB: Creating Template -->
@@ -825,29 +826,23 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   <div class="sec-title">✅ What to do</div>
   <ul class="item-list">
     <li>Search the PN on the <strong>Internal Google Sheet</strong> first — avoid duplicating work already done</li>
-    <li>Ask <strong>Co-workers</strong> or check <strong>Ninja Invoice</strong> product history — someone may have sourced it before</li>
     <li>Search <strong>Main Platforms</strong>: ILS, Partbase, Locatory, B2B, Stockmarket</li>
-    <li>Search <strong>Secondary Platforms</strong>: Satair, AJW, Proponent, Turbo, STS, Seattle, FiPro, Dasi </b> <span style="color:reda;">Don't send a RFQ to these before you check thier platforms</span></li>
+    <li>Search <strong>Secondary Platforms</strong>: Satair, AJW, Proponent</li>
     <li>Ask the <strong>Manufacturer</strong> directly (use ChatGPT to find their contact email)</li>
     <li>Search <strong>Google</strong>: "PN aviation supplier" or "PN for sale aircraft"</li>
+    <li>Ask <strong>Co-workers</strong> or check invoice product history — someone may have sourced it before</li>
   </ul>
 </div>
 <div class="pg-section">
   <div class="sec-title">🖱️ Where to click</div>
   <ul class="item-list num">
-    <li>Include the supplier's <strong>name</strong> — never send a generic "Dear Sir/Madam"</li>
-    <li>Use the <strong>Direct Contact</strong> (from Search tab) and CC the general sales email</li>
-    <li>Check for <strong>duplicates</strong>: search <span class="kw">@domainname.com</span> — not the full email address</li>
-    <li>Always include the <strong>QTY</strong> — suppliers will not quote without it</li>
-    <li>Edit Subject: <span class="kw">RFQ PN [X]</span> single / <span class="kw">RFQ PNs [X / Y]</span> multiple</li>
-    <li>PartBase clients may <strong>post offers themselves</strong> — do NOT send them an RFQ, they are buyers</li>
+    <li>Google Sheets → Internal tracker → search PN in the sheet</li>
+    <li>Open ILS / Partbase / Locatory / B2B / Stockmarket → search PN</li>
+    <li>Use the <strong>Search &amp; Reminders</strong> tab to find direct contact emails</li>
+    <li>Multi-PN: use Supplier View or Bulk Entry mode on Partbase/ILS</li>
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">⚠️ Important Notes</div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Avoid Duplicates — Search by Domain</div>Search <span class="kw">@domainname.com</span> in Contact Search — not one specific address. This catches all variants at the same company: rfq@, sales@, parts@, purchasing@ etc.</div></div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Don't Blow Up the Market</div>Sending RFQs to too many suppliers creates fake demand and inflates prices. Target your trusted partners first, then expand if needed.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Client Not Answering?</div>Call the company → Call them directly → Find other contacts at same company → Search each platform (PB, ILS, Locatory, Stockmarket) for alternative emails.</div></div>
   <div class="sec-title">💡 Tips</div>
   <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Full Pipeline Check</div>If you sent quotes a month ago and got nothing back, revisit each platform and filter by <strong>upload date</strong> — new stock may have appeared. Also re-run Google; new supplier pages get indexed over time.</div></div>
   <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Market Price Research</div>Check price using: quotes you've collected, Partbase Market Price button, Stockmarket Price Search, Proponent, AJW, or Satair. For <strong>New (NE)</strong> parts these platforms are especially useful.</div></div>
@@ -873,7 +868,45 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 </div>
 
 <!-- TAB: Sending RFQs -->
+<div id="s2pane-send" style="display:none">
+<div class="pg-section">
+  <div class="sec-title">✅ What to do</div>
+  <ul class="item-list">
+    <li>Include the supplier's <strong>name</strong> — never send a generic "Dear Sir/Madam"</li>
+    <li>Use the <strong>Direct Contact</strong> (from Search tab) and CC the general sales email</li>
+    <li>Check for <strong>duplicates</strong>: search <span class="kw">@domainname.com</span> — not the full email address</li>
+    <li>Always include the <strong>QTY</strong> — suppliers will not quote without it</li>
+    <li>Edit Subject: <span class="kw">RFQ PN [X]</span> single / <span class="kw">RFQ PNs [X / Y]</span> multiple</li>
+    <li>PartBase clients may <strong>post offers themselves</strong> — do NOT send them an RFQ, they are buyers</li>
+  </ul>
+</div>
+<div class="pg-section">
+  <div class="sec-title">📨 What to send</div>
+  <div class="tpl-block" id="tb-s4">
+    <div class="tpl-head"><div class="tpl-label">📨 RFQ Email</div>
+      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s4',0,this)">Single PN</button><button class="tpl-tab" onclick="swTpl('s4',1,this)">Multiple PNs</button></div>
+    </div>
+    <div class="tpl-body"><div class="tpl-text" id="tt-s4">Subject: RFQ PN [0123FA2]
 
+Hello [Name],
+
+Please provide your best price quote and stock availability for the following item:
+
+1 PN# [0123FA2] / [SENSOR - LOW FLOW]
+
+Thank you.
+Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</button></div>
+  </div>
+</div>
+<div class="pg-section">
+  <div class="sec-title">⚠️ Important Notes</div>
+  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Avoid Duplicates — Search by Domain</div>Search <span class="kw">@domainname.com</span> in Contact Search — not one specific address. This catches all variants at the same company: rfq@, sales@, parts@, purchasing@ etc.</div></div>
+  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Don't Blow Up the Market</div>Sending RFQs to too many suppliers creates fake demand and inflates prices. Target your trusted partners first, then expand if needed.</div></div>
+  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Client Not Answering?</div>Call the company → Call them directly → Find other contacts at same company → Search each platform (PB, ILS, Locatory, Stockmarket) for alternative emails.</div></div>
+</div>
+</div>
+
+</div>
 <!-- ── OLD PAGE S3 hidden (merged into S2) ── -->
 <!-- ── OLD PAGE S4 merged into S2 third tab ── -->
 
@@ -1670,6 +1703,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
       </div><!-- /panel-tools -->
 
     </div><!-- /panels -->
+    <div class="statusbar" id="statusBar">Ready</div>
   </div><!-- /app-body -->
 </div><!-- /appScreen -->
 
