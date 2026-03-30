@@ -5,17 +5,17 @@
     "adaircraft.com": "Blacklisted for higher price or not answering",
     "rfq@aero-bay.com": "Blacklisted for higher price or not answering",
     "Zak@aerocomp.net": "mail not found",
-    "alouden@hawkaviation.com":"NOT FOUND",
-    "Lfaviation@talktalk.net":"NOT FOUND",
-    "Brandon.smith@aerfin.com":"NOT FOUND",
-    "teisenbarth@andersonaermotive.com":"NOT FOUND",
-    "aog@aeroned.com":"NOT FOUND",
-    "eusales@prime.com":"NOT FOUND",
-    "dave.rojas@olympicaerospace.com":"NOT FOUND",
-    "Daghestany@tcasaero.com":"NOT FOUND",
-    "sales@mtu-lease-services.com":"NOT FOUND",
+    "alouden@hawkaviation.com": "NOT FOUND",
+    "Lfaviation@talktalk.net": "NOT FOUND",
+    "Brandon.smith@aerfin.com": "NOT FOUND",
+    "teisenbarth@andersonaermotive.com": "NOT FOUND",
+    "aog@aeroned.com": "NOT FOUND",
+    "eusales@prime.com": "NOT FOUND",
+    "dave.rojas@olympicaerospace.com": "NOT FOUND",
+    "Daghestany@tcasaero.com": "NOT FOUND",
+    "sales@mtu-lease-services.com": "NOT FOUND",
     "jasper@aeroned.com": "NOT FOUND",
-    "michael@royalaero.com":"NOT FOUND",
+    "michael@royalaero.com": "NOT FOUND",
     "Mark@aeroned.com": "NOT FOUND",
     "Arjen.Verkooij@aeroned.com": "NOT FOUND",
     "aeropartsaog.com": "Blacklisted for higher price or not answering",
@@ -26,7 +26,7 @@
     "luan@aerospacetechsolutions.com": "not deliverd",
     "@aerotechnic-usa.com": "Blacklisted for higher price or not answering",
     "aerotechnic-usa.com": "Blacklisted for higher price or not answering",
-    "@aeroned.com":"Blacklisted for higher price or not answering",
+    "@aeroned.com": "Blacklisted for higher price or not answering",
     "parts@aerothrust.com": "mail not found",
     "rspringthorpe@aeroturbine.com": "Mail not found",
     "jgawlik@aerovision": "NOT FOUND",
@@ -87,7 +87,7 @@
     "cocoplumaero.com": "Blacklisted for higher price or not answering",
     "crosswind.me": "Blacklisted for higher price or not answering",
     "chris@crs-aero.com": "mail not found",
-    "cyoung@ctgnow.com": "Blacklisted for higher price or not answering",
+    "cyoung@ctgnow.com": "Not found",
     "dap-aero": "Blacklisted for higher price or not answering",
     "sales@destinyaero.com": "NOT FOUND",
     "supply@dorinaviation.com": "Blacklisted for higher price or not answering",
@@ -203,7 +203,14 @@
     "s.creanga@actc-aero.com": "not found",
     "gavin.comer@aero-technics.com": "not found",
     "sales@altamontaviation.com": "not found",
-    "airpartsme.com": "not found"
+    "airpartsme.com": "not found",
+    "sales@cal-aviation.com": "Not answering",
+    "blueair.aero": "Not answering",
+    "s3aerodefense.com": "Require end user",
+    "BLJ@aerolinkarizona.com": "Not answering",
+    "totalaerosupply.com": "Not exist",
+    "@beaerospace.com": "Not found",
+    "CustomerService@questcomp.co": "Not found"
   },
   "replacements": {
     "production@skysmart.co.uk": "callum@skysmart.co.uk",
@@ -264,12 +271,26 @@
     "reda": "reda"
   },
   "directContact": {
+    "163": [
+      {
+        "email": "camfmdc@163.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "salesoflhjcam@163.com",
+        "status": "Unknown"
+      }
+    ],
     "EAS AVIATION": [
       {
-        "email": "sarla.sudra@eas-aviation-services.com",
-        "status": "Answers"
+        "email": "maja.milojevic@eas-aviation-group.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "inventory@eas-aviation-services.com",
+        "status": "Unknown"
       }
-    ],    
+    ],
     "10AERONAUTICA": [
       {
         "email": "contato@10aeronautica.com.br",
@@ -279,16 +300,6 @@
     "111REPAIR": [
       {
         "email": "SALES@111repair.com",
-        "status": "Unknown"
-      }
-    ],
-    "163": [
-      {
-        "email": "camfmdc@163.com",
-        "status": "Unknown"
-      },
-      {
-        "email": "salesoflhjcam@163.com",
         "status": "Unknown"
       }
     ],
@@ -3863,7 +3874,7 @@
     "AJW GROUP": [
       {
         "email": "Timothy.Ross@ajw-group.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "ajw-group@app.partsrfq.com",
@@ -3875,7 +3886,7 @@
       },
       {
         "email": "todd.haverstock@ajw-group.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "hannah.parsons@ajw-group.com",
@@ -4441,7 +4452,7 @@
     "ANATU": [
       {
         "email": "c.rivas@anatu.net",
-        "status": "Unknown"
+        "status": "Holiday"
       },
       {
         "email": "rfq@anatu.net",
@@ -4497,7 +4508,7 @@
       },
       {
         "email": "cvatansever@ansett.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "klangston@ansett.com",
@@ -10152,16 +10163,6 @@
         "status": "Unknown"
       }
     ],
-    "EAS AVIATION": [
-      {
-        "email": "maja.milojevic@eas-aviation-group.com",
-        "status": "Unknown"
-      },
-      {
-        "email": "inventory@eas-aviation-services.com",
-        "status": "Unknown"
-      }
-    ],
     "EASTAIR": [
       {
         "email": "aogteam@eastair.com",
@@ -14895,7 +14896,7 @@
       },
       {
         "email": "robert@jetsetaerospace.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "JETACCSOH": [
@@ -15035,7 +15036,7 @@
       },
       {
         "email": "anna.watson@jetmidwest.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "insidesales@jetmidwest.com",
@@ -15043,7 +15044,7 @@
       },
       {
         "email": "john.patton@jetmidwest.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@jetmidwest.com",
@@ -15051,7 +15052,7 @@
       },
       {
         "email": "staci.mustard@jetmidwest.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "team5@jetmidwest.com",
@@ -23937,7 +23938,7 @@
       },
       {
         "email": "AshleyEncinas@turboresources.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "CalebTaylor@turboresources.com",
@@ -25614,6 +25615,42 @@
       {
         "email": "simon@zyaviation.cn",
         "status": "Unknown"
+      }
+    ],
+    "DSC TRADING": [
+      {
+        "email": "jessieg@dsctrading.com",
+        "status": "Answering"
+      }
+    ],
+    "Q AVIATION": [
+      {
+        "email": "r.christenson@qaviation.com",
+        "status": "Answering"
+      }
+    ],
+    "TAILWIND AFRICA": [
+      {
+        "email": "pur@tailwindafrica.com",
+        "status": "Answering"
+      }
+    ],
+    "TAIL WIND AFRICA": [
+      {
+        "email": "odoo-catchall@tailwindafrica.com",
+        "status": "Answering"
+      }
+    ],
+    "QUALITY AIRCRAFT PARTS": [
+      {
+        "email": "rwagner@qualityaircraftparts.com",
+        "status": "Answering"
+      }
+    ],
+    "AIR NATION": [
+      {
+        "email": "dylan@airnation.org",
+        "status": "Answering"
       }
     ]
   }
