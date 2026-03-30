@@ -836,13 +836,19 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 <div class="pg-section">
   <div class="sec-title">🖱️ Where to click</div>
   <ul class="item-list num">
-    <li>Google Sheets → Internal tracker → search PN in the sheet</li>
-    <li>Open ILS / Partbase / Locatory / B2B / Stockmarket → search PN</li>
-    <li>Use the <strong>Search &amp; Reminders</strong> tab to find direct contact emails</li>
-    <li>Multi-PN: use Supplier View or Bulk Entry mode on Partbase/ILS</li>
+    <li>Include the supplier's <strong>name</strong> — never send a generic "Dear Sir/Madam"</li>
+    <li>Use the <strong>Direct Contact</strong> (from Search tab) and CC the general sales email</li>
+    <li>Check for <strong>duplicates</strong>: search <span class="kw">@domainname.com</span> — not the full email address</li>
+    <li>Always include the <strong>QTY</strong> — suppliers will not quote without it</li>
+    <li>Edit Subject: <span class="kw">RFQ PN [X]</span> single / <span class="kw">RFQ PNs [X / Y]</span> multiple</li>
+    <li>PartBase clients may <strong>post offers themselves</strong> — do NOT send them an RFQ, they are buyers</li>
   </ul>
 </div>
 <div class="pg-section">
+  <div class="sec-title">⚠️ Important Notes</div>
+  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Avoid Duplicates — Search by Domain</div>Search <span class="kw">@domainname.com</span> in Contact Search — not one specific address. This catches all variants at the same company: rfq@, sales@, parts@, purchasing@ etc.</div></div>
+  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Don't Blow Up the Market</div>Sending RFQs to too many suppliers creates fake demand and inflates prices. Target your trusted partners first, then expand if needed.</div></div>
+  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Client Not Answering?</div>Call the company → Call them directly → Find other contacts at same company → Search each platform (PB, ILS, Locatory, Stockmarket) for alternative emails.</div></div>
   <div class="sec-title">💡 Tips</div>
   <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Full Pipeline Check</div>If you sent quotes a month ago and got nothing back, revisit each platform and filter by <strong>upload date</strong> — new stock may have appeared. Also re-run Google; new supplier pages get indexed over time.</div></div>
   <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Market Price Research</div>Check price using: quotes you've collected, Partbase Market Price button, Stockmarket Price Search, Proponent, AJW, or Satair. For <strong>New (NE)</strong> parts these platforms are especially useful.</div></div>
@@ -868,45 +874,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 </div>
 
 <!-- TAB: Sending RFQs -->
-<div id="s2pane-send" style="display:none">
-<div class="pg-section">
-  <div class="sec-title">✅ What to do</div>
-  <ul class="item-list">
-    <li>Include the supplier's <strong>name</strong> — never send a generic "Dear Sir/Madam"</li>
-    <li>Use the <strong>Direct Contact</strong> (from Search tab) and CC the general sales email</li>
-    <li>Check for <strong>duplicates</strong>: search <span class="kw">@domainname.com</span> — not the full email address</li>
-    <li>Always include the <strong>QTY</strong> — suppliers will not quote without it</li>
-    <li>Edit Subject: <span class="kw">RFQ PN [X]</span> single / <span class="kw">RFQ PNs [X / Y]</span> multiple</li>
-    <li>PartBase clients may <strong>post offers themselves</strong> — do NOT send them an RFQ, they are buyers</li>
-  </ul>
-</div>
-<div class="pg-section">
-  <div class="sec-title">📨 What to send</div>
-  <div class="tpl-block" id="tb-s4">
-    <div class="tpl-head"><div class="tpl-label">📨 RFQ Email</div>
-      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s4',0,this)">Single PN</button><button class="tpl-tab" onclick="swTpl('s4',1,this)">Multiple PNs</button></div>
-    </div>
-    <div class="tpl-body"><div class="tpl-text" id="tt-s4">Subject: RFQ PN [0123FA2]
 
-Hello [Name],
-
-Please provide your best price quote and stock availability for the following item:
-
-1 PN# [0123FA2] / [SENSOR - LOW FLOW]
-
-Thank you.
-Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</button></div>
-  </div>
-</div>
-<div class="pg-section">
-  <div class="sec-title">⚠️ Important Notes</div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Avoid Duplicates — Search by Domain</div>Search <span class="kw">@domainname.com</span> in Contact Search — not one specific address. This catches all variants at the same company: rfq@, sales@, parts@, purchasing@ etc.</div></div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Don't Blow Up the Market</div>Sending RFQs to too many suppliers creates fake demand and inflates prices. Target your trusted partners first, then expand if needed.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Client Not Answering?</div>Call the company → Call them directly → Find other contacts at same company → Search each platform (PB, ILS, Locatory, Stockmarket) for alternative emails.</div></div>
-</div>
-</div>
-
-</div>
 <!-- ── OLD PAGE S3 hidden (merged into S2) ── -->
 <!-- ── OLD PAGE S4 merged into S2 third tab ── -->
 
