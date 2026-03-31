@@ -1958,7 +1958,14 @@ function domKey(i){if(i.includes("@")){const p=i.split("@");if(p[1])return p[1].
 document.getElementById("searchInput").addEventListener("input",checkEmail);
 function cpText(t){navigator.clipboard.writeText(t);}
 function statusBadge(s){
-  const m={'Answer':['answer','✓ Answers'],'Not Answering':['not-answering','✗ No Reply'],'Holiday':['holiday','✈ Holiday'],'Unknown':['unknown','? Unknown']};
+  const m={
+    'Answering':['answer','✓ Answers'],
+    'Not Answering':['not-answering','✗ No Reply'],
+    'Holiday':['holiday','✈ Holiday'],
+    'Repair Shop':['holiday','🔧 Repair Shop'],
+    'Not Found':['not-answering','✗ Not Found'],
+    'Unknown':['unknown','? Unknown']
+  };
   const [cls,lbl]=m[s]||['unknown','? Unknown'];
   return '<span class="status-badge '+cls+'">'+lbl+'</span>';
 }
