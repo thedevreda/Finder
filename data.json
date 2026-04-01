@@ -224,7 +224,8 @@
     "shaikh.moiez@airhubaviaition.com": "not found",
     "sales_australia@intaeroservices.com": "not found",
     "eas-aviation-services.com": "broker",
-    "osezen@ozindustrial.com": "PMA"
+    "osezen@ozindustrial.com": "PMA",
+    "Workshops@crs-technics.com": "MRO"
   },
   "replacements": {
     "production@skysmart.co.uk": "callum@skysmart.co.uk",
@@ -3510,7 +3511,7 @@
     "AIRHUB AVIATION": [
       {
         "email": "shaikh.moiez@airhubaviaition.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "orinta.mazrimaite@airhubaviation.com",
@@ -4692,7 +4693,7 @@
     "APACS": [
       {
         "email": "aiman_azri@apacs.aero",
-        "status": "Holiday"
+        "status": "Answering"
       },
       {
         "email": "daniel.koehler@apacs.aero",
@@ -5762,7 +5763,7 @@
     "ATAA": [
       {
         "email": "procurement@ataa.aero",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "ATB": [
@@ -7156,7 +7157,7 @@
     "AVSALESCORP": [
       {
         "email": "humberto@avsalescorp.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "rfq@avsalescorp.com",
@@ -15442,7 +15443,7 @@
     "JXAVTECH": [
       {
         "email": "terryluo@jxavtech.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "JYAEROHK": [
@@ -24104,7 +24105,7 @@
       },
       {
         "email": "mCuaresma@unical.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "pchavez@unical.com",
@@ -24128,7 +24129,7 @@
       },
       {
         "email": "unicalrfq@unical.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "UNICORPOK": [
@@ -25542,6 +25543,12 @@
     "AERO ZONE": [
       {
         "email": "toby.steele@aero-zone.com",
+        "status": "Answering"
+      }
+    ],
+    "CAE": [
+      {
+        "email": "partsbase@cae-aero.com",
         "status": "Answering"
       }
     ]
