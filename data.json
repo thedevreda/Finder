@@ -2895,7 +2895,7 @@
       },
       {
         "email": "qfowler@aerovi.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Sales@aerovi.com",
@@ -5918,6 +5918,10 @@
       {
         "email": "knace@austinaerotech.com",
         "status": "Unknown"
+      },
+      {
+        "email": "inquiry@austinaerotech.com",
+        "status": "Answering"
       }
     ],
     "AUSTRIAN": [
@@ -11900,6 +11904,10 @@
       {
         "email": "jdonnelly@gatelesis.com",
         "status": "Answering"
+      },
+      {
+        "email": "afedele@gatelesis.com",
+        "status": "Answering"
       }
     ],
     "GABLESENG": [
@@ -12844,6 +12852,14 @@
       {
         "email": "tracey@gonasco.com",
         "status": "Unknown"
+      },
+      {
+        "email": "angelique@gonasco.com",
+        "status": "Not Found"
+      },
+      {
+        "email": "wayne@gonasco.com‎",
+        "status": "Answering"
       }
     ],
     "GOPAA": [
@@ -13357,7 +13373,7 @@
       },
       {
         "email": "fduarte@heico.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Hparts@heico.com",
@@ -25549,6 +25565,16 @@
     "CAE": [
       {
         "email": "partsbase@cae-aero.com",
+        "status": "Answering"
+      },
+      {
+        "email": "cost@cae-aero.com",
+        "status": "Answering"
+      }
+    ],
+    "YUNTIAN AIR": [
+      {
+        "email": "youqiao@yuntianair.com.cn",
         "status": "Answering"
       }
     ]
