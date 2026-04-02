@@ -110,19 +110,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13
 .hg-title{font-size:12px;font-weight:700;color:var(--text);line-height:1.3}
 .hg-sub{font-size:10px;color:var(--muted);line-height:1.35}
 
-/* ── CALLOUT FLASH ── */
-@keyframes calloutFlash{
-  0%{box-shadow:0 0 0 0 rgba(217,119,6,.5);background:#FFFBEB}
-  40%{box-shadow:0 0 0 8px rgba(217,119,6,0);background:#FEF3C7}
-  100%{box-shadow:0 0 0 0 rgba(217,119,6,0);background:#FFFBEB}
-}
-@keyframes calloutFlashInfo{
-  0%{box-shadow:0 0 0 0 rgba(15,111,222,.4);background:var(--brand-lt)}
-  40%{box-shadow:0 0 0 8px rgba(15,111,222,0);background:#dbeafe}
-  100%{box-shadow:0 0 0 0 rgba(15,111,222,0);background:var(--brand-lt)}
-}
-.callout.flashing-warn{animation:calloutFlash 1.4s ease-out infinite}
-.callout.flashing-info{animation:calloutFlashInfo 1.6s ease-out infinite}
+/* ── CALLOUT FLASH — disabled ── */
 
 /* ── AUTO RETURN COUNTDOWN ── */
 #autoReturnBar{transition:opacity .3s}
@@ -210,6 +198,30 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 .c-tip .callout-title{color:var(--green)}
 .c-purple{background:#F5F3FF;border:1.5px solid #DDD6FE;color:#4C1D95}
 .c-purple .callout-title{color:var(--purple)}
+
+/* ── CALLOUT ACCORDION ── */
+.callout-accordion{margin-bottom:8px;border-radius:12px;overflow:hidden;border:1.5px solid}
+.callout-accordion.c-warn{border-color:#FDE68A}
+.callout-accordion.c-info{border-color:#C7DEFF}
+.callout-accordion.c-tip{border-color:#BBF7D0}
+.callout-accordion.c-purple{border-color:#DDD6FE}
+.callout-accordion-toggle{width:100%;display:flex;align-items:center;gap:10px;padding:10px 14px;background:transparent;border:none;cursor:pointer;text-align:left;font-family:var(--font);font-size:12.5px;font-weight:600;transition:background .15s}
+.callout-accordion.c-warn .callout-accordion-toggle{background:#FFFBEB;color:#92400E}
+.callout-accordion.c-info .callout-accordion-toggle{background:var(--brand-lt);color:#1e40af}
+.callout-accordion.c-tip .callout-accordion-toggle{background:var(--green-lt);color:#14532d}
+.callout-accordion.c-purple .callout-accordion-toggle{background:#F5F3FF;color:#4C1D95}
+.callout-accordion-toggle:hover{filter:brightness(.96)}
+.callout-accordion-icon{font-size:15px;flex-shrink:0}
+.callout-accordion-title-text{flex:1;line-height:1.3}
+.callout-accordion-title-text .callout-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:0;display:block}
+.callout-accordion-arrow{font-size:11px;flex-shrink:0;transition:transform .2s;margin-left:auto;opacity:.6}
+.callout-accordion.open .callout-accordion-arrow{transform:rotate(180deg)}
+.callout-accordion-body{display:none;padding:10px 14px 12px 42px;font-size:12.5px;line-height:1.55;border-top:1px solid rgba(0,0,0,.07)}
+.callout-accordion.c-warn .callout-accordion-body{background:#FFFBEB;color:#92400E}
+.callout-accordion.c-info .callout-accordion-body{background:var(--brand-lt);color:#1e40af}
+.callout-accordion.c-tip .callout-accordion-body{background:var(--green-lt);color:#14532d}
+.callout-accordion.c-purple .callout-accordion-body{background:#F5F3FF;color:#4C1D95}
+.callout-accordion.open .callout-accordion-body{display:block}
 
 /* Templates */
 .tpl-block{background:var(--white);border:1.5px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:10px}
@@ -520,8 +532,8 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 </div>
 <div class="pg-section">
   <div class="sec-title">💡 Tips</div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">ALT Verification</div>Sometimes suppliers offer an ALT (alternate PN). To verify it's valid: check if the <strong>description is the same</strong> as the original. Same description = valid alternate. Different = not compatible — do not accept it.</div></div>
-  <div class="callout c-info"><div class="callout-icon">ℹ️</div><div class="callout-body"><div class="callout-title">AOG Priority</div>AOG = Aircraft on Ground. The aircraft cannot fly until the part arrives. Every hour of delay costs the airline significantly. Always escalate AOG requests immediately — they bypass normal queue.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">ALT Verification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Sometimes suppliers offer an ALT (alternate PN). To verify it's valid: check if the <strong>description is the same</strong> as the original. Same description = valid alternate. Different = not compatible — do not accept it.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">ℹ️</span><span class="callout-accordion-title-text"><span class="callout-title">AOG Priority</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">AOG = Aircraft on Ground. The aircraft cannot fly until the part arrives. Every hour of delay costs the airline significantly. Always escalate AOG requests immediately — they bypass normal queue.</div></div>
 </div>
 </div>
 
@@ -859,7 +871,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 </script>
 <div class="pg-section">
   <div class="sec-title">💡 Tips</div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Multiple PNs — Use Supplier View</div>When working multiple PNs at once, paste them all in Partbase, ILS, or Locatory and enable <strong>Supplier View / Bulk Entry</strong>. It shows which suppliers have which PNs — then edit your template to include only what that specific supplier has.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Multiple PNs — Use Supplier View</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">When working multiple PNs at once, paste them all in Partbase, ILS, or Locatory and enable <strong>Supplier View / Bulk Entry</strong>. It shows which suppliers have which PNs — then edit your template to include only what that specific supplier has.</div></div>
 </div>
 </div>
 
@@ -887,11 +899,11 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 </div>
 <div class="pg-section">
   <div class="sec-title">💡 Tips</div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Full Pipeline Check</div>If you sent quotes a month ago and got nothing back, revisit each platform and filter by <strong>upload date</strong> — new stock may have appeared. Also re-run Google; new supplier pages get indexed over time.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Market Price Research</div>Check price using: quotes you've collected, Partbase Market Price button, Stockmarket Price Search, Proponent, AJW, or Satair. For <strong>New (NE)</strong> parts these platforms are especially useful.</div></div>
-  <div class="callout c-info"><div class="callout-icon">🛠️</div><div class="callout-body"><div class="callout-title">GetProspect Extension</div>GetProspect is a browser extension that extracts professional emails from LinkedIn profiles. Use it when you need a direct contact at a supplier or manufacturer — especially for OEM outreach.</div></div>
-  <div class="callout c-info"><div class="callout-icon">✈️</div><div class="callout-body"><div class="callout-title">Aviation Alphabet on the Phone</div>When calling a supplier to spell a PN or email, always use the aviation phonetic alphabet (Alpha, Bravo, Charlie, Delta…). Avoids costly confusion between similar-sounding letters like B/D, M/N, or S/F.</div></div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">AR — Last Resort Option</div>As Removed (AR) can only be offered after finding no certified stock anywhere. AR parts have a <strong>removal tag only</strong> — not a certification — since they haven't been sent to a repair shop yet.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Full Pipeline Check</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">If you sent quotes a month ago and got nothing back, revisit each platform and filter by <strong>upload date</strong> — new stock may have appeared. Also re-run Google; new supplier pages get indexed over time.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Market Price Research</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Check price using: quotes you've collected, Partbase Market Price button, Stockmarket Price Search, Proponent, AJW, or Satair. For <strong>New (NE)</strong> parts these platforms are especially useful.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🛠️</span><span class="callout-accordion-title-text"><span class="callout-title">GetProspect Extension</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">GetProspect is a browser extension that extracts professional emails from LinkedIn profiles. Use it when you need a direct contact at a supplier or manufacturer — especially for OEM outreach.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">✈️</span><span class="callout-accordion-title-text"><span class="callout-title">Aviation Alphabet on the Phone</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">When calling a supplier to spell a PN or email, always use the aviation phonetic alphabet (Alpha, Bravo, Charlie, Delta…). Avoids costly confusion between similar-sounding letters like B/D, M/N, or S/F.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">AR — Last Resort Option</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">As Removed (AR) can only be offered after finding no certified stock anywhere. AR parts have a <strong>removal tag only</strong> — not a certification — since they haven't been sent to a repair shop yet.</div></div>
 </div>
 
 <div class="pg-section">
@@ -943,9 +955,9 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 </div>
 <div class="pg-section">
   <div class="sec-title">⚠️ Important Notes</div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Avoid Duplicates — Search by Domain</div>Search <span class="kw">@domainname.com</span> in Contact Search — not one specific address. This catches all variants at the same company: rfq@, sales@, parts@, purchasing@ etc.</div></div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Don't Blow Up the Market</div>Sending RFQs to too many suppliers creates fake demand and inflates prices. Target your trusted partners first, then expand if needed.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Client Not Answering?</div>Call the company → Call them directly → Find other contacts at same company → Search each platform (PB, ILS, Locatory, Stockmarket) for alternative emails.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Avoid Duplicates — Search by Domain</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Search <span class="kw">@domainname.com</span> in Contact Search — not one specific address. This catches all variants at the same company: rfq@, sales@, parts@, purchasing@ etc.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Don't Blow Up the Market</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Sending RFQs to too many suppliers creates fake demand and inflates prices. Target your trusted partners first, then expand if needed.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Client Not Answering?</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Call the company → Call them directly → Find other contacts at same company → Search each platform (PB, ILS, Locatory, Stockmarket) for alternative emails.</div></div>
 </div>
 </div>
 
@@ -981,16 +993,16 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 </div>
 <div class="pg-section">
   <div class="sec-title">📖 Key Terms</div>
-  <div class="callout c-purple"><div class="callout-icon">🔄</div><div class="callout-body"><div class="callout-title">Outright vs Exchange</div><strong>Outright:</strong> You pay money, you get the part. Simple purchase.<br><strong>Exchange:</strong> You give your AR core part + cash → receive a repaired/OH unit. Two types: Flat Rate Exchange and Standard Exchange. <em>Never accept without manager approval.</em></div></div>
-  <div class="callout c-purple"><div class="callout-icon">⏳</div><div class="callout-body"><div class="callout-title">Lead Time</div>Part is NOT yet repaired — no certification yet. It may come with trace documents (PPW) and NIS documentation. Always inform the client. Ask the repair shop for their <strong>TAT</strong> (Turn Around Time) to give the client a realistic delivery date.</div></div>
-  <div class="callout c-purple"><div class="callout-icon">❓</div><div class="callout-body"><div class="callout-title">OR — On Request</div>Supplier doesn't know the condition yet. They must request the part from a repair shop first. Condition (OH, SV…) will be confirmed after inspection. Treat like lead time — no cert yet.</div></div>
-  <div class="callout c-purple"><div class="callout-icon">🔖</div><div class="callout-body"><div class="callout-title">C/C — Condition/Condition (e.g. RP/OH)</div>Current condition / what it becomes after certification. e.g. RP/OH means repaired now, will become OH after cert. Treat as uncertain until the actual cert is received.</div></div>
-  <div class="callout c-purple"><div class="callout-icon">📦</div><div class="callout-body"><div class="callout-title">QTY on Cert vs Quote</div>Cert says 10, quote says 2 — this is normal. The shop repaired 10 units total, sold 8, has 2 remaining — which is what they quoted you for.</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🔄</span><span class="callout-accordion-title-text"><span class="callout-title">Outright vs Exchange</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body"><strong>Outright:</strong> You pay money, you get the part. Simple purchase.<br><strong>Exchange:</strong> You give your AR core part + cash → receive a repaired/OH unit. Two types: Flat Rate Exchange and Standard Exchange. <em>Never accept without manager approval.</em></div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⏳</span><span class="callout-accordion-title-text"><span class="callout-title">Lead Time</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Part is NOT yet repaired — no certification yet. It may come with trace documents (PPW) and NIS documentation. Always inform the client. Ask the repair shop for their <strong>TAT</strong> (Turn Around Time) to give the client a realistic delivery date.</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">❓</span><span class="callout-accordion-title-text"><span class="callout-title">OR — On Request</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Supplier doesn't know the condition yet. They must request the part from a repair shop first. Condition (OH, SV…) will be confirmed after inspection. Treat like lead time — no cert yet.</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🔖</span><span class="callout-accordion-title-text"><span class="callout-title">C/C — Condition/Condition (e.g. RP/OH)</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Current condition / what it becomes after certification. e.g. RP/OH means repaired now, will become OH after cert. Treat as uncertain until the actual cert is received.</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📦</span><span class="callout-accordion-title-text"><span class="callout-title">QTY on Cert vs Quote</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Cert says 10, quote says 2 — this is normal. The shop repaired 10 units total, sold 8, has 2 remaining — which is what they quoted you for.</div></div>
 </div>
 <div class="pg-section">
   <div class="sec-title">⚠️ Important Notes</div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Add All Quotes — Even Bad Ones</div>Record every quote in the database — even if sold, overpriced, or wrong condition. Future requests for the same PN benefit from this data, and revised quotes need the history.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">When to Ask for Certification</div>Request the cert only when: price is good + tag date is recent + condition is right + part is in stock. Don't ask from every supplier — it wastes their time and yours, and can put you in an awkward position.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Add All Quotes — Even Bad Ones</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Record every quote in the database — even if sold, overpriced, or wrong condition. Future requests for the same PN benefit from this data, and revised quotes need the history.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">When to Ask for Certification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Request the cert only when: price is good + tag date is recent + condition is right + part is in stock. Don't ask from every supplier — it wastes their time and yours, and can put you in an awkward position.</div></div>
 </div>
 
 <!-- CERTIFICATION AVAILABILITY TOGGLE -->
@@ -1004,7 +1016,7 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
     </label>
   </div>
   <div id="certQuickPanel" style="display:none">
-    <div class="callout c-tip"><div class="callout-icon">✅</div><div class="callout-body"><div class="callout-title">Certification is available — proceed to review it</div>Switch to the <strong>Certification Review</strong> tab above to verify all cert fields before proceeding to the invoice step.</div></div>
+    <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">✅</span><span class="callout-accordion-title-text"><span class="callout-title">Certification is available — proceed to review it</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Switch to the <strong>Certification Review</strong> tab above to verify all cert fields before proceeding to the invoice step.</div></div>
     <button onclick="s5switchTab('cert')" style="margin-top:8px;padding:8px 18px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:600;font-family:var(--font);cursor:pointer">→ Go to Certification Review</button>
   </div>
 </div>
@@ -1028,17 +1040,17 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 </div>
 <div class="pg-section">
   <div class="sec-title">📖 Certification Types</div>
-  <div class="callout c-info"><div class="callout-icon">🇺🇸</div><div class="callout-body"><div class="callout-title">FAA Form 8130-3</div>US airworthiness approval tag. Block 14a = Approved per 14 CFR Part 43. A <strong>single checkmark in Block 14a</strong> = New part (never installed). Block 14b = approved under other regulations.</div></div>
-  <div class="callout c-info"><div class="callout-icon">🇪🇺</div><div class="callout-body"><div class="callout-title">EASA Form 1</div>European equivalent of the FAA 8130. Block 13a = Release statement. Required for all parts entering European aviation maintenance operations.</div></div>
-  <div class="callout c-info"><div class="callout-icon">📋</div><div class="callout-body"><div class="callout-title">Dual Release</div>Both FAA and EASA approval on one cert. Written in <strong>Block 12 at the very bottom line</strong>. Most flexible cert type — accepted by both US and European operators.</div></div>
-  <div class="callout c-info"><div class="callout-icon">📋</div><div class="callout-body"><div class="callout-title">ATA 106</div>ATA Specification 106 — industry-standard certification for serviceable aircraft parts issued by US repair stations. Widely accepted alongside the 8130.</div></div>
-  <div class="callout c-info"><div class="callout-icon">📋</div><div class="callout-body"><div class="callout-title">CofC — Certificate of Conformance</div>Manufacturer's declaration that the part meets its approved design specifications. Used for new surplus (NE/NOS) parts that don't have an 8130. Confirms the part was manufactured to spec.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🇺🇸</span><span class="callout-accordion-title-text"><span class="callout-title">FAA Form 8130-3</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">US airworthiness approval tag. Block 14a = Approved per 14 CFR Part 43. A <strong>single checkmark in Block 14a</strong> = New part (never installed). Block 14b = approved under other regulations.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🇪🇺</span><span class="callout-accordion-title-text"><span class="callout-title">EASA Form 1</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">European equivalent of the FAA 8130. Block 13a = Release statement. Required for all parts entering European aviation maintenance operations.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📋</span><span class="callout-accordion-title-text"><span class="callout-title">Dual Release</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Both FAA and EASA approval on one cert. Written in <strong>Block 12 at the very bottom line</strong>. Most flexible cert type — accepted by both US and European operators.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📋</span><span class="callout-accordion-title-text"><span class="callout-title">ATA 106</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">ATA Specification 106 — industry-standard certification for serviceable aircraft parts issued by US repair stations. Widely accepted alongside the 8130.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📋</span><span class="callout-accordion-title-text"><span class="callout-title">CofC — Certificate of Conformance</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Manufacturer's declaration that the part meets its approved design specifications. Used for new surplus (NE/NOS) parts that don't have an 8130. Confirms the part was manufactured to spec.</div></div>
 </div>
 <div class="pg-section">
   <div class="sec-title">⚠️ Important Notes</div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Date Format is Critical</div>The format <em>must</em> be <span class="kw">MM/DD/YYYY</span>. If you're unsure, Google the date shown on the cert. A swapped month/day causes rejection at customs, compliance, and the client level.</div></div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Supplier Name in Block 12 or 5</div>If you see a supplier's name in Block 12 or 5, the cert must be rejected or corrected by the issuing shop. Submitting it with a supplier name visible is a compliance violation.</div></div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Remove All Unwanted Paperwork</div>Before submitting a cert package to a client, remove any irrelevant documents. Only approved trace documents + the cert should go to the client.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Date Format is Critical</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">The format <em>must</em> be <span class="kw">MM/DD/YYYY</span>. If you're unsure, Google the date shown on the cert. A swapped month/day causes rejection at customs, compliance, and the client level.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Supplier Name in Block 12 or 5</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">If you see a supplier's name in Block 12 or 5, the cert must be rejected or corrected by the issuing shop. Submitting it with a supplier name visible is a compliance violation.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Remove All Unwanted Paperwork</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Before submitting a cert package to a client, remove any irrelevant documents. Only approved trace documents + the cert should go to the client.</div></div>
 </div>
 </div>
 
@@ -1051,9 +1063,9 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 <div class="pg-sub">Trace = the part's full history. No trace = no trust. Fill this section with your specific requirements.</div>
 <div class="pg-section">
   <div class="sec-title">📋 What is Trace / PPW?</div>
-  <div class="callout c-info"><div class="callout-icon">📁</div><div class="callout-body"><div class="callout-title">Trace / PPW — Paperwork</div>All documents that follow a part's history: removal tags, work orders, previous certifications, shop findings reports, overhaul records. The more complete the trace, the more verifiable the part's airworthiness history.</div></div>
-  <div class="callout c-purple"><div class="callout-icon">🏷️</div><div class="callout-body"><div class="callout-title">AR Part = Removal Tag, Not Certification</div>An As Removed part has a <strong>Removal Tag only</strong> — not a certification. This is because it has not yet been sent to a repair shop. Once repaired, it receives a proper cert (8130, EASA Form 1, etc.).</div></div>
-  <div class="callout c-purple"><div class="callout-icon">⏳</div><div class="callout-body"><div class="callout-title">Lead Time Parts</div>No cert yet — the part hasn't been repaired. May include trace documents and NIS (New In Service) paperwork showing the part's origin and prior use history.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📁</span><span class="callout-accordion-title-text"><span class="callout-title">Trace / PPW — Paperwork</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">All documents that follow a part's history: removal tags, work orders, previous certifications, shop findings reports, overhaul records. The more complete the trace, the more verifiable the part's airworthiness history.</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🏷️</span><span class="callout-accordion-title-text"><span class="callout-title">AR Part = Removal Tag, Not Certification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">An As Removed part has a <strong>Removal Tag only</strong> — not a certification. This is because it has not yet been sent to a repair shop. Once repaired, it receives a proper cert (8130, EASA Form 1, etc.).</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⏳</span><span class="callout-accordion-title-text"><span class="callout-title">Lead Time Parts</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">No cert yet — the part hasn't been repaired. May include trace documents and NIS (New In Service) paperwork showing the part's origin and prior use history.</div></div>
 </div>
 <div class="pg-section">
   <div class="sec-title">📋 Trace Items to Check</div>
@@ -1070,14 +1082,14 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 </div>
 <div class="pg-section">
   <div class="sec-title">📖 Trace Terms Explained</div>
-  <div class="callout c-info"><div class="callout-icon">💧</div><div class="callout-body"><div class="callout-title">Last / Next Hydro</div>For hydraulic components — a hydrostatic test checks structural integrity under pressure. <em>Last Hydro</em> = date of last test. <em>Next Hydro</em> = when the next test is due / expiry date. If Next Hydro is expired, the part cannot legally be used.</div></div>
-  <div class="callout c-info"><div class="callout-icon">🔩</div><div class="callout-body"><div class="callout-title">PIN Life</div>Used for aircraft brakes. Shows how much usable brake material remains, expressed as a percentage. 70–100% is generally acceptable. Below 70% requires careful evaluation and explicit client approval before proceeding.</div></div>
-  <div class="callout c-info"><div class="callout-icon">🧪</div><div class="callout-body"><div class="callout-title">BT — Bench Test</div>A functional check performed on the ground without full disassembly or overhaul. Confirms the part operates correctly. BT condition = serviceable and tested, but not fully overhauled to new tolerances.</div></div>
-  <div class="callout c-info"><div class="callout-icon">⏱️</div><div class="callout-body"><div class="callout-title">TAT — Turn Around Time</div>How long the repair shop takes to complete work on the part — from receiving it to releasing it certified. Always ask for TAT on lead time parts so you can give the client a realistic delivery estimate.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💧</span><span class="callout-accordion-title-text"><span class="callout-title">Last / Next Hydro</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">For hydraulic components — a hydrostatic test checks structural integrity under pressure. <em>Last Hydro</em> = date of last test. <em>Next Hydro</em> = when the next test is due / expiry date. If Next Hydro is expired, the part cannot legally be used.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🔩</span><span class="callout-accordion-title-text"><span class="callout-title">PIN Life</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Used for aircraft brakes. Shows how much usable brake material remains, expressed as a percentage. 70–100% is generally acceptable. Below 70% requires careful evaluation and explicit client approval before proceeding.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🧪</span><span class="callout-accordion-title-text"><span class="callout-title">BT — Bench Test</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">A functional check performed on the ground without full disassembly or overhaul. Confirms the part operates correctly. BT condition = serviceable and tested, but not fully overhauled to new tolerances.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⏱️</span><span class="callout-accordion-title-text"><span class="callout-title">TAT — Turn Around Time</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">How long the repair shop takes to complete work on the part — from receiving it to releasing it certified. Always ask for TAT on lead time parts so you can give the client a realistic delivery estimate.</div></div>
 </div>
 <div class="pg-section">
   <div class="sec-title">&#128196; Trace &amp; PPW — Example Documents</div>
-  <div class="callout c-info"><div class="callout-icon">&#128204;</div><div class="callout-body"><div class="callout-title">Example PDFs</div>The documents below are real examples of Trace &amp; PPW paperwork your team will encounter. Use the tabs to navigate between document types.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">&#128204;</span><span class="callout-accordion-title-text"><span class="callout-title">Example PDFs</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">The documents below are real examples of Trace &amp; PPW paperwork your team will encounter. Use the tabs to navigate between document types.</div></div>
 
   <style>
   .ppw-wrap{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:12px;box-shadow:var(--sh2)}
@@ -1205,7 +1217,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</
 </div>
 <div class="pg-section">
   <div class="sec-title">💡 Tips</div>
-  <div class="callout c-info"><div class="callout-icon">⏰</div><div class="callout-body"><div class="callout-title">Use the Reminder Tool</div>Set a 3-hour reminder in the <strong>Search &amp; Reminders</strong> tab when you send your RFQs. When it fires, go through sent emails and follow up with everyone who hasn't replied yet.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⏰</span><span class="callout-accordion-title-text"><span class="callout-title">Use the Reminder Tool</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Set a 3-hour reminder in the <strong>Search &amp; Reminders</strong> tab when you send your RFQs. When it fires, go through sent emails and follow up with everyone who hasn't replied yet.</div></div>
 </div>
 </div>
 
@@ -1225,17 +1237,17 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</
 </div>
 <div class="pg-section">
   <div class="sec-title">💰 Total Cost</div>
-  <div class="callout c-info"><div class="callout-icon">💰</div><div class="callout-body"><div class="callout-title">Total Cost = Price + Shipping + Processing + Your Margin</div><strong>Price</strong> — what the supplier charges for the part<br><strong>Shipping</strong> — customer typically pays; for restricted countries we ship to our warehouse first, then forward to buyer<br><strong>Processing fees</strong> — packaging, handling, admin overhead<br><strong>Time / Margin</strong> — your profit for the sourcing work<br><br>Never evaluate an offer on price alone. Calculate the full total cost before deciding.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💰</span><span class="callout-accordion-title-text"><span class="callout-title">Total Cost = Price + Shipping + Processing + Your Margin</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body"><strong>Price</strong> — what the supplier charges for the part<br><strong>Shipping</strong> — customer typically pays; for restricted countries we ship to our warehouse first, then forward to buyer<br><strong>Processing fees</strong> — packaging, handling, admin overhead<br><strong>Time / Margin</strong> — your profit for the sourcing work<br><br>Never evaluate an offer on price alone. Calculate the full total cost before deciding.</div></div>
 </div>
 <div class="pg-section">
   <div class="sec-title">📍 EXW Explained</div>
-  <div class="callout c-purple"><div class="callout-icon">📍</div><div class="callout-body"><div class="callout-title">EXW = Ex Works = FOB = Incoterm — Where the Part Ships From</div>EXW is the physical location where the part will be shipped from. To find it: check supplier's website, ask ChatGPT, or ask the supplier directly.<br><br><strong>Important:</strong> supplier office ≠ warehouse. Some suppliers have multiple warehouses worldwide. A US supplier may store parts in Kenya to serve African clients — EXW would be Kenya, not USA. Always verify actual shipping location, especially for urgent AOG orders.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Make Offer / Target Price</div>Before making a target price offer to a supplier, always consult the manager or director. If you offer too high and they accept, you are locked in at that price. Always offer <em>below</em> market price. Once they accept, you can proceed to place the PO.</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📍</span><span class="callout-accordion-title-text"><span class="callout-title">EXW = Ex Works = FOB = Incoterm — Where the Part Ships From</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">EXW is the physical location where the part will be shipped from. To find it: check supplier's website, ask ChatGPT, or ask the supplier directly.<br><br><strong>Important:</strong> supplier office ≠ warehouse. Some suppliers have multiple warehouses worldwide. A US supplier may store parts in Kenya to serve African clients — EXW would be Kenya, not USA. Always verify actual shipping location, especially for urgent AOG orders.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Make Offer / Target Price</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Before making a target price offer to a supplier, always consult the manager or director. If you offer too high and they accept, you are locked in at that price. Always offer <em>below</em> market price. Once they accept, you can proceed to place the PO.</div></div>
 </div>
 <div class="pg-section">
   <div class="sec-title">⚠️ Important Notes</div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">No Exchange Without Manager Approval</div>Exchange offers require management sign-off before committing. Never agree to exchange terms independently.</div></div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Confirm Availability Before Picking</div>Before selecting an offer, call or email the supplier to confirm the part is still available. Aviation listings go stale very quickly.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">No Exchange Without Manager Approval</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Exchange offers require management sign-off before committing. Never agree to exchange terms independently.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Confirm Availability Before Picking</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Before selecting an offer, call or email the supplier to confirm the part is still available. Aviation listings go stale very quickly.</div></div>
 </div>
 </div>
 
@@ -1289,9 +1301,9 @@ Kind regards.</div><button class="tpl-copy" onclick="cpTpl('tt-s10',this)">Copy<
 </div>
 <div class="pg-section">
   <div class="sec-title">⚠️ Important Notes</div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Always Fill From CERT — Not Quote</div>The supplier quote is their document. The cert is the official release. Always fill the invoice from the cert — they sometimes differ in description format or SN notation.</div></div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Verify Tag Date Format</div>Must be <span class="kw">MM/DD/YYYY</span>. If you're unsure whether month or day comes first, Google the date shown. A swapped date causes rejection.</div></div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Correct Client</div>Verify the client name and company are correct before submitting. Sending a quote to the wrong client is a serious error.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Always Fill From CERT — Not Quote</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">The supplier quote is their document. The cert is the official release. Always fill the invoice from the cert — they sometimes differ in description format or SN notation.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Verify Tag Date Format</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Must be <span class="kw">MM/DD/YYYY</span>. If you're unsure whether month or day comes first, Google the date shown. A swapped date causes rejection.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Correct Client</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Verify the client name and company are correct before submitting. Sending a quote to the wrong client is a serious error.</div></div>
 </div>
 </div>
 
@@ -1325,8 +1337,8 @@ Best Regards</div><button class="tpl-copy" onclick="cpTpl('tt-s11',this)">Copy</
 </div>
 <div class="pg-section">
   <div class="sec-title">⚠️ Important Notes</div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Remove Your Own Email from To:</div>When replying to the original quote email, remove your own email from the To: field. It should go to the client only — not to yourself.</div></div>
-  <div class="callout c-info"><div class="callout-icon">⏰</div><div class="callout-body"><div class="callout-title">Set a 48h Reminder</div>Use the Search &amp; Reminders tab to set a 48-hour Customer reminder when you send the quote. When it fires, follow up immediately.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Remove Your Own Email from To:</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">When replying to the original quote email, remove your own email from the To: field. It should go to the client only — not to yourself.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⏰</span><span class="callout-accordion-title-text"><span class="callout-title">Set a 48h Reminder</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Use the Search &amp; Reminders tab to set a 48-hour Customer reminder when you send the quote. When it fires, follow up immediately.</div></div>
 </div>
 </div>
 
@@ -1501,28 +1513,28 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
 <div class="pg-title">Pro Tips</div>
 <div class="pg-sub">Hard-earned knowledge from real sourcing work. Read these regularly — they save hours and prevent costly mistakes.</div>
 <div class="pg-section"><div class="sec-title">📦 Sourcing &amp; Market</div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Total Cost Thinking</div>Never evaluate an offer by part price alone. Total cost = supplier price + shipping + processing fees + your margin. For restricted countries, we ship to our warehouse first then forward to the buyer — factor this additional leg into the cost.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">ALT Verification</div>Suppliers sometimes offer an ALT (alternate PN) instead of the exact one you need. The only way to verify it's a valid alternate: confirm the <strong>description matches</strong> the original PN. Same description = compatible. Different description = not the same part, do not accept.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Full Pipeline Check</div>Sent quotes a month ago with no replies? Go back to the platforms, filter by upload date — new stock may have appeared since. Also re-run Google searches, new supplier pages get indexed regularly.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Add All Quotes — Even Sold / Bad Ones</div>Record every quote in the database regardless of outcome. Future requests for the same PN benefit from this data. Revised quotes always need the pricing history. Quotes marked as sold still provide market price reference.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">QTY on Cert vs Quote</div>Cert says 10, quote says 2 — this is completely normal. The repair shop repaired 10 units total, sold 8 of them, has 2 remaining. Your quote is for those 2 available units.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Total Cost Thinking</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Never evaluate an offer by part price alone. Total cost = supplier price + shipping + processing fees + your margin. For restricted countries, we ship to our warehouse first then forward to the buyer — factor this additional leg into the cost.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">ALT Verification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Suppliers sometimes offer an ALT (alternate PN) instead of the exact one you need. The only way to verify it's a valid alternate: confirm the <strong>description matches</strong> the original PN. Same description = compatible. Different description = not the same part, do not accept.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Full Pipeline Check</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Sent quotes a month ago with no replies? Go back to the platforms, filter by upload date — new stock may have appeared since. Also re-run Google searches, new supplier pages get indexed regularly.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Add All Quotes — Even Sold / Bad Ones</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Record every quote in the database regardless of outcome. Future requests for the same PN benefit from this data. Revised quotes always need the pricing history. Quotes marked as sold still provide market price reference.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">QTY on Cert vs Quote</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Cert says 10, quote says 2 — this is completely normal. The repair shop repaired 10 units total, sold 8 of them, has 2 remaining. Your quote is for those 2 available units.</div></div>
 </div>
 <div class="pg-section"><div class="sec-title">✉️ Communication</div>
-  <div class="callout c-tip"><div class="callout-icon">✈️</div><div class="callout-body"><div class="callout-title">Aviation Phonetic Alphabet</div>Always use the aviation alphabet when spelling PNs or emails on the phone. Avoids costly confusions. Full alphabet:<br>Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliet, Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Victor, Whiskey, X-Ray, Yankee, Zulu</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Client Not Answering</div>Escalation order: Call the company → Call the person directly → Find other contacts at the same company → Email <span class="kw"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96e5f7faf3e5d6f5f9fbe6f7f8efb8f5f9fb">[email&#160;protected]</a></span> → Search each platform (PB, ILS, Locatory, Stockmarket) for their contact info.</div></div>
-  <div class="callout c-info"><div class="callout-icon">🛠️</div><div class="callout-body"><div class="callout-title">GetProspect — LinkedIn Email Extractor</div>A browser extension that extracts professional email addresses from LinkedIn profiles. Invaluable when you need a direct contact at a supplier or manufacturer, especially for OEM outreach or manufacturer's reps.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">✈️</span><span class="callout-accordion-title-text"><span class="callout-title">Aviation Phonetic Alphabet</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Always use the aviation alphabet when spelling PNs or emails on the phone. Avoids costly confusions. Full alphabet:<br>Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliet, Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Victor, Whiskey, X-Ray, Yankee, Zulu</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Client Not Answering</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Escalation order: Call the company → Call the person directly → Find other contacts at the same company → Email <span class="kw"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96e5f7faf3e5d6f5f9fbe6f7f8efb8f5f9fb">[email&#160;protected]</a></span> → Search each platform (PB, ILS, Locatory, Stockmarket) for their contact info.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🛠️</span><span class="callout-accordion-title-text"><span class="callout-title">GetProspect — LinkedIn Email Extractor</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">A browser extension that extracts professional email addresses from LinkedIn profiles. Invaluable when you need a direct contact at a supplier or manufacturer, especially for OEM outreach or manufacturer's reps.</div></div>
 </div>
 <div class="pg-section"><div class="sec-title">🔍 Duplicates &amp; Search</div>
-  <div class="callout c-info"><div class="callout-icon">🔎</div><div class="callout-body"><div class="callout-title">Search by Domain — Not Full Email</div>To avoid sending duplicate RFQs to the same company, search <span class="kw">@domainname.com</span> in Contact Search — not just one specific address. This catches all email variations at the same company: rfq@, sales@, parts@, purchasing@, etc.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🔎</span><span class="callout-accordion-title-text"><span class="callout-title">Search by Domain — Not Full Email</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">To avoid sending duplicate RFQs to the same company, search <span class="kw">@domainname.com</span> in Contact Search — not just one specific address. This catches all email variations at the same company: rfq@, sales@, parts@, purchasing@, etc.</div></div>
 </div>
 <div class="pg-section"><div class="sec-title">💰 Pricing &amp; Negotiation</div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Market Price Research</div>Determine market price using: quotes you've collected (compare the range), Partbase Market Price button, Stockmarket Price Search, Proponent, AJW, or Satair. For New (NE) parts, OEM platforms like Proponent and Satair are the best reference.</div></div>
-  <div class="callout c-warn"><div class="callout-icon">⚠️</div><div class="callout-body"><div class="callout-title">Make Offer / Target Price</div>Always consult the manager or director before making a target price offer to any supplier. If you offer too high and they accept immediately, you are locked in at that price. Always start below market price. Get manager approval first, then place the PO only after they accept.</div></div>
-  <div class="callout c-tip"><div class="callout-icon">💡</div><div class="callout-body"><div class="callout-title">Quote-to-Sales Ratio</div>Avoid requesting quotes without genuine purchase intent. Suppliers track this ratio. A poor ratio leads to being deprioritized or receiving less favorable pricing. Build trusted relationships with your core supplier network first.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Market Price Research</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Determine market price using: quotes you've collected (compare the range), Partbase Market Price button, Stockmarket Price Search, Proponent, AJW, or Satair. For New (NE) parts, OEM platforms like Proponent and Satair are the best reference.</div></div>
+  <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Make Offer / Target Price</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Always consult the manager or director before making a target price offer to any supplier. If you offer too high and they accept immediately, you are locked in at that price. Always start below market price. Get manager approval first, then place the PO only after they accept.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Quote-to-Sales Ratio</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Avoid requesting quotes without genuine purchase intent. Suppliers track this ratio. A poor ratio leads to being deprioritized or receiving less favorable pricing. Build trusted relationships with your core supplier network first.</div></div>
 </div>
 <div class="pg-section"><div class="sec-title">🌍 EXW &amp; Logistics</div>
-  <div class="callout c-tip"><div class="callout-icon">📍</div><div class="callout-body"><div class="callout-title">Finding the Real EXW Location</div>To find EXW: check supplier's website for warehouse locations, ask ChatGPT with the supplier name, or ask the supplier directly. Key insight: supplier office ≠ warehouse location. Some suppliers have warehouses across multiple continents — the part ships from wherever it's physically stored.</div></div>
-  <div class="callout c-info"><div class="callout-icon">🌍</div><div class="callout-body"><div class="callout-title">Multi-Warehouse Example</div>A US-headquartered supplier may store parts in a Kenya warehouse to supply African airlines. The EXW would be Kenya, not USA. Always verify actual shipping origin before confirming delivery timelines, especially for urgent AOG situations.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📍</span><span class="callout-accordion-title-text"><span class="callout-title">Finding the Real EXW Location</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">To find EXW: check supplier's website for warehouse locations, ask ChatGPT with the supplier name, or ask the supplier directly. Key insight: supplier office ≠ warehouse location. Some suppliers have warehouses across multiple continents — the part ships from wherever it's physically stored.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🌍</span><span class="callout-accordion-title-text"><span class="callout-title">Multi-Warehouse Example</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">A US-headquartered supplier may store parts in a Kenya warehouse to supply African airlines. The EXW would be Kenya, not USA. Always verify actual shipping origin before confirming delivery timelines, especially for urgent AOG situations.</div></div>
 </div>
 </div>
 
@@ -1534,6 +1546,38 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
   <div id="dataNoticeDoc" class="data-notice" style="display:none;">
     <span>⚠</span><span><strong>No email data loaded.</strong> Place <code>data.json</code> in the same folder as this HTML file and reload to enable Contact Search.</span>
   </div>
+
+  <!-- ── CLIENT EMAIL SLOT ── -->
+  <div id="clientEmailSlot" style="background:var(--white);border:1.5px solid var(--border2);border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:var(--sh)">
+    <div style="font-size:9px;font-weight:800;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">📌 Client's Email (paste here to detect duplicates)</div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <input type="text" id="clientEmailInput" placeholder="e.g. john@airlineparts.com" autocomplete="off"
+        style="flex:1;min-width:180px;padding:9px 12px;border:1.5px solid var(--border2);border-radius:8px;font-size:12.5px;font-family:var(--font);outline:none;color:var(--text);background:var(--bg);transition:border-color .15s"
+        oninput="onClientEmailInput(this.value)"
+        onfocus="this.style.borderColor='var(--brand)';this.style.background='var(--white)'"
+        onblur="this.style.borderColor='var(--border2)';this.style.background='var(--bg)'">
+      <input type="text" id="clientNameInput" placeholder="Client name (optional)" autocomplete="off"
+        style="width:160px;padding:9px 12px;border:1.5px solid var(--border2);border-radius:8px;font-size:12.5px;font-family:var(--font);outline:none;color:var(--text);background:var(--bg);transition:border-color .15s"
+        onfocus="this.style.borderColor='var(--brand)';this.style.background='var(--white)'"
+        onblur="this.style.borderColor='var(--border2)';this.style.background='var(--bg)'">
+      <button onclick="clearClientEmail()" style="padding:8px 14px;border:1.5px solid var(--border2);background:var(--white);border-radius:8px;font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;font-family:var(--font);transition:.12s;white-space:nowrap"
+        onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'"
+        onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">✕ Clear</button>
+    </div>
+    <div id="clientEmailSet" style="display:none;margin-top:8px;font-size:11px;color:var(--green);font-weight:600">
+      ✅ Watching for: <span id="clientEmailSetVal" style="font-family:var(--mono);color:var(--brand)"></span>
+    </div>
+  </div>
+
+  <!-- Same-client warning -->
+  <div id="searchSameClientWarn" style="display:none;align-items:center;gap:10px;background:#FEF2F2;border:1.5px solid #FECACA;border-radius:10px;padding:12px 16px;margin-bottom:10px">
+    <span style="font-size:22px;flex-shrink:0">🚫</span>
+    <div>
+      <div style="font-size:13px;font-weight:800;color:#DC2626;margin-bottom:2px">Don't send — it's the same client!</div>
+      <div style="font-size:11.5px;color:#DC2626;opacity:.85"><span class="scw-name"></span></div>
+    </div>
+  </div>
+
   <div class="sw"><input type="text" id="searchInputDoc" placeholder="Search company, email, or keyword…" oninput="lazyThenCall(()=>doSearchDoc(this.value))"></div>
   <div class="fb">
     <button class="fbtn active" onclick="setFilterDoc('all',this)">All</button>
@@ -2142,25 +2186,7 @@ function updateTimerDisplay(){
 let _flashTimeout=null;
 
 function startFlashing(){
-  stopFlashing();
-  const activePg=document.querySelector('.doc-page.active');
-  if(!activePg)return;
-  const warns=[...activePg.querySelectorAll('.callout.c-warn')];
-  const infos=[...activePg.querySelectorAll('.callout.c-info')];
-  const all=[...warns,...infos];
-  if(!all.length)return;
-  let idx=0;
-  function cycle(){
-    activePg.querySelectorAll('.callout').forEach(el=>el.classList.remove('flashing-warn','flashing-info'));
-    const target=all[idx%all.length];
-    if(warns.includes(target)) target.classList.add('flashing-warn');
-    else target.classList.add('flashing-info');
-    // Scroll callout into view gently
-    target.scrollIntoView({behavior:'smooth',block:'nearest'});
-    idx++;
-    _flashTimeout=setTimeout(cycle,3200);
-  }
-  cycle();
+  // Flashing and auto-scroll disabled
 }
 
 function stopFlashing(){
@@ -2331,10 +2357,18 @@ function toggleCertSection(){
     }
     const t=q.trim().toLowerCase();
     if(!t){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div>';return;}
+    function tokenMatch(str,tk){
+      const stripped=str.toLowerCase().replace(/[-@._+]/g,'');
+      const tStripped=tk.replace(/[-@._+]/g,'');
+      return str.toLowerCase().includes(tk)||stripped.includes(tStripped);
+    }
     let filtered=data.filter(c=>{
       if(filterSearch!=='all'&&c.type!==filterSearch)return false;
-      return(c.company||'').toLowerCase().includes(t)||(c.emails||[]).some(e=>e.toLowerCase().includes(t))||(c.notes||'').toLowerCase().includes(t);
+      const emails=c.emails||[];
+      return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t))||tokenMatch(c.notes||'',t);
     });
+    // Blacklisted first
+    filtered.sort((a,b)=>(a.type==='blacklist'?0:1)-(b.type==='blacklist'?0:1));
     if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
     resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
       const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
@@ -2350,6 +2384,33 @@ function toggleCertSection(){
   };
 })();
 
+/* ── CLIENT EMAIL SLOT LOGIC ── */
+window._clientEmail='';
+window.onClientEmailInput=function(val){
+  window._clientEmail=val.trim().toLowerCase();
+  const setEl=document.getElementById('clientEmailSet');
+  const setVal=document.getElementById('clientEmailSetVal');
+  const nameVal=(document.getElementById('clientNameInput')?.value||'').trim();
+  if(window._clientEmail){
+    if(setEl)setEl.style.display='block';
+    if(setVal)setVal.textContent=window._clientEmail+(nameVal?' ('+nameVal+')':'');
+  } else {
+    if(setEl)setEl.style.display='none';
+  }
+  doSearchDoc(document.getElementById('searchInputDoc')?.value||'');
+};
+window.clearClientEmail=function(){
+  window._clientEmail='';
+  const inp=document.getElementById('clientEmailInput');
+  const nameInp=document.getElementById('clientNameInput');
+  if(inp)inp.value='';
+  if(nameInp)nameInp.value='';
+  const setEl=document.getElementById('clientEmailSet');
+  if(setEl)setEl.style.display='none';
+  const warn=document.getElementById('searchSameClientWarn');
+  if(warn)warn.style.display='none';
+};
+
 /* ── DOC-PAGE CONTACT SEARCH ── */
 (function(){
   let filterDoc='all';
@@ -2359,32 +2420,74 @@ function toggleCertSection(){
     if(btn)btn.classList.add('active');
     doSearchDoc(document.getElementById('searchInputDoc')?.value||'');
   };
+
+  function tokenMatch(str, t){
+    const stripped=str.toLowerCase().replace(/[-@._+]/g,'');
+    const tStripped=t.replace(/[-@._+]/g,'');
+    return str.toLowerCase().includes(t)||stripped.includes(tStripped);
+  }
+
   window.doSearchDoc=function(q){
     const resultsEl=document.getElementById('resultsDoc');
+    const warningEl=document.getElementById('searchSameClientWarn');
     if(!resultsEl)return;
-    // Re-use the same contactData and search logic as the tools panel
     const data=window._contactData||[];
     if(!data.length){
       document.getElementById('dataNoticeDoc').style.display='flex';
       resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No data loaded</div>';
+      if(warningEl)warningEl.style.display='none';
       return;
     }
     const t=q.trim().toLowerCase();
-    if(!t){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div>';return;}
+    if(!t){
+      resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div>';
+      if(warningEl)warningEl.style.display='none';
+      return;
+    }
+
+    // Compare search term against the manually entered client email
+    const clientEmail=window._clientEmail||'';
+    const clientName=(document.getElementById('clientNameInput')?.value||'').trim();
+    let isSameClient=false;
+    if(clientEmail){
+      // Warn if the search term overlaps with the stored client email (token-level or substring)
+      isSameClient=tokenMatch(clientEmail,t)||tokenMatch(t,clientEmail);
+    }
+    if(warningEl){
+      if(isSameClient){
+        warningEl.style.display='flex';
+        const nameEl=warningEl.querySelector('.scw-name');
+        if(nameEl) nameEl.textContent=clientName?clientName+' — '+clientEmail:clientEmail;
+      } else {
+        warningEl.style.display='none';
+      }
+    }
+
     let filtered=data.filter(c=>{
       if(filterDoc!=='all'&&c.type!==filterDoc)return false;
-      return(c.company||'').toLowerCase().includes(t)||(c.emails||[]).some(e=>e.toLowerCase().includes(t))||(c.notes||'').toLowerCase().includes(t);
+      const emails=c.emails||[];
+      return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t))||tokenMatch(c.notes||'',t);
     });
+
     if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
+
+    // Sort: blacklisted first
+    filtered.sort((a,b)=>{
+      const abl=a.type==='blacklist'?0:1;
+      const bbl=b.type==='blacklist'?0:1;
+      return abl-bbl;
+    });
+
     resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
       const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
       const eObjs=c.emailObjs||((c.emails||[]).map(e=>({email:e,status:'Unknown'})));
       const emails=eObjs.map(eo=>{
         const badge=eo.status&&eo.status!=='Unknown'?statusBadge(eo.status):'';
-        return `<div class="ger"><span class="ge">${eo.email}</span>${badge}<button class="cib" onclick="navigator.clipboard.writeText('${eo.email}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
+        const esc=eo.email.replace(/'/g,'&apos;');
+        return `<div class="ger"><span class="ge">${eo.email}</span>${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
       }).join('');
       const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
-      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`;
+      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`;
     }).join('');
   };
 })();
@@ -2706,7 +2809,12 @@ window.edSaveJSON=function(){
     edToast('✓ data.json saved — all sections included');
   };
 
+/* ── CALLOUT ACCORDION TOGGLE ── */
+window.toggleCallout=function(el){
+  const acc=el.closest('.callout-accordion');
+  if(acc)acc.classList.toggle('open');
+};
+
 })();
 </script>
-</body>
 </html>
