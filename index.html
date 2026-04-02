@@ -909,7 +909,6 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 <div class="pg-section">
   <div class="sec-title">🔍 Contact Search</div>
   <div id="dataNoticeSearch" class="data-notice" style="display:none;">
-    <span>⚠</span><span><strong>No email data loaded.</strong> Place <code>data.json</code> in the same folder and reload.</span>
   </div>
   <div class="sw"><input type="text" id="searchInputSearch" placeholder="Search company, email, or keyword…" oninput="lazyThenCall(()=>doSearchSearch(this.value))"></div>
   <div class="fb">
@@ -1543,9 +1542,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
 <div class="pg-title">Contact Search</div>
 <div class="pg-sub">Search suppliers by company name, email, or keyword. Use domain search (@company.com) to avoid duplicate RFQs.</div>
 <div class="pg-section">
-  <div id="dataNoticeDoc" class="data-notice" style="display:none;">
-    <span>⚠</span><span><strong>No email data loaded.</strong> Place <code>data.json</code> in the same folder as this HTML file and reload to enable Contact Search.</span>
-  </div>
+
 
   <!-- ── CLIENT EMAIL SLOT ── -->
   <div id="clientEmailSlot" style="background:var(--white);border:1.5px solid var(--border2);border-radius:12px;padding:12px 14px;margin-bottom:12px;box-shadow:var(--sh)">
@@ -1757,7 +1754,6 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
       <div id="panel-tools" class="panel" style="display:none!important">
         <div class="tools-scroll">
           <div id="dataNotice" class="data-notice" style="display:none;">
-            <span>⚠</span><span><strong>No email data loaded.</strong> Place <code>data.json</code> in the same folder as this HTML file and reload to enable Contact Search.</span>
           </div>
           <div class="tools-grid">
             <div class="sc">
@@ -1872,7 +1868,6 @@ async function tryLoadDataJson(){
   }catch(e){
     document.getElementById("fileName").textContent="⚠ No data.json";
     document.getElementById("dataNotice").style.display="flex";
-    document.getElementById("statusBar").innerText="No email data loaded — place data.json in same folder and reload.";
   }
 }
 
