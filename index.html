@@ -739,21 +739,6 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
         return {subject:subj,plain,html};
       }
     },
-    // ── Option 4 — Sending RFA ──
-    {
-      label:'Option 4',
-      cert:true,
-      build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi
-          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
-          : `RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Hello,\n\nWe previously sent you an RFQ for the following item${multi?'s':''} and wanted to follow up. Could you please confirm price, availability and the certification?\n\n${lines}\n\nThank you for your time.\nBest regards`;
-        const html= `Hello,\n\nWe previously sent you an RFQ for the following item${multi?'s':''} and wanted to follow up. Could you please confirm price, availability and <b>the certification</b>?\n\n${lines}\n\nThank you for your time.\nBest regards`;
-        return {subject:subj,plain,html};
-      }
-    },
     // ── Option 5 — Best Price ──
     {
       label:'Option 5',
@@ -764,8 +749,8 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
           ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
           : `RFQ PN ${items[0].pn}`;
         const lines=buildItemLines(items);
-        const plain=`Hello,\n\nCould you please provide your most competitive price, current availability and the certification for the following item${multi?'s':''}? We are actively sourcing and looking to place an order shortly.\n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
-        const html= `Hello,\n\nCould you please provide your most competitive price, current availability and <b>the certification</b> for the following item${multi?'s':''}? We are actively sourcing and looking to place an order shortly.\n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
+        const plain=`Hello,\n\nCould you please provide your most competitive price, current availability and the certification for the following item${multi?'s':''}? \n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
+        const html= `Hello,\n\nCould you please provide your most competitive price, current availability and <b>the certification</b> for the following item${multi?'s':''}? \n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
         return {subject:subj,plain,html};
       }
     },
@@ -779,8 +764,8 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
           ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
           : `RFQ PN ${items[0].pn}`;
         const lines=buildItemLines(items);
-        const plain=`Hello,\n\nWe urgently need your best price, stock availability and the certification for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
-        const html= `Hello,\n\nWe urgently need your best price, stock availability and <b>the certification</b> for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
+        const plain=`Hello,\n\nWe need your best price, stock availability and the certification for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
+        const html= `Hello,\n\nWe need your best price, stock availability and <b>the certification</b> for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
         return {subject:subj,plain,html};
       }
     }
