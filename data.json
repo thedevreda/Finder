@@ -233,7 +233,14 @@
     "ectaviation.com": "PUSHLIST",
     "joshw@ejs.aero": "can only assist with BAE 146/RJ parts.",
     "s.gerard@harmony-aero.com": "NOT THE RIGHT PERSON",
-    "Jan.Hallmark@standardaero.com": "Only CFM56-7B engine material ."
+    "Jan.Hallmark@standardaero.com": "Only CFM56-7B engine material .",
+    "tramek-aero.com": "not found",
+    "jhon@tdaviationcenter.com": "not found",
+    "j.degroot@aeroned.com": "not found",
+    "brisac-aero.com": "not exist",
+    "piac.aero": "not exist",
+    "liz@vairinc.net": "not found",
+    "rfq@gadirect.us": "not found"
   },
   "replacements": {
     "production@skysmart.co.uk": "callum@skysmart.co.uk",
@@ -417,7 +424,11 @@
       },
       {
         "email": "ronan@3topaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
+      },
+      {
+        "email": "sales.in@3topaviation.com",
+        "status": "Answering"
       }
     ],
     "53NORTHAVIATION": [
@@ -673,7 +684,7 @@
       },
       {
         "email": "pgraells@abaairgroup.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "ABCINTERCARGO": [
@@ -1851,7 +1862,7 @@
       },
       {
         "email": "vstanek@aeroenginesolutions.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "amccain@aeroenginesolutions.com",
@@ -2174,6 +2185,10 @@
       {
         "email": "sales@aeronautical.co.za",
         "status": "Unknown"
+      },
+      {
+        "email": "anesh@aeronautical.co.za",
+        "status": "Answering"
       }
     ],
     "AERONAVESTSM": [
@@ -2230,6 +2245,10 @@
       {
         "email": "rsupangphao@aeroned.com",
         "status": "Unknown"
+      },
+      {
+        "email": "jasper@aeroned.com",
+        "status": "Answering"
       }
     ],
     "AERONEGOCE": [
@@ -3364,6 +3383,10 @@
       {
         "email": "contact@aircostcontrol.com",
         "status": "Unknown"
+      },
+      {
+        "email": "A2CSalesEMEA@aircostcontrol.com",
+        "status": "Answering"
       }
     ],
     "AIRCRAFT INSTRUMENT": [
@@ -4530,6 +4553,10 @@
       {
         "email": "quote@ansett.com",
         "status": "Answering"
+      },
+      {
+        "email": "mamaya@ansett.com",
+        "status": "Answering"
       }
     ],
     "AOG-247": [
@@ -4737,7 +4764,7 @@
     "APCMIAMI": [
       {
         "email": "sales@apcmiami.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "APELLA": [
@@ -5657,7 +5684,7 @@
       },
       {
         "email": "scottb@asiaero.net",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "stefanp@asiaero.net",
@@ -6249,7 +6276,7 @@
     "AVIANOR": [
       {
         "email": "pedro.palma@avianor.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "AVIANPARTS": [
@@ -6323,7 +6350,7 @@
       },
       {
         "email": "melissa.salmon@aviatechnique.co.uk",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "orders@aviatechnique.co.uk",
@@ -6332,6 +6359,10 @@
       {
         "email": "quality@aviatechnique.co.uk",
         "status": "Unknown"
+      },
+      {
+        "email": "enquiries@aviatechnique.co.uk",
+        "status": "Answering"
       }
     ],
     "AVIATEK-SAS": [
@@ -6601,7 +6632,7 @@
       },
       {
         "email": "jeff@aviationresourcesinc.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "joe@aviationresourcesinc.com",
@@ -7191,7 +7222,7 @@
     "AVSOURCE-INC": [
       {
         "email": "alopez@avsource-inc.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "rcora@avsource-inc.com",
@@ -7459,11 +7490,11 @@
     "BASPARTSALES": [
       {
         "email": "mike@baspartsales.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@baspartsales.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "BATTERYSHOP": [
@@ -8328,6 +8359,14 @@
       {
         "email": "purchase@capapc.com",
         "status": "Unknown"
+      },
+      {
+        "email": "aog@capapc.com",
+        "status": "Answering"
+      },
+      {
+        "email": "rfq@capapc.com",
+        "status": "Answering"
       }
     ],
     "CAPEWELL": [
@@ -8403,7 +8442,7 @@
     "CAS-AERO": [
       {
         "email": "sales@cas-aero.com",
-        "status": "Unknown"
+        "status": "Not Answering"
       }
     ],
     "CAS-JET": [
@@ -8695,7 +8734,7 @@
       },
       {
         "email": "jpattek@chromalloy.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "mlahmar@chromalloy.com",
@@ -11965,7 +12004,7 @@
     "GAINNOVATIONCHINA": [
       {
         "email": "Kexin.Zhang@gainnovationchina.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Abby.Zhang@gainnovationchina.com",
@@ -13041,7 +13080,7 @@
       },
       {
         "email": "craig.kerr@gtsmro.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "GULERAERO": [
@@ -13125,15 +13164,15 @@
     "HANGRUN TECH": [
       {
         "email": "elaine@hangruntech.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "kris@hangruntech.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "renee@hangruntech.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "cassie@hangruntech.com",
@@ -13501,11 +13540,15 @@
     "HERBERAIRCRAFT": [
       {
         "email": "hcaceres@herberaircraft.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@herberaircraft.com",
-        "status": "Unknown"
+        "status": "Answering"
+      },
+      {
+        "email": "SOrtiz@herberaircraft.com  / Urgent",
+        "status": "Answering"
       }
     ],
     "HERITAGETURBINES": [
@@ -13835,7 +13878,7 @@
       },
       {
         "email": "Ashley.Loya@hutchinsoninc.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "rafael.domont-garrido@hutchinsoninc.com",
@@ -13843,7 +13886,7 @@
       },
       {
         "email": "JJ.Osmecki@hutchinsoninc.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Rosa.Rodriguez@hutchinsonna.com",
@@ -14075,7 +14118,7 @@
     "INAVLLC": [
       {
         "email": "AshleyH@inavllc.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Joe.O’Donnel@inavllc.com",
@@ -14107,7 +14150,7 @@
       },
       {
         "email": "lisai@inavllc.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "maxs@inavllc.com",
@@ -14211,7 +14254,7 @@
     "INFINITY AIR": [
       {
         "email": "susanae@infinityair.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "jimmy.wu@infinityair.com",
@@ -14223,7 +14266,7 @@
       },
       {
         "email": "alid@infinityair.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "CamilleB@infinityair.com",
@@ -15509,7 +15552,7 @@
     "JYAEROHK": [
       {
         "email": "CS@jyaerohk.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@jyaerohk.com",
@@ -15573,7 +15616,7 @@
     "KAKAAIR": [
       {
         "email": "ligang@kakaair.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "quote@kakaair.com",
@@ -15581,7 +15624,7 @@
       },
       {
         "email": "sales@kakaair.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "KALITTAAIR": [
@@ -17648,6 +17691,10 @@
       {
         "email": "shop@multiflight.com",
         "status": "Unknown"
+      },
+      {
+        "email": "dept.stores@multiflight.com",
+        "status": "Answering"
       }
     ],
     "MULTIVERSEAEROSPACEPARTNERS": [
@@ -18009,7 +18056,7 @@
     "NEXTLEVELAVIATION": [
       {
         "email": "Maverick@nextlevelaviation.net",
-        "status": "Holiday"
+        "status": "Answering"
       },
       {
         "email": "elliot@nextlevelaviation.net",
@@ -18025,7 +18072,7 @@
       },
       {
         "email": "Raquel@nextlevelaviation.net",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@nextlevelaviation.net",
@@ -18373,6 +18420,10 @@
       },
       {
         "email": "sales3@odsaerospace.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "sonu@odsaerospace.com",
         "status": "Unknown"
       }
     ],
@@ -19013,7 +19064,7 @@
       },
       {
         "email": "salesusa@pdq-airspares.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@pdq-airspares.com",
@@ -19209,7 +19260,7 @@
       },
       {
         "email": "tce@pioneer-aero.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "yvelchev@pioneer-aero.com",
@@ -19665,7 +19716,7 @@
       },
       {
         "email": "rgunawan@proximity.aero",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "PRTRADING": [
@@ -20622,6 +20673,10 @@
       {
         "email": "jasmine.umlas@safrangroup.com",
         "status": "Unknown"
+      },
+      {
+        "email": "patrice.sanchez@safrangroup.com",
+        "status": "Answering"
       }
     ],
     "SAFT": [
@@ -20821,7 +20876,7 @@
     "SAYWELL": [
       {
         "email": "brad@saywell.us",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "ILS@saywell.co.uk",
@@ -20829,7 +20884,7 @@
       },
       {
         "email": "latorra@saywell.us",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "PartsBase@saywell.co.uk",
@@ -22337,7 +22392,7 @@
     "STRATTONAVIATION": [
       {
         "email": "mutasem.abughoush@strattonaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "aleyna.erkan@strattonaviation.com",
@@ -22987,7 +23042,7 @@
       },
       {
         "email": "jhon@tdaviationcenter.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "richard@tdaviationcenter.com",
@@ -23371,7 +23426,7 @@
       },
       {
         "email": "RICKV@tlcaerospace.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "TLOADUSA": [
@@ -23431,7 +23486,7 @@
       },
       {
         "email": "janeth.franco@topcastusa.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Jeffrey.Darmadi@topcastusa.com",
@@ -23440,6 +23495,10 @@
       {
         "email": "USA@topcastusa.com",
         "status": "Unknown"
+      },
+      {
+        "email": "maria.hernandez@topcastusa.com",
+        "status": "Answering"
       }
     ],
     "TOPGSE": [
@@ -23634,6 +23693,14 @@
       {
         "email": "sales@tramek-aero.com",
         "status": "Unknown"
+      },
+      {
+        "email": "camille@tramec-aero.com",
+        "status": "Answering"
+      },
+      {
+        "email": "argaux@tramec-aero.com",
+        "status": "Answering"
       }
     ],
     "TRANAVIATION": [
@@ -24427,7 +24494,11 @@
     "VAIRINTL": [
       {
         "email": "sn@vairintl.com",
-        "status": "Unknown"
+        "status": "Answering"
+      },
+      {
+        "email": "sales@vairintl.com",
+        "status": "Answering"
       }
     ],
     "VALLAIR": [
@@ -24723,13 +24794,21 @@
     "VLCAVIATION": [
       {
         "email": "sales@vlcaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "VNAERO": [
       {
         "email": "info@vnaero.com",
         "status": "Unknown"
+      },
+      {
+        "email": "vadym@vnaero.com",
+        "status": "Answering"
+      },
+      {
+        "email": "sales@vnaero.com",
+        "status": "Answering"
       }
     ],
     "VO": [
@@ -24841,7 +24920,7 @@
       },
       {
         "email": "Support@vseaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "expendables@vseaviation.com",
@@ -25759,6 +25838,74 @@
       },
       {
         "email": "frank@jetspares.com.au",
+        "status": "Answering"
+      }
+    ],
+    "ROTOR TRADE": [
+      {
+        "email": "lydie.fontana@rotortrade.com",
+        "status": "Answering"
+      }
+    ],
+    "JAK ELECTRONICS": [
+      {
+        "email": "sales2@jakelectronics.com",
+        "status": "Answering"
+      }
+    ],
+    "PT CENDANA": [
+      {
+        "email": "annissa.rahma@yahoo.co.id",
+        "status": "Answering"
+      }
+    ],
+    "HALE AIRCRAFT": [
+      {
+        "email": "ttew@haleaircraft.com",
+        "status": "Answering"
+      }
+    ],
+    "GREEN LIGHT ELECTRONICS": [
+      {
+        "email": "sales@greenlightelectronics.com",
+        "status": "Answering"
+      }
+    ],
+    "FLY PRECISION": [
+      {
+        "email": "emerrifield@flyprecision.com",
+        "status": "Answering"
+      }
+    ],
+    "FAMAGA GROUP": [
+      {
+        "email": "george.gallo@famaga-group.de",
+        "status": "Answering"
+      }
+    ],
+    "ZIMEX": [
+      {
+        "email": "parts@zimex.ch",
+        "status": "Answering"
+      },
+      {
+        "email": "Gabrielle.Behra@zimex.ch",
+        "status": "Answering"
+      }
+    ],
+    "AIR AND GROUND": [
+      {
+        "email": "lakeysha.murray@airandground.com",
+        "status": "Answering"
+      }
+    ],
+    "CIRRU SAERO": [
+      {
+        "email": "stwehner@cirrusaero.com",
+        "status": "Answering"
+      },
+      {
+        "email": "mpwehner@cirrusaero.com",
         "status": "Answering"
       }
     ]
