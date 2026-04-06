@@ -36,6 +36,37 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:20px}
 ::-webkit-scrollbar-thumb:hover{background:var(--muted2)}
 
+/* ════ RUSH MODE ════ */
+:root{--rush:#E11D48;--rush-d:#BE123C;--rush-lt:#FFF1F2;--rush-b:#FECDD3;}
+#panel-rush{flex-direction:column;overflow:hidden;background:var(--bg)}
+.rush-scroll{flex:1;overflow-y:auto;padding:20px 18px 48px}
+.rush-topbar{background:#fff;border-bottom:1px solid var(--border2);padding:10px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.rush-tog-wrap{display:flex;align-items:center;gap:8px}
+.rush-tog-label{font-size:11px;font-weight:700;color:var(--muted)}
+.rush-tog{width:40px;height:22px;border-radius:20px;cursor:pointer;position:relative;border:none;padding:0;transition:background .2s;flex-shrink:0}
+.rush-tog.off{background:var(--border2)}
+.rush-tog.on{background:var(--rush)}
+.rush-tog-knob{position:absolute;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.rush-tog.off .rush-tog-knob{left:3px}
+.rush-tog.on .rush-tog-knob{left:21px}
+.rush-status{font-size:11px;font-weight:700;color:var(--muted2)}
+.rush-status.on{color:var(--rush)}
+.rush-inactive-msg{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--muted2);text-align:center;padding:60px 20px}
+.rush-inactive-msg .big{font-size:40px;opacity:.25}
+.rush-inactive-msg .msg{font-size:14px;font-weight:600;color:var(--muted)}
+.rush-inactive-msg .sub{font-size:12px;color:var(--muted2)}
+.rush-sec{background:#fff;border:1.5px solid var(--border2);border-radius:14px;margin-bottom:14px;overflow:hidden}
+.rush-sec-head{padding:11px 16px;background:var(--bg);border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:8px}
+.rush-sec-icon{font-size:15px}
+.rush-sec-title{font-size:12px;font-weight:800;color:var(--text)}
+.rush-sec-body{padding:14px 16px}
+.rush-sw{position:relative;margin-bottom:10px}
+.rush-sw input{width:100%;padding:9px 12px 9px 36px;border:1.5px solid var(--border2);border-radius:10px;font-size:13px;font-family:var(--font);outline:none;transition:border-color .15s;background:var(--bg);color:var(--text)}
+.rush-sw input:focus{border-color:var(--rush);background:#fff}
+.rush-sw::before{content:'';position:absolute;left:11px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") center/contain no-repeat}
+.rush-fb{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+#rushTabBtn.rush-on{color:var(--rush)!important;font-weight:800!important}
+
 /* ── AUTH ── */
 #loginScreen{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center}
 .auth-card{background:var(--white);border:1px solid var(--border2);border-radius:18px;padding:40px 44px 36px;width:420px;box-shadow:0 8px 32px rgba(0,0,0,.10)}
@@ -433,6 +464,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
     <button class="nav-toggle" id="navToggleBtn" onclick="toggleDocsNav()" title="Toggle menu" style="display:none">☰</button>
     <button class="tbtn active" onclick="switchTab('docs',this)">📚 Docs</button>
     <button class="tbtn" id="emailDashTab" onclick="edOpenTab(this)" style="display:none">✉️ Email Dashboard</button>
+    <button class="tbtn" id="rushTabBtn" onclick="switchTab('rush',this)">⚡ Rush</button>
   </div>
   <div class="nav-overlay" id="navOverlay" onclick="closeDocsNav()"></div>
 
@@ -1594,6 +1626,229 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
           </div><!-- /docs-content -->
         </div><!-- /docs-shell -->
       </div><!-- /panel-docs -->
+
+      <!-- ═══ RUSH MODE PANEL ═══ -->
+      <div id="panel-rush" class="panel" style="flex-direction:column;overflow:hidden;background:var(--bg)">
+
+        <!-- Topbar with toggle -->
+        <div class="rush-topbar">
+          <div class="rush-tog-wrap">
+            <span class="rush-tog-label">⚡ Rush Mode</span>
+            <button class="rush-tog off" id="rushTog" onclick="rushToggle()"><div class="rush-tog-knob"></div></button>
+            <span class="rush-status" id="rushStatusLbl">OFF</span>
+          </div>
+          <span style="font-size:11px;color:var(--muted2);margin-left:4px" id="rushTopSub">Turn on to access all rush tools on this page</span>
+        </div>
+
+        <!-- Inactive state -->
+        <div class="rush-inactive-msg" id="rushInactiveMsg">
+          <div class="big">⚡</div>
+          <div class="msg">Rush Mode is off</div>
+          <div class="sub">Toggle ON above to get your tools</div>
+        </div>
+
+        <!-- Active content — all sections in one scrollable page -->
+        <div class="rush-scroll" id="rushContent" style="display:none">
+
+          <!-- ── SECTION 1: Template Builder + Contact/PN Search ── -->
+          <div class="rush-sec">
+            <div class="rush-sec-head">
+              <span class="rush-sec-icon">📨</span>
+              <span class="rush-sec-title">Template Builder &amp; Contact / PN Search</span>
+            </div>
+            <div class="rush-sec-body">
+
+              <!-- Sub-tabs -->
+              <div style="display:flex;gap:0;margin-bottom:14px;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden">
+                <button id="rushT-tpl" onclick="rushSubTab('tpl')" style="flex:1;padding:8px 0;font-size:11px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--rush);color:#fff;transition:.15s">📨 Template</button>
+                <button id="rushT-search" onclick="rushSubTab('search')" style="flex:1;padding:8px 0;font-size:11px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--bg2);color:var(--muted);transition:.15s;border-left:1.5px solid var(--border)">🔍 Contact Search</button>
+              </div>
+
+              <!-- Template pane -->
+              <div id="rushPane-tpl">
+                <!-- Builder header -->
+                <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:10px">
+                  <div style="padding:9px 12px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between">
+                    <span style="font-size:11px;font-weight:700;color:var(--text)">📨 RFQ Email Builder</span>
+                    <button onclick="rushRfqAddRow()" style="padding:3px 10px;background:var(--brand);color:#fff;border:none;border-radius:20px;font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer">+ Add PN</button>
+                  </div>
+                  <div style="display:grid;grid-template-columns:28px 1fr 1fr 1.4fr 70px 32px;gap:6px;padding:6px 12px 4px;background:var(--bg)">
+                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Use</span>
+                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Part Number</span>
+                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">ALT PN</span>
+                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Description</span>
+                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">QTY</span>
+                    <span></span>
+                  </div>
+                  <div id="rushRfqRows" style="padding:6px 12px 10px;display:flex;flex-direction:column;gap:6px"></div>
+                  <div style="padding:8px 12px 0;border-top:1px solid var(--border2)">
+                    <div style="display:flex;align-items:center;gap:8px;padding:7px 12px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r)">
+                      <span style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;flex-shrink:0">Subject</span>
+                      <input type="text" id="rushRfqSubject" placeholder="Auto-generated — edit if needed" style="flex:1;border:none;outline:none;font-size:12px;font-family:var(--font);background:transparent;color:var(--text)" autocomplete="off">
+                      <button onclick="(function(){var el=document.getElementById('rushRfqSubject');if(!el||!el.value)return;navigator.clipboard.writeText(el.value);var b=event.target;var o=b.textContent;b.textContent='✓';setTimeout(()=>b.textContent=o,1400);})()" style="padding:3px 9px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font);flex-shrink:0">Copy</button>
+                    </div>
+                  </div>
+                  <div style="padding:10px 12px;border-top:1px solid var(--border2);display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                    <button onclick="rushRfqGenerate()" style="padding:7px 18px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer">⚡ Generate Template</button>
+                    <button onclick="rushRfqClear()" style="padding:7px 12px;background:var(--bg2);color:var(--muted);border:1.5px solid var(--border);border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer">✕ Clear</button>
+                  </div>
+                  <div id="rushRfqOutputWrap" style="display:none;border-top:1px solid var(--border2)">
+                    <div id="rushRfqVariantTabs" style="display:flex;flex-wrap:wrap;gap:4px;padding:10px 12px 0;background:var(--bg2);border-bottom:1px solid var(--border2)"></div>
+                    <div style="position:relative;padding:14px">
+                      <pre id="rushRfqOutput" style="font-family:var(--mono);font-size:12px;color:var(--text);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0;padding-right:72px;background:transparent"></pre>
+                      <button id="rushRfqCopyBtn" onclick="rushRfqCopy()" style="position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);font-family:var(--font)">Copy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Search pane -->
+              <div id="rushPane-search" style="display:none">
+                <div class="rush-sw"><input type="text" id="rushSearchInput" placeholder="Search company, email, or keyword…" oninput="rushDoSearch(this.value)"></div>
+                <div class="rush-fb">
+                  <button class="fbtn active" onclick="rushSetFilter('all',this)">All</button>
+                  <button class="fbtn" onclick="rushSetFilter('blacklist',this)">Blacklist</button>
+                  <button class="fbtn" onclick="rushSetFilter('direct',this)">Direct</button>
+                  <button class="fbtn" onclick="rushSetFilter('replace',this)">Replace</button>
+                </div>
+                <div id="rushResults"><div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div></div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ── SECTION 2: Sending Reminders + Reminder Tool ── -->
+          <div class="rush-sec">
+            <div class="rush-sec-head">
+              <span class="rush-sec-icon">🔔</span>
+              <span class="rush-sec-title">Sending Reminders &amp; Reminder Timer</span>
+            </div>
+            <div class="rush-sec-body">
+              <!-- Reminder templates -->
+              <div style="margin-bottom:14px">
+                <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Supplier Reminder Templates</div>
+                <div class="tpl-block" id="rush-tb-s8">
+                  <div class="tpl-head"><div class="tpl-label">🔔 Supplier Reminder</div>
+                    <div class="tpl-tabs">
+                      <button class="tpl-tab active" onclick="swTpl('rush-s8',0,this)">Option 1</button>
+                      <button class="tpl-tab" onclick="swTpl('rush-s8',1,this)">Option 2</button>
+                      <button class="tpl-tab" onclick="swTpl('rush-s8',2,this)">Option 3</button>
+                    </div>
+                  </div>
+                  <div class="tpl-body"><div class="tpl-text" id="tt-rush-s8">Hello,
+
+Just a quick kind reminder regarding our RFQ. 
+
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s8',this)">Copy</button></div>
+                </div>
+              </div>
+              <!-- Reminder timer -->
+              <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Set a Reminder Timer</div>
+              <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:10px;padding:12px 14px">
+                <div class="rf-row">
+                  <div class="rf" style="flex:2;min-width:90px"><label>Part Number</label><input type="text" id="rushPartInputR" placeholder="e.g. 0123FA2" style="width:100%"></div>
+                  <div class="rf" style="width:60px"><label>Hours</label><input type="number" id="rushHourInputR" value="3" min="1" style="width:100%"></div>
+                  <div class="rf" style="flex:1;min-width:80px"><label>Country</label><input type="text" id="rushCountryInputR" placeholder="Country" style="width:100%"><span id="rushCountryErrR" style="font-size:10px;color:var(--red);display:none">Required</span></div>
+                  <div class="rf" style="width:110px"><label>Type</label>
+                    <select id="rushTypeInputR" onchange="rushHandleTypeChange()" style="width:100%">
+                      <option value="reminder">Supplier</option>
+                      <option value="customer">Customer</option>
+                    </select>
+                  </div>
+                  <button class="rm-btn" onclick="rushStartReminderR()" style="align-self:flex-end">Start</button>
+                </div>
+                <div id="rushReminderListR"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── SECTION 3: Invoice Process ── -->
+          <div class="rush-sec">
+            <div class="rush-sec-head">
+              <span class="rush-sec-icon">🧾</span>
+              <span class="rush-sec-title">Invoice Process</span>
+            </div>
+            <div class="rush-sec-body">
+              <ul class="item-list num" style="margin-bottom:14px">
+                <li><strong>Open the invoice/quote system</strong> — have the cert open beside it</li>
+                <li><strong>Fill Description, SN, Condition, Tag Type, Tag Src, Tag Date</strong> — all from the CERT. Tag Date must be <span class="kw">MM/DD/YYYY</span></li>
+                <li><strong>Set EXW</strong> (actual warehouse) + <strong>Warranty</strong> (6 MONTHS)</li>
+                <li><strong>Verify client name &amp; company</strong></li>
+                <li><strong>CC Houssam &amp; Moe</strong> on every initial email</li>
+                <li><strong>Set status to "Initial Email"</strong> before sending</li>
+              </ul>
+              <div class="tpl-block" id="rush-tb-s10">
+                <div class="tpl-head"><div class="tpl-label">📤 Client Quote</div>
+                  <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('rush-s10',0,this)">Single PN</button></div>
+                </div>
+                <div class="tpl-body"><div class="tpl-text" id="tt-rush-s10">Subject: QUOTE FOR PN: [PN#] FROM JAD AEROSPACE LLC
+
+Hello [Client Name],
+
+Following your RFQ please find below our quote:
+
+PN: [PN#] / Description: [DESC] / QTY: [X] each
+SN: [SN#]
+Cond: RP
+Tag Type: MFG 8130/CofC/ATA106/DUAL FAA/EASA FORM-1
+Tag Src: General MRO Aerospace Inc.
+Tag Date: [MM/DD/YYYY]
+Warranty: 6 MONTHS
+EXW: USA
+Lead Time: Stock
+Asking Price: $[PRICE]
+
+Validity of quotation: 7 days or subject to prior sale.
+
+We look forward to receiving your feedback.
+
+Thank you for giving us the opportunity to send you this quote.
+
+Kind regards.</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s10',this)">Copy</button></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── SECTION 4: Client Follow-Up ── -->
+          <div class="rush-sec">
+            <div class="rush-sec-head">
+              <span class="rush-sec-icon">📞</span>
+              <span class="rush-sec-title">Client Follow-Up <span style="font-size:10px;font-weight:500;color:var(--muted);margin-left:6px">48h after quote sent</span></span>
+            </div>
+            <div class="rush-sec-body">
+              <div class="tpl-block" id="rush-tb-s11">
+                <div class="tpl-head"><div class="tpl-label">🔁 Client Follow-Up (48h)</div>
+                  <div class="tpl-tabs">
+                    <button class="tpl-tab active" onclick="swTpl('rush-s11',0,this)">Opt 1</button>
+                    <button class="tpl-tab" onclick="swTpl('rush-s11',1,this)">Opt 2</button>
+                    <button class="tpl-tab" onclick="swTpl('rush-s11',2,this)">Opt 3</button>
+                    <button class="tpl-tab" onclick="swTpl('rush-s11',3,this)">Opt 4</button>
+                  </div>
+                </div>
+                <div class="tpl-body"><div class="tpl-text" id="tt-rush-s11">Hello,
+
+Just following up on this quote. Please advise if you have received a better offer so we can work to get as close as possible. 
+
+Looking forward to your feedback.
+
+Thank you!
+Best Regards</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s11',this)">Copy</button></div>
+              </div>
+              <!-- 48h customer reminder -->
+              <div style="margin-top:14px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Set 48h Customer Reminder</div>
+              <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:10px;padding:12px 14px">
+                <div class="rf-row">
+                  <div class="rf" style="flex:2;min-width:90px"><label>Part Number</label><input type="text" id="rushPartInputF" placeholder="e.g. 0123FA2" style="width:100%"></div>
+                  <div class="rf" style="flex:1;min-width:80px"><label>Country</label><input type="text" id="rushCountryInputF" placeholder="Country" style="width:100%"></div>
+                  <button class="rm-btn" onclick="rushStartFollowup()" style="align-self:flex-end;background:var(--rush)">⏰ 48h</button>
+                </div>
+                <div id="rushFollowupMsg" style="font-size:11px;color:var(--green);margin-top:6px;display:none"></div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /rush-scroll -->
+      </div><!-- /panel-rush -->
 
       <!-- ═══ EMAIL DASHBOARD — reda@jadaero.com ONLY ═══ -->
       <div id="panel-emaildash" class="panel" style="flex-direction:column;overflow:hidden;background:#F7F9FC">
@@ -2797,4 +3052,212 @@ window.toggleCallout=function(el){
 
 })();
 </script>
+<!-- ════ RUSH MODE JS ════ -->
+<script>
+(function(){
+  var RUSH_KEY='ecpRushMode';
+  var rushActive=false;
+  var rushCf='all';
+  var rushRfqRowId=0;
+  var rushVariants=[];
+  var rushCurrentVariant=0;
+
+  /* ── State ── */
+  try{rushActive=localStorage.getItem(RUSH_KEY)==='1';}catch(e){}
+
+  function applyRush(){
+    var tog=document.getElementById('rushTog');
+    var lbl=document.getElementById('rushStatusLbl');
+    var sub=document.getElementById('rushTopSub');
+    var content=document.getElementById('rushContent');
+    var inactive=document.getElementById('rushInactiveMsg');
+    var tabBtn=document.getElementById('rushTabBtn');
+    if(tog){tog.className='rush-tog '+(rushActive?'on':'off');}
+    if(lbl){lbl.textContent=rushActive?'ON':'OFF';lbl.className='rush-status '+(rushActive?'on':'');}
+    if(sub){sub.textContent=rushActive?'Scroll down — all your tools in one place':'Turn on to access all rush tools on this page';}
+    if(content){content.style.display=rushActive?'block':'none';}
+    if(inactive){inactive.style.display=rushActive?'none':'flex';}
+    if(tabBtn){tabBtn.className='tbtn '+(rushActive?'rush-on':'');}
+  }
+
+  window.rushToggle=function(){
+    rushActive=!rushActive;
+    try{localStorage.setItem(RUSH_KEY,rushActive?'1':'0');}catch(e){}
+    applyRush();
+  };
+
+  /* ── Sub-tabs (Template / Search) ── */
+  window.rushSubTab=function(tab){
+    document.getElementById('rushPane-tpl').style.display=tab==='tpl'?'block':'none';
+    document.getElementById('rushPane-search').style.display=tab==='search'?'block':'none';
+    document.getElementById('rushT-tpl').style.background=tab==='tpl'?'var(--rush)':'var(--bg2)';
+    document.getElementById('rushT-tpl').style.color=tab==='tpl'?'#fff':'var(--muted)';
+    document.getElementById('rushT-search').style.background=tab==='search'?'var(--rush)':'var(--bg2)';
+    document.getElementById('rushT-search').style.color=tab==='search'?'#fff':'var(--muted)';
+  };
+
+  /* ── Contact Search ── */
+  window.rushSetFilter=function(f,btn){
+    rushCf=f;
+    document.querySelectorAll('.rush-fb .fbtn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    rushDoSearch(document.getElementById('rushSearchInput').value.trim());
+  };
+
+  window.rushDoSearch=function(iv){
+    var res=document.getElementById('rushResults');
+    if(!iv){res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div>';return;}
+    if(!window.dataLoaded){res.innerHTML='<div style="text-align:center;color:var(--orange);margin-top:20px;font-size:12px">⚠ No data.json loaded</div>';return;}
+    res.innerHTML='';
+    function norm(s){return s.toLowerCase().replace(/[-_.\s]/g,'');}
+    function domKey(i){if(i.includes('@')){var p=i.split('@');if(p[1])return p[1].split('.')[0];}return i;}
+    var kw=norm(domKey(iv));var count=0;
+    function match(v){return norm(v).includes(kw);}
+    function addCard(type,title,content){var div=document.createElement('div');div.className='card '+type;div.innerHTML='<div class="card-hr"><div class="card-title">'+title+'</div></div>'+content;res.appendChild(div);count++;}
+    if(rushCf==='all'||rushCf==='blacklist'){for(var c in window.blacklist||{}){var obj=window.blacklist[c]||{},em=obj.emails||[],reason=obj.reason||'';var cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length||match(reason)){var sh=cm?em:em2;var rows=sh.map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="navigator.clipboard.writeText('${e.replace(/'/g,"\\'")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');addCard('blacklist',c,'<div class="gel">'+rows+'</div><div class="bl-reason">⚠ '+reason+'</div>');}}}
+    if(rushCf==='all'||rushCf==='direct'){for(var c in window.directContact||{}){var eml=window.directContact[c]||[];var cm=match(c),em2=eml.filter(e=>match(e));if(cm||em2.length){var sh=cm?eml:em2;var rawEntry=(window._originalDC&&window._originalDC[c])||[];var rows=sh.map(e=>{var eObj=rawEntry.find?rawEntry.find(o=>o&&o.email===e):null;var st='';if(eObj&&eObj.status&&eObj.status!=='Unknown'){var sm={'Answering':['answer','✓ Answers'],'Not Answering':['not-answering','✗ No Reply'],'Holiday':['holiday','✈ Holiday'],'Repair Shop':['holiday','🔧 Repair Shop'],'Not Found':['not-answering','✗ Not Found']};var sv=sm[eObj.status]||null;if(sv)st='<span class="status-badge '+sv[0]+'">'+sv[1]+'</span>';}var esc=e.replace(/'/g,"\\'");return`<div class="ger"><span class="ge">${e}</span>${st}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');addCard('direct',c,'<div class="gel">'+rows+'</div>');}}}
+    if(rushCf==='all'||rushCf==='replace'){for(var old in window.replacements||{}){if(match(old)||match(window.replacements[old])){addCard('replace','Replacement','<small>Old:</small> '+old+'<br><small>New:</small> '+window.replacements[old]);}}}
+    if(!count)res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No matches found</div>';
+  };
+
+  /* ── RFQ Builder (mirrors the main one) ── */
+  function rushMkRow(){
+    var id=++rushRfqRowId;
+    var row=document.createElement('div');
+    row.id='rushRfqrow-'+id;
+    row.style.cssText='display:grid;grid-template-columns:28px 1fr 1fr 1.4fr 70px 32px;gap:6px;align-items:center';
+    row.innerHTML=`<input type="checkbox" id="rush-rfq-sel-${id}" checked style="width:16px;height:16px;accent-color:var(--brand);cursor:pointer;margin:0 auto;display:block">
+      <input class="rfq-row-input" id="rush-rfq-pn-${id}" placeholder="e.g. 0123FA2" autocomplete="off">
+      <input class="rfq-row-input" id="rush-rfq-alt-${id}" placeholder="ALT PN (opt.)" autocomplete="off">
+      <input class="rfq-row-input" id="rush-rfq-desc-${id}" placeholder="e.g. SENSOR - LOW FLOW" autocomplete="off">
+      <input class="rfq-row-input" id="rush-rfq-qty-${id}" placeholder="QTY" type="number" min="1" style="text-align:center" autocomplete="off">
+      <button class="rfq-del" onclick="rushRfqRemoveRow(${id})" title="Remove">×</button>`;
+    return row;
+  }
+  window.rushRfqAddRow=function(){document.getElementById('rushRfqRows').appendChild(rushMkRow());};
+  window.rushRfqRemoveRow=function(id){var el=document.getElementById('rushRfqrow-'+id);if(el)el.remove();};
+
+  function rushBuildItemLines(items){
+    return items.map(i=>{var l=i.pn;if(i.alt){l+=' / ALT: '+i.alt;if(i.desc)l+=' / '+i.desc;}else{if(i.desc)l+=' / '+i.desc;}if(i.qty)l+=' / QTY: '+i.qty;return l;}).join('\n');
+  }
+
+  var RUSH_VARIANTS=[
+    {label:'Check Avail.',cert:false,build:(items)=>{var multi=items.length>1;var subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;var lines=rushBuildItemLines(items);var body=`Dear team,\n\nIs this offer still valid for:\n\n${lines}\n\nThank you.`;return{subject:subj,plain:body};}},
+    {label:'Option 1',cert:true,build:(items)=>{var multi=items.length>1;var subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;var lines=rushBuildItemLines(items);var body=`Dear team,\n\nPlease provide your best price and availability for the following:\n\n${lines}\n\nPlease include the certification with your quote.\n\nThank you.`;return{subject:subj,plain:body};}},
+    {label:'Option 2',cert:true,build:(items)=>{var multi=items.length>1;var subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;var lines=rushBuildItemLines(items);var body=`Hello,\n\nWe are looking to purchase the following part(s):\n\n${lines}\n\nKindly send us your best price and availability along with the certification.\n\nBest regards.`;return{subject:subj,plain:body};}},
+  ];
+
+  window.rushRfqGenerate=function(){
+    var rows=[...document.querySelectorAll('#rushRfqRows [id^="rushRfqrow-"]')];
+    var items=rows.map(r=>{var id=r.id.replace('rushRfqrow-','');var sel=document.getElementById('rush-rfq-sel-'+id);if(sel&&!sel.checked)return null;return{pn:(document.getElementById('rush-rfq-pn-'+id)||{}).value||'',alt:(document.getElementById('rush-rfq-alt-'+id)||{}).value||'',desc:(document.getElementById('rush-rfq-desc-'+id)||{}).value||'',qty:(document.getElementById('rush-rfq-qty-'+id)||{}).value||''};}).filter(i=>i&&i.pn.trim());
+    if(!items.length){alert('Add at least one Part Number');return;}
+    rushVariants=RUSH_VARIANTS.map(v=>v.build(items));
+    rushCurrentVariant=0;
+    // Subject
+    var subj=rushVariants[0].subject;
+    var subEl=document.getElementById('rushRfqSubject');
+    if(subEl&&!subEl.value)subEl.value=subj;
+    // Tabs
+    var tabsEl=document.getElementById('rushRfqVariantTabs');
+    tabsEl.innerHTML='';
+    RUSH_VARIANTS.forEach((v,i)=>{var btn=document.createElement('button');btn.className='rfq-vtab'+(i===0?' active':'');btn.textContent=v.label;btn.onclick=()=>{rushCurrentVariant=i;rushShowVariant(i);};tabsEl.appendChild(btn);});
+    rushShowVariant(0);
+    document.getElementById('rushRfqOutputWrap').style.display='block';
+  };
+
+  function rushShowVariant(i){
+    var v=rushVariants[i];if(!v)return;
+    document.getElementById('rushRfqOutput').textContent=v.plain;
+    document.querySelectorAll('#rushRfqVariantTabs .rfq-vtab').forEach((b,j)=>b.classList.toggle('active',j===i));
+    rushCurrentVariant=i;
+  }
+
+  window.rushRfqCopy=function(){var out=document.getElementById('rushRfqOutput');if(out){navigator.clipboard.writeText(out.textContent);var btn=document.getElementById('rushRfqCopyBtn');if(btn){var o=btn.textContent;btn.textContent='✓ Copied';setTimeout(()=>btn.textContent=o,1500);}}};
+  window.rushRfqClear=function(){document.getElementById('rushRfqRows').innerHTML='';document.getElementById('rushRfqOutputWrap').style.display='none';document.getElementById('rushRfqSubject').value='';rushRfqRowId=0;rushRfqAddRow();};
+
+  /* ── Reminder R (in Reminders section) ── */
+  window.rushHandleTypeChange=function(){};
+  window.rushStartReminderR=function(){
+    var part=(document.getElementById('rushPartInputR').value||'').trim();
+    var hours=parseInt(document.getElementById('rushHourInputR').value)||3;
+    var country=(document.getElementById('rushCountryInputR').value||'').trim();
+    var type=document.getElementById('rushTypeInputR').value;
+    var err=document.getElementById('rushCountryErrR');
+    if(!part){document.getElementById('rushPartInputR').focus();return;}
+    if(type==='customer'&&!country){if(err)err.style.display='block';document.getElementById('rushCountryInputR').focus();return;}
+    if(err)err.style.display='none';
+    // Inject into main reminder system
+    _rushInjectReminder(part,hours,country,type,document.getElementById('rushReminderListR'));
+    document.getElementById('rushPartInputR').value='';
+  };
+
+  /* ── Follow-up 48h reminder ── */
+  window.rushStartFollowup=function(){
+    var part=(document.getElementById('rushPartInputF').value||'').trim();
+    var country=(document.getElementById('rushCountryInputF').value||'').trim();
+    var msg=document.getElementById('rushFollowupMsg');
+    if(!part){document.getElementById('rushPartInputF').focus();return;}
+    _rushInjectReminder(part,48,country,'customer',null);
+    document.getElementById('rushPartInputF').value='';
+    document.getElementById('rushCountryInputF').value='';
+    if(msg){msg.textContent='✓ 48h reminder set for "'+part+'"';msg.style.display='block';setTimeout(()=>msg.style.display='none',3000);}
+  };
+
+  function _rushInjectReminder(part,hours,country,type,listEl){
+    var end=Date.now()+hours*3600000;
+    var obj={id:Date.now(),part,hours,country,type,end,finished:false,user:window.currentUser||''};
+    if(window.reminders)window.reminders.push(obj);
+    if(typeof window.saveReminders==='function')window.saveReminders();
+    // Build a mini card in the local listEl
+    if(listEl){
+      var card=document.createElement('div');card.className='tc '+(type==='customer'?'customer':'');
+      var lbl=type==='customer'?'Customer Follow-up':'Supplier Reminder';
+      card.innerHTML=`<div><strong>${part}</strong><br><small>${lbl}</small></div><span class="tt" style="font-family:var(--mono);font-size:11px;font-weight:700"></span>`;
+      listEl.appendChild(card);
+      var te=card.querySelector('.tt');
+      (function tick(){var rem=obj.end-Date.now();if(rem<=0){te.textContent='⏰ TIME\'S UP';card.classList.add('finished');if(typeof window.showReminderPopup==='function')window.showReminderPopup(obj);return;}var h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000),s=Math.floor((rem%60000)/1000);te.textContent=`${h}h ${m}m ${s}s`;setTimeout(tick,1000);})();
+    }
+  }
+
+  /* ── Template tab variants (swTpl hook for rush templates) ── */
+  var RUSH_S8=[
+    'Hello,\n\nJust a quick kind reminder regarding our RFQ. \n\nBest regards,',
+    'Dear team,\n\nFollowing up on our request for quotation — kindly advise on availability.\n\nThank you.',
+    'Hello,\n\nWe are still awaiting your quote. Please revert at your earliest convenience.\n\nBest regards,'
+  ];
+  var RUSH_S11=[
+    'Hello,\n\nJust following up on this quote. Please advise if you have received a better offer so we can work to get as close as possible. \n\nLooking forward to your feedback.\n\nThank you!\nBest Regards',
+    'Dear [Client],\n\nI wanted to check if you had a chance to review our quote. We remain available to discuss pricing or timing.\n\nKind regards.',
+    'Hello,\n\nFolowing up on the quote we sent. Let us know if you have any questions or if there is anything we can adjust.\n\nThank you.',
+    'Dear team,\n\nWe are still waiting for your feedback on our quotation. Please let us know if you need any further information.\n\nBest regards.'
+  ];
+
+  // Override swTpl for rush variants
+  var _origSwTpl=window.swTpl;
+  window.swTpl=function(id,idx,btn){
+    if(id==='rush-s8'){
+      document.getElementById('tt-rush-s8').textContent=RUSH_S8[idx]||RUSH_S8[0];
+      btn.closest('.tpl-tabs').querySelectorAll('.tpl-tab').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      return;
+    }
+    if(id==='rush-s11'){
+      document.getElementById('tt-rush-s11').textContent=RUSH_S11[idx]||RUSH_S11[0];
+      btn.closest('.tpl-tabs').querySelectorAll('.tpl-tab').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      return;
+    }
+    if(_origSwTpl)_origSwTpl(id,idx,btn);
+  };
+
+  /* ── Init ── */
+  function init(){
+    applyRush();
+    rushRfqAddRow(); // start with one empty row
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
+  else{setTimeout(init,0);}
+})();
+</script>
+
 </html>
