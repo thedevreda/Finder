@@ -1446,6 +1446,28 @@ Please provide your best price quote and stock availability for the following it
 
 Thank you.
 Best regards</div><button class="tpl-copy" onclick="cpTpl('teTb',this)">Copy</button></div></div>
+  <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Urgent / AOG RFQ</div></div><div class="tpl-body"><div class="tpl-text" id="teTc">Subject: AOG RFQ PN [0123FA2] — URGENT
+
+Dear team,
+
+We have an urgent AOG (Aircraft on Ground) request for the following part:
+
+PN: [0123FA2] / [DESCRIPTION] / QTY: [X]
+
+Please provide your best price, availability, and lead time as soon as possible.
+
+Thank you for your prompt attention.
+Best regards</div><button class="tpl-copy" onclick="cpTpl('teTc',this)">Copy</button></div></div>
+  <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Check Availability</div></div><div class="tpl-body"><div class="tpl-text" id="teTd">Subject: Availability Check PN [0123FA2]
+
+Hello,
+
+Could you please confirm whether the following part is still available?
+
+PN: [0123FA2] / [DESCRIPTION] / QTY: [X]
+
+Thank you.
+Best regards</div><button class="tpl-copy" onclick="cpTpl('teTd',this)">Copy</button></div></div>
 </div>
 <div class="pg-section"><div class="sec-title">🔔 Supplier Reminders</div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Reminder 1</div></div><div class="tpl-body"><div class="tpl-text" id="teR1">Hello,
@@ -1463,6 +1485,16 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teR2',this)">Copy</b
 A gentle reminder regarding our RFQ.
 
 Best regards,</div><button class="tpl-copy" onclick="cpTpl('teR3',this)">Copy</button></div></div>
+  <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Reminder 4 — Still Waiting</div></div><div class="tpl-body"><div class="tpl-text" id="teR4">Hello,
+
+We are still awaiting your quote on our RFQ. Please revert at your earliest convenience.
+
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('teR4',this)">Copy</button></div></div>
+  <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Reminder 5 — Advise Availability</div></div><div class="tpl-body"><div class="tpl-text" id="teR5">Dear team,
+
+Following up on our request for quotation — kindly advise on availability and pricing.
+
+Thank you.</div><button class="tpl-copy" onclick="cpTpl('teR5',this)">Copy</button></div></div>
 </div>
 <div class="pg-section"><div class="sec-title">📤 Quote to Client</div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Client Quote — Single PN</div></div><div class="tpl-body"><div class="tpl-text" id="teCQ">Subject: QUOTE FOR PN: [PN#] FROM JAD AEROSPACE LLC
@@ -1521,6 +1553,19 @@ Looking forward to your feedback.
 
 Thank you!
 Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</button></div></div>
+  <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Follow-Up 5 — Still Interested?</div></div><div class="tpl-body"><div class="tpl-text" id="teF5">Hello,
+
+We wanted to check in on the quote we sent. Are you still interested in the part? We remain available to adjust pricing or terms if needed.
+
+Looking forward to your reply.
+
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF5',this)">Copy</button></div></div>
+  <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Follow-Up 6 — Validity Expiring</div></div><div class="tpl-body"><div class="tpl-text" id="teF6">Dear [Client Name],
+
+Just a reminder that our quote for PN [PN#] is valid for 7 days or subject to prior sale. Please confirm your interest before the validity expires.
+
+Thank you.
+Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</button></div></div>
 </div>
 </div>
 
@@ -1618,6 +1663,22 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF4',this)">Copy</b
       <button class="rm-btn" onclick="startReminderDoc()" style="align-self:flex-end">Start</button>
     </div>
     <div id="reminderListDoc"></div>
+  </div>
+</div>
+
+<!-- Holiday Reminder -->
+<div class="pg-section" style="margin-top:16px">
+  <div class="sec-title">✈️ Holiday Reminder</div>
+  <div style="font-size:12px;color:var(--muted);margin-bottom:10px;line-height:1.5">When a contact is on holiday, enter their email and the date they return. You'll get a reminder to follow up when they're back.</div>
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--sh)">
+    <div class="rf-row" style="flex-wrap:wrap">
+      <div class="rf" style="flex:2;min-width:140px"><label>Contact Email</label><input type="text" id="holidayEmailDoc" placeholder="e.g. john@supplier.com" style="width:100%"></div>
+      <div class="rf" style="flex:1;min-width:120px"><label>Contact Name (opt.)</label><input type="text" id="holidayNameDoc" placeholder="e.g. John" style="width:100%"></div>
+      <div class="rf" style="flex:1;min-width:130px"><label>Part / Note</label><input type="text" id="holidayPartDoc" placeholder="e.g. PN 0123FA2" style="width:100%"></div>
+      <div class="rf" style="min-width:140px"><label>Back on (date)</label><input type="date" id="holidayDateDoc" style="width:100%"></div>
+      <button class="rm-btn" onclick="startHolidayReminderDoc()" style="align-self:flex-end;background:var(--orange)">✈️ Set</button>
+    </div>
+    <div id="holidayReminderListDoc" style="margin-top:8px"></div>
   </div>
 </div>
 </div>
@@ -1759,6 +1820,20 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s8',this)">C
                 </div>
                 <div id="rushReminderListR"></div>
               </div>
+
+              <!-- Holiday Reminder -->
+              <div style="margin-top:14px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">✈️ Holiday Reminder</div>
+              <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:10px;padding:12px 14px">
+                <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Contact is on holiday? Enter their email and return date — you'll be reminded to follow up when they're back.</div>
+                <div class="rf-row" style="flex-wrap:wrap">
+                  <div class="rf" style="flex:2;min-width:140px"><label>Contact Email</label><input type="text" id="rushHolidayEmail" placeholder="e.g. john@supplier.com" style="width:100%"></div>
+                  <div class="rf" style="flex:1;min-width:100px"><label>Name (opt.)</label><input type="text" id="rushHolidayName" placeholder="e.g. John" style="width:100%"></div>
+                  <div class="rf" style="flex:1;min-width:110px"><label>Part / Note</label><input type="text" id="rushHolidayPart" placeholder="e.g. PN 0123FA2" style="width:100%"></div>
+                  <div class="rf" style="min-width:130px"><label>Back on (date)</label><input type="date" id="rushHolidayDate" style="width:100%"></div>
+                  <button class="rm-btn" onclick="rushStartHolidayReminder()" style="align-self:flex-end;background:var(--orange)">✈️ Set</button>
+                </div>
+                <div id="rushHolidayList" style="margin-top:8px"></div>
+              </div>
             </div>
           </div>
 
@@ -1781,30 +1856,15 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s8',this)">C
                 <div class="tpl-head"><div class="tpl-label">📤 Client Quote</div>
                   <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('rush-s10',0,this)">Single PN</button></div>
                 </div>
-                <div class="tpl-body"><div class="tpl-text" id="tt-rush-s10">Subject: QUOTE FOR PN: [PN#] FROM JAD AEROSPACE LLC
-
-Hello [Client Name],
-
-Following your RFQ please find below our quote:
-
-PN: [PN#] / Description: [DESC] / QTY: [X] each
+                <div class="tpl-body"><div class="tpl-text" id="tt-rush-s10">Description: [DESC]
 SN: [SN#]
-Cond: RP
+ALT:
+Trace:
 Tag Type: MFG 8130/CofC/ATA106/DUAL FAA/EASA FORM-1
 Tag Src: General MRO Aerospace Inc.
 Tag Date: [MM/DD/YYYY]
 Warranty: 6 MONTHS
-EXW: USA
-Lead Time: Stock
-Asking Price: $[PRICE]
-
-Validity of quotation: 7 days or subject to prior sale.
-
-We look forward to receiving your feedback.
-
-Thank you for giving us the opportunity to send you this quote.
-
-Kind regards.</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s10',this)">Copy</button></div>
+EXW: USA</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s10',this)">Copy</button></div>
               </div>
             </div>
           </div>
@@ -1834,16 +1894,7 @@ Looking forward to your feedback.
 Thank you!
 Best Regards</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s11',this)">Copy</button></div>
               </div>
-              <!-- 48h customer reminder -->
-              <div style="margin-top:14px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Set 48h Customer Reminder</div>
-              <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:10px;padding:12px 14px">
-                <div class="rf-row">
-                  <div class="rf" style="flex:2;min-width:90px"><label>Part Number</label><input type="text" id="rushPartInputF" placeholder="e.g. 0123FA2" style="width:100%"></div>
-                  <div class="rf" style="flex:1;min-width:80px"><label>Country</label><input type="text" id="rushCountryInputF" placeholder="Country" style="width:100%"></div>
-                  <button class="rm-btn" onclick="rushStartFollowup()" style="align-self:flex-end;background:var(--rush)">⏰ 48h</button>
-                </div>
-                <div id="rushFollowupMsg" style="font-size:11px;color:var(--green);margin-top:6px;display:none"></div>
-              </div>
+
             </div>
           </div>
 
@@ -3212,12 +3263,42 @@ window.toggleCallout=function(el){
     if(listEl){
       var card=document.createElement('div');card.className='tc '+(type==='customer'?'customer':'');
       var lbl=type==='customer'?'Customer Follow-up':'Supplier Reminder';
-      card.innerHTML=`<div><strong>${part}</strong><br><small>${lbl}</small></div><span class="tt" style="font-family:var(--mono);font-size:11px;font-weight:700"></span>`;
+      card.innerHTML=`<div><strong>${part}</strong><br><small>${lbl}</small></div><div style="display:flex;align-items:center;gap:8px"><span class="tt" style="font-family:var(--mono);font-size:11px;font-weight:700"></span><button class="tr-btn" style="font-size:10px;padding:2px 8px">Remove</button></div>`;
       listEl.appendChild(card);
+      card.querySelector('.tr-btn').onclick=function(){card.remove();};
       var te=card.querySelector('.tt');
       (function tick(){var rem=obj.end-Date.now();if(rem<=0){te.textContent='⏰ TIME\'S UP';card.classList.add('finished');if(typeof window.showReminderPopup==='function')window.showReminderPopup(obj);return;}var h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000),s=Math.floor((rem%60000)/1000);te.textContent=`${h}h ${m}m ${s}s`;setTimeout(tick,1000);})();
     }
   }
+
+  /* ── Holiday Reminder (Rush) ── */
+  window.rushStartHolidayReminder=function(){
+    var email=(document.getElementById('rushHolidayEmail').value||'').trim();
+    var name=(document.getElementById('rushHolidayName').value||'').trim();
+    var part=(document.getElementById('rushHolidayPart').value||'').trim();
+    var date=document.getElementById('rushHolidayDate').value;
+    var listEl=document.getElementById('rushHolidayList');
+    if(!email){document.getElementById('rushHolidayEmail').focus();return;}
+    if(!date){document.getElementById('rushHolidayDate').focus();return;}
+    var returnMs=new Date(date+'T08:00:00').getTime();
+    if(isNaN(returnMs)||returnMs<=Date.now()){alert('Please enter a valid future return date.');return;}
+    var label=name?name:email;
+    var card=document.createElement('div');card.className='tc customer';
+    card.innerHTML=`<div><strong>✈️ ${label}</strong><br><small style="font-family:var(--mono)">${email}</small>${part?`<br><small>${part}</small>`:''}</div><div style="display:flex;align-items:center;gap:8px"><span class="tt" style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--orange)"></span><button class="tr-btn" style="font-size:10px;padding:2px 8px">Remove</button></div>`;
+    listEl.appendChild(card);
+    card.querySelector('.tr-btn').onclick=function(){card.remove();};
+    var te=card.querySelector('.tt');
+    (function tick(){
+      var now=Date.now();if(now>=returnMs){te.textContent='🔔 BACK TODAY!';card.classList.add('finished');if(typeof window.showReminderPopup==='function')window.showReminderPopup({part:label+' is back from holiday. Follow up: '+email,type:'customer'});return;}
+      var rem=returnMs-now;var d=Math.floor(rem/86400000),h=Math.floor((rem%86400000)/3600000),m=Math.floor((rem%3600000)/60000);
+      te.textContent=d>0?`${d}d ${h}h`:`${h}h ${m}m`;
+      setTimeout(tick,60000);
+    })();
+    document.getElementById('rushHolidayEmail').value='';
+    document.getElementById('rushHolidayName').value='';
+    document.getElementById('rushHolidayPart').value='';
+    document.getElementById('rushHolidayDate').value='';
+  };
 
   /* ── Template tab variants (swTpl hook for rush templates) ── */
   var RUSH_S8=[
