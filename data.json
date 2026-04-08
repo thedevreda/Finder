@@ -240,7 +240,12 @@
     "brisac-aero.com": "not exist",
     "piac.aero": "not exist",
     "liz@vairinc.net": "not found",
-    "rfq@gadirect.us": "not found"
+    "rfq@gadirect.us": "not found",
+    "rchamberlain@nordam.com": "NOT FOUND",
+    "fixprodistribution.com": "NOT FOUND",
+    "rfq@machnor.com": "NOT FOUND",
+    "juergen.buettgenbach@jbavicon.com": "NOT FOUND",
+    "sales@royalavi.com.": "NOT FOUND"
   },
   "replacements": {
     "production@skysmart.co.uk": "callum@skysmart.co.uk",
@@ -297,7 +302,9 @@
     "sales@aerotechnic-asia.com": "sales@aerotechnic-group.com",
     "jgawlik@aerovi.com": "qfowler@aerovi.com / jvanderkooi@aerovi.com",
     "c.rivas@anatu.net": "rfq@anatu.net",
-    "JakeDiBenedetto@sealdynamics.com": "SDCustomerService@sealdynamics.com"
+    "JakeDiBenedetto@sealdynamics.com": "SDCustomerService@sealdynamics.com",
+    "sales.support@staseu.com": "customer.support@staseu.com",
+    "S.Harris@s3aerodefense.com": "RyanP@s3aerodefense.com"
   },
   "exw": {
     "reda": "reda"
@@ -388,7 +395,7 @@
       },
       {
         "email": "steve@3gentrade.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "3POINTSAVIATION": [
@@ -2036,7 +2043,7 @@
       },
       {
         "email": "kk@aerolinkarizona.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "nv@aerolinkarizona.com",
@@ -2120,7 +2127,7 @@
       },
       {
         "email": "kayra@amp-aero.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "AEROMARINEAMERICA": [
@@ -2298,7 +2305,7 @@
       },
       {
         "email": "mary@aeropacific.aero",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "AEROPART": [
@@ -2942,7 +2949,7 @@
     "AERSALE": [
       {
         "email": "adyn.Gutierrez@aersale.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Agutierrez@aersale.com",
@@ -3146,11 +3153,11 @@
     "AIR STATION": [
       {
         "email": "joek@airstation.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "jeff@airstation.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "alech@airstation.aero",
@@ -4159,6 +4166,10 @@
       {
         "email": "quote@alfadaaservices.com",
         "status": "Unknown"
+      },
+      {
+        "email": "ekram.musa@alfadaaservices.com",
+        "status": "Answering"
       }
     ],
     "ALL": [
@@ -4526,7 +4537,7 @@
     "ANE": [
       {
         "email": "franciscoc@ane.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@ane.aero",
@@ -5606,7 +5617,7 @@
     "ASAHCORP": [
       {
         "email": "ana@asahcorp.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@asahcorp.com",
@@ -6476,7 +6487,7 @@
     "AVIATIONCONCEPTS": [
       {
         "email": "Nschwaeble@aviationconcepts.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "ericca@aviationconcepts.com",
@@ -7676,7 +7687,7 @@
       },
       {
         "email": "john@bestwings.com.tw",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "rfq@bestwings.com.tw",
@@ -8134,7 +8145,7 @@
     "BURWOOD": [
       {
         "email": "Dave@burwood.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@burwood.aero",
@@ -8142,7 +8153,7 @@
       },
       {
         "email": "tim@burwood.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Daron@burwood.aero",
@@ -8474,7 +8485,7 @@
     "CASCOMPOSITE": [
       {
         "email": "lbriceno@cascomposite.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "esaurusaitis@cascomposite.com",
@@ -9190,11 +9201,11 @@
     "CORAX": [
       {
         "email": "fah@corax.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "nic@corax.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@corax.aero",
@@ -9220,7 +9231,7 @@
     "CORENDONAIRLINES": [
       {
         "email": "haydemir@corendonairlines.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "COREPARTS": [
@@ -9882,7 +9893,7 @@
       },
       {
         "email": "nicole.lupa@dms.aero",
-        "status": "Unknown"
+        "status": "Holiday"
       },
       {
         "email": "rhett.underwood@dms.aero",
@@ -9891,6 +9902,10 @@
       {
         "email": "sales@dms.aero",
         "status": "Unknown"
+      },
+      {
+        "email": "dave.keating@dms.aero",
+        "status": "Answering"
       }
     ],
     "DMS-ENTERPRISE": [
@@ -10290,7 +10305,7 @@
     "EASYJET": [
       {
         "email": "aaron.dengel@easyjet.com",
-        "status": "Holiday"
+        "status": "Repair Shop"
       },
       {
         "email": "neil.kirby@easyjet.com",
@@ -10484,7 +10499,7 @@
       },
       {
         "email": "j.lee@eirtradeaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "m.jovanovic@eirtradeaviation.com",
@@ -10776,7 +10791,7 @@
       },
       {
         "email": "victoriac@erieaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "EROAIR": [
@@ -11987,6 +12002,10 @@
       {
         "email": "afedele@gatelesis.com",
         "status": "Answering"
+      },
+      {
+        "email": "jdiaz@gatelesis.com",
+        "status": "Answering"
       }
     ],
     "GABLESENG": [
@@ -12430,7 +12449,7 @@
     "GLOBALAIRTECH": [
       {
         "email": "adam@globalairtech.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "anggie@globalairtech.com",
@@ -12455,6 +12474,10 @@
       {
         "email": "sales@globalairtech.com",
         "status": "Unknown"
+      },
+      {
+        "email": "lingling@globalairtech.com",
+        "status": "Answering"
       }
     ],
     "GLOBALAIRTECHNOLOGIES": [
@@ -13490,7 +13513,11 @@
     "HELICOPTERSUPPORT": [
       {
         "email": "sales@helicoptersupport.nl",
-        "status": "Unknown"
+        "status": "Answering"
+      },
+      {
+        "email": "alexander@helicoptersupport.nl",
+        "status": "Answering"
       }
     ],
     "HELINETWORK": [
@@ -13572,7 +13599,7 @@
     "HESTONMATERIALS": [
       {
         "email": "agne.rasiukeviciute@hestonmaterials.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "alanas.sveckus@hestonmaterials.com",
@@ -13580,7 +13607,7 @@
       },
       {
         "email": "laurynas.norkus@hestonmaterials.com",
-        "status": "Unknown"
+        "status": "Holiday"
       },
       {
         "email": "marija.miscenkove@hestonmaterials.com",
@@ -13594,7 +13621,7 @@
     "HESTONMRO": [
       {
         "email": "laurynas.norkus@hestonmro.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "HEXATECSURVEYING": [
@@ -14324,7 +14351,7 @@
       },
       {
         "email": "mathieu@initialaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "ericab@initialaviation.com",
@@ -15052,7 +15079,7 @@
     "JETMIDWEST": [
       {
         "email": "ALEX.AGUIAR@jetmidwest.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "aog@jetmidwest.com",
@@ -15474,15 +15501,15 @@
     "JTAEROSPACE": [
       {
         "email": "tbachman@jtaerospace.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "drosales@jtaerospace.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "jpowers@jtaerospace.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "JTD-AVIATION": [
@@ -15504,7 +15531,7 @@
     "JUSTAIR": [
       {
         "email": "luke@justair.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "alex.clough@justair.aero",
@@ -15700,7 +15727,7 @@
     "KELLSTROM": [
       {
         "email": "marvin.avilez@kellstromaerospace.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Christopher.Bracero@kellstromaerospace.com",
@@ -15729,12 +15756,16 @@
       {
         "email": "lyonel.blaise@kellstromdefense.com",
         "status": "Unknown"
+      },
+      {
+        "email": "judith.brown@kellstromaerospace.com",
+        "status": "Answering"
       }
     ],
     "KGAR": [
       {
         "email": "mstellabotte@kgar.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@kgar.com",
@@ -15766,7 +15797,7 @@
     "KILLICK AEROSPACE": [
       {
         "email": "sebnem@killickaerospace.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "amooneyhan@killickaerospace.com",
@@ -16189,20 +16220,6 @@
         "status": "Unknown"
       }
     ],
-    "LHT": [
-      {
-        "email": "component-sales-eumea@lht.dlh.de",
-        "status": "Unknown"
-      },
-      {
-        "email": "lufthansa-component-sales@lht.dlh.de",
-        "status": "Unknown"
-      },
-      {
-        "email": "material.sales@lht.dlh.de",
-        "status": "Unknown"
-      }
-    ],
     "LHT-PHILIPPINES": [
       {
         "email": "surplus@lht-philippines.com",
@@ -16444,24 +16461,6 @@
       },
       {
         "email": "sales@ltbaero.com",
-        "status": "Unknown"
-      }
-    ],
-    "LTCS": [
-      {
-        "email": "edward.holostalo@ltcs.com",
-        "status": "Answering"
-      },
-      {
-        "email": "mark.wilson@ltcs.com",
-        "status": "Unknown"
-      },
-      {
-        "email": "martin.lux@ltcs.com",
-        "status": "Unknown"
-      },
-      {
-        "email": "usmtrade@ltcs.com",
         "status": "Unknown"
       }
     ],
@@ -17145,6 +17144,10 @@
       {
         "email": "sales@melcomponents.com",
         "status": "Unknown"
+      },
+      {
+        "email": "conora@melcomponents.com",
+        "status": "Answering"
       }
     ],
     "MEL-EX": [
@@ -17476,7 +17479,7 @@
     "MOOG": [
       {
         "email": "mzaborowski@moog.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "alarson3@moog.com",
@@ -17496,7 +17499,7 @@
       },
       {
         "email": "moogassets@moog.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "rrivera3@moog.com",
@@ -18222,7 +18225,7 @@
     "NORDAM": [
       {
         "email": "moosthuizen@nordam.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "NRD_Sales@nordam.com",
@@ -18257,6 +18260,10 @@
       {
         "email": "SALES@northstaraero.com",
         "status": "Unknown"
+      },
+      {
+        "email": "JBennett@northstaraero.com",
+        "status": "Answering"
       }
     ],
     "NOVOAERO": [
@@ -18544,7 +18551,7 @@
     "OMSAERO": [
       {
         "email": "kkaradag@omsaero.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "btetik@omsaero.com",
@@ -18751,6 +18758,10 @@
       {
         "email": "SALES@owlaerospace.com",
         "status": "Unknown"
+      },
+      {
+        "email": "supportmex12@owlaerospace.com",
+        "status": "Answering"
       }
     ],
     "OXFORD-AVIATION": [
@@ -19120,7 +19131,7 @@
       },
       {
         "email": "cindy.smith@performair.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Kevin.Westbrook@performair.com",
@@ -19538,7 +19549,7 @@
       },
       {
         "email": "dbieniek@primeair.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "SMallinson@primeair.com",
@@ -19804,7 +19815,7 @@
       },
       {
         "email": "tylerg@qai.aero",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "QAIINT": [
@@ -20226,7 +20237,7 @@
     "RELIANCEAIRCRAFT": [
       {
         "email": "cwhitcoe@relianceaircraft.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "ddesormes@relianceaircraft.com",
@@ -20246,7 +20257,7 @@
       },
       {
         "email": "nbrownell@relianceaircraft.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "pasha@relianceaircraft.com",
@@ -20477,6 +20488,14 @@
       {
         "email": "sales@royalavi.com",
         "status": "Unknown"
+      },
+      {
+        "email": "moyses@royalavi.com",
+        "status": "Answering"
+      },
+      {
+        "email": "support@royalavi.com",
+        "status": "Answering"
       }
     ],
     "ROYALEAGLE": [
@@ -20528,7 +20547,7 @@
       },
       {
         "email": "yasin@rush-aero.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "RUSHAVIATIONSVCS": [
@@ -20976,7 +20995,7 @@
       },
       {
         "email": "jenny.gibbons@seaerospace.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "SEAEROSPACE": [
@@ -21168,11 +21187,11 @@
     "SETNA IO": [
       {
         "email": "danny.chaimovitz@setnaio.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "elizabeth.Erazo@setnaio.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "scott.loza@setnaio.com",
@@ -21201,6 +21220,10 @@
       {
         "email": "sonya@setnaio.com",
         "status": "Unknown"
+      },
+      {
+        "email": "Abir.Bounekoub@setnaio.com",
+        "status": "Answering"
       }
     ],
     "SEYTEC": [
@@ -22030,7 +22053,7 @@
       },
       {
         "email": "sergey@spare-wings.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "SPAREJET": [
@@ -22854,7 +22877,7 @@
     "TAY AVIATION": [
       {
         "email": "bugra@tayaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@tayaviation.com",
@@ -23464,13 +23487,13 @@
     "TOPAVIATION-TOOLS": [
       {
         "email": "sales@topaviation-tools.com.cn",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "TOPCAST AVIATION": [
       {
         "email": "inquiries@topcast.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "terri.cheung@topcast.com",
@@ -23746,7 +23769,7 @@
     "TRAVIRA-AIR": [
       {
         "email": "eliakim.pardede@travira-air.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "TRIADAEROSALES": [
@@ -24050,24 +24073,6 @@
     "TX": [
       {
         "email": "apssales@tx.twcbc.com",
-        "status": "Unknown"
-      }
-    ],
-    "TXTAV": [
-      {
-        "email": "kmiley@txtav.com",
-        "status": "Unknown"
-      },
-      {
-        "email": "metadata@txtav.com",
-        "status": "Unknown"
-      },
-      {
-        "email": "seus-latam@txtav.com",
-        "status": "Unknown"
-      },
-      {
-        "email": "partssales@txtav.com",
         "status": "Unknown"
       }
     ],
@@ -24928,6 +24933,10 @@
       },
       {
         "email": "Sales@vseaviation.com",
+        "status": "Answering"
+      },
+      {
+        "email": "Ashley.Coatney@vseaviation.com",
         "status": "Answering"
       }
     ],
@@ -25906,6 +25915,98 @@
       },
       {
         "email": "mpwehner@cirrusaero.com",
+        "status": "Answering"
+      }
+    ],
+    "UTMEL": [
+      {
+        "email": "cn2@utmel.cn",
+        "status": "Answering"
+      }
+    ],
+    "OMO ELECTRONIC LIMITED": [
+      {
+        "email": "sales08@omo-ic.com",
+        "status": "Answering"
+      }
+    ],
+    "BIGSKYAVIATION": [
+      {
+        "email": "amanda.charest@bigskyaviation.com",
+        "status": "Answering"
+      }
+    ],
+    "TXTAV / BEECHCRAFT": [
+      {
+        "email": "kmiley@txtav.com",
+        "status": "Answering"
+      },
+      {
+        "email": "metadata@txtav.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "seus-latam@txtav.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "partssales@txtav.com",
+        "status": "Unknown"
+      }
+    ],
+    "SUNAIRTECHNIC": [
+      {
+        "email": "quotes@sunairtechnic.com",
+        "status": "Answering"
+      }
+    ],
+    "USA LUFTHANSA": [
+      {
+        "email": "edward.holostalo@ltcs.com",
+        "status": "Answering"
+      },
+      {
+        "email": "mark.wilson@ltcs.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "martin.lux@ltcs.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "usmtrade@ltcs.com",
+        "status": "Unknown"
+      }
+    ],
+    "GERMANU LUFTHANSA": [
+      {
+        "email": "component-sales-eumea@lht.dlh.de",
+        "status": "Unknown"
+      },
+      {
+        "email": "lufthansa-component-sales@lht.dlh.de",
+        "status": "Answering"
+      },
+      {
+        "email": "material.sales@lht.dlh.de",
+        "status": "Unknown"
+      }
+    ],
+    "EX-CHANGEPARTS": [
+      {
+        "email": "bjorn.jansson@ex-changeparts.com",
+        "status": "Answering"
+      },
+      {
+        "email": "kristofer.piber@ex-changeparts.com",
+        "status": "Answering"
+      },
+      {
+        "email": "jessica.eriksson@ex-changeparts.com",
+        "status": "Answering"
+      },
+      {
+        "email": "louise@ex-changeparts.com",
         "status": "Answering"
       }
     ]
