@@ -13,17 +13,17 @@
 
 <style>
 :root {
-  --brand:#0F6FDE; --brand-d:#0A56B0; --brand-lt:#EBF3FF;
-  --bg:#F7F9FC; --bg2:#EEF0F4; --white:#fff;
-  --border:#DDE2EC; --border2:#E8EBF2;
-  --text:#0F1623; --muted:#64748B; --muted2:#94A3B8;
+  --brand:#1A56DB; --brand-d:#1447C0; --brand-lt:#EEF4FF;
+  --bg:#F5F6F8; --bg2:#ECEEF2; --white:#FFFFFF;
+  --border:#D8DCE6; --border2:#E4E7EF;
+  --text:#111827; --muted:#6B7280; --muted2:#9CA3AF;
   --red:#DC2626; --red-lt:#FEF2F2;
   --orange:#D97706; --orange-lt:#FFFBEB;
   --green:#16A34A; --green-lt:#F0FDF4;
   --purple:#7C3AED;
-  --r:6px; --r2:10px;
-  --sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.05);
-  --sh2:0 4px 16px rgba(0,0,0,.10);
+  --r:5px; --r2:8px;
+  --sh:0 1px 2px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);
+  --sh2:0 4px 12px rgba(0,0,0,.08);
   --font:'Inter',-apple-system,sans-serif;
   --mono:'JetBrains Mono',monospace;
   --nav-w:230px;
@@ -36,53 +36,22 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:20px}
 ::-webkit-scrollbar-thumb:hover{background:var(--muted2)}
 
-/* ════ RUSH MODE ════ */
-:root{--rush:#E11D48;--rush-d:#BE123C;--rush-lt:#FFF1F2;--rush-b:#FECDD3;}
-#panel-rush{flex-direction:column;overflow:hidden;background:var(--bg)}
-.rush-scroll{flex:1;overflow-y:auto;padding:20px 18px 48px}
-.rush-topbar{background:#fff;border-bottom:1px solid var(--border2);padding:10px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0}
-.rush-tog-wrap{display:flex;align-items:center;gap:8px}
-.rush-tog-label{font-size:11px;font-weight:700;color:var(--muted)}
-.rush-tog{width:40px;height:22px;border-radius:20px;cursor:pointer;position:relative;border:none;padding:0;transition:background .2s;flex-shrink:0}
-.rush-tog.off{background:var(--border2)}
-.rush-tog.on{background:var(--rush)}
-.rush-tog-knob{position:absolute;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
-.rush-tog.off .rush-tog-knob{left:3px}
-.rush-tog.on .rush-tog-knob{left:21px}
-.rush-status{font-size:11px;font-weight:700;color:var(--muted2)}
-.rush-status.on{color:var(--rush)}
-.rush-inactive-msg{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--muted2);text-align:center;padding:60px 20px}
-.rush-inactive-msg .big{font-size:40px;opacity:.25}
-.rush-inactive-msg .msg{font-size:14px;font-weight:600;color:var(--muted)}
-.rush-inactive-msg .sub{font-size:12px;color:var(--muted2)}
-.rush-sec{background:#fff;border:1.5px solid var(--border2);border-radius:14px;margin-bottom:14px;overflow:hidden}
-.rush-sec-head{padding:11px 16px;background:var(--bg);border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:8px}
-.rush-sec-icon{font-size:15px}
-.rush-sec-title{font-size:12px;font-weight:800;color:var(--text)}
-.rush-sec-body{padding:14px 16px}
-.rush-sw{position:relative;margin-bottom:10px}
-.rush-sw input{width:100%;padding:9px 12px 9px 36px;border:1.5px solid var(--border2);border-radius:10px;font-size:13px;font-family:var(--font);outline:none;transition:border-color .15s;background:var(--bg);color:var(--text)}
-.rush-sw input:focus{border-color:var(--rush);background:#fff}
-.rush-sw::before{content:'';position:absolute;left:11px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") center/contain no-repeat}
-.rush-fb{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
-#rushTabBtn.rush-on{color:var(--rush)!important;font-weight:800!important}
-
 /* ── AUTH ── */
 #loginScreen{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center}
-.auth-card{background:var(--white);border:1px solid var(--border2);border-radius:18px;padding:40px 44px 36px;width:420px;box-shadow:0 8px 32px rgba(0,0,0,.10)}
-.auth-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:24px}
-.auth-logo-icon{width:150px;display:flex;align-items:center;justify-content:center;}
-.auth-logo-text{font-size:18px;font-weight:700;letter-spacing:-.3px}
-.auth-tabs{display:flex;background:var(--bg2);border-radius:10px;padding:3px;gap:3px;margin-bottom:24px}
-.auth-tab{flex:1;padding:8px;font-size:12px;font-weight:600;font-family:var(--font);border:none;background:transparent;cursor:pointer;color:var(--muted);border-radius:8px;transition:.15s}
+.auth-card{background:var(--white);border:1px solid var(--border2);border-radius:12px;padding:36px 40px 32px;width:400px;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+.auth-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:22px}
+.auth-logo-icon{width:140px;display:flex;align-items:center;justify-content:center;}
+.auth-logo-text{font-size:17px;font-weight:700;letter-spacing:-.3px}
+.auth-tabs{display:flex;background:var(--bg2);border-radius:8px;padding:3px;gap:3px;margin-bottom:22px}
+.auth-tab{flex:1;padding:7px;font-size:12px;font-weight:600;font-family:var(--font);border:none;background:transparent;cursor:pointer;color:var(--muted);border-radius:6px;transition:.15s}
 .auth-tab.active{background:var(--white);color:var(--brand);box-shadow:var(--sh)}
 .auth-panel{display:none}.auth-panel.active{display:block}
-.auth-sub{font-size:12px;color:var(--muted);margin-bottom:20px}
-.af{margin-bottom:14px}
-.af label{display:block;font-size:10px;font-weight:700;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.6px}
-.af input{width:100%;padding:10px 14px;border:1.5px solid var(--border2);border-radius:10px;font-size:13px;font-family:var(--font);outline:none;transition:border-color .15s,box-shadow .15s;background:var(--bg)}
-.af input:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(15,111,222,.10);background:var(--white)}
-.abtn{width:100%;padding:11px;background:var(--brand);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:700;font-family:var(--font);cursor:pointer;transition:background .15s;margin-top:4px;letter-spacing:.1px}
+.auth-sub{font-size:12px;color:var(--muted);margin-bottom:18px}
+.af{margin-bottom:13px}
+.af label{display:block;font-size:10px;font-weight:700;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.6px}
+.af input{width:100%;padding:9px 13px;border:1px solid var(--border2);border-radius:8px;font-size:13px;font-family:var(--font);outline:none;transition:border-color .15s,box-shadow .15s;background:var(--bg)}
+.af input:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(26,86,219,.08);background:var(--white)}
+.abtn{width:100%;padding:10px;background:var(--brand);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;font-family:var(--font);cursor:pointer;transition:background .15s;margin-top:4px}
 .abtn:hover{background:var(--brand-d)}.abtn:disabled{background:var(--muted2);cursor:not-allowed}
 .aerr{color:var(--red);font-size:12px;text-align:center;margin-top:10px;min-height:16px}
 .aok{color:var(--green);font-size:12px;text-align:center;margin-top:10px;min-height:16px}
@@ -95,28 +64,28 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13
 #appScreen.visible{display:flex}
 
 /* ── TOPBAR ── */
-.topbar{background:var(--white);border-bottom:1px solid var(--border2);padding:0 18px;height:50px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-shrink:0;box-shadow:0 1px 0 var(--border2)}
+.topbar{background:var(--white);border-bottom:1px solid var(--border);padding:0 20px;height:48px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-shrink:0}
 .tb-brand{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .tb-brand-icon{display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800}
 .tb-brand-name{font-size:14px;font-weight:700;letter-spacing:-.2px}.tb-brand-name span{color:var(--brand)}
 .tb-center{flex:1;display:flex;justify-content:center;overflow:hidden;min-width:0}
-.clocks{display:flex;gap:6px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;align-items:center;padding:2px 0}
-.ck{background:var(--bg);border:1.5px solid var(--border2);padding:4px 10px;border-radius:8px;text-align:center;min-width:58px;flex-shrink:0;transition:border-color .15s}
+.clocks{display:flex;gap:4px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;align-items:center;padding:2px 0}
+.ck{background:var(--bg);border:1px solid var(--border2);padding:3px 9px;border-radius:6px;text-align:center;min-width:56px;flex-shrink:0;transition:border-color .15s}
 .ck:hover{border-color:var(--brand)}
-.ck .cy{font-size:8px;font-weight:800;color:var(--brand);letter-spacing:1.2px;text-transform:uppercase}
+.ck .cy{font-size:8px;font-weight:700;color:var(--brand);letter-spacing:1px;text-transform:uppercase}
 .ck .ct{font-size:11px;color:var(--muted);white-space:nowrap;font-weight:500;margin-top:1px;font-family:var(--mono)}
-.tb-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.tb-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .fn{font-size:11px;color:var(--muted2);max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ub{display:flex;align-items:center;gap:8px}
-.ua{width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;box-shadow:0 2px 6px rgba(15,111,222,.3)}
+.ub{display:flex;align-items:center;gap:7px}
+.ua{width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
 .un{font-size:12px;font-weight:600;color:var(--text)}
-.lo-btn{border:1.5px solid var(--border2);background:transparent;cursor:pointer;color:var(--muted);font-size:11px;padding:5px 11px;border-radius:8px;font-family:var(--font);font-weight:600;transition:.12s}
+.lo-btn{border:1px solid var(--border2);background:transparent;cursor:pointer;color:var(--muted);font-size:11px;padding:5px 10px;border-radius:6px;font-family:var(--font);font-weight:600;transition:.12s}
 .lo-btn:hover{border-color:var(--red);color:var(--red);background:var(--red-lt)}
 
 /* ── TABBAR ── */
-.tabbar{background:var(--white);display:flex;flex-shrink:0;padding:0 14px;border-bottom:1px solid var(--border2);gap:2px}
-.tbtn{padding:0 18px;height:40px;font-size:12px;font-weight:500;cursor:pointer;border:none;background:none;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:.12s;white-space:nowrap;font-family:var(--font)}
-.tbtn:hover{color:var(--text)}.tbtn.active{color:var(--brand);border-bottom-color:var(--brand);font-weight:700}
+.tabbar{background:var(--white);display:flex;flex-shrink:0;padding:0 16px;border-bottom:1px solid var(--border);gap:0}
+.tbtn{padding:0 16px;height:38px;font-size:12px;font-weight:500;cursor:pointer;border:none;background:none;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:.12s;white-space:nowrap;font-family:var(--font)}
+.tbtn:hover{color:var(--text)}.tbtn.active{color:var(--brand);border-bottom-color:var(--brand);font-weight:600}
 
 /* ── MAIN WRAPPER ── */
 .app-body{flex:1;display:flex;flex-direction:column;overflow:hidden;min-height:0}
@@ -125,33 +94,26 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13
 .panel.active{display:flex}
 
 /* ── STATUS BAR ── */
-.statusbar{background:var(--white);border-top:1px solid var(--border);padding:4px 16px;font-size:10px;font-weight:500;color:var(--muted2);letter-spacing:.2px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.statusbar{background:var(--white);border-top:1px solid var(--border);padding:3px 16px;font-size:10px;font-weight:500;color:var(--muted2);letter-spacing:.2px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 /* ── HOME GRID ── */
-.hg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:4px}
-.hg-card{background:var(--white);border:1.5px solid var(--border2);border-radius:14px;padding:20px 12px 16px;cursor:pointer;transition:all .18s cubic-bezier(.34,1,.64,1);box-shadow:0 1px 3px rgba(0,0,0,.05);display:flex;flex-direction:column;align-items:center;gap:10px;user-select:none;position:relative;overflow:hidden;text-align:center}
-.hg-card:hover{border-color:#93B4F5;background:#F8FAFF;transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,111,222,.12)}
-.hg-card:active{transform:translateY(0) scale(.98)}
+.hg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:4px}
+.hg-card{background:var(--white);border:1px solid var(--border2);border-radius:8px;padding:16px 12px 14px;cursor:pointer;transition:border-color .15s,box-shadow .15s;display:flex;flex-direction:column;align-items:flex-start;gap:6px;user-select:none;position:relative}
+.hg-card:hover{border-color:var(--brand);box-shadow:0 2px 8px rgba(26,86,219,.1)}
+.hg-card:active{transform:scale(.99)}
 .hg-card.step{border-color:var(--border2)}
-.hg-card.step.selected,.hg-card.ref.selected{border-color:var(--brand);background:#EEF4FF}
-.hg-icon-wrap{width:46px;height:46px;border-radius:50%;background:#EEF4FF;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;transition:background .18s}
-.hg-card:hover .hg-icon-wrap{background:#DDEAFF}
-.hg-icon{font-size:20px;line-height:1}
-.hg-step-num{font-size:9px;font-weight:800;color:var(--brand);letter-spacing:1px;text-transform:uppercase}
-.hg-title{font-size:12px;font-weight:700;color:var(--text);line-height:1.3}
+.hg-card.step.selected,.hg-card.ref.selected{border-color:var(--brand);background:var(--brand-lt)}
+.hg-icon-wrap{display:none}
+.hg-icon{display:none}
+.hg-step-num{font-size:9px;font-weight:700;color:var(--brand);letter-spacing:.8px;text-transform:uppercase}
+.hg-title{font-size:12px;font-weight:600;color:var(--text);line-height:1.3}
 .hg-sub{font-size:10px;color:var(--muted);line-height:1.35}
-
-/* ── CALLOUT FLASH — disabled ── */
-
-/* ── AUTO RETURN COUNTDOWN ── */
-#autoReturnBar{transition:opacity .3s}
-
 
 .loading-overlay{position:fixed;inset:0;background:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;z-index:500;font-size:13px;color:var(--text);font-weight:600;backdrop-filter:blur(2px)}
 .loading-overlay.hidden{display:none}
 
 /* ════════════════════════════════
-   DOCS PANEL — GitBook style
+   DOCS PANEL
 ════════════════════════════════ */
 .docs-shell{display:flex;flex:1;overflow:hidden;height:100%}
 
@@ -159,7 +121,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13
 .docs-nav{width:var(--nav-w);flex-shrink:0;background:var(--white);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;transition:width .2s}
 .nav-search-box{padding:10px 12px;border-bottom:1px solid var(--border2);flex-shrink:0}
 .nav-search-wrap{position:relative}
-.nav-search-wrap input{width:100%;padding:7px 10px 7px 32px;border:1.5px solid var(--border);border-radius:var(--r);font-size:12px;font-family:var(--font);outline:none;background:var(--bg);transition:border-color .15s;color:var(--text)}
+.nav-search-wrap input{width:100%;padding:7px 10px 7px 32px;border:1px solid var(--border);border-radius:var(--r);font-size:12px;font-family:var(--font);outline:none;background:var(--bg);transition:border-color .15s;color:var(--text)}
 .nav-search-wrap input:focus{border-color:var(--brand);background:var(--white)}
 .nav-search-wrap::before{content:'';position:absolute;left:9px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") center/contain no-repeat}
 .nav-scroll{flex:1;overflow-y:auto;padding:8px 0 20px}
@@ -172,7 +134,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13
 
 /* Content area */
 .docs-content{flex:1;background:var(--bg)}
-.docs-inner{max-width:800px;margin:0 auto;padding:32px 36px 80px}
+.docs-inner{max-width:760px;margin:0 auto;padding:28px 32px 80px}
 
 /* Search bar notification */
 .docs-search-notify{background:var(--brand-lt);border-bottom:1px solid #C7DEFF;padding:7px 16px;display:none;align-items:center;gap:8px;font-size:12px;color:var(--brand);font-weight:500;flex-shrink:0}
@@ -183,7 +145,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 
 /* ── DOCS PAGE NAV (prev/next) ── */
 .docs-page-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 18px;background:var(--white);border-bottom:1px solid var(--border2);flex-shrink:0}
-.dpn-btn{display:flex;align-items:center;gap:6px;padding:6px 14px;border:1.5px solid var(--border2);border-radius:10px;background:var(--white);cursor:pointer;font-family:var(--font);font-size:12px;font-weight:600;color:var(--muted);transition:.12s;min-width:0;max-width:44%}
+.dpn-btn{display:flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid var(--border2);border-radius:8px;background:var(--white);cursor:pointer;font-family:var(--font);font-size:12px;font-weight:600;color:var(--muted);transition:.12s;min-width:0;max-width:44%}
 .dpn-btn:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-lt)}
 .dpn-btn:disabled{opacity:.35;cursor:not-allowed;pointer-events:none}
 .dpn-btn.prev{flex-direction:row}
@@ -201,53 +163,53 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 
 /* Page */
 .doc-page{display:none}.doc-page.active{display:block}
-.pg-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-.5px;line-height:1.2}
-.pg-sub{font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6;padding-bottom:20px;border-bottom:1px solid var(--border2)}
+.pg-title{font-size:20px;font-weight:700;color:var(--text);margin-bottom:6px;letter-spacing:-.3px;line-height:1.2}
+.pg-sub{font-size:12.5px;color:var(--muted);margin-bottom:24px;line-height:1.6;padding-bottom:16px;border-bottom:1px solid var(--border2)}
 
 /* Sections */
-.pg-section{margin-bottom:24px}
+.pg-section{margin-bottom:20px}
 .sec-title{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.9px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--border2)}
 
 /* Lists */
-.item-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px}
-.item-list li{align-items:flex-start;gap:8px;font-size:12.5px;color:var(--text);padding:7px 12px;background:var(--white);border:1.5px solid var(--border2);border-radius:10px;line-height:1.5}
+.item-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:3px}
+.item-list li{align-items:flex-start;gap:8px;font-size:12.5px;color:var(--text);padding:7px 12px;background:var(--white);border:1px solid var(--border2);border-radius:6px;line-height:1.5}
 .item-list li::before{margin:5px;content:"›";color:var(--brand);font-weight:700;flex-shrink:0;font-size:15px;margin-top:-.5px}
 .item-list.num{counter-reset:nc}
-.item-list.num li::before{content:counter(nc);counter-increment:nc;background:var(--brand);color:#fff;width:18px;height:18px;border-radius:50%;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.item-list.num li::before{content:counter(nc);counter-increment:nc;background:var(--brand);color:#fff;width:17px;height:17px;border-radius:50%;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 
 /* Callouts */
-.callout{border-radius:12px;padding:12px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.55}
-.callout-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+.callout{border-radius:8px;padding:10px 13px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.55}
+.callout-icon{font-size:14px;flex-shrink:0;margin-top:1px}
 .callout-body{flex:1}
 .callout-title{font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
-.c-warn{background:#FFFBEB;border:1.5px solid #FDE68A;color:#92400E}
+.c-warn{background:#FFFBEB;border:1px solid #FDE68A;color:#92400E}
 .c-warn .callout-title{color:var(--orange)}
-.c-info{background:var(--brand-lt);border:1.5px solid #C7DEFF;color:#1e40af}
+.c-info{background:var(--brand-lt);border:1px solid #C7DEFF;color:#1e40af}
 .c-info .callout-title{color:var(--brand)}
-.c-tip{background:var(--green-lt);border:1.5px solid #BBF7D0;color:#14532d}
+.c-tip{background:var(--green-lt);border:1px solid #BBF7D0;color:#14532d}
 .c-tip .callout-title{color:var(--green)}
-.c-purple{background:#F5F3FF;border:1.5px solid #DDD6FE;color:#4C1D95}
+.c-purple{background:#F5F3FF;border:1px solid #DDD6FE;color:#4C1D95}
 .c-purple .callout-title{color:var(--purple)}
 
 /* ── CALLOUT ACCORDION ── */
-.callout-accordion{margin-bottom:8px;border-radius:12px;overflow:hidden;border:1.5px solid}
+.callout-accordion{margin-bottom:7px;border-radius:8px;overflow:hidden;border:1px solid}
 .callout-accordion.c-warn{border-color:#FDE68A}
 .callout-accordion.c-info{border-color:#C7DEFF}
 .callout-accordion.c-tip{border-color:#BBF7D0}
 .callout-accordion.c-purple{border-color:#DDD6FE}
-.callout-accordion-toggle{width:100%;display:flex;align-items:center;gap:10px;padding:10px 14px;background:transparent;border:none;cursor:pointer;text-align:left;font-family:var(--font);font-size:12.5px;font-weight:600;transition:background .15s}
+.callout-accordion-toggle{width:100%;display:flex;align-items:center;gap:10px;padding:9px 13px;background:transparent;border:none;cursor:pointer;text-align:left;font-family:var(--font);font-size:12.5px;font-weight:600;transition:background .15s}
 .callout-accordion.c-warn .callout-accordion-toggle{background:#FFFBEB;color:#92400E}
 .callout-accordion.c-info .callout-accordion-toggle{background:var(--brand-lt);color:#1e40af}
 .callout-accordion.c-tip .callout-accordion-toggle{background:var(--green-lt);color:#14532d}
 .callout-accordion.c-purple .callout-accordion-toggle{background:#F5F3FF;color:#4C1D95}
-.callout-accordion-toggle:hover{filter:brightness(.96)}
-.callout-accordion-icon{font-size:15px;flex-shrink:0}
+.callout-accordion-toggle:hover{filter:brightness(.97)}
+.callout-accordion-icon{font-size:14px;flex-shrink:0}
 .callout-accordion-title-text{flex:1;line-height:1.3}
-.callout-accordion-title-text .callout-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:0;display:block}
-.callout-accordion-arrow{font-size:11px;flex-shrink:0;transition:transform .2s;margin-left:auto;opacity:.6}
+.callout-accordion-title-text .callout-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:0;display:block}
+.callout-accordion-arrow{font-size:10px;flex-shrink:0;transition:transform .2s;margin-left:auto;opacity:.5}
 .callout-accordion.open .callout-accordion-arrow{transform:rotate(180deg)}
-.callout-accordion-body{display:none;padding:10px 14px 12px 42px;font-size:12.5px;line-height:1.55;border-top:1px solid rgba(0,0,0,.07)}
+.callout-accordion-body{display:none;padding:9px 13px 11px 40px;font-size:12.5px;line-height:1.55;border-top:1px solid rgba(0,0,0,.06)}
 .callout-accordion.c-warn .callout-accordion-body{background:#FFFBEB;color:#92400E}
 .callout-accordion.c-info .callout-accordion-body{background:var(--brand-lt);color:#1e40af}
 .callout-accordion.c-tip .callout-accordion-body{background:var(--green-lt);color:#14532d}
@@ -255,76 +217,76 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 .callout-accordion.open .callout-accordion-body{display:block}
 
 /* Templates */
-.tpl-block{background:var(--white);border:1.5px solid var(--border2);border-radius:12px;overflow:hidden;margin-bottom:10px}
-.tpl-head{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);flex-wrap:wrap;gap:6px}
-.tpl-label{font-size:11px;font-weight:700;color:var(--text)}
-.tpl-tabs{display:flex;gap:4px;flex-wrap:wrap}
-.tpl-tab{padding:3px 10px;border:1.5px solid var(--border2);border-radius:20px;background:var(--white);font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);transition:.1s;font-family:var(--font)}
+.tpl-block{background:var(--white);border:1px solid var(--border2);border-radius:8px;overflow:hidden;margin-bottom:10px}
+.tpl-head{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--bg);border-bottom:1px solid var(--border2);flex-wrap:wrap;gap:5px}
+.tpl-label{font-size:11px;font-weight:600;color:var(--muted)}
+.tpl-tabs{display:flex;gap:3px;flex-wrap:wrap}
+.tpl-tab{padding:3px 9px;border:1px solid var(--border2);border-radius:4px;background:var(--white);font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);transition:.1s;font-family:var(--font)}
 .tpl-tab.active{background:var(--brand);color:#fff;border-color:var(--brand)}
-.tpl-body{position:relative;padding:12px 14px}
+.tpl-body{position:relative;padding:12px 13px}
 .tpl-text{font-size:12px;color:var(--text);line-height:1.7;white-space:pre-line;font-family:var(--mono);padding-right:64px}
-.tpl-copy{position:absolute;right:10px;top:10px;background:var(--bg);border:1.5px solid var(--border2);border-radius:8px;font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)}
+.tpl-copy{position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)}
 .tpl-copy:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
 
 /* Platform grid */
-.plat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
-.plat-card{background:var(--white);border:1.5px solid var(--border2);border-radius:12px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-.plat-card-title{font-size:12px;font-weight:700;color:var(--text);margin-bottom:10px}
+.plat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.plat-card{background:var(--white);border:1px solid var(--border2);border-radius:8px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.plat-card-title{font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px}
 .plat-card ul{list-style:none;padding:0;margin:0}
 .plat-card ul li{font-size:11.5px;color:var(--muted);padding:3px 0;border-bottom:1px dashed var(--border2);display:flex;align-items:flex-start;gap:5px;line-height:1.4}
 .plat-card ul li:last-child{border-bottom:none}
 .plat-card ul li::before{content:"—";color:var(--brand);flex-shrink:0}
 
 /* Glossary */
-.gloss{border:1.5px solid var(--border2);border-radius:12px;overflow:hidden}
+.gloss{border:1px solid var(--border2);border-radius:8px;overflow:hidden}
 .gloss-row{display:flex;align-items:flex-start;border-bottom:1px solid var(--border2)}
 .gloss-row:last-child{border-bottom:none}
 .gloss-row:nth-child(even){background:var(--bg)}
 .gloss-row:hover{background:var(--brand-lt)}
 .gloss-term{font-weight:700;color:var(--brand);min-width:110px;padding:7px 12px;font-size:11.5px;font-family:var(--mono);flex-shrink:0;border-right:1px solid var(--border2)}
 .gloss-def{color:var(--text);line-height:1.45;font-size:12px;padding:7px 12px;flex:1}
-.kw{font-family:var(--mono);background:var(--bg2);border:1.5px solid var(--border2);border-radius:6px;padding:1px 6px;font-size:11px;color:var(--brand);font-weight:600}
+.kw{font-family:var(--mono);background:var(--bg2);border:1px solid var(--border2);border-radius:4px;padding:1px 5px;font-size:11px;color:var(--brand);font-weight:600}
 
 
 /* ════════════════════════════════
    TOOLS PANEL
 ════════════════════════════════ */
-.tools-scroll{flex:1;overflow-y:auto;padding:16px 18px 24px}
-.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.sc{background:var(--white);border:1.5px solid var(--border2);border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-.sc-head{padding:12px 16px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:8px}
-.sc-title{font-size:11px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;color:var(--muted);flex:1}
-.sc-body{padding:16px}
-.rf-row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;margin-bottom:12px}
+.tools-scroll{flex:1;overflow-y:auto;padding:14px 16px 24px}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sc{background:var(--white);border:1px solid var(--border2);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.sc-head{padding:10px 14px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:8px}
+.sc-title{font-size:11px;font-weight:600;letter-spacing:.2px;text-transform:uppercase;color:var(--muted);flex:1}
+.sc-body{padding:14px}
+.rf-row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px}
 .rf{display:flex;flex-direction:column;gap:3px}
 .rf label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
-.rf input,.rf select{padding:8px 11px;font-family:var(--font);border:1.5px solid var(--border2);border-radius:10px;font-size:12px;outline:none;color:var(--text);background:var(--white);transition:border-color .15s}
+.rf input,.rf select{padding:7px 10px;font-family:var(--font);border:1px solid var(--border2);border-radius:6px;font-size:12px;outline:none;color:var(--text);background:var(--white);transition:border-color .15s}
 .rf input:focus,.rf select:focus{border-color:var(--brand)}
-.rm-btn{padding:9px 16px;background:var(--brand);color:#fff;border:none;border-radius:10px;font-size:12px;font-weight:600;transition:background .12s;font-family:var(--font);cursor:pointer}
+.rm-btn{padding:8px 14px;background:var(--brand);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;transition:background .12s;font-family:var(--font);cursor:pointer}
 .rm-btn:hover{background:var(--brand-d)}
-.tc{background:var(--white);border:1.5px solid var(--border2);border-radius:12px;padding:10px 13px;margin-top:8px;display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.tc{background:var(--white);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;margin-top:7px;display:flex;justify-content:space-between;align-items:center;font-size:12px}
 .tc.customer{border-color:#FDE68A;background:var(--orange-lt)}
 .tc.finished{border-color:#FECACA;background:var(--red-lt)}
 .tt{font-weight:700;color:var(--text);font-size:11px;font-family:var(--mono)}
-.tr-btn{background:var(--bg);border:1.5px solid var(--border2);padding:4px 10px;border-radius:8px;cursor:pointer;font-size:11px;color:var(--muted);font-weight:600;transition:.12s;font-family:var(--font)}
+.tr-btn{background:var(--bg);border:1px solid var(--border2);padding:4px 9px;border-radius:5px;cursor:pointer;font-size:11px;color:var(--muted);font-weight:600;transition:.12s;font-family:var(--font)}
 .tr-btn:hover{color:var(--red);border-color:#FECACA}
 .sw{position:relative;margin-bottom:10px}
-.sw input{width:100%;padding:9px 12px 9px 36px;border:1.5px solid var(--border2);border-radius:10px;font-size:13px;font-family:var(--font);outline:none;transition:border-color .15s}
+.sw input{width:100%;padding:8px 12px 8px 34px;border:1px solid var(--border2);border-radius:6px;font-size:13px;font-family:var(--font);outline:none;transition:border-color .15s}
 .sw input:focus{border-color:var(--brand)}
-.sw::before{content:'';position:absolute;left:11px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") center/contain no-repeat}
-.fb{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
-.fbtn{padding:5px 13px;border:1.5px solid var(--border2);background:var(--white);border-radius:20px;font-size:11px;font-weight:600;color:var(--muted);transition:.12s;cursor:pointer;font-family:var(--font)}
+.sw::before{content:'';position:absolute;left:11px;top:50%;transform:translateY(-50%);width:13px;height:13px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") center/contain no-repeat}
+.fb{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.fbtn{padding:4px 11px;border:1px solid var(--border2);background:var(--white);border-radius:4px;font-size:11px;font-weight:600;color:var(--muted);transition:.12s;cursor:pointer;font-family:var(--font)}
 .fbtn:hover{border-color:var(--brand);color:var(--brand)}
 .fbtn.active{background:var(--brand);color:#fff;border-color:var(--brand)}
-.card{background:var(--white);border:1.5px solid var(--border2);border-radius:12px;padding:10px 13px;margin-bottom:7px;font-size:13px;transition:box-shadow .12s}
-.card:hover{box-shadow:0 3px 12px rgba(15,111,222,.08)}
+.card{background:var(--white);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;margin-bottom:6px;font-size:13px;transition:box-shadow .12s}
+.card:hover{box-shadow:0 2px 8px rgba(26,86,219,.07)}
 .card.blacklist{background:var(--red-lt);border-color:#FECACA}
 .card.direct{border-color:#C7DEFF}
 .card.replace{border-color:#FDE68A}
 .card-hr{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;gap:8px}
 .card-title{font-weight:700;font-size:12px;color:var(--text);flex:1}
 .card.blacklist .card-title{color:var(--red)}
-.copy-btn{border:1.5px solid var(--border2);background:var(--white);padding:3px 10px;font-size:11px;border-radius:8px;cursor:pointer;font-weight:600;color:var(--muted);transition:.12s;font-family:var(--font)}
+.copy-btn{border:1px solid var(--border2);background:var(--white);padding:3px 9px;font-size:11px;border-radius:5px;cursor:pointer;font-weight:600;color:var(--muted);transition:.12s;font-family:var(--font)}
 .copy-btn:hover{background:var(--brand-lt);border-color:var(--brand);color:var(--brand)}
 .gel{display:flex;flex-direction:column;gap:2px}
 .ger{display:flex;align-items:center;padding:3px 7px;background:var(--bg);border-radius:var(--r);gap:6px}.ger .ge{flex:1;min-width:0}.ger .status-badge{margin-left:0;flex-shrink:0}.ger .cib{margin-left:auto;flex-shrink:0}
@@ -334,9 +296,9 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 .cib{flex-shrink:0;border:1px solid var(--border);background:var(--white);padding:2px 7px;font-size:10px;border-radius:var(--r);cursor:pointer;font-weight:500;color:var(--muted);transition:.12s;font-family:var(--font)}
 .cib:hover{background:var(--brand-lt);color:var(--brand);border-color:var(--brand)}
 .bl-reason{font-size:11px;color:var(--red);margin-top:4px;padding-top:4px;border-top:1px dashed #FFCDD2;font-weight:500}
-.data-notice{background:#FFFBEB;border:1px solid #FDE68A;border-left:3px solid var(--orange);border-radius:var(--r);padding:10px 14px;font-size:12px;color:#92400E;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.status-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.3px;white-space:nowrap;margin-left:auto;flex-shrink:0}
-.status-badge::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%}
+.data-notice{background:#FFFBEB;border:1px solid #FDE68A;border-left:3px solid var(--orange);border-radius:var(--r);padding:9px 13px;font-size:12px;color:#92400E;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.status-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:.2px;white-space:nowrap;margin-left:auto;flex-shrink:0}
+.status-badge::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%}
 .status-badge.answer{background:#DCFCE7;color:#15803D;border:1px solid #BBF7D0}
 .status-badge.answer::before{background:#16A34A}
 .status-badge.not-answering{background:#FEF2F2;color:#DC2626;border:1px solid #FECACA}
@@ -350,26 +312,20 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
    RESPONSIVE
 ════════════════════════════════ */
 
-/* Hamburger toggle button — hidden on desktop */
-.nav-toggle{display:none;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--border);border-radius:var(--r);background:var(--white);cursor:pointer;flex-shrink:0;color:var(--muted);font-size:16px;transition:.12s}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid var(--border);border-radius:var(--r);background:var(--white);cursor:pointer;flex-shrink:0;color:var(--muted);font-size:15px;transition:.12s}
 .nav-toggle:hover{border-color:var(--brand);color:var(--brand)}
 
-/* Overlay behind the mobile nav */
-.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:199;backdrop-filter:blur(1px)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:199;backdrop-filter:blur(1px)}
 .nav-overlay.show{display:block}
 
 @media(max-width:900px){
   :root{--nav-w:190px}
-  .docs-inner{padding:24px 20px 60px}
-  .pg-title{font-size:20px}
+  .docs-inner{padding:22px 18px 60px}
+  .pg-title{font-size:18px}
 }
 @media(max-width:680px){
     .topbar{padding:18px;display:grid;place-items: center;height:fit-content;justify-content: center;}
-
-  /* Show hamburger in tabbar area */
   .nav-toggle{display:flex;margin: 5px;}
-
-  /* Nav becomes a slide-in drawer */
   .docs-nav{
     position:fixed;left:0;top:0;bottom:0;z-index:200;
     width:240px!important;
@@ -378,7 +334,6 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
     box-shadow:var(--sh2);
   }
   .docs-nav.open{transform:translateX(0)}
-
   .tools-grid{grid-template-columns:1fr}
   .plat-grid{grid-template-columns:1fr 1fr}
   .docs-inner{padding:16px 14px 40px}
@@ -389,13 +344,9 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   .tbtn{font-size:11px;padding:0 8px}
   .plat-grid{grid-template-columns:1fr}
   .docs-inner{padding:14px 10px 40px}
-  .pg-title{font-size:18px}
-  .auth-card{width:calc(100vw - 32px);padding:28px 20px}
-  /* Collapse clocks to just 2 on very small screens */
-  .ck {
-        min-width: 54px;
-        padding: 3px 7px;
-    }
+  .pg-title{font-size:17px}
+  .auth-card{width:calc(100vw - 32px);padding:24px 18px}
+  .ck{min-width:52px;padding:3px 6px}
 }
 </style>
 </head>
@@ -455,16 +406,15 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       <div class="ub">
         <div class="ua" id="userAvatar">?</div>
         <span class="un" id="userNameDisplay">—</span>
-        <button class="lo-btn" onclick="doLogout()">✕ Logout</button>
+        <button class="lo-btn" onclick="doLogout()">Logout</button>
       </div>
     </div>
   </div>
 
   <div class="tabbar">
     <button class="nav-toggle" id="navToggleBtn" onclick="toggleDocsNav()" title="Toggle menu" style="display:none">☰</button>
-    <button class="tbtn active" onclick="switchTab('docs',this)">📚 Docs</button>
-    <button class="tbtn" id="emailDashTab" onclick="edOpenTab(this)" style="display:none">✉️ Email Dashboard</button>
-    <button class="tbtn" id="rushTabBtn" onclick="switchTab('rush',this)">⚡ Rush</button>
+    <button class="tbtn active" onclick="switchTab('docs',this)">Docs</button>
+    <button class="tbtn" id="emailDashTab" onclick="edOpenTab(this)" style="display:none">Email Dashboard</button>
   </div>
   <div class="nav-overlay" id="navOverlay" onclick="closeDocsNav()"></div>
 
@@ -479,34 +429,33 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
           <div class="docs-nav" id="docsNav" style="display:none!important"></div>
 
           <!-- HOME GRID SCREEN -->
-          <div id="homeGrid" style="flex:1;overflow-y:auto;background:var(--bg);display:flex;align-items:flex-start;justify-content:center;padding:32px 24px 48px">
-            <div style="background:var(--white);border:1.5px solid var(--border2);border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,.07);width:100%;max-width:760px;padding:36px 40px 40px">
+          <div id="homeGrid" style="flex:1;overflow-y:auto;background:var(--bg);display:flex;align-items:flex-start;justify-content:center;padding:24px 20px 48px">
+            <div style="width:100%;max-width:700px;">
 
               <!-- Header -->
-              <div style="text-align:center;margin-bottom:32px">
-                <div style="font-size:11px;font-weight:800;color:var(--brand);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:10px">ECP Panel</div>
-                <div style="font-size:24px;font-weight:800;color:var(--text);letter-spacing:-.5px;line-height:1.25;margin-bottom:6px">What are you doing now?</div>
-                <div style="font-size:13px;color:var(--muted)">Pick a step to jump straight in.</div>
+              <div style="margin-bottom:24px">
+                <div style="font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.3px;line-height:1.25;margin-bottom:4px">What are you working on?</div>
+                <div style="font-size:12px;color:var(--muted)">Select a step or reference below.</div>
               </div>
 
               <!-- Auto-return toggle -->
-              <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 16px;background:var(--bg);border:1.5px solid var(--border2);border-radius:12px;margin-bottom:28px;width:fit-content;margin-left:auto;margin-right:auto">
-                <span style="font-size:11px;font-weight:600;color:var(--muted)">⏱ Auto-return home after 10 min</span>
-                <div id="autoReturnToggle" onclick="toggleAutoReturn()" style="width:36px;height:20px;border-radius:20px;background:var(--brand);cursor:pointer;position:relative;transition:background .2s;flex-shrink:0">
-                  <div style="position:absolute;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:left .2s;left:19px" id="autoReturnKnob"></div>
+              <div style="display:flex;align-items:center;gap:8px;padding:7px 12px;background:var(--bg);border:1px solid var(--border2);border-radius:6px;margin-bottom:20px;width:fit-content">
+                <span style="font-size:11px;font-weight:500;color:var(--muted)">Auto-return home after 10 min</span>
+                <div id="autoReturnToggle" onclick="toggleAutoReturn()" style="width:32px;height:18px;border-radius:20px;background:var(--brand);cursor:pointer;position:relative;transition:background .2s;flex-shrink:0">
+                  <div style="position:absolute;top:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:left .2s;left:16px" id="autoReturnKnob"></div>
                 </div>
-                <span id="autoReturnLabel" style="font-size:10px;font-weight:700;color:var(--brand)">ON</span>
+                <span id="autoReturnLabel" style="font-size:10px;font-weight:600;color:var(--brand)">ON</span>
               </div>
 
               <!-- WORKFLOW STEPS grid -->
-              <div style="margin-bottom:28px">
-                <div style="font-size:9px;font-weight:800;color:var(--muted2);text-transform:uppercase;letter-spacing:1.8px;margin-bottom:14px;text-align:center">Workflow Steps</div>
+              <div style="margin-bottom:4px">
+                <div style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px">Workflow Steps</div>
                 <div class="hg-grid" id="hgWorkflow"></div>
               </div>
 
               <!-- REFERENCE grid -->
               <div>
-                <div style="font-size:9px;font-weight:800;color:var(--muted2);text-transform:uppercase;letter-spacing:1.8px;margin-bottom:14px;text-align:center">Reference & Tools</div>
+                <div style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;margin-top:20px">Reference & Tools</div>
                 <div class="hg-grid" id="hgRef"></div>
               </div>
 
@@ -544,7 +493,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
             </div>
             <div class="docs-search-notify" id="docsSN" style="display:none">
               <span>🔍 Results for: <strong id="docsSNterm"></strong></span>
-              <button class="dsn-clear" onclick="clearSearch()">✕ Clear</button>
+              <button class="dsn-clear" onclick="clearSearch()">Clear</button>
             </div>
             <div class="docs-inner" style="overflow-y:auto;flex:1">
 
@@ -553,7 +502,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 <div class="pg-title">Step 1 — Reviewing The RFQ</div>
 <div class="pg-sub">Verify before you act. One missed detail = hours lost later.</div>
 <div class="pg-section">
-  <div class="sec-title">✅ What to do</div>
+  <div class="sec-title">What to do</div>
   <ul class="item-list">
     <li><strong>PN + Description</strong> — must match each other</li>
     <li><strong>QTY</strong> — confirm exactly what the customer requested</li>
@@ -563,8 +512,8 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">💡 Tips</div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">ALT Verification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Sometimes suppliers offer an ALT (alternate PN). To verify it's valid: check if the <strong>description is the same</strong> as the original. Same description = valid alternate. Different = not compatible — do not accept it.</div></div>
+  <div class="sec-title">Tips</div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">ALT Verification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Sometimes suppliers offer an ALT (alternate PN). To verify it's valid: check if the <strong>description is the same</strong> as the original. Same description = valid alternate. Different = not compatible — do not accept it.</div></div>
   <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">ℹ️</span><span class="callout-accordion-title-text"><span class="callout-title">AOG Priority</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">AOG = Aircraft on Ground. The aircraft cannot fly until the part arrives. Every hour of delay costs the airline significantly. Always escalate AOG requests immediately — they bypass normal queue.</div></div>
 </div>
 </div>
@@ -576,7 +525,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 
 <!-- SUB-STEP TABS -->
 <div style="display:flex;gap:0;margin-bottom:20px;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;flex-shrink:0">
-  <button id="s2tab-tpl" onclick="s2switchTab('tpl')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--brand);color:#fff;transition:.15s">📨 Creating Template</button>
+  <button id="s2tab-tpl" onclick="s2switchTab('tpl')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--brand);color:#fff;transition:.15s">Creating Template</button>
   <button id="s2tab-search" onclick="s2switchTab('search')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--bg2);color:var(--muted);transition:.15s;border-left:1.5px solid var(--border)">🔍 PN Search</button>
   <button id="s2tab-send" onclick="s2switchTab('send')" style="flex:1;padding:9px 0;font-size:12px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--bg2);color:var(--muted);transition:.15s;border-left:1.5px solid var(--border)">📤 Sending RFQs</button>
 </div>
@@ -584,7 +533,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 <!-- TAB: Creating Template -->
 <div id="s2pane-tpl">
 <div class="pg-section">
-  <div class="sec-title">✅ What to do</div>
+  <div class="sec-title">What to do</div>
   <ul class="item-list">
     <li>One draft per PN (or combine if same suppliers)</li>
     <li><strong>QTY</strong> and <strong>Description</strong> — match exactly what the customer sent</li>
@@ -593,12 +542,12 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">📨 RFQ Email Builder</div>
+  <div class="sec-title">RFQ Email Builder</div>
   <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:10px">
 
     <!-- Builder header -->
     <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-      <span style="font-size:11px;font-weight:700;color:var(--text)">📨 RFQ Email Builder</span>
+      <span style="font-size:11px;font-weight:700;color:var(--text)">RFQ Email Builder</span>
       <button onclick="rfqAddRow()" style="padding:4px 12px;background:var(--brand);color:#fff;border:none;border-radius:20px;font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:.12s" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">+ Add PN</button>
     </div>
 
@@ -626,8 +575,8 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 
     <!-- Generate button -->
     <div style="padding:10px 12px;border-top:1px solid var(--border2);display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-      <button onclick="rfqGenerate()" style="padding:8px 20px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;transition:.12s;letter-spacing:.1px" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">⚡ Generate Template</button>
-      <button onclick="rfqClear()" style="padding:8px 14px;background:var(--bg2);color:var(--muted);border:1.5px solid var(--border);border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:.12s" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">✕ Clear All</button>
+      <button onclick="rfqGenerate()" style="padding:8px 20px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;transition:.12s;letter-spacing:.1px" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">Generate Template</button>
+      <button onclick="rfqClear()" style="padding:8px 14px;background:var(--bg2);color:var(--muted);border:1.5px solid var(--border);border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:.12s" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Clear All</button>
     </div>
 
     <!-- Output -->
@@ -887,7 +836,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 })();
 </script>
 <div class="pg-section">
-  <div class="sec-title">💡 Tips</div>
+  <div class="sec-title">Tips</div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Multiple PNs — Use Supplier View</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">When working multiple PNs at once, paste them all in Partbase, ILS, or Locatory and enable <strong>Supplier View / Bulk Entry</strong>. It shows which suppliers have which PNs — then edit your template to include only what that specific supplier has.</div></div>
 </div>
 </div>
@@ -895,7 +844,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 <!-- TAB: PN Search -->
 <div id="s2pane-search" style="display:none">
 <div class="pg-section">
-  <div class="sec-title">✅ What to do</div>
+  <div class="sec-title">What to do</div>
   <ul class="item-list">
     <li>Search the PN on the <strong>Internal Google Sheet</strong> first — avoid duplicating work already done</li>
     <li>Search <strong>Main Platforms</strong>: ILS, Partbase, Locatory, B2B, Stockmarket</li>
@@ -906,7 +855,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">🖱️ Where to click</div>
+  <div class="sec-title">️ Where to click</div>
   <ul class="item-list num">
     <li>Google Sheets → Internal tracker → search PN in the sheet</li>
     <li>Open ILS / Partbase / Locatory / B2B / Stockmarket → search PN</li>
@@ -915,16 +864,16 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">💡 Tips</div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Full Pipeline Check</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">If you sent quotes a month ago and got nothing back, revisit each platform and filter by <strong>upload date</strong> — new stock may have appeared. Also re-run Google; new supplier pages get indexed over time.</div></div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Market Price Research</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Check price using: quotes you've collected, Partbase Market Price button, Stockmarket Price Search, Proponent, AJW, or Satair. For <strong>New (NE)</strong> parts these platforms are especially useful.</div></div>
+  <div class="sec-title">Tips</div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Full Pipeline Check</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">If you sent quotes a month ago and got nothing back, revisit each platform and filter by <strong>upload date</strong> — new stock may have appeared. Also re-run Google; new supplier pages get indexed over time.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Market Price Research</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Check price using: quotes you've collected, Partbase Market Price button, Stockmarket Price Search, Proponent, AJW, or Satair. For <strong>New (NE)</strong> parts these platforms are especially useful.</div></div>
   <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🛠️</span><span class="callout-accordion-title-text"><span class="callout-title">GetProspect Extension</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">GetProspect is a browser extension that extracts professional emails from LinkedIn profiles. Use it when you need a direct contact at a supplier or manufacturer — especially for OEM outreach.</div></div>
   <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">✈️</span><span class="callout-accordion-title-text"><span class="callout-title">Aviation Alphabet on the Phone</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">When calling a supplier to spell a PN or email, always use the aviation phonetic alphabet (Alpha, Bravo, Charlie, Delta…). Avoids costly confusion between similar-sounding letters like B/D, M/N, or S/F.</div></div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">AR — Last Resort Option</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">As Removed (AR) can only be offered after finding no certified stock anywhere. AR parts have a <strong>removal tag only</strong> — not a certification — since they haven't been sent to a repair shop yet.</div></div>
 </div>
 
 <div class="pg-section">
-  <div class="sec-title">🔍 Contact Search</div>
+  <div class="sec-title">Contact Search</div>
   <div id="dataNoticeSearch" class="data-notice" style="display:none;">
   </div>
   <div class="sw"><input type="text" id="searchInputSearch" placeholder="Search company, email, or keyword…" oninput="lazyThenCall(()=>doSearchSearch(this.value))"></div>
@@ -941,7 +890,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 <!-- TAB: Sending RFQs -->
 <div id="s2pane-send" style="display:none">
 <div class="pg-section">
-  <div class="sec-title">✅ What to do</div>
+  <div class="sec-title">What to do</div>
   <ul class="item-list">
     <li>Include the supplier's <strong>name</strong> — never send a generic "Dear Sir/Madam"</li>
     <li>Use the <strong>Direct Contact</strong> (from Search tab) and CC the general sales email</li>
@@ -952,10 +901,10 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">📨 What to send</div>
+  <div class="sec-title">What to send</div>
   <div class="tpl-block" id="tb-s4">
-    <div class="tpl-head"><div class="tpl-label">📨 RFQ Email</div>
-      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s4',0,this)">Single PN</button><button class="tpl-tab" onclick="swTpl('s4',1,this)">Multiple PNs</button></div>
+    <div class="tpl-head"><div class="tpl-label">RFQ Email</div>
+      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s4',0,this)">Opt 1</button><button class="tpl-tab" onclick="swTpl('s4',1,this)">Opt 2</button><button class="tpl-tab" onclick="swTpl('s4',2,this)">Opt 3</button><button class="tpl-tab" onclick="swTpl('s4',3,this)">Opt 4</button><button class="tpl-tab" onclick="swTpl('s4',4,this)">Opt 5</button><button class="tpl-tab" onclick="swTpl('s4',5,this)">Opt 6</button><button class="tpl-tab" onclick="swTpl('s4',6,this)">Opt 7</button><button class="tpl-tab" onclick="swTpl('s4',7,this)">Opt 8</button><button class="tpl-tab" onclick="swTpl('s4',8,this)">Opt 9</button><button class="tpl-tab" onclick="swTpl('s4',9,this)">Opt 10</button></div>
     </div>
     <div class="tpl-body"><div class="tpl-text" id="tt-s4">Subject: RFQ PN [0123FA2]
 
@@ -970,10 +919,10 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
   </div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">⚠️ Important Notes</div>
+  <div class="sec-title">️ Important Notes</div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Avoid Duplicates — Search by Domain</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Search <span class="kw">@domainname.com</span> in Contact Search — not one specific address. This catches all variants at the same company: rfq@, sales@, parts@, purchasing@ etc.</div></div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Don't Blow Up the Market</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Sending RFQs to too many suppliers creates fake demand and inflates prices. Target your trusted partners first, then expand if needed.</div></div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Client Not Answering?</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Call the company → Call them directly → Find other contacts at same company → Search each platform (PB, ILS, Locatory, Stockmarket) for alternative emails.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Client Not Answering?</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Call the company → Call them directly → Find other contacts at same company → Search each platform (PB, ILS, Locatory, Stockmarket) for alternative emails.</div></div>
 </div>
 </div>
 
@@ -995,7 +944,7 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 <!-- TAB: Quote Treatment -->
 <div id="s5pane-quote">
 <div class="pg-section">
-  <div class="sec-title">✅ What to verify</div>
+  <div class="sec-title">What to verify</div>
   <ul class="item-list">
     <li>PN matches your RFQ exactly</li>
     <li>Description matches (if an ALT is offered — verify same description)</li>
@@ -1008,22 +957,22 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">📖 Key Terms</div>
-  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🔄</span><span class="callout-accordion-title-text"><span class="callout-title">Outright vs Exchange</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body"><strong>Outright:</strong> You pay money, you get the part. Simple purchase.<br><strong>Exchange:</strong> You give your AR core part + cash → receive a repaired/OH unit. Two types: Flat Rate Exchange and Standard Exchange. <em>Never accept without manager approval.</em></div></div>
-  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⏳</span><span class="callout-accordion-title-text"><span class="callout-title">Lead Time</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Part is NOT yet repaired — no certification yet. It may come with trace documents (PPW) and NIS documentation. Always inform the client. Ask the repair shop for their <strong>TAT</strong> (Turn Around Time) to give the client a realistic delivery date.</div></div>
-  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">❓</span><span class="callout-accordion-title-text"><span class="callout-title">OR — On Request</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Supplier doesn't know the condition yet. They must request the part from a repair shop first. Condition (OH, SV…) will be confirmed after inspection. Treat like lead time — no cert yet.</div></div>
-  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🔖</span><span class="callout-accordion-title-text"><span class="callout-title">C/C — Condition/Condition (e.g. RP/OH)</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Current condition / what it becomes after certification. e.g. RP/OH means repaired now, will become OH after cert. Treat as uncertain until the actual cert is received.</div></div>
-  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📦</span><span class="callout-accordion-title-text"><span class="callout-title">QTY on Cert vs Quote</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Cert says 10, quote says 2 — this is normal. The shop repaired 10 units total, sold 8, has 2 remaining — which is what they quoted you for.</div></div>
+  <div class="sec-title">Key Terms</div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Outright vs Exchange</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body"><strong>Outright:</strong> You pay money, you get the part. Simple purchase.<br><strong>Exchange:</strong> You give your AR core part + cash → receive a repaired/OH unit. Two types: Flat Rate Exchange and Standard Exchange. <em>Never accept without manager approval.</em></div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Lead Time</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Part is NOT yet repaired — no certification yet. It may come with trace documents (PPW) and NIS documentation. Always inform the client. Ask the repair shop for their <strong>TAT</strong> (Turn Around Time) to give the client a realistic delivery date.</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">OR — On Request</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Supplier doesn't know the condition yet. They must request the part from a repair shop first. Condition (OH, SV…) will be confirmed after inspection. Treat like lead time — no cert yet.</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">C/C — Condition/Condition (e.g. RP/OH)</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Current condition / what it becomes after certification. e.g. RP/OH means repaired now, will become OH after cert. Treat as uncertain until the actual cert is received.</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">QTY on Cert vs Quote</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Cert says 10, quote says 2 — this is normal. The shop repaired 10 units total, sold 8, has 2 remaining — which is what they quoted you for.</div></div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">⚠️ Important Notes</div>
+  <div class="sec-title">️ Important Notes</div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Add All Quotes — Even Bad Ones</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Record every quote in the database — even if sold, overpriced, or wrong condition. Future requests for the same PN benefit from this data, and revised quotes need the history.</div></div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">When to Ask for Certification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Request the cert only when: price is good + tag date is recent + condition is right + part is in stock. Don't ask from every supplier — it wastes their time and yours, and can put you in an awkward position.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">When to Ask for Certification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Request the cert only when: price is good + tag date is recent + condition is right + part is in stock. Don't ask from every supplier — it wastes their time and yours, and can put you in an awkward position.</div></div>
 </div>
 
 <!-- CERTIFICATION AVAILABILITY TOGGLE -->
 <div class="pg-section">
-  <div class="sec-title">🏷️ Certification Available?</div>
+  <div class="sec-title">️ Certification Available?</div>
   <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);margin-bottom:10px">
     <span style="font-size:13px;font-weight:600;color:var(--text)">Is a certification available for this part?</span>
     <label style="display:flex;align-items:center;gap:6px;cursor:pointer;margin-left:auto">
@@ -1032,7 +981,7 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
     </label>
   </div>
   <div id="certQuickPanel" style="display:none">
-    <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">✅</span><span class="callout-accordion-title-text"><span class="callout-title">Certification is available — proceed to review it</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Switch to the <strong>Certification Review</strong> tab above to verify all cert fields before proceeding to the invoice step.</div></div>
+    <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Certification is available — proceed to review it</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Switch to the <strong>Certification Review</strong> tab above to verify all cert fields before proceeding to the invoice step.</div></div>
     <button onclick="s5switchTab('cert')" style="margin-top:8px;padding:8px 18px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:600;font-family:var(--font);cursor:pointer">→ Go to Certification Review</button>
   </div>
 </div>
@@ -1041,7 +990,7 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 <!-- TAB: Certification Review -->
 <div id="s5pane-cert" style="display:none">
 <div class="pg-section">
-  <div class="sec-title">✅ What to check</div>
+  <div class="sec-title">What to check</div>
   <ul class="item-list">
     <li>PN on cert matches the PN on your RFQ</li>
     <li>Description on cert matches</li>
@@ -1055,15 +1004,15 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">📖 Certification Types</div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🇺🇸</span><span class="callout-accordion-title-text"><span class="callout-title">FAA Form 8130-3</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">US airworthiness approval tag. Block 14a = Approved per 14 CFR Part 43. A <strong>single checkmark in Block 14a</strong> = New part (never installed). Block 14b = approved under other regulations.</div></div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🇪🇺</span><span class="callout-accordion-title-text"><span class="callout-title">EASA Form 1</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">European equivalent of the FAA 8130. Block 13a = Release statement. Required for all parts entering European aviation maintenance operations.</div></div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📋</span><span class="callout-accordion-title-text"><span class="callout-title">Dual Release</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Both FAA and EASA approval on one cert. Written in <strong>Block 12 at the very bottom line</strong>. Most flexible cert type — accepted by both US and European operators.</div></div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📋</span><span class="callout-accordion-title-text"><span class="callout-title">ATA 106</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">ATA Specification 106 — industry-standard certification for serviceable aircraft parts issued by US repair stations. Widely accepted alongside the 8130.</div></div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📋</span><span class="callout-accordion-title-text"><span class="callout-title">CofC — Certificate of Conformance</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Manufacturer's declaration that the part meets its approved design specifications. Used for new surplus (NE/NOS) parts that don't have an 8130. Confirms the part was manufactured to spec.</div></div>
+  <div class="sec-title">Certification Types</div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">FAA Form 8130-3</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">US airworthiness approval tag. Block 14a = Approved per 14 CFR Part 43. A <strong>single checkmark in Block 14a</strong> = New part (never installed). Block 14b = approved under other regulations.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">EASA Form 1</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">European equivalent of the FAA 8130. Block 13a = Release statement. Required for all parts entering European aviation maintenance operations.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Dual Release</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Both FAA and EASA approval on one cert. Written in <strong>Block 12 at the very bottom line</strong>. Most flexible cert type — accepted by both US and European operators.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">ATA 106</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">ATA Specification 106 — industry-standard certification for serviceable aircraft parts issued by US repair stations. Widely accepted alongside the 8130.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">CofC — Certificate of Conformance</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Manufacturer's declaration that the part meets its approved design specifications. Used for new surplus (NE/NOS) parts that don't have an 8130. Confirms the part was manufactured to spec.</div></div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">⚠️ Important Notes</div>
+  <div class="sec-title">️ Important Notes</div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Date Format is Critical</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">The format <em>must</em> be <span class="kw">MM/DD/YYYY</span>. If you're unsure, Google the date shown on the cert. A swapped month/day causes rejection at customs, compliance, and the client level.</div></div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Supplier Name in Block 12 or 5</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">If you see a supplier's name in Block 12 or 5, the cert must be rejected or corrected by the issuing shop. Submitting it with a supplier name visible is a compliance violation.</div></div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Remove All Unwanted Paperwork</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Before submitting a cert package to a client, remove any irrelevant documents. Only approved trace documents + the cert should go to the client.</div></div>
@@ -1078,13 +1027,13 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 <div class="pg-title">Step 5 — Trace &amp; PPW</div>
 <div class="pg-sub">Trace = the part's full history. No trace = no trust. Fill this section with your specific requirements.</div>
 <div class="pg-section">
-  <div class="sec-title">📋 What is Trace / PPW?</div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📁</span><span class="callout-accordion-title-text"><span class="callout-title">Trace / PPW — Paperwork</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">All documents that follow a part's history: removal tags, work orders, previous certifications, shop findings reports, overhaul records. The more complete the trace, the more verifiable the part's airworthiness history.</div></div>
+  <div class="sec-title">What is Trace / PPW?</div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Trace / PPW — Paperwork</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">All documents that follow a part's history: removal tags, work orders, previous certifications, shop findings reports, overhaul records. The more complete the trace, the more verifiable the part's airworthiness history.</div></div>
   <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🏷️</span><span class="callout-accordion-title-text"><span class="callout-title">AR Part = Removal Tag, Not Certification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">An As Removed part has a <strong>Removal Tag only</strong> — not a certification. This is because it has not yet been sent to a repair shop. Once repaired, it receives a proper cert (8130, EASA Form 1, etc.).</div></div>
-  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⏳</span><span class="callout-accordion-title-text"><span class="callout-title">Lead Time Parts</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">No cert yet — the part hasn't been repaired. May include trace documents and NIS (New In Service) paperwork showing the part's origin and prior use history.</div></div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Lead Time Parts</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">No cert yet — the part hasn't been repaired. May include trace documents and NIS (New In Service) paperwork showing the part's origin and prior use history.</div></div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">📋 Trace Items to Check</div>
+  <div class="sec-title">Trace Items to Check</div>
   <ul class="item-list">
     <li>Removal tag (for AR parts) — confirms removal from a specific aircraft</li>
     <li>Work orders / shop findings — record of what was inspected or repaired</li>
@@ -1097,15 +1046,15 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">📖 Trace Terms Explained</div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💧</span><span class="callout-accordion-title-text"><span class="callout-title">Last / Next Hydro</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">For hydraulic components — a hydrostatic test checks structural integrity under pressure. <em>Last Hydro</em> = date of last test. <em>Next Hydro</em> = when the next test is due / expiry date. If Next Hydro is expired, the part cannot legally be used.</div></div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🔩</span><span class="callout-accordion-title-text"><span class="callout-title">PIN Life</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Used for aircraft brakes. Shows how much usable brake material remains, expressed as a percentage. 70–100% is generally acceptable. Below 70% requires careful evaluation and explicit client approval before proceeding.</div></div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🧪</span><span class="callout-accordion-title-text"><span class="callout-title">BT — Bench Test</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">A functional check performed on the ground without full disassembly or overhaul. Confirms the part operates correctly. BT condition = serviceable and tested, but not fully overhauled to new tolerances.</div></div>
+  <div class="sec-title">Trace Terms Explained</div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Last / Next Hydro</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">For hydraulic components — a hydrostatic test checks structural integrity under pressure. <em>Last Hydro</em> = date of last test. <em>Next Hydro</em> = when the next test is due / expiry date. If Next Hydro is expired, the part cannot legally be used.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">PIN Life</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Used for aircraft brakes. Shows how much usable brake material remains, expressed as a percentage. 70–100% is generally acceptable. Below 70% requires careful evaluation and explicit client approval before proceeding.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">BT — Bench Test</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">A functional check performed on the ground without full disassembly or overhaul. Confirms the part operates correctly. BT condition = serviceable and tested, but not fully overhauled to new tolerances.</div></div>
   <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⏱️</span><span class="callout-accordion-title-text"><span class="callout-title">TAT — Turn Around Time</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">How long the repair shop takes to complete work on the part — from receiving it to releasing it certified. Always ask for TAT on lead time parts so you can give the client a realistic delivery estimate.</div></div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">&#128196; Trace &amp; PPW — Example Documents</div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">&#128204;</span><span class="callout-accordion-title-text"><span class="callout-title">Example PDFs</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">The documents below are real examples of Trace &amp; PPW paperwork your team will encounter. Use the tabs to navigate between document types.</div></div>
+  <div class="sec-title">Trace &amp; PPW — Example Documents</div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Example PDFs</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">The documents below are real examples of Trace &amp; PPW paperwork your team will encounter. Use the tabs to navigate between document types.</div></div>
 
   <style>
   .ppw-wrap{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:12px;box-shadow:var(--sh2)}
@@ -1211,7 +1160,7 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
 <div class="pg-title">Step 6 — Sending The Reminders</div>
 <div class="pg-sub">3 hours after RFQ sent — follow up with everyone who hasn't replied yet.</div>
 <div class="pg-section">
-  <div class="sec-title">✅ What to do</div>
+  <div class="sec-title">What to do</div>
   <ul class="item-list">
     <li>Filter sent emails — spot the no-replies</li>
     <li><strong>Reply to the original thread</strong> — never compose a new email</li>
@@ -1219,10 +1168,10 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">📨 What to send</div>
+  <div class="sec-title">What to send</div>
   <div class="tpl-block" id="tb-s8">
-    <div class="tpl-head"><div class="tpl-label">🔔 Supplier Reminder</div>
-      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s8',0,this)">Option 1</button><button class="tpl-tab" onclick="swTpl('s8',1,this)">Option 2</button><button class="tpl-tab" onclick="swTpl('s8',2,this)">Option 3</button></div>
+    <div class="tpl-head"><div class="tpl-label">Supplier Reminder</div>
+      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s8',0,this)">Opt 1</button><button class="tpl-tab" onclick="swTpl('s8',1,this)">Opt 2</button><button class="tpl-tab" onclick="swTpl('s8',2,this)">Opt 3</button><button class="tpl-tab" onclick="swTpl('s8',3,this)">Opt 4</button><button class="tpl-tab" onclick="swTpl('s8',4,this)">Opt 5</button><button class="tpl-tab" onclick="swTpl('s8',5,this)">Opt 6</button><button class="tpl-tab" onclick="swTpl('s8',6,this)">Opt 7</button><button class="tpl-tab" onclick="swTpl('s8',7,this)">Opt 8</button><button class="tpl-tab" onclick="swTpl('s8',8,this)">Opt 9</button><button class="tpl-tab" onclick="swTpl('s8',9,this)">Opt 10</button></div>
     </div>
     <div class="tpl-body"><div class="tpl-text" id="tt-s8">Hello,
 
@@ -1232,8 +1181,8 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</
   </div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">💡 Tips</div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⏰</span><span class="callout-accordion-title-text"><span class="callout-title">Use the Reminder Tool</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Set a 3-hour reminder in the <strong>Search &amp; Reminders</strong> tab when you send your RFQs. When it fires, go through sent emails and follow up with everyone who hasn't replied yet.</div></div>
+  <div class="sec-title">Tips</div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Use the Reminder Tool</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Set a 3-hour reminder in the <strong>Search &amp; Reminders</strong> tab when you send your RFQs. When it fires, go through sent emails and follow up with everyone who hasn't replied yet.</div></div>
 </div>
 </div>
 
@@ -1242,7 +1191,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</
 <div class="pg-title">Step 7 — Picking The Offer</div>
 <div class="pg-sub">Compare quotes. Use this priority order strictly — never trade Tag Date for a lower price.</div>
 <div class="pg-section">
-  <div class="sec-title">✅ Priority Order (top to bottom)</div>
+  <div class="sec-title">Priority Order (top to bottom)</div>
   <ul class="item-list num">
     <li><strong>Tag Date</strong> — most recent certification date wins over everything</li>
     <li><strong>Condition</strong> — OH &gt; SV &gt; AR. Never swap conditions without explicit client consent</li>
@@ -1252,16 +1201,16 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">💰 Total Cost</div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💰</span><span class="callout-accordion-title-text"><span class="callout-title">Total Cost = Price + Shipping + Processing + Your Margin</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body"><strong>Price</strong> — what the supplier charges for the part<br><strong>Shipping</strong> — customer typically pays; for restricted countries we ship to our warehouse first, then forward to buyer<br><strong>Processing fees</strong> — packaging, handling, admin overhead<br><strong>Time / Margin</strong> — your profit for the sourcing work<br><br>Never evaluate an offer on price alone. Calculate the full total cost before deciding.</div></div>
+  <div class="sec-title">Total Cost</div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Total Cost = Price + Shipping + Processing + Your Margin</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body"><strong>Price</strong> — what the supplier charges for the part<br><strong>Shipping</strong> — customer typically pays; for restricted countries we ship to our warehouse first, then forward to buyer<br><strong>Processing fees</strong> — packaging, handling, admin overhead<br><strong>Time / Margin</strong> — your profit for the sourcing work<br><br>Never evaluate an offer on price alone. Calculate the full total cost before deciding.</div></div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">📍 EXW Explained</div>
-  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📍</span><span class="callout-accordion-title-text"><span class="callout-title">EXW = Ex Works = FOB = Incoterm — Where the Part Ships From</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">EXW is the physical location where the part will be shipped from. To find it: check supplier's website, ask ChatGPT, or ask the supplier directly.<br><br><strong>Important:</strong> supplier office ≠ warehouse. Some suppliers have multiple warehouses worldwide. A US supplier may store parts in Kenya to serve African clients — EXW would be Kenya, not USA. Always verify actual shipping location, especially for urgent AOG orders.</div></div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Make Offer / Target Price</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Before making a target price offer to a supplier, always consult the manager or director. If you offer too high and they accept, you are locked in at that price. Always offer <em>below</em> market price. Once they accept, you can proceed to place the PO.</div></div>
+  <div class="sec-title">EXW Explained</div>
+  <div class="callout-accordion c-purple"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">EXW = Ex Works = FOB = Incoterm — Where the Part Ships From</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">EXW is the physical location where the part will be shipped from. To find it: check supplier's website, ask ChatGPT, or ask the supplier directly.<br><br><strong>Important:</strong> supplier office ≠ warehouse. Some suppliers have multiple warehouses worldwide. A US supplier may store parts in Kenya to serve African clients — EXW would be Kenya, not USA. Always verify actual shipping location, especially for urgent AOG orders.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Make Offer / Target Price</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Before making a target price offer to a supplier, always consult the manager or director. If you offer too high and they accept, you are locked in at that price. Always offer <em>below</em> market price. Once they accept, you can proceed to place the PO.</div></div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">⚠️ Important Notes</div>
+  <div class="sec-title">️ Important Notes</div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">No Exchange Without Manager Approval</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Exchange offers require management sign-off before committing. Never agree to exchange terms independently.</div></div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Confirm Availability Before Picking</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Before selecting an offer, call or email the supplier to confirm the part is still available. Aviation listings go stale very quickly.</div></div>
 </div>
@@ -1272,7 +1221,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</
 <div class="pg-title">Step 8 — Invoice Process</div>
 <div class="pg-sub">Fill every field from the CERT — never the supplier quote. One wrong field = client rejects and you start over.</div>
 <div class="pg-section">
-  <div class="sec-title">✅ What to do</div>
+  <div class="sec-title">What to do</div>
   <ul class="item-list num">
     <li><strong>Open the invoice/quote system</strong> — have the cert open beside it</li>
     <li><strong>Fill Description, SN, Condition, Tag Type, Tag Src, Tag Date</strong> — all directly from the CERT. Tag Date must be <span class="kw">MM/DD/YYYY</span></li>
@@ -1284,9 +1233,9 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</
 </div>
 
 <div class="pg-section">
-  <div class="sec-title">📨 What to send</div>
+  <div class="sec-title">What to send</div>
   <div class="tpl-block" id="tb-s10">
-    <div class="tpl-head"><div class="tpl-label">📤 Client Quote</div>
+    <div class="tpl-head"><div class="tpl-label">Client Quote</div>
       <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s10',0,this)">Single PN</button></div>
     </div>
     <div class="tpl-body"><div class="tpl-text" id="tt-s10">Subject: QUOTE FOR PN: [PN#] FROM JAD AEROSPACE LLC
@@ -1316,7 +1265,7 @@ Kind regards.</div><button class="tpl-copy" onclick="cpTpl('tt-s10',this)">Copy<
   </div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">⚠️ Important Notes</div>
+  <div class="sec-title">️ Important Notes</div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Always Fill From CERT — Not Quote</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">The supplier quote is their document. The cert is the official release. Always fill the invoice from the cert — they sometimes differ in description format or SN notation.</div></div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Verify Tag Date Format</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Must be <span class="kw">MM/DD/YYYY</span>. If you're unsure whether month or day comes first, Google the date shown. A swapped date causes rejection.</div></div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Correct Client</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Verify the client name and company are correct before submitting. Sending a quote to the wrong client is a serious error.</div></div>
@@ -1328,7 +1277,7 @@ Kind regards.</div><button class="tpl-copy" onclick="cpTpl('tt-s10',this)">Copy<
 <div class="pg-title">Step 9 — Client Follow-Up</div>
 <div class="pg-sub">48 hours after sending the quote — follow up. Keeps the deal alive.</div>
 <div class="pg-section">
-  <div class="sec-title">✅ What to do</div>
+  <div class="sec-title">What to do</div>
   <ul class="item-list">
     <li>Wait <strong>48 hours</strong> — then reply to the original quote thread</li>
     <li>Remove your own email from <strong>To:</strong> — client only</li>
@@ -1336,10 +1285,10 @@ Kind regards.</div><button class="tpl-copy" onclick="cpTpl('tt-s10',this)">Copy<
   </ul>
 </div>
 <div class="pg-section">
-  <div class="sec-title">📨 What to send</div>
+  <div class="sec-title">What to send</div>
   <div class="tpl-block" id="tb-s11">
-    <div class="tpl-head"><div class="tpl-label">🔁 Client Follow-Up (48h)</div>
-      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s11',0,this)">Opt 1</button><button class="tpl-tab" onclick="swTpl('s11',1,this)">Opt 2</button><button class="tpl-tab" onclick="swTpl('s11',2,this)">Opt 3</button><button class="tpl-tab" onclick="swTpl('s11',3,this)">Opt 4</button></div>
+    <div class="tpl-head"><div class="tpl-label">Client Follow-Up (48h)</div>
+      <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('s11',0,this)">Opt 1</button><button class="tpl-tab" onclick="swTpl('s11',1,this)">Opt 2</button><button class="tpl-tab" onclick="swTpl('s11',2,this)">Opt 3</button><button class="tpl-tab" onclick="swTpl('s11',3,this)">Opt 4</button><button class="tpl-tab" onclick="swTpl('s11',4,this)">Opt 5</button><button class="tpl-tab" onclick="swTpl('s11',5,this)">Opt 6</button><button class="tpl-tab" onclick="swTpl('s11',6,this)">Opt 7</button><button class="tpl-tab" onclick="swTpl('s11',7,this)">Opt 8</button><button class="tpl-tab" onclick="swTpl('s11',8,this)">Opt 9</button><button class="tpl-tab" onclick="swTpl('s11',9,this)">Opt 10</button></div>
     </div>
     <div class="tpl-body"><div class="tpl-text" id="tt-s11">Hello,
 
@@ -1352,9 +1301,9 @@ Best Regards</div><button class="tpl-copy" onclick="cpTpl('tt-s11',this)">Copy</
   </div>
 </div>
 <div class="pg-section">
-  <div class="sec-title">⚠️ Important Notes</div>
+  <div class="sec-title">️ Important Notes</div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Remove Your Own Email from To:</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">When replying to the original quote email, remove your own email from the To: field. It should go to the client only — not to yourself.</div></div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⏰</span><span class="callout-accordion-title-text"><span class="callout-title">Set a 48h Reminder</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Use the Search &amp; Reminders tab to set a 48-hour Customer reminder when you send the quote. When it fires, follow up immediately.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Set a 48h Reminder</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Use the Search &amp; Reminders tab to set a 48-hour Customer reminder when you send the quote. When it fires, follow up immediately.</div></div>
 </div>
 </div>
 
@@ -1424,7 +1373,7 @@ Best Regards</div><button class="tpl-copy" onclick="cpTpl('tt-s11',this)">Copy</
 <div class="doc-page" id="pg-templates">
 <div class="pg-title">Email Templates</div>
 <div class="pg-sub">Copy-ready templates for every stage of the sourcing process. Click Copy on any template to grab it.</div>
-<div class="pg-section"><div class="sec-title">📨 RFQ Emails</div>
+<div class="pg-section"><div class="sec-title">RFQ Emails</div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Single PN RFQ</div></div><div class="tpl-body"><div class="tpl-text" id="teTa">Subject: RFQ PN [0123FA2]
 
 Hello [Name],
@@ -1469,7 +1418,7 @@ PN: [0123FA2] / [DESCRIPTION] / QTY: [X]
 Thank you.
 Best regards</div><button class="tpl-copy" onclick="cpTpl('teTd',this)">Copy</button></div></div>
 </div>
-<div class="pg-section"><div class="sec-title">🔔 Supplier Reminders</div>
+<div class="pg-section"><div class="sec-title">Supplier Reminders</div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Reminder 1</div></div><div class="tpl-body"><div class="tpl-text" id="teR1">Hello,
 
 Just a quick kind reminder regarding our RFQ. 
@@ -1496,7 +1445,7 @@ Following up on our request for quotation — kindly advise on availability and 
 
 Thank you.</div><button class="tpl-copy" onclick="cpTpl('teR5',this)">Copy</button></div></div>
 </div>
-<div class="pg-section"><div class="sec-title">📤 Quote to Client</div>
+<div class="pg-section"><div class="sec-title">Quote to Client</div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Client Quote — Single PN</div></div><div class="tpl-body"><div class="tpl-text" id="teCQ">Subject: QUOTE FOR PN: [PN#] FROM JAD AEROSPACE LLC
 
 Hello [Client Name],
@@ -1522,7 +1471,7 @@ Thank you for giving us the opportunity to send you this quote.
 
 Kind regards.</div><button class="tpl-copy" onclick="cpTpl('teCQ',this)">Copy</button></div></div>
 </div>
-<div class="pg-section"><div class="sec-title">🔁 Client Follow-Up (48h)</div>
+<div class="pg-section"><div class="sec-title">Client Follow-Up (48h)</div>
   <div class="tpl-block"><div class="tpl-head"><div class="tpl-label">Follow-Up 1</div></div><div class="tpl-body"><div class="tpl-text" id="teF1">Hello,
 
 Just following up on this quote. Please advise if you have received a better offer so we can work to get as close as possible. 
@@ -1573,29 +1522,29 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
 <div class="doc-page" id="pg-tips">
 <div class="pg-title">Pro Tips</div>
 <div class="pg-sub">Hard-earned knowledge from real sourcing work. Read these regularly — they save hours and prevent costly mistakes.</div>
-<div class="pg-section"><div class="sec-title">📦 Sourcing &amp; Market</div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Total Cost Thinking</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Never evaluate an offer by part price alone. Total cost = supplier price + shipping + processing fees + your margin. For restricted countries, we ship to our warehouse first then forward to the buyer — factor this additional leg into the cost.</div></div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">ALT Verification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Suppliers sometimes offer an ALT (alternate PN) instead of the exact one you need. The only way to verify it's a valid alternate: confirm the <strong>description matches</strong> the original PN. Same description = compatible. Different description = not the same part, do not accept.</div></div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Full Pipeline Check</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Sent quotes a month ago with no replies? Go back to the platforms, filter by upload date — new stock may have appeared since. Also re-run Google searches, new supplier pages get indexed regularly.</div></div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Add All Quotes — Even Sold / Bad Ones</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Record every quote in the database regardless of outcome. Future requests for the same PN benefit from this data. Revised quotes always need the pricing history. Quotes marked as sold still provide market price reference.</div></div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">QTY on Cert vs Quote</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Cert says 10, quote says 2 — this is completely normal. The repair shop repaired 10 units total, sold 8 of them, has 2 remaining. Your quote is for those 2 available units.</div></div>
+<div class="pg-section"><div class="sec-title">Sourcing &amp; Market</div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Total Cost Thinking</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Never evaluate an offer by part price alone. Total cost = supplier price + shipping + processing fees + your margin. For restricted countries, we ship to our warehouse first then forward to the buyer — factor this additional leg into the cost.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">ALT Verification</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Suppliers sometimes offer an ALT (alternate PN) instead of the exact one you need. The only way to verify it's a valid alternate: confirm the <strong>description matches</strong> the original PN. Same description = compatible. Different description = not the same part, do not accept.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Full Pipeline Check</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Sent quotes a month ago with no replies? Go back to the platforms, filter by upload date — new stock may have appeared since. Also re-run Google searches, new supplier pages get indexed regularly.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Add All Quotes — Even Sold / Bad Ones</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Record every quote in the database regardless of outcome. Future requests for the same PN benefit from this data. Revised quotes always need the pricing history. Quotes marked as sold still provide market price reference.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">QTY on Cert vs Quote</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Cert says 10, quote says 2 — this is completely normal. The repair shop repaired 10 units total, sold 8 of them, has 2 remaining. Your quote is for those 2 available units.</div></div>
 </div>
-<div class="pg-section"><div class="sec-title">✉️ Communication</div>
+<div class="pg-section"><div class="sec-title">️ Communication</div>
   <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">✈️</span><span class="callout-accordion-title-text"><span class="callout-title">Aviation Phonetic Alphabet</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Always use the aviation alphabet when spelling PNs or emails on the phone. Avoids costly confusions. Full alphabet:<br>Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliet, Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Victor, Whiskey, X-Ray, Yankee, Zulu</div></div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Client Not Answering</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Escalation order: Call the company → Call the person directly → Find other contacts at the same company → Email <span class="kw"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96e5f7faf3e5d6f5f9fbe6f7f8efb8f5f9fb">[email&#160;protected]</a></span> → Search each platform (PB, ILS, Locatory, Stockmarket) for their contact info.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Client Not Answering</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Escalation order: Call the company → Call the person directly → Find other contacts at the same company → Email <span class="kw"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96e5f7faf3e5d6f5f9fbe6f7f8efb8f5f9fb">[email&#160;protected]</a></span> → Search each platform (PB, ILS, Locatory, Stockmarket) for their contact info.</div></div>
   <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🛠️</span><span class="callout-accordion-title-text"><span class="callout-title">GetProspect — LinkedIn Email Extractor</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">A browser extension that extracts professional email addresses from LinkedIn profiles. Invaluable when you need a direct contact at a supplier or manufacturer, especially for OEM outreach or manufacturer's reps.</div></div>
 </div>
-<div class="pg-section"><div class="sec-title">🔍 Duplicates &amp; Search</div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🔎</span><span class="callout-accordion-title-text"><span class="callout-title">Search by Domain — Not Full Email</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">To avoid sending duplicate RFQs to the same company, search <span class="kw">@domainname.com</span> in Contact Search — not just one specific address. This catches all email variations at the same company: rfq@, sales@, parts@, purchasing@, etc.</div></div>
+<div class="pg-section"><div class="sec-title">Duplicates &amp; Search</div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Search by Domain — Not Full Email</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">To avoid sending duplicate RFQs to the same company, search <span class="kw">@domainname.com</span> in Contact Search — not just one specific address. This catches all email variations at the same company: rfq@, sales@, parts@, purchasing@, etc.</div></div>
 </div>
-<div class="pg-section"><div class="sec-title">💰 Pricing &amp; Negotiation</div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Market Price Research</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Determine market price using: quotes you've collected (compare the range), Partbase Market Price button, Stockmarket Price Search, Proponent, AJW, or Satair. For New (NE) parts, OEM platforms like Proponent and Satair are the best reference.</div></div>
+<div class="pg-section"><div class="sec-title">Pricing &amp; Negotiation</div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Market Price Research</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Determine market price using: quotes you've collected (compare the range), Partbase Market Price button, Stockmarket Price Search, Proponent, AJW, or Satair. For New (NE) parts, OEM platforms like Proponent and Satair are the best reference.</div></div>
   <div class="callout-accordion c-warn"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">⚠️</span><span class="callout-accordion-title-text"><span class="callout-title">Make Offer / Target Price</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Always consult the manager or director before making a target price offer to any supplier. If you offer too high and they accept immediately, you are locked in at that price. Always start below market price. Get manager approval first, then place the PO only after they accept.</div></div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">💡</span><span class="callout-accordion-title-text"><span class="callout-title">Quote-to-Sales Ratio</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Avoid requesting quotes without genuine purchase intent. Suppliers track this ratio. A poor ratio leads to being deprioritized or receiving less favorable pricing. Build trusted relationships with your core supplier network first.</div></div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Quote-to-Sales Ratio</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">Avoid requesting quotes without genuine purchase intent. Suppliers track this ratio. A poor ratio leads to being deprioritized or receiving less favorable pricing. Build trusted relationships with your core supplier network first.</div></div>
 </div>
-<div class="pg-section"><div class="sec-title">🌍 EXW &amp; Logistics</div>
-  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">📍</span><span class="callout-accordion-title-text"><span class="callout-title">Finding the Real EXW Location</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">To find EXW: check supplier's website for warehouse locations, ask ChatGPT with the supplier name, or ask the supplier directly. Key insight: supplier office ≠ warehouse location. Some suppliers have warehouses across multiple continents — the part ships from wherever it's physically stored.</div></div>
-  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-icon">🌍</span><span class="callout-accordion-title-text"><span class="callout-title">Multi-Warehouse Example</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">A US-headquartered supplier may store parts in a Kenya warehouse to supply African airlines. The EXW would be Kenya, not USA. Always verify actual shipping origin before confirming delivery timelines, especially for urgent AOG situations.</div></div>
+<div class="pg-section"><div class="sec-title">EXW &amp; Logistics</div>
+  <div class="callout-accordion c-tip"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Finding the Real EXW Location</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">To find EXW: check supplier's website for warehouse locations, ask ChatGPT with the supplier name, or ask the supplier directly. Key insight: supplier office ≠ warehouse location. Some suppliers have warehouses across multiple continents — the part ships from wherever it's physically stored.</div></div>
+  <div class="callout-accordion c-info"><button class="callout-accordion-toggle" onclick="toggleCallout(this)"><span class="callout-accordion-title-text"><span class="callout-title">Multi-Warehouse Example</span></span><span class="callout-accordion-arrow">▼</span></button><div class="callout-accordion-body">A US-headquartered supplier may store parts in a Kenya warehouse to supply African airlines. The EXW would be Kenya, not USA. Always verify actual shipping origin before confirming delivery timelines, especially for urgent AOG situations.</div></div>
 </div>
 </div>
 
@@ -1621,7 +1570,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
         onblur="this.style.borderColor='var(--border2)';this.style.background='var(--bg)'">
       <button onclick="clearClientEmail()" style="padding:8px 14px;border:1.5px solid var(--border2);background:var(--white);border-radius:8px;font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;font-family:var(--font);transition:.12s;white-space:nowrap"
         onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'"
-        onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">✕ Clear</button>
+        onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">Clear</button>
     </div>
     <div id="clientEmailSet" style="display:none;margin-top:8px;font-size:11px;color:var(--green);font-weight:600">
       ✅ Watching for: <span id="clientEmailSetVal" style="font-family:var(--mono);color:var(--brand)"></span>
@@ -1653,7 +1602,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
 <div class="pg-title">Reminders</div>
 <div class="pg-sub">Set timed reminders for supplier follow-ups (3h) and customer follow-ups (48h). A popup fires when time is up.</div>
 <div class="pg-section">
-  <div class="sec-title">⏰ Set Reminder</div>
+  <div class="sec-title">Set Reminder</div>
   <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--sh)">
     <div class="rf-row">
       <div class="rf" style="flex:2;min-width:100px"><label>Part Number</label><input type="text" id="partInputDoc" placeholder="e.g. 0123FA2" style="width:100%"></div>
@@ -1666,240 +1615,13 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
   </div>
 </div>
 
-<!-- Holiday Reminder -->
-<div class="pg-section" style="margin-top:16px">
-  <div class="sec-title">✈️ Holiday Reminder</div>
-  <div style="font-size:12px;color:var(--muted);margin-bottom:10px;line-height:1.5">When a contact is on holiday, enter their email and the date they return. You'll get a reminder to follow up when they're back.</div>
-  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--sh)">
-    <div class="rf-row" style="flex-wrap:wrap">
-      <div class="rf" style="flex:2;min-width:140px"><label>Contact Email</label><input type="text" id="holidayEmailDoc" placeholder="e.g. john@supplier.com" style="width:100%"></div>
-      <div class="rf" style="flex:1;min-width:120px"><label>Contact Name (opt.)</label><input type="text" id="holidayNameDoc" placeholder="e.g. John" style="width:100%"></div>
-      <div class="rf" style="flex:1;min-width:130px"><label>Part / Note</label><input type="text" id="holidayPartDoc" placeholder="e.g. PN 0123FA2" style="width:100%"></div>
-      <div class="rf" style="min-width:140px"><label>Back on (date)</label><input type="date" id="holidayDateDoc" style="width:100%"></div>
-      <button class="rm-btn" onclick="startHolidayReminderDoc()" style="align-self:flex-end;background:var(--orange)">✈️ Set</button>
-    </div>
-    <div id="holidayReminderListDoc" style="margin-top:8px"></div>
-  </div>
-</div>
-</div>
+
 
             </div><!-- /docs-inner -->
           </div><!-- /docs-content -->
         </div><!-- /docs-shell -->
       </div><!-- /panel-docs -->
 
-      <!-- ═══ RUSH MODE PANEL ═══ -->
-      <div id="panel-rush" class="panel" style="flex-direction:column;overflow:hidden;background:var(--bg)">
-
-        <!-- Topbar with toggle -->
-        <div class="rush-topbar">
-          <div class="rush-tog-wrap">
-            <span class="rush-tog-label">⚡ Rush Mode</span>
-            <button class="rush-tog off" id="rushTog" onclick="rushToggle()"><div class="rush-tog-knob"></div></button>
-            <span class="rush-status" id="rushStatusLbl">OFF</span>
-          </div>
-          <span style="font-size:11px;color:var(--muted2);margin-left:4px" id="rushTopSub">Turn on to access all rush tools on this page</span>
-        </div>
-
-        <!-- Inactive state -->
-        <div class="rush-inactive-msg" id="rushInactiveMsg">
-          <div class="big">⚡</div>
-          <div class="msg">Rush Mode is off</div>
-          <div class="sub">Toggle ON above to get your tools</div>
-        </div>
-
-        <!-- Active content — all sections in one scrollable page -->
-        <div class="rush-scroll" id="rushContent" style="display:none">
-
-          <!-- ── SECTION 1: Template Builder + Contact/PN Search ── -->
-          <div class="rush-sec">
-            <div class="rush-sec-head">
-              <span class="rush-sec-icon">📨</span>
-              <span class="rush-sec-title">Template Builder &amp; Contact / PN Search</span>
-            </div>
-            <div class="rush-sec-body">
-
-              <!-- Sub-tabs -->
-              <div style="display:flex;gap:0;margin-bottom:14px;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden">
-                <button id="rushT-tpl" onclick="rushSubTab('tpl')" style="flex:1;padding:8px 0;font-size:11px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--rush);color:#fff;transition:.15s">📨 Template</button>
-                <button id="rushT-search" onclick="rushSubTab('search')" style="flex:1;padding:8px 0;font-size:11px;font-weight:600;font-family:var(--font);border:none;cursor:pointer;background:var(--bg2);color:var(--muted);transition:.15s;border-left:1.5px solid var(--border)">🔍 Contact Search</button>
-              </div>
-
-              <!-- Template pane -->
-              <div id="rushPane-tpl">
-                <!-- Builder header -->
-                <div style="background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:10px">
-                  <div style="padding:9px 12px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between">
-                    <span style="font-size:11px;font-weight:700;color:var(--text)">📨 RFQ Email Builder</span>
-                    <button onclick="rushRfqAddRow()" style="padding:3px 10px;background:var(--brand);color:#fff;border:none;border-radius:20px;font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer">+ Add PN</button>
-                  </div>
-                  <div style="display:grid;grid-template-columns:28px 1fr 1fr 1.4fr 70px 32px;gap:6px;padding:6px 12px 4px;background:var(--bg)">
-                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Use</span>
-                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Part Number</span>
-                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">ALT PN</span>
-                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Description</span>
-                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">QTY</span>
-                    <span></span>
-                  </div>
-                  <div id="rushRfqRows" style="padding:6px 12px 10px;display:flex;flex-direction:column;gap:6px"></div>
-                  <div style="padding:8px 12px 0;border-top:1px solid var(--border2)">
-                    <div style="display:flex;align-items:center;gap:8px;padding:7px 12px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r)">
-                      <span style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;flex-shrink:0">Subject</span>
-                      <input type="text" id="rushRfqSubject" placeholder="Auto-generated — edit if needed" style="flex:1;border:none;outline:none;font-size:12px;font-family:var(--font);background:transparent;color:var(--text)" autocomplete="off">
-                      <button onclick="(function(){var el=document.getElementById('rushRfqSubject');if(!el||!el.value)return;navigator.clipboard.writeText(el.value);var b=event.target;var o=b.textContent;b.textContent='✓';setTimeout(()=>b.textContent=o,1400);})()" style="padding:3px 9px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font);flex-shrink:0">Copy</button>
-                    </div>
-                  </div>
-                  <div style="padding:10px 12px;border-top:1px solid var(--border2);display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-                    <button onclick="rushRfqGenerate()" style="padding:7px 18px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer">⚡ Generate Template</button>
-                    <button onclick="rushRfqClear()" style="padding:7px 12px;background:var(--bg2);color:var(--muted);border:1.5px solid var(--border);border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer">✕ Clear</button>
-                  </div>
-                  <div id="rushRfqOutputWrap" style="display:none;border-top:1px solid var(--border2)">
-                    <div id="rushRfqVariantTabs" style="display:flex;flex-wrap:wrap;gap:4px;padding:10px 12px 0;background:var(--bg2);border-bottom:1px solid var(--border2)"></div>
-                    <div style="position:relative;padding:14px">
-                      <pre id="rushRfqOutput" style="font-family:var(--mono);font-size:12px;color:var(--text);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0;padding-right:72px;background:transparent"></pre>
-                      <button id="rushRfqCopyBtn" onclick="rushRfqCopy()" style="position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);font-family:var(--font)">Copy</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Contact Search pane -->
-              <div id="rushPane-search" style="display:none">
-                <div class="rush-sw"><input type="text" id="rushSearchInput" placeholder="Search company, email, or keyword…" oninput="rushDoSearch(this.value)"></div>
-                <div class="rush-fb">
-                  <button class="fbtn active" onclick="rushSetFilter('all',this)">All</button>
-                  <button class="fbtn" onclick="rushSetFilter('blacklist',this)">Blacklist</button>
-                  <button class="fbtn" onclick="rushSetFilter('direct',this)">Direct</button>
-                  <button class="fbtn" onclick="rushSetFilter('replace',this)">Replace</button>
-                </div>
-                <div id="rushResults"><div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div></div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- ── SECTION 2: Sending Reminders + Reminder Tool ── -->
-          <div class="rush-sec">
-            <div class="rush-sec-head">
-              <span class="rush-sec-icon">🔔</span>
-              <span class="rush-sec-title">Sending Reminders &amp; Reminder Timer</span>
-            </div>
-            <div class="rush-sec-body">
-              <!-- Reminder templates -->
-              <div style="margin-bottom:14px">
-                <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Supplier Reminder Templates</div>
-                <div class="tpl-block" id="rush-tb-s8">
-                  <div class="tpl-head"><div class="tpl-label">🔔 Supplier Reminder</div>
-                    <div class="tpl-tabs">
-                      <button class="tpl-tab active" onclick="swTpl('rush-s8',0,this)">Option 1</button>
-                      <button class="tpl-tab" onclick="swTpl('rush-s8',1,this)">Option 2</button>
-                      <button class="tpl-tab" onclick="swTpl('rush-s8',2,this)">Option 3</button>
-                    </div>
-                  </div>
-                  <div class="tpl-body"><div class="tpl-text" id="tt-rush-s8">Hello,
-
-Just a quick kind reminder regarding our RFQ. 
-
-Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s8',this)">Copy</button></div>
-                </div>
-              </div>
-              <!-- Reminder timer -->
-              <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Set a Reminder Timer</div>
-              <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:10px;padding:12px 14px">
-                <div class="rf-row">
-                  <div class="rf" style="flex:2;min-width:90px"><label>Part Number</label><input type="text" id="rushPartInputR" placeholder="e.g. 0123FA2" style="width:100%"></div>
-                  <div class="rf" style="width:60px"><label>Hours</label><input type="number" id="rushHourInputR" value="3" min="1" style="width:100%"></div>
-                  <div class="rf" style="flex:1;min-width:80px"><label>Country</label><input type="text" id="rushCountryInputR" placeholder="Country" style="width:100%"><span id="rushCountryErrR" style="font-size:10px;color:var(--red);display:none">Required</span></div>
-                  <div class="rf" style="width:110px"><label>Type</label>
-                    <select id="rushTypeInputR" onchange="rushHandleTypeChange()" style="width:100%">
-                      <option value="reminder">Supplier</option>
-                      <option value="customer">Customer</option>
-                    </select>
-                  </div>
-                  <button class="rm-btn" onclick="rushStartReminderR()" style="align-self:flex-end">Start</button>
-                </div>
-                <div id="rushReminderListR"></div>
-              </div>
-
-              <!-- Holiday Reminder -->
-              <div style="margin-top:14px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">✈️ Holiday Reminder</div>
-              <div style="background:var(--bg);border:1.5px solid var(--border2);border-radius:10px;padding:12px 14px">
-                <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Contact is on holiday? Enter their email and return date — you'll be reminded to follow up when they're back.</div>
-                <div class="rf-row" style="flex-wrap:wrap">
-                  <div class="rf" style="flex:2;min-width:140px"><label>Contact Email</label><input type="text" id="rushHolidayEmail" placeholder="e.g. john@supplier.com" style="width:100%"></div>
-                  <div class="rf" style="flex:1;min-width:100px"><label>Name (opt.)</label><input type="text" id="rushHolidayName" placeholder="e.g. John" style="width:100%"></div>
-                  <div class="rf" style="flex:1;min-width:110px"><label>Part / Note</label><input type="text" id="rushHolidayPart" placeholder="e.g. PN 0123FA2" style="width:100%"></div>
-                  <div class="rf" style="min-width:130px"><label>Back on (date)</label><input type="date" id="rushHolidayDate" style="width:100%"></div>
-                  <button class="rm-btn" onclick="rushStartHolidayReminder()" style="align-self:flex-end;background:var(--orange)">✈️ Set</button>
-                </div>
-                <div id="rushHolidayList" style="margin-top:8px"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── SECTION 3: Invoice Process ── -->
-          <div class="rush-sec">
-            <div class="rush-sec-head">
-              <span class="rush-sec-icon">🧾</span>
-              <span class="rush-sec-title">Invoice Process</span>
-            </div>
-            <div class="rush-sec-body">
-              <ul class="item-list num" style="margin-bottom:14px">
-                <li><strong>Open the invoice/quote system</strong> — have the cert open beside it</li>
-                <li><strong>Fill Description, SN, Condition, Tag Type, Tag Src, Tag Date</strong> — all from the CERT. Tag Date must be <span class="kw">MM/DD/YYYY</span></li>
-                <li><strong>Set EXW</strong> (actual warehouse) + <strong>Warranty</strong> (6 MONTHS)</li>
-                <li><strong>Verify client name &amp; company</strong></li>
-                <li><strong>CC Houssam &amp; Moe</strong> on every initial email</li>
-                <li><strong>Set status to "Initial Email"</strong> before sending</li>
-              </ul>
-              <div class="tpl-block" id="rush-tb-s10">
-                <div class="tpl-head"><div class="tpl-label">📤 Client Quote</div>
-                  <div class="tpl-tabs"><button class="tpl-tab active" onclick="swTpl('rush-s10',0,this)">Single PN</button></div>
-                </div>
-                <div class="tpl-body"><div class="tpl-text" id="tt-rush-s10">Description: [DESC]
-SN: [SN#]
-ALT:
-Trace:
-Tag Type: MFG 8130/CofC/ATA106/DUAL FAA/EASA FORM-1
-Tag Src: General MRO Aerospace Inc.
-Tag Date: [MM/DD/YYYY]
-Warranty: 6 MONTHS
-EXW: USA</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s10',this)">Copy</button></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── SECTION 4: Client Follow-Up ── -->
-          <div class="rush-sec">
-            <div class="rush-sec-head">
-              <span class="rush-sec-icon">📞</span>
-              <span class="rush-sec-title">Client Follow-Up <span style="font-size:10px;font-weight:500;color:var(--muted);margin-left:6px">48h after quote sent</span></span>
-            </div>
-            <div class="rush-sec-body">
-              <div class="tpl-block" id="rush-tb-s11">
-                <div class="tpl-head"><div class="tpl-label">🔁 Client Follow-Up (48h)</div>
-                  <div class="tpl-tabs">
-                    <button class="tpl-tab active" onclick="swTpl('rush-s11',0,this)">Opt 1</button>
-                    <button class="tpl-tab" onclick="swTpl('rush-s11',1,this)">Opt 2</button>
-                    <button class="tpl-tab" onclick="swTpl('rush-s11',2,this)">Opt 3</button>
-                    <button class="tpl-tab" onclick="swTpl('rush-s11',3,this)">Opt 4</button>
-                  </div>
-                </div>
-                <div class="tpl-body"><div class="tpl-text" id="tt-rush-s11">Hello,
-
-Just following up on this quote. Please advise if you have received a better offer so we can work to get as close as possible. 
-
-Looking forward to your feedback.
-
-Thank you!
-Best Regards</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s11',this)">Copy</button></div>
-              </div>
-
-            </div>
-          </div>
-
-        </div><!-- /rush-scroll -->
-      </div><!-- /panel-rush -->
 
       <!-- ═══ EMAIL DASHBOARD — reda@jadaero.com ONLY ═══ -->
       <div id="panel-emaildash" class="panel" style="flex-direction:column;overflow:hidden;background:#F7F9FC">
@@ -2048,7 +1770,7 @@ Best Regards</div><button class="tpl-copy" onclick="cpTpl('tt-rush-s11',this)">C
           </div>
           <div class="tools-grid">
             <div class="sc">
-              <div class="sc-head"><div class="sc-title">⏰ Set Reminder</div></div>
+              <div class="sc-head"><div class="sc-title">Set Reminder</div></div>
               <div class="sc-body">
                 <div class="rf-row">
                   <div class="rf" style="flex:2;min-width:100px"><label>Part Number</label><input type="text" id="partInput" placeholder="e.g. 0123FA2" style="width:100%"></div>
@@ -2273,7 +1995,7 @@ function mkReminderCard(obj){
     rmv.onclick=async()=>{reminders=reminders.filter(r=>r.id!==obj.id);await saveReminders();await loadReminders();};
     card.appendChild(info);card.appendChild(rmv);listEl.appendChild(card);
     const te=info.querySelector(".tt");
-    function tick(){const rem=obj.end-Date.now();if(obj.finished){te.textContent="✓ Done";card.classList.add("finished");return;}if(rem<=0){te.textContent="⏰ TIME'S UP";card.classList.add("finished");showReminderPopup(obj);return;}const h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000),s=Math.floor((rem%60000)/1000);te.textContent=`${h}h ${m}m ${s}s`;setTimeout(tick,1000);}
+    function tick(){const rem=obj.end-Date.now();if(obj.finished){te.textContent="✓ Done";card.classList.add("finished");return;}if(rem<=0){te.textContent="TIME'S UP";card.classList.add("finished");showReminderPopup(obj);return;}const h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000),s=Math.floor((rem%60000)/1000);te.textContent=`${h}h ${m}m ${s}s`;setTimeout(tick,1000);}
     tick();
   }
   buildCard(document.getElementById("reminderList"));
@@ -2319,20 +2041,20 @@ function checkEmail(){
 
 /* ── DOCS NAV ── */
 const DOC_PAGES=[
-  {id:'s1',  title:'Reviewing RFQ',             icon:'📋', sub:'Check PN, QTY, ALT, AOG',   step:1},
-  {id:'s2',  title:'Template, Search & Sending', icon:'📨', sub:'Build email, search, send',  step:2},
-  {id:'s5',  title:'Quote & Certification',      icon:'🏷️', sub:'Validate quote & cert',     step:3},
-  {id:'s7',  title:'Trace & PPW',                icon:'📁', sub:'Verify part history',        step:4},
-  {id:'s8',  title:'Sending Reminders',          icon:'🔔', sub:'3h after RFQ — follow up',  step:5},
-  {id:'s9',  title:'Picking the Offer',          icon:'🎯', sub:'Best tag date → price',     step:6},
-  {id:'s10', title:'Invoice Process',            icon:'🧾', sub:'Fill from CERT only',        step:7},
-  {id:'s11', title:'Client Follow-Up',           icon:'📞', sub:'48h after quote sent',      step:8},
-  {id:'platforms',     title:'Platforms',        icon:'🌐', sub:'Where to source parts',     step:null},
-  {id:'glossary',      title:'Terminology',      icon:'📖', sub:'All abbreviations explained',step:null},
-  {id:'templates',     title:'Email Templates',  icon:'✉️', sub:'Copy-ready templates',       step:null},
-  {id:'tips',          title:'Pro Tips',          icon:'💡', sub:'Hard-earned knowledge',      step:null},
-  {id:'search-tool',   title:'Contact Search',   icon:'🔍', sub:'Find supplier emails',       step:null},
-  {id:'reminders-tool',title:'Reminders',        icon:'⏰', sub:'Set 3h / 48h timers',       step:null},
+  {id:'s1',  title:'Reviewing RFQ',             icon:'', sub:'Check PN, QTY, ALT, AOG',   step:1},
+  {id:'s2',  title:'Template, Search & Sending', icon:'', sub:'Build email, search, send',  step:2},
+  {id:'s5',  title:'Quote & Certification',      icon:'', sub:'Validate quote & cert',     step:3},
+  {id:'s7',  title:'Trace & PPW',                icon:'', sub:'Verify part history',        step:4},
+  {id:'s8',  title:'Sending Reminders',          icon:'', sub:'3h after RFQ — follow up',  step:5},
+  {id:'s9',  title:'Picking the Offer',          icon:'', sub:'Best tag date, then price', step:6},
+  {id:'s10', title:'Invoice Process',            icon:'', sub:'Fill from CERT only',        step:7},
+  {id:'s11', title:'Client Follow-Up',           icon:'', sub:'48h after quote sent',      step:8},
+  {id:'platforms',     title:'Platforms',        icon:'', sub:'Where to source parts',     step:null},
+  {id:'glossary',      title:'Terminology',      icon:'', sub:'All abbreviations explained',step:null},
+  {id:'templates',     title:'Email Templates',  icon:'', sub:'Copy-ready templates',       step:null},
+  {id:'tips',          title:'Pro Tips',          icon:'', sub:'Hard-earned knowledge',      step:null},
+  {id:'search-tool',   title:'Contact Search',   icon:'', sub:'Find supplier emails',       step:null},
+  {id:'reminders-tool',title:'Reminders',        icon:'', sub:'Set 3h / 48h timers',       step:null},
 ];
 
 /* ── HOME GRID ── */
@@ -2344,7 +2066,7 @@ function buildHomeGrid(){
   DOC_PAGES.forEach(pg=>{
     const card=document.createElement('div');
     card.className='hg-card '+(pg.step?'step':'ref');
-    card.innerHTML=`<div class="hg-icon-wrap"><div class="hg-icon">${pg.icon}</div></div>${pg.step?`<div class="hg-step-num">Step ${pg.step}</div>`:''}
+    card.innerHTML=`${pg.step?`<div class="hg-step-num">Step ${pg.step}</div>`:''}
       <div class="hg-title">${pg.title}</div>
       <div class="hg-sub">${pg.sub}</div>`;
     card.onclick=()=>showPage(pg.id);
@@ -2374,7 +2096,7 @@ function showPage(name, _unused){
     setTimeout(()=>{ const inner=contentEl.querySelector('.docs-inner'); if(inner)inner.scrollTop=0; },10);
     const pgDef=DOC_PAGES.find(p=>p.id===name);
     const titleEl=document.getElementById('backBarTitle');
-    if(titleEl&&pgDef) titleEl.textContent=pgDef.icon+' '+pgDef.title;
+    if(titleEl&&pgDef) titleEl.textContent=pgDef.title;
     startAutoReturn();
 
     // Step nav
@@ -2530,11 +2252,11 @@ function clearSearch(){
 
 /* ── TEMPLATE DATA ── */
 const TPLS={
-  s2:["Subject: RFQ PN [0123FA2]\n\nHello [Name],\n\nPlease provide your best price quote and stock availability for the following item:\n\n1 PN# [0123FA2] / [SENSOR - LOW FLOW]\n\nThank you.\nBest regards","Subject: RFQ PNs [14331-1C / 14331-2C]\n\nHello [Name],\n\nPlease provide your best price quote and stock availability for the following items:\n\n2 PN's# [14331-1C]  /  [Outflow Valve]  / QTY: 2\n         [14331-2C]  /  [Outflow Valve]  / QTY: 2\n\nThank you.\nBest regards"],
-  s4:["Subject: RFQ PN [0123FA2]\n\nHello [Name],\n\nPlease provide your best price quote and stock availability for the following item:\n\n1 PN# [0123FA2] / [SENSOR - LOW FLOW]\n\nThank you.\nBest regards","Subject: RFQ PNs [14331-1C / 14331-2C]\n\nHello [Name],\n\nPlease provide your best price quote and stock availability for the following items:\n\n2 PN's# [14331-1C]  /  [Outflow Valve]  / QTY: 2\n         [14331-2C]  /  [Outflow Valve]  / QTY: 2\n\nThank you.\nBest regards"],
-  s8:["Hello,\n\nJust a quick kind reminder regarding our RFQ. \n\nBest regards,","Hello,\n\nKind reminder about our RFQ. Looking forward to your update.\n\nBest regards,","Hello,\n\nA gentle reminder regarding our RFQ.\n\nBest regards,"],
+  s2:["Subject: RFQ PN [0123FA2]\n\nHello [Name],\n\nPlease provide your best price quote and stock availability for the following item:\n\n1 PN# [0123FA2] / [SENSOR - LOW FLOW]\n\nThank you.\nBest regards","Subject: RFQ PN [0123FA2]\n\nDear [Name],\n\nWe would like to request a quotation for the below item. Please advise on availability and lead time.\n\n1 PN# [0123FA2] / [SENSOR - LOW FLOW]\n\nThank you.\nBest regards","Subject: RFQ PNs [14331-1C / 14331-2C]\n\nHello [Name],\n\nPlease provide your best price quote and stock availability for the following items:\n\n2 PN's# [14331-1C]  /  [Outflow Valve]  / QTY: 2\n         [14331-2C]  /  [Outflow Valve]  / QTY: 2\n\nThank you.\nBest regards","Subject: RFQ PN [0123FA2] — AOG\n\nDear [Name],\n\nAOG situation — we urgently need a quote for the following:\n\n1 PN# [0123FA2] / [SENSOR - LOW FLOW] / QTY: 1\n\nPlease revert ASAP.\n\nBest regards","Subject: RFQ PN [0123FA2]\n\nHello [Name],\n\nKindly quote your best price and availability for the part listed below:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nLooking forward to your reply.\n\nBest regards","Subject: Stock Availability Request — PN [0123FA2]\n\nHello [Name],\n\nCould you please check your stock and provide a quote for:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nThank you.\nBest regards","Subject: RFQ PN [0123FA2]\n\nDear Team,\n\nWe are sourcing the following part and would appreciate your most competitive quote:\n\nPN# [0123FA2] / [Description] / QTY: [X]\nCondition: Any\n\nThank you.\nBest regards","Subject: RFQ — PN [0123FA2]\n\nHello [Name],\n\nPlease quote price and availability for the below:\n\nPN# [0123FA2] / [Description] / QTY: [X]\nCond: SV/OH/RP/NE\n\nBest regards","Subject: RFQ PN [0123FA2] / [Description]\n\nHello [Name],\n\nWe have a requirement for the following part. Please advise availability and best price:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nBest regards","Subject: RFQ PN [0123FA2]\n\nDear [Name],\n\nHope you are well. Kindly provide pricing and availability for:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nWaiting for your feedback.\n\nBest regards"],
+  s4:["Subject: RFQ PN [0123FA2]\n\nHello [Name],\n\nPlease provide your best price quote and stock availability for the following item:\n\n1 PN# [0123FA2] / [SENSOR - LOW FLOW]\n\nThank you.\nBest regards","Subject: RFQ PN [0123FA2]\n\nDear [Name],\n\nWe would like to request a quotation for the below item. Please advise on availability and lead time.\n\n1 PN# [0123FA2] / [SENSOR - LOW FLOW]\n\nThank you.\nBest regards","Subject: RFQ PNs [14331-1C / 14331-2C]\n\nHello [Name],\n\nPlease provide your best price quote and stock availability for the following items:\n\n2 PN's# [14331-1C]  /  [Outflow Valve]  / QTY: 2\n         [14331-2C]  /  [Outflow Valve]  / QTY: 2\n\nThank you.\nBest regards","Subject: RFQ PN [0123FA2] — AOG\n\nDear [Name],\n\nAOG situation — we urgently need a quote for the following:\n\n1 PN# [0123FA2] / [SENSOR - LOW FLOW] / QTY: 1\n\nPlease revert ASAP.\n\nBest regards","Subject: RFQ PN [0123FA2]\n\nHello [Name],\n\nKindly quote your best price and availability for the part listed below:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nLooking forward to your reply.\n\nBest regards","Subject: Stock Availability Request — PN [0123FA2]\n\nHello [Name],\n\nCould you please check your stock and provide a quote for:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nThank you.\nBest regards","Subject: RFQ PN [0123FA2]\n\nDear Team,\n\nWe are sourcing the following part and would appreciate your most competitive quote:\n\nPN# [0123FA2] / [Description] / QTY: [X]\nCondition: Any\n\nThank you.\nBest regards","Subject: RFQ — PN [0123FA2]\n\nHello [Name],\n\nPlease quote price and availability for the below:\n\nPN# [0123FA2] / [Description] / QTY: [X]\nCond: SV/OH/RP/NE\n\nBest regards","Subject: RFQ PN [0123FA2] / [Description]\n\nHello [Name],\n\nWe have a requirement for the following part. Please advise availability and best price:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nBest regards","Subject: RFQ PN [0123FA2]\n\nDear [Name],\n\nHope you are well. Kindly provide pricing and availability for:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nWaiting for your feedback.\n\nBest regards"],
+  s8:["Hello,\n\nJust a quick kind reminder regarding our RFQ. \n\nBest regards,","Hello,\n\nKind reminder about our RFQ. Looking forward to your update.\n\nBest regards,","Hello,\n\nA gentle reminder regarding our RFQ. Please advise when convenient.\n\nBest regards,","Dear Team,\n\nFollowing up on our request for quotation — kindly advise on availability.\n\nThank you.","Hello,\n\nWe are still awaiting your quote. Please revert at your earliest convenience.\n\nBest regards,","Hello,\n\nJust checking in on our RFQ. Could you please share an update?\n\nThank you.\nBest regards,","Dear [Name],\n\nThis is a polite follow-up on our RFQ sent earlier. Please let us know your availability.\n\nBest regards,","Hello,\n\nHope you are well. Just a reminder to please check our RFQ and revert with pricing.\n\nThank you.","Dear Team,\n\nFollowing up on our earlier enquiry. We would appreciate your feedback at the earliest.\n\nBest regards,","Hello,\n\nQuick reminder — we have an open RFQ with your team. Please share availability and pricing when ready.\n\nBest regards,"],
   s10:["Subject: QUOTE FOR PN: [PN#] FROM JAD AEROSPACE LLC\n\nHello [Client Name],\n\nFollowing your RFQ please find below our quote:\n\nPN: [PN#] / Description: [DESC] / QTY: [X] each\nSN: [SN#]\nCond: RP\nTag Type: MFG 8130/CofC/ATA106/DUAL FAA/EASA FORM-1\nTag Src: General MRO Aerospace Inc.\nTag Date: [MM/DD/YYYY]\nWarranty: 6 MONTHS\nEXW: USA\nLead Time: Stock\nAsking Price: $[PRICE]\n\nValidity of quotation: 7 days or subject to prior sale.\n\nWe look forward to receiving your feedback.\n\nThank you for giving us the opportunity to send you this quote.\n\nKind regards."],
-  s11:["Hello,\n\nJust following up on this quote. Please advise if you have received a better offer so we can work to get as close as possible. \n\nLooking forward to your feedback.\n\nThank you!\nBest Regards","Hello,\n\nFollowing up on the quote we sent. Please advise if you have received a better offer so we can review and try to match it.\n\nThank you, and we look forward to your reply.\n\nBest regards,","Hello,\n\nQuick follow-up on the quote. Please let us know if you have received a better offer so we can try to work closer to it.\n\nThank you, and we look forward to hearing from you.\n\nBest regards,","Hello,\n\nFollowing up on the quote we shared. Please let us know if there is a better offer so we can try to get closer.\n\nLooking forward to your feedback.\n\nThank you!\nBest regards,"]
+  s11:["Hello,\n\nJust following up on this quote. Please advise if you have received a better offer so we can work to get as close as possible. \n\nLooking forward to your feedback.\n\nThank you!\nBest Regards","Hello,\n\nFollowing up on the quote we sent. Please advise if you have received a better offer so we can review and try to match it.\n\nThank you, and we look forward to your reply.\n\nBest regards,","Hello,\n\nQuick follow-up on the quote. Please let us know if you have received a better offer so we can try to work closer to it.\n\nThank you, and we look forward to hearing from you.\n\nBest regards,","Hello,\n\nFollowing up on the quote we shared. Please let us know if there is a better offer so we can try to get closer.\n\nLooking forward to your feedback.\n\nThank you!\nBest regards,","Hello,\n\nJust checking in — did you have a chance to review our quote? We are happy to discuss if needed.\n\nBest regards,","Dear [Client],\n\nFollowing up on our quote. If you have received a better offer, please share so we can try to match it.\n\nLooking forward to your reply.\n\nBest regards,","Hello,\n\nHope you are doing well. Wanted to follow up on the quotation we sent. Please let us know your decision.\n\nThank you!\nBest regards,","Dear Team,\n\nWe would like to follow up on our quotation. We remain competitive and keen to support your requirement.\n\nKind regards,","Hello,\n\nJust a gentle nudge on the quote we shared. Please advise so we can proceed accordingly.\n\nThank you.\nBest regards,","Dear [Client],\n\nFollowing up one more time on our quote. If pricing is a concern, we are open to discussing options.\n\nLooking forward to your feedback.\n\nBest regards,"]
 };
 function swTpl(key,idx,btn){
   const el=document.getElementById("tt-"+key);if(!el||!TPLS[key])return;
@@ -3103,242 +2825,6 @@ window.toggleCallout=function(el){
 
 })();
 </script>
-<!-- ════ RUSH MODE JS ════ -->
-<script>
-(function(){
-  var RUSH_KEY='ecpRushMode';
-  var rushActive=false;
-  var rushCf='all';
-  var rushRfqRowId=0;
-  var rushVariants=[];
-  var rushCurrentVariant=0;
 
-  /* ── State ── */
-  try{rushActive=localStorage.getItem(RUSH_KEY)==='1';}catch(e){}
-
-  function applyRush(){
-    var tog=document.getElementById('rushTog');
-    var lbl=document.getElementById('rushStatusLbl');
-    var sub=document.getElementById('rushTopSub');
-    var content=document.getElementById('rushContent');
-    var inactive=document.getElementById('rushInactiveMsg');
-    var tabBtn=document.getElementById('rushTabBtn');
-    if(tog){tog.className='rush-tog '+(rushActive?'on':'off');}
-    if(lbl){lbl.textContent=rushActive?'ON':'OFF';lbl.className='rush-status '+(rushActive?'on':'');}
-    if(sub){sub.textContent=rushActive?'Scroll down — all your tools in one place':'Turn on to access all rush tools on this page';}
-    if(content){content.style.display=rushActive?'block':'none';}
-    if(inactive){inactive.style.display=rushActive?'none':'flex';}
-    if(tabBtn){tabBtn.className='tbtn '+(rushActive?'rush-on':'');}
-  }
-
-  window.rushToggle=function(){
-    rushActive=!rushActive;
-    try{localStorage.setItem(RUSH_KEY,rushActive?'1':'0');}catch(e){}
-    applyRush();
-  };
-
-  /* ── Sub-tabs (Template / Search) ── */
-  window.rushSubTab=function(tab){
-    document.getElementById('rushPane-tpl').style.display=tab==='tpl'?'block':'none';
-    document.getElementById('rushPane-search').style.display=tab==='search'?'block':'none';
-    document.getElementById('rushT-tpl').style.background=tab==='tpl'?'var(--rush)':'var(--bg2)';
-    document.getElementById('rushT-tpl').style.color=tab==='tpl'?'#fff':'var(--muted)';
-    document.getElementById('rushT-search').style.background=tab==='search'?'var(--rush)':'var(--bg2)';
-    document.getElementById('rushT-search').style.color=tab==='search'?'#fff':'var(--muted)';
-  };
-
-  /* ── Contact Search ── */
-  window.rushSetFilter=function(f,btn){
-    rushCf=f;
-    document.querySelectorAll('.rush-fb .fbtn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    rushDoSearch(document.getElementById('rushSearchInput').value.trim());
-  };
-
-  window.rushDoSearch=function(iv){
-    var res=document.getElementById('rushResults');
-    if(!iv){res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div>';return;}
-    if(!window.dataLoaded){res.innerHTML='<div style="text-align:center;color:var(--orange);margin-top:20px;font-size:12px">⚠ No data.json loaded</div>';return;}
-    res.innerHTML='';
-    function norm(s){return s.toLowerCase().replace(/[-_.\s]/g,'');}
-    function domKey(i){if(i.includes('@')){var p=i.split('@');if(p[1])return p[1].split('.')[0];}return i;}
-    var kw=norm(domKey(iv));var count=0;
-    function match(v){return norm(v).includes(kw);}
-    function addCard(type,title,content){var div=document.createElement('div');div.className='card '+type;div.innerHTML='<div class="card-hr"><div class="card-title">'+title+'</div></div>'+content;res.appendChild(div);count++;}
-    if(rushCf==='all'||rushCf==='blacklist'){for(var c in window.blacklist||{}){var obj=window.blacklist[c]||{},em=obj.emails||[],reason=obj.reason||'';var cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length||match(reason)){var sh=cm?em:em2;var rows=sh.map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="navigator.clipboard.writeText('${e.replace(/'/g,"\\'")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');addCard('blacklist',c,'<div class="gel">'+rows+'</div><div class="bl-reason">⚠ '+reason+'</div>');}}}
-    if(rushCf==='all'||rushCf==='direct'){for(var c in window.directContact||{}){var eml=window.directContact[c]||[];var cm=match(c),em2=eml.filter(e=>match(e));if(cm||em2.length){var sh=cm?eml:em2;var rawEntry=(window._originalDC&&window._originalDC[c])||[];var rows=sh.map(e=>{var eObj=rawEntry.find?rawEntry.find(o=>o&&o.email===e):null;var st='';if(eObj&&eObj.status&&eObj.status!=='Unknown'){var sm={'Answering':['answer','✓ Answers'],'Not Answering':['not-answering','✗ No Reply'],'Holiday':['holiday','✈ Holiday'],'Repair Shop':['holiday','🔧 Repair Shop'],'Not Found':['not-answering','✗ Not Found']};var sv=sm[eObj.status]||null;if(sv)st='<span class="status-badge '+sv[0]+'">'+sv[1]+'</span>';}var esc=e.replace(/'/g,"\\'");return`<div class="ger"><span class="ge">${e}</span>${st}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');addCard('direct',c,'<div class="gel">'+rows+'</div>');}}}
-    if(rushCf==='all'||rushCf==='replace'){for(var old in window.replacements||{}){if(match(old)||match(window.replacements[old])){addCard('replace','Replacement','<small>Old:</small> '+old+'<br><small>New:</small> '+window.replacements[old]);}}}
-    if(!count)res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No matches found</div>';
-  };
-
-  /* ── RFQ Builder (mirrors the main one) ── */
-  function rushMkRow(){
-    var id=++rushRfqRowId;
-    var row=document.createElement('div');
-    row.id='rushRfqrow-'+id;
-    row.style.cssText='display:grid;grid-template-columns:28px 1fr 1fr 1.4fr 70px 32px;gap:6px;align-items:center';
-    row.innerHTML=`<input type="checkbox" id="rush-rfq-sel-${id}" checked style="width:16px;height:16px;accent-color:var(--brand);cursor:pointer;margin:0 auto;display:block">
-      <input class="rfq-row-input" id="rush-rfq-pn-${id}" placeholder="e.g. 0123FA2" autocomplete="off">
-      <input class="rfq-row-input" id="rush-rfq-alt-${id}" placeholder="ALT PN (opt.)" autocomplete="off">
-      <input class="rfq-row-input" id="rush-rfq-desc-${id}" placeholder="e.g. SENSOR - LOW FLOW" autocomplete="off">
-      <input class="rfq-row-input" id="rush-rfq-qty-${id}" placeholder="QTY" type="number" min="1" style="text-align:center" autocomplete="off">
-      <button class="rfq-del" onclick="rushRfqRemoveRow(${id})" title="Remove">×</button>`;
-    return row;
-  }
-  window.rushRfqAddRow=function(){document.getElementById('rushRfqRows').appendChild(rushMkRow());};
-  window.rushRfqRemoveRow=function(id){var el=document.getElementById('rushRfqrow-'+id);if(el)el.remove();};
-
-  function rushBuildItemLines(items){
-    return items.map(i=>{var l=i.pn;if(i.alt){l+=' / ALT: '+i.alt;if(i.desc)l+=' / '+i.desc;}else{if(i.desc)l+=' / '+i.desc;}if(i.qty)l+=' / QTY: '+i.qty;return l;}).join('\n');
-  }
-
-  var RUSH_VARIANTS=[
-    {label:'Check Avail.',cert:false,build:(items)=>{var multi=items.length>1;var subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;var lines=rushBuildItemLines(items);var body=`Dear team,\n\nIs this offer still valid for:\n\n${lines}\n\nThank you.`;return{subject:subj,plain:body};}},
-    {label:'Option 1',cert:true,build:(items)=>{var multi=items.length>1;var subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;var lines=rushBuildItemLines(items);var body=`Dear team,\n\nPlease provide your best price and availability for the following:\n\n${lines}\n\nPlease include the certification with your quote.\n\nThank you.`;return{subject:subj,plain:body};}},
-    {label:'Option 2',cert:true,build:(items)=>{var multi=items.length>1;var subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;var lines=rushBuildItemLines(items);var body=`Hello,\n\nWe are looking to purchase the following part(s):\n\n${lines}\n\nKindly send us your best price and availability along with the certification.\n\nBest regards.`;return{subject:subj,plain:body};}},
-  ];
-
-  window.rushRfqGenerate=function(){
-    var rows=[...document.querySelectorAll('#rushRfqRows [id^="rushRfqrow-"]')];
-    var items=rows.map(r=>{var id=r.id.replace('rushRfqrow-','');var sel=document.getElementById('rush-rfq-sel-'+id);if(sel&&!sel.checked)return null;return{pn:(document.getElementById('rush-rfq-pn-'+id)||{}).value||'',alt:(document.getElementById('rush-rfq-alt-'+id)||{}).value||'',desc:(document.getElementById('rush-rfq-desc-'+id)||{}).value||'',qty:(document.getElementById('rush-rfq-qty-'+id)||{}).value||''};}).filter(i=>i&&i.pn.trim());
-    if(!items.length){alert('Add at least one Part Number');return;}
-    rushVariants=RUSH_VARIANTS.map(v=>v.build(items));
-    rushCurrentVariant=0;
-    // Subject
-    var subj=rushVariants[0].subject;
-    var subEl=document.getElementById('rushRfqSubject');
-    if(subEl&&!subEl.value)subEl.value=subj;
-    // Tabs
-    var tabsEl=document.getElementById('rushRfqVariantTabs');
-    tabsEl.innerHTML='';
-    RUSH_VARIANTS.forEach((v,i)=>{var btn=document.createElement('button');btn.className='rfq-vtab'+(i===0?' active':'');btn.textContent=v.label;btn.onclick=()=>{rushCurrentVariant=i;rushShowVariant(i);};tabsEl.appendChild(btn);});
-    rushShowVariant(0);
-    document.getElementById('rushRfqOutputWrap').style.display='block';
-  };
-
-  function rushShowVariant(i){
-    var v=rushVariants[i];if(!v)return;
-    document.getElementById('rushRfqOutput').textContent=v.plain;
-    document.querySelectorAll('#rushRfqVariantTabs .rfq-vtab').forEach((b,j)=>b.classList.toggle('active',j===i));
-    rushCurrentVariant=i;
-  }
-
-  window.rushRfqCopy=function(){var out=document.getElementById('rushRfqOutput');if(out){navigator.clipboard.writeText(out.textContent);var btn=document.getElementById('rushRfqCopyBtn');if(btn){var o=btn.textContent;btn.textContent='✓ Copied';setTimeout(()=>btn.textContent=o,1500);}}};
-  window.rushRfqClear=function(){document.getElementById('rushRfqRows').innerHTML='';document.getElementById('rushRfqOutputWrap').style.display='none';document.getElementById('rushRfqSubject').value='';rushRfqRowId=0;rushRfqAddRow();};
-
-  /* ── Reminder R (in Reminders section) ── */
-  window.rushHandleTypeChange=function(){};
-  window.rushStartReminderR=function(){
-    var part=(document.getElementById('rushPartInputR').value||'').trim();
-    var hours=parseInt(document.getElementById('rushHourInputR').value)||3;
-    var country=(document.getElementById('rushCountryInputR').value||'').trim();
-    var type=document.getElementById('rushTypeInputR').value;
-    var err=document.getElementById('rushCountryErrR');
-    if(!part){document.getElementById('rushPartInputR').focus();return;}
-    if(type==='customer'&&!country){if(err)err.style.display='block';document.getElementById('rushCountryInputR').focus();return;}
-    if(err)err.style.display='none';
-    // Inject into main reminder system
-    _rushInjectReminder(part,hours,country,type,document.getElementById('rushReminderListR'));
-    document.getElementById('rushPartInputR').value='';
-  };
-
-  /* ── Follow-up 48h reminder ── */
-  window.rushStartFollowup=function(){
-    var part=(document.getElementById('rushPartInputF').value||'').trim();
-    var country=(document.getElementById('rushCountryInputF').value||'').trim();
-    var msg=document.getElementById('rushFollowupMsg');
-    if(!part){document.getElementById('rushPartInputF').focus();return;}
-    _rushInjectReminder(part,48,country,'customer',null);
-    document.getElementById('rushPartInputF').value='';
-    document.getElementById('rushCountryInputF').value='';
-    if(msg){msg.textContent='✓ 48h reminder set for "'+part+'"';msg.style.display='block';setTimeout(()=>msg.style.display='none',3000);}
-  };
-
-  function _rushInjectReminder(part,hours,country,type,listEl){
-    var end=Date.now()+hours*3600000;
-    var obj={id:Date.now(),part,hours,country,type,end,finished:false,user:window.currentUser||''};
-    if(window.reminders)window.reminders.push(obj);
-    if(typeof window.saveReminders==='function')window.saveReminders();
-    // Build a mini card in the local listEl
-    if(listEl){
-      var card=document.createElement('div');card.className='tc '+(type==='customer'?'customer':'');
-      var lbl=type==='customer'?'Customer Follow-up':'Supplier Reminder';
-      card.innerHTML=`<div><strong>${part}</strong><br><small>${lbl}</small></div><div style="display:flex;align-items:center;gap:8px"><span class="tt" style="font-family:var(--mono);font-size:11px;font-weight:700"></span><button class="tr-btn" style="font-size:10px;padding:2px 8px">Remove</button></div>`;
-      listEl.appendChild(card);
-      card.querySelector('.tr-btn').onclick=function(){card.remove();};
-      var te=card.querySelector('.tt');
-      (function tick(){var rem=obj.end-Date.now();if(rem<=0){te.textContent='⏰ TIME\'S UP';card.classList.add('finished');if(typeof window.showReminderPopup==='function')window.showReminderPopup(obj);return;}var h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000),s=Math.floor((rem%60000)/1000);te.textContent=`${h}h ${m}m ${s}s`;setTimeout(tick,1000);})();
-    }
-  }
-
-  /* ── Holiday Reminder (Rush) ── */
-  window.rushStartHolidayReminder=function(){
-    var email=(document.getElementById('rushHolidayEmail').value||'').trim();
-    var name=(document.getElementById('rushHolidayName').value||'').trim();
-    var part=(document.getElementById('rushHolidayPart').value||'').trim();
-    var date=document.getElementById('rushHolidayDate').value;
-    var listEl=document.getElementById('rushHolidayList');
-    if(!email){document.getElementById('rushHolidayEmail').focus();return;}
-    if(!date){document.getElementById('rushHolidayDate').focus();return;}
-    var returnMs=new Date(date+'T08:00:00').getTime();
-    if(isNaN(returnMs)||returnMs<=Date.now()){alert('Please enter a valid future return date.');return;}
-    var label=name?name:email;
-    var card=document.createElement('div');card.className='tc customer';
-    card.innerHTML=`<div><strong>✈️ ${label}</strong><br><small style="font-family:var(--mono)">${email}</small>${part?`<br><small>${part}</small>`:''}</div><div style="display:flex;align-items:center;gap:8px"><span class="tt" style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--orange)"></span><button class="tr-btn" style="font-size:10px;padding:2px 8px">Remove</button></div>`;
-    listEl.appendChild(card);
-    card.querySelector('.tr-btn').onclick=function(){card.remove();};
-    var te=card.querySelector('.tt');
-    (function tick(){
-      var now=Date.now();if(now>=returnMs){te.textContent='🔔 BACK TODAY!';card.classList.add('finished');if(typeof window.showReminderPopup==='function')window.showReminderPopup({part:label+' is back from holiday. Follow up: '+email,type:'customer'});return;}
-      var rem=returnMs-now;var d=Math.floor(rem/86400000),h=Math.floor((rem%86400000)/3600000),m=Math.floor((rem%3600000)/60000);
-      te.textContent=d>0?`${d}d ${h}h`:`${h}h ${m}m`;
-      setTimeout(tick,60000);
-    })();
-    document.getElementById('rushHolidayEmail').value='';
-    document.getElementById('rushHolidayName').value='';
-    document.getElementById('rushHolidayPart').value='';
-    document.getElementById('rushHolidayDate').value='';
-  };
-
-  /* ── Template tab variants (swTpl hook for rush templates) ── */
-  var RUSH_S8=[
-    'Hello,\n\nJust a quick kind reminder regarding our RFQ. \n\nBest regards,',
-    'Dear team,\n\nFollowing up on our request for quotation — kindly advise on availability.\n\nThank you.',
-    'Hello,\n\nWe are still awaiting your quote. Please revert at your earliest convenience.\n\nBest regards,'
-  ];
-  var RUSH_S11=[
-    'Hello,\n\nJust following up on this quote. Please advise if you have received a better offer so we can work to get as close as possible. \n\nLooking forward to your feedback.\n\nThank you!\nBest Regards',
-    'Dear [Client],\n\nI wanted to check if you had a chance to review our quote. We remain available to discuss pricing or timing.\n\nKind regards.',
-    'Hello,\n\nFolowing up on the quote we sent. Let us know if you have any questions or if there is anything we can adjust.\n\nThank you.',
-    'Dear team,\n\nWe are still waiting for your feedback on our quotation. Please let us know if you need any further information.\n\nBest regards.'
-  ];
-
-  // Override swTpl for rush variants
-  var _origSwTpl=window.swTpl;
-  window.swTpl=function(id,idx,btn){
-    if(id==='rush-s8'){
-      document.getElementById('tt-rush-s8').textContent=RUSH_S8[idx]||RUSH_S8[0];
-      btn.closest('.tpl-tabs').querySelectorAll('.tpl-tab').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      return;
-    }
-    if(id==='rush-s11'){
-      document.getElementById('tt-rush-s11').textContent=RUSH_S11[idx]||RUSH_S11[0];
-      btn.closest('.tpl-tabs').querySelectorAll('.tpl-tab').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      return;
-    }
-    if(_origSwTpl)_origSwTpl(id,idx,btn);
-  };
-
-  /* ── Init ── */
-  function init(){
-    applyRush();
-    rushRfqAddRow(); // start with one empty row
-  }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
-  else{setTimeout(init,0);}
-})();
-</script>
 
 </html>
