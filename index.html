@@ -1615,7 +1615,22 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
   </div>
 </div>
 
-
+<!-- Holiday Reminder -->
+<div class="pg-section" style="margin-top:16px">
+  <div class="sec-title" style="displau:none;">️ Holiday Reminder</div>
+  <div style="font-size:12px;color:var(--muted);margin-bottom:10px;line-height:1.5">When a contact is on holiday, enter their email and the date they return. You'll get a reminder to follow up when they're back.</div>
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--sh)">
+    <div class="rf-row" style="flex-wrap:wrap">
+      <div class="rf" style="flex:2;min-width:140px"><label>Contact Email</label><input type="text" id="holidayEmailDoc" placeholder="e.g. john@supplier.com" style="width:100%"></div>
+      <div class="rf" style="flex:1;min-width:120px"><label>Contact Name (opt.)</label><input type="text" id="holidayNameDoc" placeholder="e.g. John" style="width:100%"></div>
+      <div class="rf" style="flex:1;min-width:130px"><label>Part / Note</label><input type="text" id="holidayPartDoc" placeholder="e.g. PN 0123FA2" style="width:100%"></div>
+      <div class="rf" style="min-width:140px"><label>Back on (date)</label><input type="date" id="holidayDateDoc" style="width:100%"></div>
+      <button class="rm-btn" onclick="startHolidayReminderDoc()" style="align-self:flex-end;background:var(--orange)">✈️ Set</button>
+    </div>
+    <div id="holidayReminderListDoc" style="margin-top:8px"></div>
+  </div>
+</div>
+</div>
 
             </div><!-- /docs-inner -->
           </div><!-- /docs-content -->
@@ -1800,6 +1815,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
       </div><!-- /panel-tools -->
 
     </div><!-- /panels -->
+    <div class="statusbar" id="statusBar">Ready</div>
   </div><!-- /app-body -->
 </div><!-- /appScreen -->
 
