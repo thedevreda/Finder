@@ -245,7 +245,9 @@
     "fixprodistribution.com": "NOT FOUND",
     "rfq@machnor.com": "NOT FOUND",
     "juergen.buettgenbach@jbavicon.com": "NOT FOUND",
-    "sales@royalavi.com.": "NOT FOUND"
+    "sales@royalavi.com.": "NOT FOUND",
+    "fairfaxtrading.com": "BLAKCLISE",
+    "fifthtrip.com": "BLAKCLISE"
   },
   "replacements": {
     "production@skysmart.co.uk": "callum@skysmart.co.uk",
@@ -1057,7 +1059,7 @@
       },
       {
         "email": "katja.janzon@advantageavio.se",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "rfq@advantageavio.se",
@@ -2311,11 +2313,11 @@
     "AEROPART": [
       {
         "email": "eabreu@aeropart.com.br",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "izabela@aeropart.com.br",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@aeropart.com.br",
@@ -3031,7 +3033,7 @@
     "AESC": [
       {
         "email": "hang.nguyenminh@aesc.com.vn",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@aesc.com.vn",
@@ -4464,6 +4466,10 @@
       {
         "email": "UK-SOU.muirheadavionics.sales@ametek.com",
         "status": "Unknown"
+      },
+      {
+        "email": "bobby.pulliam@ametek.com",
+        "status": "Answering"
       }
     ],
     "AMMACAIRCRAFT": [
@@ -5959,11 +5965,11 @@
     "AUSTINAEROTECH": [
       {
         "email": "aai@austinaerotech.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "jb@austinaerotech.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "knace@austinaerotech.com",
@@ -6313,7 +6319,7 @@
       },
       {
         "email": "bas@aviarena.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@aviarena.com",
@@ -6322,6 +6328,10 @@
       {
         "email": "sem@aviarena.com",
         "status": "Unknown"
+      },
+      {
+        "email": "george@aviarena.com",
+        "status": "Answering"
       }
     ],
     "AVIARIS": [
@@ -6422,6 +6432,10 @@
       {
         "email": "sales@aviationexcess.com",
         "status": "Unknown"
+      },
+      {
+        "email": "krivera@aviationexcess.com",
+        "status": "Answering"
       }
     ],
     "AVIATION SOLUTIONS": [
@@ -11245,11 +11259,11 @@
     "FIRE-TECAERO": [
       {
         "email": "chandler@fire-tecaero.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@fire-tecaero.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "FIREEAGLEINC": [
@@ -13337,7 +13351,7 @@
       },
       {
         "email": "janderson@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "jasok@hawkaviation.com",
@@ -14658,16 +14672,18 @@
         "status": "Unknown"
       }
     ],
-    "IWINGS": [
-      {
-        "email": "amalkrishna@iwingsaviation.com",
-        "status": "Unknown"
-      }
-    ],
     "IWINGSAVIATION": [
       {
         "email": "rfq@iwingsaviation.com",
         "status": "Unknown"
+      },
+      {
+        "email": "inventory@iwingsaviation.com",
+        "status": "Answering"
+      },
+      {
+        "email": "amalkrishna@iwingsaviation.com",
+        "status": "Answering"
       }
     ],
     "J1AERO": [
@@ -16587,7 +16603,7 @@
     "MAC AERO": [
       {
         "email": "sales@mac-aero.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sam@mac-aero.com",
@@ -18753,7 +18769,7 @@
       },
       {
         "email": "paolad@owlaerospace.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "SALES@owlaerospace.com",
@@ -21061,7 +21077,7 @@
       },
       {
         "email": "daniel.brindley@seattleav.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "customersupport@seattleav.com",
@@ -21297,7 +21313,7 @@
       },
       {
         "email": "jnemmers@sheysystems.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "SHINE-JET": [
@@ -21443,7 +21459,7 @@
     "SKAEROSAFETYGROUP": [
       {
         "email": "rosie.vargas@skaerosafetygroup.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "SKY-FLY": [
@@ -21545,7 +21561,7 @@
       },
       {
         "email": "aloader@skyline-aero.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "aroberts@skyline-aero.com",
@@ -24361,7 +24377,7 @@
     "UPWINDAERO": [
       {
         "email": "dermot@upwindaero.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "US": [
