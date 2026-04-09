@@ -414,6 +414,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
   <div class="tabbar">
     <button class="nav-toggle" id="navToggleBtn" onclick="toggleDocsNav()" title="Toggle menu" style="display:none">☰</button>
     <button class="tbtn active" onclick="switchTab('docs',this)">Docs</button>
+    <button class="tbtn" onclick="switchTab('tools',this)">⚡ Tools</button>
     <button class="tbtn" id="emailDashTab" onclick="edOpenTab(this)" style="display:none">Email Dashboard</button>
   </div>
   <div class="nav-overlay" id="navOverlay" onclick="closeDocsNav()"></div>
@@ -749,6 +750,156 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
         const html= `Hello,\n\nWe need your best price, stock availability and <b>the certification</b> for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
         return {subject:subj,plain,html};
       }
+    },
+    // ── Option 7 — AOG ──
+    {
+      label:'Option 7 — AOG',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `AOG — RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `AOG — RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`Dear Team,\n\nAOG SITUATION — We urgently require your best price, stock availability and the certification for the following item${multi?'s':''}. Please revert ASAP.\n\n${lines}\n\nThank you.\nBest regards`;
+        const html= `Dear Team,\n\n<b>AOG SITUATION</b> — We urgently require your best price, stock availability and <b>the certification</b> for the following item${multi?'s':''}. Please revert ASAP.\n\n${lines}\n\nThank you.\nBest regards`;
+        return {subject:subj,plain,html};
+      }
+    },
+    // ── Option 8 — Partner ──
+    {
+      label:'Option 8',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`Dear Partner,\n\nHope you are well. We have a sourcing requirement and would appreciate your best offer, including availability and the certification:\n\n${lines}\n\nLooking forward to your feedback.\nBest regards`;
+        const html= `Dear Partner,\n\nHope you are well. We have a sourcing requirement and would appreciate your best offer, including availability and <b>the certification</b>:\n\n${lines}\n\nLooking forward to your feedback.\nBest regards`;
+        return {subject:subj,plain,html};
+      }
+    },
+    // ── Option 9 — Competitive ──
+    {
+      label:'Option 9',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`Hello,\n\nWe are currently sourcing the below item${multi?'s':''} and collecting competitive offers. Please provide your best price, stock availability and the certification at your earliest:\n\n${lines}\n\nThank you.\nBest regards`;
+        const html= `Hello,\n\nWe are currently sourcing the below item${multi?'s':''} and collecting competitive offers. Please provide your best price, stock availability and <b>the certification</b> at your earliest:\n\n${lines}\n\nThank you.\nBest regards`;
+        return {subject:subj,plain,html};
+      }
+    },
+    // ── Option 10 — Polite Re-check ──
+    {
+      label:'Option 10',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`Dear Team,\n\nWe hope you are doing well. Please check your stock and advise on price, availability and the certification for the following item${multi?'s':''}:\n\n${lines}\n\nWe look forward to your reply.\nKind regards`;
+        const html= `Dear Team,\n\nWe hope you are doing well. Please check your stock and advise on price, availability and <b>the certification</b> for the following item${multi?'s':''}:\n\n${lines}\n\nWe look forward to your reply.\nKind regards`;
+        return {subject:subj,plain,html};
+      }
+    },
+    // ── Option 11 — Direct ──
+    {
+      label:'Option 11',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`Hello,\n\nDo you have the following item${multi?'s':''} in stock? If yes, please send price and the certification:\n\n${lines}\n\nThank you.`;
+        const html= `Hello,\n\nDo you have the following item${multi?'s':''} in stock? If yes, please send price and <b>the certification</b>:\n\n${lines}\n\nThank you.`;
+        return {subject:subj,plain,html};
+      }
+    },
+    // ── Option 12 — Best Price Push ──
+    {
+      label:'Option 12',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`Hello,\n\nWe are receiving multiple offers for the below item${multi?'s':''}. Please provide your absolute best price, availability and the certification to remain competitive:\n\n${lines}\n\nBest regards`;
+        const html= `Hello,\n\nWe are receiving multiple offers for the below item${multi?'s':''}. Please provide your absolute best price, availability and <b>the certification</b> to remain competitive:\n\n${lines}\n\nBest regards`;
+        return {subject:subj,plain,html};
+      }
+    },
+    // ── Option 13 — Manufacturer Direct ──
+    {
+      label:'Option 13',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`Dear Sales Team,\n\nWe are reaching out to you directly regarding the following part${multi?'s':''}. Could you please advise on availability, lead time, price and the certification?\n\n${lines}\n\nThank you for your time.\nBest regards`;
+        const html= `Dear Sales Team,\n\nWe are reaching out to you directly regarding the following part${multi?'s':''}. Could you please advise on availability, lead time, price and <b>the certification</b>?\n\n${lines}\n\nThank you for your time.\nBest regards`;
+        return {subject:subj,plain,html};
+      }
+    },
+    // ── Option 14 — Weekend/After Hours ──
+    {
+      label:'Option 14',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`Hello,\n\nApologies for reaching out outside business hours. We have an urgent requirement for the below item${multi?'s':''}. Please quote price, availability and the certification as soon as you are available:\n\n${lines}\n\nThank you.\nBest regards`;
+        const html= `Hello,\n\nApologies for reaching out outside business hours. We have an urgent requirement for the below item${multi?'s':''}. Please quote price, availability and <b>the certification</b> as soon as you are available:\n\n${lines}\n\nThank you.\nBest regards`;
+        return {subject:subj,plain,html};
+      }
+    },
+    // ── Option 15 — Follow-on Check ──
+    {
+      label:'Option 15',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`Hello,\n\nWe have a new requirement for the item${multi?'s':''} below and would like to work with you again. Please provide your best pricing, availability and the certification:\n\n${lines}\n\nLooking forward to your offer.\nBest regards`;
+        const html= `Hello,\n\nWe have a new requirement for the item${multi?'s':''} below and would like to work with you again. Please provide your best pricing, availability and <b>the certification</b>:\n\n${lines}\n\nLooking forward to your offer.\nBest regards`;
+        return {subject:subj,plain,html};
+      }
+    },
+    // ── Option 16 — Condition Flexible ──
+    {
+      label:'Option 16',
+      cert:true,
+      build:(items)=>{
+        const multi=items.length>1;
+        const subj=multi
+          ? `RFQ PN's ${items.map(i=>i.pn).join(' / ')}`
+          : `RFQ PN ${items[0].pn}`;
+        const lines=buildItemLines(items);
+        const plain=`Hello,\n\nWe are open to any airworthy condition (OH, SV, RP, NE). Please provide your best price, stock availability and the certification for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`;
+        const html= `Hello,\n\nWe are open to any airworthy condition (OH, SV, RP, NE). Please provide your best price, stock availability and <b>the certification</b> for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`;
+        return {subject:subj,plain,html};
+      }
     }
   ];
 
@@ -789,30 +940,13 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
       outputEl.innerHTML=result.html.replace(/\n/g,'<br>').replace(/<b>/g,'<b style="font-weight:700">');
     }
 
-    tabBar.innerHTML='';
-    VARIANTS.forEach((v,i)=>{
-      const btn=document.createElement('button');
-      btn.className='rfq-vtab'+(i===0?' active':'');
-      btn.textContent=v.label;
-      btn.onclick=()=>{
-        document.querySelectorAll('.rfq-vtab').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        renderVariant(v);
-        document.getElementById('rfqCopyBtn').textContent='Copy';
-        document.getElementById('rfqCopyBtn').style.background='var(--bg)';
-        document.getElementById('rfqCopyBtn').style.color='var(--muted)';
-        document.getElementById('rfqCopyBtn').style.borderColor='var(--border)';
-      };
-      tabBar.appendChild(btn);
-    });
-
-    renderVariant(VARIANTS[0]);
     document.getElementById('rfqCopyBtn').textContent='Copy';
     wrap.style.display='block';
     wrap.scrollIntoView({behavior:'smooth',block:'nearest'});
 
-    // Override copy to use plain text (no HTML tags)
+    // Copy: plain text for clipboard, but visually bold+underline "the certification" in preview
     window.rfqCopy=function(){
+      // For clipboard: keep plain text (no HTML)
       navigator.clipboard.writeText(currentPlain).then(()=>{
         const btn=document.getElementById('rfqCopyBtn');
         btn.textContent='✓ Copied!';
@@ -822,6 +956,36 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
         setTimeout(()=>{btn.textContent='Copy';btn.style.background='var(--bg)';btn.style.color='var(--muted)';btn.style.borderColor='var(--border)';},1800);
       });
     };
+    // Also re-render with bold+underline for "the certification" in the preview
+    function renderVariantEnhanced(v){
+      const result=buildEmail(v,items);
+      currentPlain=result.plain;
+      const subjEl=document.getElementById('rfqSubject');
+      if(subjEl && result.subject) subjEl.value=result.subject;
+      // Bold + underline "the certification" in HTML preview
+      const enhanced=result.html
+        .replace(/\n/g,'<br>')
+        .replace(/<b>(the certification)<\/b>/gi,'<b style="font-weight:700;text-decoration:underline">$1</b>');
+      document.getElementById('rfqOutput').innerHTML=enhanced;
+    }
+    // Re-bind tab clicks to use enhanced renderer
+    tabBar.innerHTML='';
+    VARIANTS.forEach((v,i)=>{
+      const btn=document.createElement('button');
+      btn.className='rfq-vtab'+(i===0?' active':'');
+      btn.textContent=v.label;
+      btn.onclick=()=>{
+        document.querySelectorAll('.rfq-vtab').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        renderVariantEnhanced(v);
+        document.getElementById('rfqCopyBtn').textContent='Copy';
+        document.getElementById('rfqCopyBtn').style.background='var(--bg)';
+        document.getElementById('rfqCopyBtn').style.color='var(--muted)';
+        document.getElementById('rfqCopyBtn').style.borderColor='var(--border)';
+      };
+      tabBar.appendChild(btn);
+    });
+    renderVariantEnhanced(VARIANTS[0]);
   };
 
   window.rfqClear=function(){
@@ -1228,7 +1392,6 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('tt-s8',this)">Copy</
     <li><strong>Set EXW</strong> (actual warehouse) + <strong>Warranty</strong> (6 MONTHS)</li>
     <li><strong>Verify client name &amp; company</strong> — sending to wrong client is a serious error</li>
     <li><strong>CC Houssam &amp; Moe</strong> on every initial email</li>
-    <li><strong style="color:red;">Revised</strong> for revised quotes</li>
     <li><strong>Set status to "Initial Email"</strong> before sending</li>
   </ul>
 </div>
@@ -1617,8 +1780,8 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
 </div>
 
 <!-- Holiday Reminder -->
-<div class="pg-section" style="margin-top:16px;display: none;">
-  <div class="sec-title" style="displau:none;">️ Holiday Reminder</div>
+<div class="pg-section" style="margin-top:16px">
+  <div class="sec-title">️ Holiday Reminder</div>
   <div style="font-size:12px;color:var(--muted);margin-bottom:10px;line-height:1.5">When a contact is on holiday, enter their email and the date they return. You'll get a reminder to follow up when they're back.</div>
   <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--sh)">
     <div class="rf-row" style="flex-wrap:wrap">
@@ -1780,40 +1943,293 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
       </div><!-- /panel-emaildash -->
 
       <!-- ═══ TOOLS PANEL (hidden, kept for data functions) ═══ -->
-      <div id="panel-tools" class="panel" style="display:none!important">
-        <div class="tools-scroll">
-          <div id="dataNotice" class="data-notice" style="display:none;">
-          </div>
-          <div class="tools-grid">
-            <div class="sc">
-              <div class="sc-head"><div class="sc-title">Set Reminder</div></div>
-              <div class="sc-body">
-                <div class="rf-row">
-                  <div class="rf" style="flex:2;min-width:100px"><label>Part Number</label><input type="text" id="partInput" placeholder="e.g. 0123FA2" style="width:100%"></div>
-                  <div class="rf" style="width:60px"><label>Hours</label><input type="number" id="hourInput" value="3" min="1" style="width:100%"></div>
-                  <div class="rf" style="flex:1;min-width:80px"><label>Country</label><input type="text" id="countryInput" placeholder="Country" style="width:100%"><span id="countryErr" style="font-size:10px;color:var(--red);display:none">Required for customer</span></div>
-                  <div class="rf" style="width:110px"><label>Type</label><select id="typeInput" onchange="handleTypeChange()" style="width:100%"><option value="reminder">Supplier</option><option value="customer">Customer</option></select></div>
-                  <button class="rm-btn" onclick="startReminder()" style="align-self:flex-end">Start</button>
+      <div id="panel-tools" class="panel" style="flex-direction:column;overflow:hidden">
+        <div style="flex:1;overflow-y:auto;padding:20px 24px 60px;background:var(--bg)">
+          <div style="max-width:900px;margin:0 auto">
+
+            <!-- Page header -->
+            <div style="margin-bottom:22px">
+              <div style="font-size:17px;font-weight:700;color:var(--text);letter-spacing:-.3px;margin-bottom:3px">⚡ Tools</div>
+              <div style="font-size:12px;color:var(--muted)">All your working tools in one place — templates, reminders, contacts.</div>
+            </div>
+
+            <!-- ══ ROW 1: Reminders + Contact Search (side by side) ══ -->
+            <div style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+
+              <!-- Reminders -->
+              <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh)">
+                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:7px">
+                  <span style="font-size:13px">⏰</span>
+                  <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Reminders</span>
                 </div>
-                <div id="reminderList"></div>
+                <div style="padding:12px 14px">
+                  <div id="dataNotice" class="data-notice" style="display:none;margin-bottom:8px"></div>
+                  <div class="rf-row">
+                    <div class="rf" style="flex:2;min-width:90px"><label>Part Number</label><input type="text" id="partInput" placeholder="e.g. 0123FA2" style="width:100%"></div>
+                    <div class="rf" style="width:58px"><label>Hours</label><input type="number" id="hourInput" value="3" min="1" style="width:100%"></div>
+                    <div class="rf" style="flex:1;min-width:70px"><label>Country</label><input type="text" id="countryInput" placeholder="Country" style="width:100%"><span id="countryErr" style="font-size:10px;color:var(--red);display:none">Required</span></div>
+                    <div class="rf" style="width:100px"><label>Type</label><select id="typeInput" onchange="handleTypeChange()" style="width:100%"><option value="reminder">Supplier</option><option value="customer">Customer</option></select></div>
+                    <button class="rm-btn" onclick="startReminder()" style="align-self:flex-end">Start</button>
+                  </div>
+                  <div id="reminderList"></div>
+                  <!-- Holiday sub-section -->
+                  <div style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin:12px 0 8px;display:none;align-items:center;gap:8px">✈️ Holiday<span style="flex:1;height:1px;background:var(--border2)"></span></div>
+                  <div class="rf-row" style="flex-wrap:wrap">
+                    <div class="rf" style="flex:2;min-width:110px"><label>Email</label><input type="text" id="holidayEmailTools" placeholder="john@supplier.com" style="width:100%"></div>
+                    <div class="rf" style="flex:1;min-width:80px"><label>Name</label><input type="text" id="holidayNameTools" placeholder="John" style="width:100%"></div>
+                    <div class="rf" style="flex:1;min-width:80px"><label>Part/Note</label><input type="text" id="holidayPartTools" placeholder="PN 0123FA2" style="width:100%"></div>
+                    <div class="rf" style="min-width:120px"><label>Back on</label><input type="date" id="holidayDateTools" style="width:100%"></div>
+                    <button class="rm-btn" onclick="startHolidayTools()" style="align-self:flex-end;background:var(--orange)">✈️ Set</button>
+                  </div>
+                  <div id="holidayListTools" style="margin-top:6px"></div>
+                </div>
+              </div>
+
+              <!-- Contact Search -->
+              <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column">
+                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:7px">
+                  <span style="font-size:13px">🔍</span>
+                  <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Contact Search</span>
+                </div>
+                <div style="padding:12px 14px;flex:1;display:flex;flex-direction:column">
+                  <!-- Client email slot -->
+                  <div style="background:var(--bg);border:1px solid var(--border2);border-radius:7px;padding:8px 10px;margin-bottom:8px">
+                    <div style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px">📌 Client Email (duplicate check)</div>
+                    <div style="display:flex;gap:6px;align-items:center">
+                      <input type="text" id="toolsClientEmail" placeholder="paste client email…" autocomplete="off"
+                        style="flex:1;padding:7px 10px;border:1.5px solid var(--border2);border-radius:6px;font-size:12px;font-family:var(--font);outline:none;background:var(--white)"
+                        oninput="onClientEmailInput(this.value);document.getElementById('toolsClientEmailSet').style.display=this.value.trim()?'block':'none';document.getElementById('toolsClientEmailVal').textContent=this.value.trim()">
+                      <button onclick="window._clientEmail='';document.getElementById('toolsClientEmail').value='';document.getElementById('toolsClientEmailSet').style.display='none';" style="padding:6px 10px;border:1px solid var(--border2);background:var(--white);border-radius:6px;font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;font-family:var(--font)">✕</button>
+                    </div>
+                    <div id="toolsClientEmailSet" style="display:none;margin-top:5px;font-size:11px;color:var(--green);font-weight:600">✅ Watching: <span id="toolsClientEmailVal" style="font-family:var(--mono);color:var(--brand)"></span></div>
+                  </div>
+                  <!-- Same-client warning -->
+                  <div id="toolsSameClientWarn" style="display:none;align-items:center;gap:8px;background:var(--red-lt);border:1.5px solid #FECACA;border-radius:8px;padding:8px 12px;margin-bottom:8px">
+                    <span style="font-size:18px">🚫</span>
+                    <div>
+                      <div style="font-size:12px;font-weight:800;color:var(--red)">Don't send — same client!</div>
+                      <div style="font-size:11px;color:var(--red);opacity:.8" id="toolsSameClientName"></div>
+                    </div>
+                  </div>
+                  <div class="sw"><input type="text" id="searchInput" placeholder="Search company, email, or keyword…" oninput="lazyThenCall(()=>checkEmail())"></div>
+                  <div class="fb">
+                    <button class="fbtn active" onclick="setFilter('all',this)">All</button>
+                    <button class="fbtn" onclick="setFilter('blacklist',this)">Blacklist</button>
+                    <button class="fbtn" onclick="setFilter('direct',this)">Direct</button>
+                    <button class="fbtn" onclick="setFilter('replace',this)">Replace</button>
+                  </div>
+                  <div id="results" style="overflow-y:auto;flex:1;max-height:280px"><div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div></div>
+                </div>
               </div>
             </div>
-            <div class="sc">
-              <div class="sc-head"><div class="sc-title">🔍 Contact Search</div></div>
-              <div class="sc-body">
-                <div class="sw"><input type="text" id="searchInput" placeholder="Search company, email, or keyword…"></div>
-                <div class="fb">
-                  <button class="fbtn active" onclick="setFilter('all',this)">All</button>
-                  <button class="fbtn" onclick="setFilter('blacklist',this)">Blacklist</button>
-                  <button class="fbtn" onclick="setFilter('direct',this)">Direct</button>
-                  <button class="fbtn" onclick="setFilter('replace',this)">Replace</button>
+
+            <!-- ══ ROW 2: RFQ Templates (full width, tabbed) ══ -->
+            <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
+              <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
+                <div style="display:flex;align-items:center;gap:7px">
+                  <span style="font-size:13px">📝</span>
+                  <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Creating Template</span>
                 </div>
-                <div id="results" style="overflow-y:auto"><div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div></div>
+                <div style="display:flex;gap:3px;flex-wrap:wrap" id="tools-rfq-tabs"></div>
+              </div>
+              <div style="padding:14px 14px 14px;position:relative">
+                <div id="tools-rfq-text" style="font-size:12px;color:var(--text);line-height:1.75;white-space:pre-line;font-family:var(--mono);padding-right:70px"></div>
+                <button onclick="toolsCopyTpl('tools-rfq-text',this)" style="position:absolute;right:12px;top:12px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 11px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
               </div>
             </div>
+
+            <!-- ══ ROW 3: Sending Reminders + Follow-Up (side by side, tabbed) ══ -->
+            <div style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+
+              <!-- Sending Reminders -->
+              <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh)">
+                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap">
+                  <div style="display:flex;align-items:center;gap:7px">
+                    <span style="font-size:13px">📤</span>
+                    <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Sending Reminders</span>
+                  </div>
+                  <div style="display:flex;gap:3px;flex-wrap:wrap" id="tools-s8-tabs"></div>
+                </div>
+                <div style="padding:12px 13px;position:relative">
+                  <div id="tools-s8-text" style="font-size:12px;color:var(--text);line-height:1.7;white-space:pre-line;font-family:var(--mono);padding-right:64px"></div>
+                  <button onclick="toolsCopyTpl('tools-s8-text',this)" style="position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
+                </div>
+              </div>
+
+              <!-- Follow-Up Templates -->
+              <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh)">
+                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap">
+                  <div style="display:flex;align-items:center;gap:7px">
+                    <span style="font-size:13px">🔄</span>
+                    <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Follow-Up Templates</span>
+                  </div>
+                  <div style="display:flex;gap:3px;flex-wrap:wrap" id="tools-fu-tabs"></div>
+                </div>
+                <div style="padding:12px 13px;position:relative">
+                  <div id="tools-fu-text" style="font-size:12px;color:var(--text);line-height:1.7;white-space:pre-line;font-family:var(--mono);padding-right:64px"></div>
+                  <button onclick="toolsCopyTpl('tools-fu-text',this)" style="position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ ROW 4: Invoice Template (full width) ══ -->
+            <div style="background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh)">
+              <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
+                <div style="display:flex;align-items:center;gap:7px">
+                  <span style="font-size:13px">🧾</span>
+                  <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Invoice Template</span>
+                </div>
+                <div style="display:flex;gap:3px;flex-wrap:wrap" id="tools-inv-tabs"></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr auto;gap:0">
+                <div style="padding:14px;position:relative">
+                  <div id="tools-inv-text" style="font-size:12px;color:var(--text);line-height:1.75;white-space:pre-line;font-family:var(--mono);padding-right:70px"></div>
+                  <button onclick="toolsCopyTpl('tools-inv-text',this)" style="position:absolute;right:12px;top:12px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 11px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
+                </div>
+
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div><!-- /panel-tools -->
+
+<script>
+/* ══════════════════════════════════════════════
+   TOOLS PAGE — templates, reminders, contacts
+══════════════════════════════════════════════ */
+(function(){
+
+  const TOOLS_TPLS = {
+    rfq: [
+      "Subject: RFQ PN [0123FA2]\n\nHello,\n\nPlease provide your best price quote and stock availability and the certification for the following item:\n\nPN# [0123FA2] / [SENSOR - LOW FLOW] / QTY: [X]\n\nThank you.\nBest regards",
+      "Subject: RFQ PN [0123FA2]\n\nGood day,\n\nWe would appreciate your best price, availability and the certification for the item below:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nWe look forward to your response.\nKind regards",
+      "Subject: RFQ PN [0123FA2]\n\nHi,\n\nQuick RFQ — please send best price, availability & the certification:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nThanks!",
+      "Subject: AOG — RFQ PN [0123FA2]\n\nDear Team,\n\nAOG SITUATION — We urgently require your best price, stock availability and the certification for the following item. Please revert ASAP.\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nThank you.\nBest regards",
+      "Subject: RFQ PN [0123FA2]\n\nHello,\n\nCould you please provide your most competitive price, current availability and the certification for the following item?\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nWe look forward to your offer.\nBest regards",
+      "Subject: RFQ PN [0123FA2]\n\nHello,\n\nWe need your best price, stock availability and the certification for the following item. Please reply at your earliest convenience.\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nThank you.\nBest regards",
+      "Subject: RFQ PN [0123FA2]\n\nDear Partner,\n\nHope you are well. We have a sourcing requirement and would appreciate your best offer, including availability and the certification:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nLooking forward to your feedback.\nBest regards",
+      "Subject: RFQ PN [0123FA2]\n\nHello,\n\nWe are currently sourcing the below item and collecting competitive offers. Please provide your best price, stock availability and the certification at your earliest:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nThank you.\nBest regards",
+      "Subject: RFQ PN [0123FA2]\n\nDear Team,\n\nWe hope you are doing well. Please check your stock and advise on price, availability and the certification:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nWe look forward to your reply.\nKind regards",
+      "Subject: RFQ PN [0123FA2]\n\nHello,\n\nDo you have this item in stock? If yes, please send price and the certification:\n\nPN# [0123FA2] / [Description] / QTY: [X]\n\nThank you."
+    ],
+    s8: [
+      "Hello,\n\nJust a quick kind reminder regarding our RFQ. \n\nBest regards,",
+      "Hello,\n\nKind reminder about our RFQ. Looking forward to your update.\n\nBest regards,",
+      "Hello,\n\nA gentle reminder regarding our RFQ. Please advise when convenient.\n\nBest regards,",
+      "Dear Team,\n\nFollowing up on our request for quotation — kindly advise on availability.\n\nThank you.",
+      "Hello,\n\nWe are still awaiting your quote. Please revert at your earliest convenience.\n\nBest regards,",
+      "Hello,\n\nJust checking in on our RFQ. Could you please share an update?\n\nThank you.\nBest regards,",
+      "Dear [Name],\n\nThis is a polite follow-up on our RFQ sent earlier. Please let us know your availability.\n\nBest regards,",
+      "Hello,\n\nHope you are well. Just a reminder to please check our RFQ and revert with pricing.\n\nThank you.",
+      "Dear Team,\n\nFollowing up on our earlier enquiry. We would appreciate your feedback at the earliest.\n\nBest regards,",
+      "Hello,\n\nQuick reminder — we have an open RFQ with your team. Please share availability and pricing when ready.\n\nBest regards,"
+    ],
+    fu: [
+      "Hello,\n\nJust following up on this quote. Please advise if you have received a better offer so we can work to get as close as possible. \n\nLooking forward to your feedback.\n\nThank you!\nBest Regards",
+      "Hello,\n\nFollowing up on the quote we sent. Please advise if you have received a better offer so we can review and try to match it.\n\nThank you, and we look forward to your reply.\n\nBest regards,",
+      "Hello,\n\nQuick follow-up on the quote. Please let us know if you have received a better offer so we can try to work closer to it.\n\nThank you, and we look forward to hearing from you.\n\nBest regards,",
+      "Hello,\n\nFollowing up on the quote we shared. Please let us know if there is a better offer so we can try to get closer.\n\nLooking forward to your feedback.\n\nThank you!\nBest regards,",
+      "Hello,\n\nWe wanted to check in on the quote we sent. Are you still interested in the part? We remain available to adjust pricing or terms if needed.\n\nLooking forward to your reply.\n\nBest regards,",
+      "Dear [Client Name],\n\nJust a reminder that our quote for PN [PN#] is valid for 7 days or subject to prior sale. Please confirm your interest before the validity expires.\n\nThank you.\nBest regards,",
+      "Hello,\n\nHope you are doing well. Wanted to follow up on the quotation we sent. Please let us know your decision.\n\nThank you!\nBest regards,",
+      "Dear Team,\n\nWe would like to follow up on our quotation. We remain competitive and keen to support your requirement.\n\nKind regards,",
+      "Hello,\n\nJust a gentle nudge on the quote we shared. Please advise so we can proceed accordingly.\n\nThank you.\nBest regards,",
+      "Dear [Client],\n\nFollowing up one more time on our quote. If pricing is a concern, we are open to discussing options.\n\nLooking forward to your feedback.\n\nBest regards,"
+    ],
+    inv: [
+      "Description: [DESC] \nSN: [SN#]\nTrace: [Trace#]\nCond: [#]\nTag Type: MFG 8130/CofC/ATA106/DUAL FAA/EASA FORM-1\nTag Src: General MRO Aerospace Inc.\nTag Date: [MM/DD/YYYY]\nWarranty: 6 MONTHS\nEXW: USA\n",
+      "Subject: QUOTE FOR PN's: [PN#1 / PN#2] FROM JAD AEROSPACE LLC\n\nHello [Client Name],\n\nFollowing your RFQ please find below our quote:\n\n1) PN: [PN#1] / Description: [DESC1] / QTY: [X] each\n   SN: [SN#1] / Cond: RP\n   Tag Type: DUAL FAA/EASA FORM-1\n   Tag Src: [SHOP] / Tag Date: [MM/DD/YYYY]\n   Warranty: 6 MONTHS / EXW: USA\n   Asking Price: $[PRICE1]\n\n2) PN: [PN#2] / Description: [DESC2] / QTY: [X] each\n   SN: [SN#2] / Cond: OH\n   Tag Type: FAA 8130\n   Tag Src: [SHOP] / Tag Date: [MM/DD/YYYY]\n   Warranty: 6 MONTHS / EXW: USA\n   Asking Price: $[PRICE2]\n\nValidity of quotation: 7 days or subject to prior sale.\n\nWe look forward to receiving your feedback.\n\nKind regards."
+    ]
+  };
+
+  function buildTabs(containerId, textId, key, labels){
+    const bar = document.getElementById(containerId);
+    const textEl = document.getElementById(textId);
+    if(!bar || !textEl) return;
+    const data = TOOLS_TPLS[key];
+    bar.innerHTML = '';
+    data.forEach((t, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'tpl-tab' + (i===0?' active':'');
+      btn.textContent = labels ? labels[i] : ('Opt '+(i+1));
+      btn.onclick = () => {
+        bar.querySelectorAll('.tpl-tab').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        textEl.textContent = t;
+      };
+      bar.appendChild(btn);
+    });
+    textEl.textContent = data[0];
+  }
+
+  // Build all tab bars
+  buildTabs('tools-rfq-tabs','tools-rfq-text','rfq');
+  buildTabs('tools-s8-tabs','tools-s8-text','s8');
+  buildTabs('tools-fu-tabs','tools-fu-text','fu');
+  buildTabs('tools-inv-tabs','tools-inv-text','inv',['Single PN','Multi PN']);
+
+  // Copy helper
+  window.toolsCopyTpl = function(id, btn){
+    const el = document.getElementById(id);
+    if(!el) return;
+    navigator.clipboard.writeText(el.textContent);
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied';
+    btn.style.background = 'var(--green)';
+    btn.style.color = '#fff';
+    btn.style.borderColor = 'var(--green)';
+    setTimeout(()=>{ btn.textContent=orig; btn.style.background=''; btn.style.color=''; btn.style.borderColor=''; }, 1500);
+  };
+
+  // Holiday reminder for Tools page (shared Firebase via existing functions)
+  window.startHolidayTools = async function(){
+    const email = (document.getElementById('holidayEmailTools')?.value||'').trim();
+    const name  = (document.getElementById('holidayNameTools')?.value||'').trim();
+    const part  = (document.getElementById('holidayPartTools')?.value||'').trim();
+    const dateStr = document.getElementById('holidayDateTools')?.value;
+    if(!email||!dateStr){ alert('Contact email and return date required'); return; }
+    const returnMs = new Date(dateStr).getTime() + 86400000;
+    const obj = {id:Date.now(), part:part||email, hours:0, country:name||email, type:'customer', end:returnMs, finished:false, user:window.currentUser||''};
+    window.reminders = (window.reminders||[]);
+    window.reminders.push(obj);
+    if(typeof saveReminders==='function') await saveReminders();
+    if(typeof mkReminderCard==='function') mkReminderCard(obj);
+    ['holidayEmailTools','holidayNameTools','holidayPartTools'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+    const d=document.getElementById('holidayDateTools'); if(d) d.value='';
+  };
+
+  // Wire up same-client warning for Tools contact search
+  const origCheckEmail = window.checkEmail;
+  // Patch: after checkEmail runs, also show/hide toolsSameClientWarn
+  document.getElementById('searchInput')?.addEventListener('input', function(){
+    const warn = document.getElementById('toolsSameClientWarn');
+    const nameEl = document.getElementById('toolsSameClientName');
+    const clientEmail = window._clientEmail||'';
+    const q = this.value.trim().toLowerCase();
+    if(warn && clientEmail && q){
+      function tm(a,b){ return a.toLowerCase().includes(b)||a.toLowerCase().replace(/[-@._+]/g,'').includes(b.replace(/[-@._+]/g,'')); }
+      if(tm(clientEmail,q)||tm(q,clientEmail)){
+        warn.style.display='flex';
+        if(nameEl) nameEl.textContent=(document.getElementById('clientNameInput')?.value||'')||clientEmail;
+      } else {
+        warn.style.display='none';
+      }
+    } else if(warn){ warn.style.display='none'; }
+  });
+
+  // Responsive: collapse to single column on narrow screens
+  const style = document.createElement('style');
+  style.textContent = `
+    @media(max-width:640px){
+      #panel-tools .tools-row-2col{ grid-template-columns:1fr!important; }
+    }
+  `;
+  document.head.appendChild(style);
+
+})();
+</script>
 
     </div><!-- /panels -->
     <div class="statusbar" id="statusBar">Ready</div>
@@ -2841,6 +3257,5 @@ window.toggleCallout=function(el){
 
 })();
 </script>
-
 
 </html>
