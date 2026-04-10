@@ -2068,10 +2068,13 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
                       <button id="rushRfqCopyBtn" onclick="rushRfqCopy()" style="position:absolute;right:0;top:10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff';this.style.borderColor='var(--brand)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Copy</button>
                     </div>
                   </div>
+                  <!-- Quick Short Templates -->
+                  <div style="border-top:1px solid var(--border2);padding-top:12px;margin-top:4px">
+                    <div style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:8px">⚡ Quick Templates <span style="flex:1;height:1px;background:var(--border2)"></span></div>
+                    <div style="display:flex;flex-direction:column;gap:6px" id="rushQuickTpls"></div>
+                  </div>
                 </div>
               </div>
-
-              <!-- Rush Tools: Contact Search -->
               <div style="background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
                 <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:7px">
                   <span style="font-size:13px">🔍</span>
@@ -2158,40 +2161,24 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
 
             </div><!-- /rush-section -->
 
-            <!-- ══ ROW 1: Reminders + Contact Search (side by side) ══ -->
-            <div style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
-
-              <!-- Reminders -->
-              <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh)">
-                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:7px">
-                  <span style="font-size:13px">⏰</span>
-                  <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Reminders</span>
-                </div>
-                <div style="padding:12px 14px">
-                  <div id="dataNotice" class="data-notice" style="display:none;margin-bottom:8px"></div>
-                  <div class="rf-row">
-                    <div class="rf" style="flex:2;min-width:90px"><label>Part Number</label><input type="text" id="partInput" placeholder="e.g. 0123FA2" style="width:100%"></div>
-                    <div class="rf" style="width:58px"><label>Hours</label><input type="number" id="hourInput" value="3" min="1" style="width:100%"></div>
-                    <div class="rf" style="flex:1;min-width:70px"><label>Country</label><input type="text" id="countryInput" placeholder="Country" style="width:100%"><span id="countryErr" style="font-size:10px;color:var(--red);display:none">Required</span></div>
-                    <div class="rf" style="width:100px"><label>Type</label><select id="typeInput" onchange="handleTypeChange()" style="width:100%"><option value="reminder">Supplier</option><option value="customer">Customer</option></select></div>
-                    <button class="rm-btn" onclick="startReminder()" style="align-self:flex-end">Start</button>
-                  </div>
-                  <div id="reminderList"></div>
-                  <!-- Holiday sub-section -->
-                  <div style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin:12px 0 8px;display:none;align-items:center;gap:8px">✈️ Holiday<span style="flex:1;height:1px;background:var(--border2)"></span></div>
-                  <div class="rf-row" style="flex-wrap:wrap; display:none;">
-                    <div class="rf" style="flex:2;min-width:110px"><label>Email</label><input type="text" id="holidayEmailTools" placeholder="john@supplier.com" style="width:100%"></div>
-                    <div class="rf" style="flex:1;min-width:80px"><label>Name</label><input type="text" id="holidayNameTools" placeholder="John" style="width:100%"></div>
-                    <div class="rf" style="flex:1;min-width:80px"><label>Part/Note</label><input type="text" id="holidayPartTools" placeholder="PN 0123FA2" style="width:100%"></div>
-                    <div class="rf" style="min-width:120px"><label>Back on</label><input type="date" id="holidayDateTools" style="width:100%"></div>
-                    <button class="rm-btn" onclick="startHolidayTools()" style="align-self:flex-end;background:var(--orange)">✈️ Set</button>
-                  </div>
-                  <div id="holidayListTools" style="margin-top:6px"></div>
-                </div>
-              </div>
-            </div>
-
-            
+          </div>
+        </div>
+        <!-- Hidden elements to preserve IDs used by existing JS functions -->
+        <div style="display:none" aria-hidden="true">
+          <div id="dataNotice"></div>
+          <input id="partInput"><input id="hourInput" value="3"><input id="countryInput"><span id="countryErr"></span>
+          <select id="typeInput"><option value="reminder">Supplier</option><option value="customer">Customer</option></select>
+          <div id="reminderList"></div>
+          <input id="holidayEmailTools"><input id="holidayNameTools"><input id="holidayPartTools"><input id="holidayDateTools" type="date">
+          <div id="holidayListTools"></div>
+          <input id="searchInput"><div id="results"></div>
+          <div id="toolsSameClientWarn"><div id="toolsSameClientName"></div></div>
+          <input id="toolsClientEmail"><div id="toolsClientEmailSet"><span id="toolsClientEmailVal"></span></div>
+          <div id="tools-rfq-tabs"></div><div id="tools-rfq-text"></div>
+          <div id="tools-s8-tabs"></div><div id="tools-s8-text"></div>
+          <div id="tools-fu-tabs"></div><div id="tools-fu-text"></div>
+          <div id="tools-inv-tabs"></div><div id="tools-inv-text"></div>
+        </div>
       </div><!-- /panel-tools -->
 
 <script>
@@ -2263,7 +2250,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
     textEl.textContent = data[0];
   }
 
-  // Build all tab bars
+  // Build all tab bars (hidden legacy — kept for JS compatibility)
   buildTabs('tools-rfq-tabs','tools-rfq-text','rfq');
   buildTabs('tools-s8-tabs','tools-s8-text','s8');
   buildTabs('tools-fu-tabs','tools-fu-text','fu');
@@ -2429,7 +2416,35 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
 
     // Add first row on load
     window.rushRfqAddRow();
-  })();
+
+    // ── 10 Quick Short Templates ──
+    const QUICK_TPLS = [
+      { label:'Opt 1 — Standard',     text:'Subject: RFQ PN [PN#]\n\nHello,\n\nPlease provide your best price, availability and the certification for:\n\nPN# [PN#] / [DESC] / QTY: [X]\n\nThank you.\nBest regards,' },
+      { label:'Opt 2 — Good day',     text:'Subject: RFQ PN [PN#]\n\nGood day,\n\nWe would appreciate your best price, availability and the certification for:\n\nPN# [PN#] / [DESC] / QTY: [X]\n\nKind regards,' },
+      { label:'Opt 3 — Quick',        text:'Subject: RFQ PN [PN#]\n\nHi,\n\nQuick RFQ — best price, availability & certification:\n\nPN# [PN#] / [DESC] / QTY: [X]\n\nThanks!' },
+      { label:'Opt 4 — Competitive',  text:'Subject: RFQ PN [PN#]\n\nHello,\n\nCould you provide your most competitive price, availability and certification for:\n\nPN# [PN#] / [DESC] / QTY: [X]\n\nBest regards,' },
+      { label:'Opt 5 — Urgent',       text:'Subject: RFQ PN [PN#]\n\nHello,\n\nWe urgently need your best price, stock and certification for:\n\nPN# [PN#] / [DESC] / QTY: [X]\n\nPlease reply ASAP.\nBest regards,' },
+      { label:'Opt 6 — AOG',          text:'Subject: AOG — RFQ PN [PN#]\n\nDear Team,\n\nAOG — Please urgently advise best price, stock and certification for:\n\nPN# [PN#] / [DESC] / QTY: [X]\n\nThank you.\nBest regards,' },
+      { label:'Opt 7 — Partner',      text:'Subject: RFQ PN [PN#]\n\nDear Partner,\n\nHope you are well. Please quote your best price, availability and certification for:\n\nPN# [PN#] / [DESC] / QTY: [X]\n\nBest regards,' },
+      { label:'Opt 8 — In Stock?',    text:'Subject: RFQ PN [PN#]\n\nHello,\n\nDo you have this in stock? Please send price and certification:\n\nPN# [PN#] / [DESC] / QTY: [X]\n\nThank you.' },
+      { label:'Opt 9 — Multi PN',     text:'Subject: RFQ PN\'s [PN1 / PN2]\n\nHello,\n\nPlease provide best price, availability and certification for the following items:\n\nPN# [PN1] / [DESC1] / QTY: [X]\nPN# [PN2] / [DESC2] / QTY: [X]\n\nThank you.\nBest regards,' },
+      { label:'Opt 10 — Follow-on',   text:'Subject: RFQ PN [PN#]\n\nHello,\n\nNew requirement — please provide your best price, availability and certification:\n\nPN# [PN#] / [DESC] / QTY: [X]\n\nLooking forward to your offer.\nBest regards,' },
+    ];
+    const qtContainer = document.getElementById('rushQuickTpls');
+    if(qtContainer){
+      QUICK_TPLS.forEach((tpl, i) => {
+        const wrap = document.createElement('div');
+        wrap.style.cssText = 'background:var(--bg);border:1px solid var(--border2);border-radius:6px;overflow:hidden';
+        wrap.innerHTML = `
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 10px;background:var(--bg2);border-bottom:1px solid var(--border2)">
+            <span style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px">${tpl.label}</span>
+            <button onclick="(function(btn){var pre=btn.closest('[data-rush-qt]').querySelector('pre');navigator.clipboard.writeText(pre.textContent);var o=btn.textContent;btn.textContent='✓';btn.style.background='var(--green)';btn.style.color='#fff';setTimeout(()=>{btn.textContent=o;btn.style.background='';btn.style.color='';},1400);})(this)" style="padding:2px 9px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font);transition:.12s">Copy</button>
+          </div>
+          <pre style="font-family:var(--mono);font-size:11px;color:var(--text);line-height:1.65;white-space:pre-wrap;word-break:break-word;margin:0;padding:8px 10px">${tpl.text}</pre>`;
+        wrap.setAttribute('data-rush-qt', i);
+        qtContainer.appendChild(wrap);
+      });
+    }
 
   // ── Rush Mode: Contact Search ──
   (function(){
