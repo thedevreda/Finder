@@ -1244,7 +1244,6 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
     <div class="ppw-tabbar">
       <button class="ppw-t on" onclick="ppwGo(0,this)">&#128196; Teardown & Certification</button>
       <button class="ppw-t"    onclick="ppwGo(1,this)">&#128196; Trace & NIS</button>
-    <button class="ppw-t"    onclick="ppwGo(2,this)">&#128196; CoC</button>
     </div>
 
     <div class="ppw-pane on" id="ppPane0">
@@ -1255,16 +1254,16 @@ Best regards</div><button class="tpl-copy" onclick="cpTpl('tt-s4',this)">Copy</b
       <div class="ppw-bar"><div class="ppw-fn">&#128196; Trace & NIS<span class="ppw-bx cert">TRACE DOC</span></div></div>
       <div id="ppBody1"></div>
     </div>
-    <div class="ppw-pane" id="ppPane2">
+    <div class="ppw-pane" id="ppPane1">
       <div class="ppw-bar"><div class="ppw-fn">&#128196; CoC / ATA 106<span class="ppw-bx cert">PART OF MATERIA CERITFICATION FORM</span></div></div>
-      <div id="ppBody2"></div>
+      <div id="ppBody1"></div>
     </div>
   </div>
 
   <script>
   // ── Edit these paths to match the PDFs you upload to your server ──
   var PPW_FILES = [
-    { path: "./Files/teardown.pdf",   title: "Tear Down & Certification",desc: "Confirms the part was physically removed from a specific aircraft tail number at a specific date, flight hour and cycle count. The very first document in the trace chain — proves where the part came from." },
+    { path: "./Trace/teardown.pdf",   title: "Tear Down & Certification",desc: "Confirms the part was physically removed from a specific aircraft tail number at a specific date, flight hour and cycle count. The very first document in the trace chain — proves where the part came from." },
     { path: "./Files/trace.pdf",          title: "Trace & NIS",desc: "The primary airworthiness release document (FAA 8130-3 or EASA Form 1). Proves the part was inspected and approved for return to service by an authorized repair station." },
     { path: "./Files/coc.pdf",          title: "COC / ATA 106",desc: "The primary airworthiness release document (FAA 8130-3 or EASA Form 1). Proves the part was inspected and approved for return to service by an authorized repair station." }
  
@@ -1955,209 +1954,6 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
               <div style="font-size:12px;color:var(--muted)">All your working tools in one place — templates, reminders, contacts.</div>
             </div>
 
-            <!-- ══ RUSH MODE SECTION ══ -->
-            <div id="rush-section" style="margin:0 10px 20px">
-
-              <!-- Rush Mode Header Banner -->
-              <div style="background:linear-gradient(135deg,#DC2626 0%,#B91C1C 100%);border-radius:10px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 12px rgba(220,38,38,.25)">
-                <span style="font-size:22px;flex-shrink:0">⚡</span>
-                <div>
-                  <div style="font-size:13px;font-weight:800;color:#fff;letter-spacing:-.2px;margin-bottom:2px">Rush Mode</div>
-                  <div style="font-size:11px;color:rgba(255,255,255,.8)">High-volume day? Follow the protocol below — stay sharp, stay fast.</div>
-                </div>
-              </div>
-
-              <!-- Guidelines accordion -->
-              <div id="rush-guidelines" style="background:var(--white);border:1.5px solid #FECACA;border-radius:10px;overflow:hidden;margin-bottom:14px;box-shadow:var(--sh)">
-                <button onclick="toggleRushGuidelines()" style="width:100%;display:flex;align-items:center;gap:10px;padding:11px 14px;background:#FFF5F5;border:none;cursor:pointer;text-align:left;font-family:var(--font);transition:background .15s" onmouseover="this.style.background='#FEE2E2'" onmouseout="this.style.background='#FFF5F5'">
-                  <span style="font-size:14px;flex-shrink:0">📋</span>
-                  <span style="flex:1;font-size:11px;font-weight:800;color:#DC2626;text-transform:uppercase;letter-spacing:.7px">What you should follow during Rush Mode</span>
-                  <span id="rush-arrow" style="font-size:10px;color:#DC2626;transition:transform .2s;opacity:.7">▼</span>
-                </button>
-                <div id="rush-guidelines-body" style="display:none;background:#FFF5F5;border-top:1px solid #FECACA;padding:14px 16px">
-                  <div style="display:flex;flex-direction:column;gap:8px">
-
-                    <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--white);border:1px solid #FECACA;border-radius:7px">
-                      <span style="font-size:13px;flex-shrink:0;margin-top:1px">📖</span>
-                      <span style="font-size:12.5px;color:var(--text);line-height:1.5">Read every <strong>RFQ, Cert, Teardown, Quote, Terms</strong> carefully — no skipping.</span>
-                    </div>
-
-                    <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--white);border:1px solid #FECACA;border-radius:7px">
-                      <span style="font-size:13px;flex-shrink:0;margin-top:1px">🧘</span>
-                      <span style="font-size:12.5px;color:var(--text);line-height:1.5">Do not lose focus — <strong>relax and chill</strong> to avoid stressing up.</span>
-                    </div>
-
-                    <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--white);border:1px solid #FECACA;border-radius:7px">
-                      <span style="font-size:13px;flex-shrink:0;margin-top:1px">🔀</span>
-                      <span style="font-size:12.5px;color:var(--text);line-height:1.5">When you have <strong>multiple PNs with ALT parts</strong> — put them all on <strong>ILS</strong> and start sending emails/campaigns. Same on <strong>PartBase</strong>. For <strong>StockMarket and B2B</strong> go one by one.</span>
-                    </div>
-
-                    <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--white);border:1px solid #FECACA;border-radius:7px">
-                      <span style="font-size:13px;flex-shrink:0;margin-top:1px">📬</span>
-                      <span style="font-size:12.5px;color:var(--text);line-height:1.5">For <strong>multiple RFQs</strong> you haven't worked yet — take all of them and <strong>merge them into one RFQ</strong> instead of going one by one.</span>
-                    </div>
-
-                    <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--white);border:1px solid #FECACA;border-radius:7px">
-                      <span style="font-size:13px;flex-shrink:0;margin-top:1px">➕</span>
-                      <div style="font-size:12.5px;color:var(--text);line-height:1.5">You sent a RFQ to a supplier and then found <strong>another PN in their stock</strong>:<ul style="margin:6px 0 0 16px;padding:0;list-style:disc"><li style="margin-bottom:4px">Reply to the RFQ you sent and ask: <span style="font-family:var(--mono);background:var(--bg2);border:1px solid var(--border2);border-radius:3px;padding:1px 5px;font-size:11px;color:var(--brand)">"Could you please also check if you have this PN"</span></li><li>If you have <em>another</em> PN from a different supplier — send a <strong>new RFQ</strong></li></ul></div>
-                    </div>
-
-                    <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--white);border:1px solid #FECACA;border-radius:7px">
-                      <span style="font-size:13px;flex-shrink:0;margin-top:1px">📅</span>
-                      <span style="font-size:12.5px;color:var(--text);line-height:1.5">Your <strong>quotes should be sent the same day</strong> you got the RFQ — to avoid the accumulation of emails.</span>
-                    </div>
-
-                    <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--white);border:1px solid #FECACA;border-radius:7px">
-                      <span style="font-size:13px;flex-shrink:0;margin-top:1px">💰</span>
-                      <span style="font-size:12.5px;color:var(--text);line-height:1.5">Send to <strong>suppliers you know have cheap prices</strong> first.</span>
-                    </div>
-
-                    <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--white);border:1px solid #FECACA;border-radius:7px">
-                      <span style="font-size:13px;flex-shrink:0;margin-top:1px">🚫</span>
-                      <span style="font-size:12.5px;color:var(--text);line-height:1.5"><strong>Remove AR and OR from the filter</strong> — avoid sending RFQs to On Request.</span>
-                    </div>
-
-                    <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--white);border:1.5px solid #FDE68A;border-radius:7px;background:#FFFBEB">
-                      <span style="font-size:13px;flex-shrink:0;margin-top:1px">📦</span>
-                      <span style="font-size:12.5px;color:#92400E;line-height:1.5"><strong>Receiving a PO from a customer</strong> can make you lose focus — <strong>leave it until end of day</strong> and deal with it then.</span>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-              <!-- Rush Tools: Creating Template (full RFQ builder) -->
-              <div style="background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
-                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
-                  <div style="display:flex;align-items:center;gap:7px">
-                    <span style="font-size:13px">📝</span>
-                    <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Creating Template</span>
-                  </div>
-                  <button onclick="rushRfqAddRow()" style="padding:4px 12px;background:var(--brand);color:#fff;border:none;border-radius:20px;font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:.12s" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">+ Add PN</button>
-                </div>
-                <div style="padding:10px 14px 4px">
-                  <!-- Column headers -->
-                  <div style="display:grid;grid-template-columns:28px 1fr 1fr 1.4fr 70px 32px;gap:6px;padding:0 0 5px;background:transparent">
-                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Use</span>
-                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Part Number</span>
-                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">ALT PN <span style="font-weight:400;opacity:.7">(opt.)</span></span>
-                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Description</span>
-                    <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">QTY</span>
-                    <span></span>
-                  </div>
-                  <!-- Rows -->
-                  <div id="rushRfqRows" style="display:flex;flex-direction:column;gap:6px;padding-bottom:10px"></div>
-                  <!-- Subject field -->
-                  <div style="border-top:1px solid var(--border2);padding-top:10px;padding-bottom:10px">
-                    <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r)">
-                      <span style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;flex-shrink:0">Subject</span>
-                      <input type="text" id="rushRfqSubject" placeholder="Auto-generated — edit if needed" style="flex:1;border:none;outline:none;font-size:12px;font-family:var(--font);background:transparent;color:var(--text)" autocomplete="off">
-                      <button onclick="(function(){var el=document.getElementById('rushRfqSubject');if(!el||!el.value)return;navigator.clipboard.writeText(el.value);var b=event.target;var o=b.textContent;b.textContent='✓';setTimeout(()=>b.textContent=o,1400);})()" style="padding:3px 9px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font);flex-shrink:0">Copy</button>
-                    </div>
-                  </div>
-                  <!-- Actions -->
-                  <div style="border-top:1px solid var(--border2);padding:10px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-                    <button onclick="rushRfqGenerate()" style="padding:8px 20px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;transition:.12s" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">Generate Template</button>
-                    <button onclick="rushRfqClear()" style="padding:8px 14px;background:var(--bg2);color:var(--muted);border:1.5px solid var(--border);border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Clear All</button>
-                  </div>
-                  <!-- Output -->
-                  <div id="rushRfqOutputWrap" style="display:none;border-top:1px solid var(--border2)">
-                    <div id="rushRfqVariantTabs" style="display:flex;flex-wrap:wrap;gap:4px;padding:10px 0 0;"></div>
-                    <div style="position:relative;padding:14px 0">
-                      <pre id="rushRfqOutput" style="font-family:var(--mono);font-size:12px;color:var(--text);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0;padding-right:72px;background:transparent"></pre>
-                      <button id="rushRfqCopyBtn" onclick="rushRfqCopy()" style="position:absolute;right:0;top:10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff';this.style.borderColor='var(--brand)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Copy</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Rush Tools: Contact Search -->
-              <div style="background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
-                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:7px">
-                  <span style="font-size:13px">🔍</span>
-                  <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Contact Search</span>
-                </div>
-                <div style="padding:12px 14px">
-                  <div style="background:var(--bg);border:1px solid var(--border2);border-radius:7px;padding:8px 10px;margin-bottom:8px">
-                    <div style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px">📌 Client Email (duplicate check)</div>
-                    <div style="display:flex;gap:6px;align-items:center">
-                      <input type="text" id="rushClientEmail" placeholder="paste client email…" autocomplete="off"
-                        style="flex:1;padding:7px 10px;border:1.5px solid var(--border2);border-radius:6px;font-size:12px;font-family:var(--font);outline:none;background:var(--white)"
-                        oninput="onClientEmailInput(this.value);document.getElementById('rushClientEmailSet').style.display=this.value.trim()?'block':'none';document.getElementById('rushClientEmailVal').textContent=this.value.trim()">
-                      <button onclick="window._clientEmail='';document.getElementById('rushClientEmail').value='';document.getElementById('rushClientEmailSet').style.display='none';" style="padding:6px 10px;border:1px solid var(--border2);background:var(--white);border-radius:6px;font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;font-family:var(--font)">✕</button>
-                    </div>
-                    <div id="rushClientEmailSet" style="display:none;margin-top:5px;font-size:11px;color:var(--green);font-weight:600">✅ Watching: <span id="rushClientEmailVal" style="font-family:var(--mono);color:var(--brand)"></span></div>
-                  </div>
-                  <div id="rushSameClientWarn" style="display:none;align-items:center;gap:8px;background:var(--red-lt);border:1.5px solid #FECACA;border-radius:8px;padding:8px 12px;margin-bottom:8px">
-                    <span style="font-size:18px">🚫</span>
-                    <div>
-                      <div style="font-size:12px;font-weight:800;color:var(--red)">Don't send — same client!</div>
-                    </div>
-                  </div>
-                  <div class="sw"><input type="text" id="rushSearchInput" placeholder="Search company, email, or keyword…" oninput="lazyThenCall(()=>doRushSearch(this.value))"></div>
-                  <div class="fb">
-                    <button class="fbtn active" onclick="setRushFilter('all',this)">All</button>
-                    <button class="fbtn" onclick="setRushFilter('blacklist',this)">Blacklist</button>
-                    <button class="fbtn" onclick="setRushFilter('direct',this)">Direct</button>
-                    <button class="fbtn" onclick="setRushFilter('replace',this)">Replace</button>
-                  </div>
-                  <div id="rushResults" style="overflow-y:auto;max-height:260px"><div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div></div>
-                </div>
-              </div>
-
-              <!-- Rush Tools ROW: Sending Reminders + Follow Up -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px" class="rush-2col">
-
-                <!-- Sending Reminders -->
-                <div style="background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh)">
-                  <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap">
-                    <div style="display:flex;align-items:center;gap:7px">
-                      <span style="font-size:13px">📤</span>
-                      <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Sending Reminders</span>
-                    </div>
-                    <div style="display:flex;gap:3px;flex-wrap:wrap" id="rush-s8-tabs"></div>
-                  </div>
-                  <div style="padding:12px 13px;position:relative">
-                    <div id="rush-s8-text" style="font-size:12px;color:var(--text);line-height:1.7;white-space:pre-line;font-family:var(--mono);padding-right:64px"></div>
-                    <button onclick="toolsCopyTpl('rush-s8-text',this)" style="position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
-                  </div>
-                </div>
-
-                <!-- Follow Up -->
-                <div style="background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh)">
-                  <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap">
-                    <div style="display:flex;align-items:center;gap:7px">
-                      <span style="font-size:13px">🔄</span>
-                      <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Follow Up</span>
-                    </div>
-                    <div style="display:flex;gap:3px;flex-wrap:wrap" id="rush-fu-tabs"></div>
-                  </div>
-                  <div style="padding:12px 13px;position:relative">
-                    <div id="rush-fu-text" style="font-size:12px;color:var(--text);line-height:1.7;white-space:pre-line;font-family:var(--mono);padding-right:64px"></div>
-                    <button onclick="toolsCopyTpl('rush-fu-text',this)" style="position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Rush Tools: Invoice Template -->
-              <div style="background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
-                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
-                  <div style="display:flex;align-items:center;gap:7px">
-                    <span style="font-size:13px">🧾</span>
-                    <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Invoice Template</span>
-                  </div>
-                  <div style="display:flex;gap:3px;flex-wrap:wrap" id="rush-inv-tabs"></div>
-                </div>
-                <div style="padding:14px;position:relative">
-                  <div id="rush-inv-text" style="font-size:12px;color:var(--text);line-height:1.75;white-space:pre-line;font-family:var(--mono);padding-right:70px"></div>
-                  <button onclick="toolsCopyTpl('rush-inv-text',this)" style="position:absolute;right:12px;top:12px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 11px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
-                </div>
-              </div>
-
-
-
-            </div><!-- /rush-section -->
-
             <!-- ══ ROW 1: Reminders + Contact Search (side by side) ══ -->
             <div style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
 
@@ -2190,7 +1986,112 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
                 </div>
               </div>
 
+              <!-- Contact Search -->
+              <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column">
+                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:7px">
+                  <span style="font-size:13px">🔍</span>
+                  <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Contact Search</span>
+                </div>
+                <div style="padding:12px 14px;flex:1;display:flex;flex-direction:column">
+                  <!-- Client email slot -->
+                  <div style="background:var(--bg);border:1px solid var(--border2);border-radius:7px;padding:8px 10px;margin-bottom:8px">
+                    <div style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px">📌 Client Email (duplicate check)</div>
+                    <div style="display:flex;gap:6px;align-items:center">
+                      <input type="text" id="toolsClientEmail" placeholder="paste client email…" autocomplete="off"
+                        style="flex:1;padding:7px 10px;border:1.5px solid var(--border2);border-radius:6px;font-size:12px;font-family:var(--font);outline:none;background:var(--white)"
+                        oninput="onClientEmailInput(this.value);document.getElementById('toolsClientEmailSet').style.display=this.value.trim()?'block':'none';document.getElementById('toolsClientEmailVal').textContent=this.value.trim()">
+                      <button onclick="window._clientEmail='';document.getElementById('toolsClientEmail').value='';document.getElementById('toolsClientEmailSet').style.display='none';" style="padding:6px 10px;border:1px solid var(--border2);background:var(--white);border-radius:6px;font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;font-family:var(--font)">✕</button>
+                    </div>
+                    <div id="toolsClientEmailSet" style="display:none;margin-top:5px;font-size:11px;color:var(--green);font-weight:600">✅ Watching: <span id="toolsClientEmailVal" style="font-family:var(--mono);color:var(--brand)"></span></div>
+                  </div>
+                  <!-- Same-client warning -->
+                  <div id="toolsSameClientWarn" style="display:none;align-items:center;gap:8px;background:var(--red-lt);border:1.5px solid #FECACA;border-radius:8px;padding:8px 12px;margin-bottom:8px">
+                    <span style="font-size:18px">🚫</span>
+                    <div>
+                      <div style="font-size:12px;font-weight:800;color:var(--red)">Don't send — same client!</div>
+                      <div style="font-size:11px;color:var(--red);opacity:.8" id="toolsSameClientName"></div>
+                    </div>
+                  </div>
+                  <div class="sw"><input type="text" id="searchInput" placeholder="Search company, email, or keyword…" oninput="lazyThenCall(()=>checkEmail())"></div>
+                  <div class="fb">
+                    <button class="fbtn active" onclick="setFilter('all',this)">All</button>
+                    <button class="fbtn" onclick="setFilter('blacklist',this)">Blacklist</button>
+                    <button class="fbtn" onclick="setFilter('direct',this)">Direct</button>
+                    <button class="fbtn" onclick="setFilter('replace',this)">Replace</button>
+                  </div>
+                  <div id="results" style="overflow-y:auto;flex:1;max-height:280px"><div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div></div>
+                </div>
+              </div>
             </div>
+
+            <!-- ══ ROW 2: RFQ Templates (full width, tabbed) ══ -->
+            <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
+              <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
+                <div style="display:flex;align-items:center;gap:7px">
+                  <span style="font-size:13px">📝</span>
+                  <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Creating Template</span>
+                </div>
+                <div style="display:flex;gap:3px;flex-wrap:wrap" id="tools-rfq-tabs"></div>
+              </div>
+              <div style="padding:14px 14px 14px;position:relative">
+                <div id="tools-rfq-text" style="font-size:12px;color:var(--text);line-height:1.75;white-space:pre-line;font-family:var(--mono);padding-right:70px"></div>
+                <button onclick="toolsCopyTpl('tools-rfq-text',this)" style="position:absolute;right:12px;top:12px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 11px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
+              </div>
+            </div>
+
+            <!-- ══ ROW 3: Sending Reminders + Follow-Up (side by side, tabbed) ══ -->
+            <div style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+
+              <!-- Sending Reminders -->
+              <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh)">
+                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap">
+                  <div style="display:flex;align-items:center;gap:7px">
+                    <span style="font-size:13px">📤</span>
+                    <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Sending Reminders</span>
+                  </div>
+                  <div style="display:flex;gap:3px;flex-wrap:wrap" id="tools-s8-tabs"></div>
+                </div>
+                <div style="padding:12px 13px;position:relative">
+                  <div id="tools-s8-text" style="font-size:12px;color:var(--text);line-height:1.7;white-space:pre-line;font-family:var(--mono);padding-right:64px"></div>
+                  <button onclick="toolsCopyTpl('tools-s8-text',this)" style="position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
+                </div>
+              </div>
+
+              <!-- Follow-Up Templates -->
+              <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh)">
+                <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap">
+                  <div style="display:flex;align-items:center;gap:7px">
+                    <span style="font-size:13px">🔄</span>
+                    <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Follow-Up Templates</span>
+                  </div>
+                  <div style="display:flex;gap:3px;flex-wrap:wrap" id="tools-fu-tabs"></div>
+                </div>
+                <div style="padding:12px 13px;position:relative">
+                  <div id="tools-fu-text" style="font-size:12px;color:var(--text);line-height:1.7;white-space:pre-line;font-family:var(--mono);padding-right:64px"></div>
+                  <button onclick="toolsCopyTpl('tools-fu-text',this)" style="position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ ROW 4: Invoice Template (full width) ══ -->
+            <div style="margin: 10px;background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh)">
+              <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
+                <div style="display:flex;align-items:center;gap:7px">
+                  <span style="font-size:13px">🧾</span>
+                  <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Invoice Template</span>
+                </div>
+                <div style="display:flex;gap:3px;flex-wrap:wrap" id="tools-inv-tabs"></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr auto;gap:0">
+                <div style="padding:14px;position:relative">
+                  <div id="tools-inv-text" style="font-size:12px;color:var(--text);line-height:1.75;white-space:pre-line;font-family:var(--mono);padding-right:70px"></div>
+                  <button onclick="toolsCopyTpl('tools-inv-text',this)" style="position:absolute;right:12px;top:12px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 11px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
+                </div>
+
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div><!-- /panel-tools -->
@@ -2319,219 +2220,11 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
     } else if(warn){ warn.style.display='none'; }
   });
 
-  // ── Rush Mode: Guidelines toggle ──
-  window.toggleRushGuidelines = function(){
-    const body = document.getElementById('rush-guidelines-body');
-    const arrow = document.getElementById('rush-arrow');
-    if(!body) return;
-    const open = body.style.display !== 'none';
-    body.style.display = open ? 'none' : 'block';
-    if(arrow) arrow.style.transform = open ? '' : 'rotate(180deg)';
-  };
-
-  // ── Rush Mode: RFQ Builder ──
-  (function(){
-    let rushRowId = 0;
-
-    function mkRushRow(){
-      const id = ++rushRowId;
-      const row = document.createElement('div');
-      row.id = 'rushrow-' + id;
-      row.style.cssText = 'display:grid;grid-template-columns:28px 1fr 1fr 1.4fr 70px 32px;gap:6px;align-items:center';
-      row.innerHTML = `
-        <input type="checkbox" id="rush-sel-${id}" checked style="width:16px;height:16px;accent-color:var(--brand);cursor:pointer;margin:0 auto;display:block">
-        <input class="rfq-row-input" id="rush-pn-${id}" placeholder="e.g. 0123FA2" autocomplete="off">
-        <input class="rfq-row-input" id="rush-alt-${id}" placeholder="ALT PN (opt.)" autocomplete="off">
-        <input class="rfq-row-input" id="rush-desc-${id}" placeholder="e.g. SENSOR - LOW FLOW" autocomplete="off">
-        <input class="rfq-row-input" id="rush-qty-${id}" placeholder="QTY" type="number" min="1" style="text-align:center" autocomplete="off">
-        <button class="rfq-del" onclick="rushRfqRemoveRow(${id})" title="Remove">×</button>`;
-      return row;
-    }
-
-    window.rushRfqAddRow = function(){
-      const c = document.getElementById('rushRfqRows');
-      if(c) c.appendChild(mkRushRow());
-    };
-    window.rushRfqRemoveRow = function(id){
-      const el = document.getElementById('rushrow-' + id);
-      if(el) el.remove();
-    };
-
-    function buildRushItemLines(items){
-      return items.map(i => {
-        let l = i.pn;
-        if(i.alt){ l += ` / ALT: ${i.alt}`; if(i.desc) l += ` / ${i.desc}`; }
-        else { if(i.desc) l += ` / ${i.desc}`; }
-        if(i.qty) l += ` / QTY: ${i.qty}`;
-        return l;
-      }).join('\n');
-    }
-
-    const RUSH_VARIANTS = [
-      { label:'Option 1', build:(items)=>{ const multi=items.length>1; const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`; const lines=buildRushItemLines(items); const plain=`Hello,\n\nPlease provide your best price quote and stock availability and the certification for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`; return {subject:subj,plain}; }},
-      { label:'Option 2', build:(items)=>{ const multi=items.length>1; const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`; const lines=buildRushItemLines(items); const plain=`Good day,\n\nWe would appreciate your best price, availability and the certification for the item${multi?'s':''} below:\n\n${lines}\n\nWe look forward to your response.\nKind regards`; return {subject:subj,plain}; }},
-      { label:'Option 3', build:(items)=>{ const multi=items.length>1; const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`; const lines=buildRushItemLines(items); const plain=`Hi,\n\nQuick RFQ — please send best price, availability & the certification:\n\n${lines}\n\nThanks!`; return {subject:subj,plain}; }},
-      { label:'Option 5', build:(items)=>{ const multi=items.length>1; const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`; const lines=buildRushItemLines(items); const plain=`Hello,\n\nCould you please provide your most competitive price, current availability and the certification for the following item${multi?'s':''}?\n\n${lines}\n\nWe look forward to your offer.\nBest regards`; return {subject:subj,plain}; }},
-      { label:'Option 6', build:(items)=>{ const multi=items.length>1; const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`; const lines=buildRushItemLines(items); const plain=`Hello,\n\nWe need your best price, stock availability and the certification for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`; return {subject:subj,plain}; }},
-      { label:'Option 7 — AOG', build:(items)=>{ const multi=items.length>1; const subj=multi?`AOG — RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`AOG — RFQ PN ${items[0].pn}`; const lines=buildRushItemLines(items); const plain=`Dear Team,\n\nAOG SITUATION — We urgently require your best price, stock availability and the certification for the following item${multi?'s':''}. Please revert ASAP.\n\n${lines}\n\nThank you.\nBest regards`; return {subject:subj,plain}; }},
-      { label:'Option 8', build:(items)=>{ const multi=items.length>1; const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`; const lines=buildRushItemLines(items); const plain=`Dear Partner,\n\nHope you are well. We have a sourcing requirement and would appreciate your best offer, including availability and the certification:\n\n${lines}\n\nLooking forward to your feedback.\nBest regards`; return {subject:subj,plain}; }},
-    ];
-
-    window.rushRfqGenerate = function(){
-      const rows = [...document.querySelectorAll('#rushRfqRows > div')];
-      const items = rows.map(row => {
-        const id = row.id.replace('rushrow-','');
-        const sel = document.getElementById('rush-sel-'+id);
-        if(sel && !sel.checked) return null;
-        const pn = (document.getElementById('rush-pn-'+id)?.value||'').trim().toUpperCase();
-        if(!pn) return null;
-        return {
-          pn,
-          alt: (document.getElementById('rush-alt-'+id)?.value||'').trim().toUpperCase(),
-          desc: (document.getElementById('rush-desc-'+id)?.value||'').trim().toUpperCase(),
-          qty: (document.getElementById('rush-qty-'+id)?.value||'').trim()
-        };
-      }).filter(Boolean);
-      if(!items.length){ alert('Add at least one Part Number'); return; }
-      const wrap = document.getElementById('rushRfqOutputWrap');
-      const tabs = document.getElementById('rushRfqVariantTabs');
-      const out  = document.getElementById('rushRfqOutput');
-      const subj = document.getElementById('rushRfqSubject');
-      if(!wrap||!tabs||!out) return;
-      wrap.style.display='block'; tabs.innerHTML='';
-      RUSH_VARIANTS.forEach((v,i)=>{
-        const result = v.build(items);
-        const btn = document.createElement('button');
-        btn.className='rfq-vtab'+(i===0?' active':'');
-        btn.textContent=v.label;
-        btn.onclick=()=>{
-          tabs.querySelectorAll('.rfq-vtab').forEach(b=>b.classList.remove('active'));
-          btn.classList.add('active');
-          out.textContent=result.plain;
-          if(subj) subj.value=result.subject;
-        };
-        tabs.appendChild(btn);
-        if(i===0){ out.textContent=result.plain; if(subj) subj.value=result.subject; }
-      });
-    };
-
-    window.rushRfqClear = function(){
-      document.getElementById('rushRfqRows').innerHTML='';
-      document.getElementById('rushRfqOutputWrap').style.display='none';
-      const s=document.getElementById('rushRfqSubject'); if(s) s.value='';
-    };
-    window.rushRfqCopy = function(){
-      const out=document.getElementById('rushRfqOutput');
-      if(!out||!out.textContent) return;
-      navigator.clipboard.writeText(out.textContent);
-      const btn=document.getElementById('rushRfqCopyBtn');
-      if(btn){ const o=btn.textContent; btn.textContent='✓ Copied'; btn.style.background='var(--green)'; btn.style.color='#fff'; setTimeout(()=>{ btn.textContent=o; btn.style.background=''; btn.style.color=''; },1500); }
-    };
-
-    // Add first row on load
-    window.rushRfqAddRow();
-  })();
-
-  // ── Rush Mode: Contact Search ──
-  (function(){
-    let rushFilter = 'all';
-    window.setRushFilter = function(f, el){
-      rushFilter = f;
-      document.querySelectorAll('#rush-section .fb .fbtn').forEach(b=>b.classList.remove('active'));
-      if(el) el.classList.add('active');
-      const q = document.getElementById('rushSearchInput')?.value||'';
-      doRushSearch(q);
-    };
-    window.doRushSearch = function(iv){
-      const res = document.getElementById('rushResults');
-      if(!res) return;
-      if(!iv.trim()){ res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">Start typing to search</div>'; return; }
-      if(!dataLoaded){ res.innerHTML='<div style="text-align:center;color:var(--orange);margin-top:20px;font-size:12px">⚠ No data.json loaded</div>'; return; }
-
-      // Reuse same rendering logic as main search
-      function norm(s){ return (s||'').toLowerCase(); }
-      function domKey(s){ return s.replace(/^https?:\/\//,'').replace(/^www\./,'').split('/')[0]; }
-      function cpText(t){ navigator.clipboard.writeText(t); }
-      function statusBadge(s){
-        const map={'Answering':'answer','Not Answering':'not-answering','Holiday':'holiday','Unknown':'unknown'};
-        const cls=map[s]||'unknown';
-        return `<span class="status-badge ${cls}">${s||'Unknown'}</span>`;
-      }
-      function addCard(type,co,body,copyVal){
-        const cls=type==='blacklist'?'blacklist':type==='direct'?'direct':type==='replace'?'replace':'';
-        const card=document.createElement('div');
-        card.className='card '+cls;
-        card.innerHTML=`<div class="card-hr"><div class="card-title">${co}</div>${copyVal?`<button class="copy-btn" onclick="navigator.clipboard.writeText('${copyVal.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1400)">Copy</button>`:''}</div>${body}`;
-        res.appendChild(card);
-      }
-
-      res.innerHTML='';
-      const cf=rushFilter;
-      const kw=norm(domKey(iv)); let count=0;
-      function match(v){ return norm(v).includes(kw); }
-      if(cf==='all'||cf==='blacklist'){ for(let c in blacklist){ const obj=blacklist[c]||{},em=obj.emails||[],reason=obj.reason||''; const cm=match(c),em2=em.filter(e=>match(e)); if(cm||em2.length||match(reason)){ const sh=cm?em:em2; const rows=sh.map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="navigator.clipboard.writeText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join(''); addCard('blacklist',c,`<div class="gel">${rows}</div><div class="bl-reason">⚠ ${reason}</div>`,null); count++; } } }
-      if(cf==='all'||cf==='direct'){ for(let c in directContact){ const em=directContact[c]||[]; const cm=match(c),em2=em.filter(e=>match(e)); if(cm||em2.length){ const sh=cm?em:em2; const rawEntry=window._originalDC&&window._originalDC[c]||[]; const rows=sh.map(e=>{ const eObj=rawEntry.find?rawEntry.find(o=>o&&o.email===e):null; const st2=eObj?statusBadge(eObj.status):''; const esc=e.replace(/'/g,"&apos;"); return`<div class="ger"><span class="ge">${e}</span>${st2}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`; }).join(''); addCard('direct',c,`<div class="gel">${rows}</div>`,null); count++; } } }
-      if(cf==='all'||cf==='replace'){ for(let old in replacements){ if(match(old)||match(replacements[old])){ addCard('replace','Replacement',`<small>Old:</small> ${old}<br><small>New:</small> ${replacements[old]}`,replacements[old]); count++; } } }
-      if(!count) res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No matches found</div>';
-
-      // Same-client warning
-      const warn=document.getElementById('rushSameClientWarn');
-      const clientEmail=window._clientEmail||'';
-      if(warn&&clientEmail&&iv.trim()){
-        function tm(a,b){ return a.toLowerCase().includes(b)||a.toLowerCase().replace(/[-@._+]/g,'').includes(b.replace(/[-@._+]/g,'')); }
-        warn.style.display=(tm(clientEmail,norm(iv))||tm(norm(iv),clientEmail))?'flex':'none';
-      } else if(warn){ warn.style.display='none'; }
-    };
-  })();
-
-  // ── Rush Mode: Reminders ──
-  window.startRushReminder = function(){
-    const pn=(document.getElementById('rushPartInput')?.value||'').trim();
-    const h=parseInt(document.getElementById('rushHourInput')?.value||3,10);
-    const country=(document.getElementById('rushCountryInput')?.value||'').trim();
-    const type=document.getElementById('rushTypeInput')?.value||'reminder';
-    if(type==='customer'&&!country){ alert('Country required for customer reminders'); return; }
-    const obj={id:Date.now(),part:pn||'Rush PN',hours:h,country,type,end:Date.now()+h*3600000,finished:false,user:window.currentUser||''};
-    window.reminders=(window.reminders||[]);
-    window.reminders.push(obj);
-    if(typeof saveReminders==='function') saveReminders();
-    if(typeof mkReminderCard==='function'){
-      const listEl=document.getElementById('rushReminderList');
-      if(listEl){
-        const card=mkReminderCard(obj,true);
-        if(card) listEl.appendChild(card);
-      }
-    }
-    const pIn=document.getElementById('rushPartInput'); if(pIn) pIn.value='';
-  };
-
-  // ── Rush Mode: Build tabs (reuse shared TOOLS_TPLS data) ──
-  function buildRushTabs(containerId, textId, key, labels){
-    const bar=document.getElementById(containerId);
-    const textEl=document.getElementById(textId);
-    if(!bar||!textEl) return;
-    const data=TOOLS_TPLS[key];
-    if(!data) return;
-    bar.innerHTML='';
-    data.forEach((t,i)=>{
-      const btn=document.createElement('button');
-      btn.className='tpl-tab'+(i===0?' active':'');
-      btn.textContent=labels?labels[i]:('Opt '+(i+1));
-      btn.onclick=()=>{ bar.querySelectorAll('.tpl-tab').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); textEl.textContent=t; };
-      bar.appendChild(btn);
-    });
-    textEl.textContent=data[0];
-  }
-  buildRushTabs('rush-s8-tabs','rush-s8-text','s8');
-  buildRushTabs('rush-fu-tabs','rush-fu-text','fu');
-  buildRushTabs('rush-inv-tabs','rush-inv-text','inv',['Single PN','Multi PN']);
-
-  // Responsive: collapse Rush 2-col to 1-col on small screens
+  // Responsive: collapse to single column on narrow screens
   const style = document.createElement('style');
   style.textContent = `
     @media(max-width:640px){
       #panel-tools .tools-row-2col{ grid-template-columns:1fr!important; }
-      .rush-2col{ grid-template-columns:1fr!important; }
     }
   `;
   document.head.appendChild(style);
