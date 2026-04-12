@@ -296,7 +296,14 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 .cib{flex-shrink:0;border:1px solid var(--border);background:var(--white);padding:2px 7px;font-size:10px;border-radius:var(--r);cursor:pointer;font-weight:500;color:var(--muted);transition:.12s;font-family:var(--font)}
 .cib:hover{background:var(--brand-lt);color:var(--brand);border-color:var(--brand)}
 .bl-reason{font-size:11px;color:var(--red);margin-top:4px;padding-top:4px;border-top:1px dashed #FFCDD2;font-weight:500}
-.data-notice{background:#FFFBEB;border:1px solid #FDE68A;border-left:3px solid var(--orange);border-radius:var(--r);padding:9px 13px;font-size:12px;color:#92400E;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+/* ── BLACKLIST DOMAIN DROPDOWN ── */
+.bl-domain-toggle{display:flex;align-items:center;gap:6px;margin-top:6px;padding:4px 8px;background:#FFF0EF;border:1px dashed #FFCDD2;border-radius:5px;cursor:pointer;font-size:10px;font-weight:700;color:var(--red);user-select:none;transition:background .12s}
+.bl-domain-toggle:hover{background:#FFE4E1}
+.bl-domain-toggle .bl-dd-arrow{font-size:9px;margin-left:auto;transition:transform .2s}
+.bl-domain-toggle.open .bl-dd-arrow{transform:rotate(180deg)}
+.bl-domain-list{display:none;margin-top:4px;padding:4px 6px;background:#FFF8F8;border:1px solid #FECACA;border-radius:5px}
+.bl-domain-list.open{display:block}
+.bl-domain-list .ger{background:#FFF0EF}.data-notice{background:#FFFBEB;border:1px solid #FDE68A;border-left:3px solid var(--orange);border-radius:var(--r);padding:9px 13px;font-size:12px;color:#92400E;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .status-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:.2px;white-space:nowrap;margin-left:auto;flex-shrink:0}
 .status-badge::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%}
 .status-badge.answer{background:#DCFCE7;color:#15803D;border:1px solid #BBF7D0}
@@ -2024,291 +2031,20 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
               </div>
             </div>
 
-            <!-- ══ ROW 2: Creating Template — RFQ Email Builder ══ -->
-            <div style="margin:10px;background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
-
-              <!-- Header -->
-              <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+            <!-- ══ ROW 2: RFQ Templates (full width, tabbed) ══ -->
+            <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
+              <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
                 <div style="display:flex;align-items:center;gap:7px">
                   <span style="font-size:13px">📝</span>
                   <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Creating Template</span>
                 </div>
-                <button onclick="toolsRfqAddRow()" style="padding:4px 12px;background:var(--brand);color:#fff;border:none;border-radius:20px;font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:.12s" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">+ Add PN</button>
+                <div style="display:flex;gap:3px;flex-wrap:wrap" id="tools-rfq-tabs"></div>
               </div>
-
-              <!-- Column headers -->
-              <div style="display:grid;grid-template-columns:28px 1fr 1fr 1.4fr 70px 32px;gap:6px;padding:6px 12px 4px;background:var(--bg)">
-                <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Use</span>
-                <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Part Number</span>
-                <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">ALT PN <span style="font-weight:400;opacity:.7">(optional)</span></span>
-                <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Description</span>
-                <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">QTY</span>
-                <span></span>
+              <div style="padding:14px 14px 14px;position:relative">
+                <div id="tools-rfq-text" style="font-size:12px;color:var(--text);line-height:1.75;white-space:pre-line;font-family:var(--mono);padding-right:70px"></div>
+                <button onclick="toolsCopyTpl('tools-rfq-text',this)" style="position:absolute;right:12px;top:12px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 11px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
               </div>
-
-              <!-- Rows -->
-              <div id="toolsRfqRows" style="padding:6px 12px 10px;display:flex;flex-direction:column;gap:6px"></div>
-
-              <!-- Subject -->
-              <div style="padding:10px 12px 0;border-top:1px solid var(--border2)">
-                <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r)">
-                  <span style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;flex-shrink:0">Subject</span>
-                  <input type="text" id="toolsRfqSubject" placeholder="Auto-generated — edit if needed" style="flex:1;border:none;outline:none;font-size:12px;font-family:var(--font);background:transparent;color:var(--text)" autocomplete="off">
-                  <button onclick="(function(){var el=document.getElementById('toolsRfqSubject');if(!el||!el.value)return;navigator.clipboard.writeText(el.value);var b=event.target;var o=b.textContent;b.textContent='✓';setTimeout(()=>b.textContent=o,1400);})()" style="padding:3px 9px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font);flex-shrink:0">Copy</button>
-                </div>
-              </div>
-
-              <!-- Generate + Clear -->
-              <div style="padding:10px 12px;border-top:1px solid var(--border2);display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-                <button onclick="toolsRfqGenerate()" style="padding:8px 20px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;transition:.12s;letter-spacing:.1px" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">Generate Template</button>
-                <button onclick="toolsRfqClear()" style="padding:8px 14px;background:var(--bg2);color:var(--muted);border:1.5px solid var(--border);border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer;transition:.12s" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Clear All</button>
-              </div>
-
-              <!-- Output -->
-              <div id="toolsRfqOutputWrap" style="display:none;border-top:1px solid var(--border2)">
-                <div id="toolsRfqVariantTabs" style="display:flex;flex-wrap:wrap;gap:4px;padding:10px 12px 0;background:var(--bg2);border-bottom:1px solid var(--border2)"></div>
-                <div style="position:relative;padding:14px">
-                  <div id="toolsRfqOutput" style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:13px;color:var(--text);line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0;padding-right:80px;background:transparent"></div>
-                  <button id="toolsRfqCopyBtn" onclick="toolsRfqCopy()" style="position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff';this.style.borderColor='var(--brand)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Copy</button>
-                </div>
-              </div>
-
             </div>
-
-<script>
-(function(){
-  let toolsRfqRowId=0;
-
-  function mkToolsRow(){
-    const id=++toolsRfqRowId;
-    const row=document.createElement('div');
-    row.id='toolsrfqrow-'+id;
-    row.style.cssText='display:grid;grid-template-columns:28px 1fr 1fr 1.4fr 70px 32px;gap:6px;align-items:center';
-    row.innerHTML=`
-      <input type="checkbox" id="trfq-sel-${id}" checked style="width:16px;height:16px;accent-color:var(--brand);cursor:pointer;margin:0 auto;display:block">
-      <input class="rfq-row-input" id="trfq-pn-${id}" placeholder="e.g. 0123FA2" autocomplete="off">
-      <input class="rfq-row-input" id="trfq-alt-${id}" placeholder="ALT PN (opt.)" autocomplete="off">
-      <input class="rfq-row-input" id="trfq-desc-${id}" placeholder="e.g. SENSOR - LOW FLOW" autocomplete="off">
-      <input class="rfq-row-input" id="trfq-qty-${id}" placeholder="QTY" type="number" min="1" style="text-align:center" autocomplete="off">
-      <button class="rfq-del" onclick="toolsRfqRemoveRow(${id})" title="Remove">×</button>`;
-    return row;
-  }
-
-  window.toolsRfqAddRow=function(){
-    document.getElementById('toolsRfqRows').appendChild(mkToolsRow());
-  };
-  window.toolsRfqRemoveRow=function(id){
-    const el=document.getElementById('toolsrfqrow-'+id);
-    if(el) el.remove();
-  };
-
-  // Reuse VARIANTS from the docs panel (already defined globally via the rfqGenerate script)
-  function getVariants(){
-    // Inline variant definitions (sans-serif output)
-    function buildItemLines(items){
-      return items.map(i=>{
-        let l=i.pn;
-        if(i.alt){ l+=` / ALT: ${i.alt}`; if(i.desc) l+=` / ${i.desc}`; }
-        else { if(i.desc) l+=` / ${i.desc}`; }
-        if(i.qty) l+=` / QTY: ${i.qty}`;
-        return l;
-      }).join('\n');
-    }
-    return [
-      {label:'Check Availability',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const body=`Dear team,\n\nIs this offer still valid for:\n\n${lines}\n\nThank you.`;
-        return {subject:subj,plain:body,html:body};
-      }},
-      {label:'Option 1',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Hello,\n\nPlease provide your best price quote and stock availability and the certification for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`;
-        const html=`Hello,\n\nPlease provide your best price quote and stock availability and <b>the certification</b> for the following item${multi?'s':''}:\n\n${lines}\n\nThank you.\nBest regards`;
-        return {subject:subj,plain,html};
-      }},
-      {label:'Option 2',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Good day,\n\nWe would appreciate your best price, availability and the certification for the item${multi?'s':''} below:\n\n${lines}\n\nWe look forward to your response.\nKind regards`;
-        const html=`Good day,\n\nWe would appreciate your best price, availability and <b>the certification</b> for the item${multi?'s':''} below:\n\n${lines}\n\nWe look forward to your response.\nKind regards`;
-        return {subject:subj,plain,html};
-      }},
-      {label:'Option 3',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Hi,\n\nQuick RFQ — please send best price, availability & the certification:\n\n${lines}\n\nThanks!`;
-        const html=`Hi,\n\nQuick RFQ — please send best price, availability & <b>the certification</b>:\n\n${lines}\n\nThanks!`;
-        return {subject:subj,plain,html};
-      }},
-      {label:'Option 5',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Hello,\n\nCould you please provide your most competitive price, current availability and the certification for the following item${multi?'s':''}? \n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
-        const html=`Hello,\n\nCould you please provide your most competitive price, current availability and <b>the certification</b> for the following item${multi?'s':''}? \n\n${lines}\n\nWe look forward to your offer.\nBest regards`;
-        return {subject:subj,plain,html};
-      }},
-      {label:'Option 6',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Hello,\n\nWe need your best price, stock availability and the certification for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
-        const html=`Hello,\n\nWe need your best price, stock availability and <b>the certification</b> for the following item${multi?'s':''}. Please reply at your earliest convenience.\n\n${lines}\n\nThank you.\nBest regards`;
-        return {subject:subj,plain,html};
-      }},
-      {label:'Option 7 — AOG',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`AOG — RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`AOG — RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Dear Team,\n\nAOG SITUATION — We urgently require your best price, stock availability and the certification for the following item${multi?'s':''}. Please revert ASAP.\n\n${lines}\n\nThank you.\nBest regards`;
-        const html=`Dear Team,\n\n<b>AOG SITUATION</b> — We urgently require your best price, stock availability and <b>the certification</b> for the following item${multi?'s':''}. Please revert ASAP.\n\n${lines}\n\nThank you.\nBest regards`;
-        return {subject:subj,plain,html};
-      }},
-      {label:'Option 8',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Dear Partner,\n\nHope you are well. We have a sourcing requirement and would appreciate your best offer, including availability and the certification:\n\n${lines}\n\nLooking forward to your feedback.\nBest regards`;
-        const html=`Dear Partner,\n\nHope you are well. We have a sourcing requirement and would appreciate your best offer, including availability and <b>the certification</b>:\n\n${lines}\n\nLooking forward to your feedback.\nBest regards`;
-        return {subject:subj,plain,html};
-      }},
-      {label:'Option 9',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Hello,\n\nWe are currently sourcing the below item${multi?'s':''} and collecting competitive offers. Please provide your best price, stock availability and the certification at your earliest:\n\n${lines}\n\nThank you.\nBest regards`;
-        const html=`Hello,\n\nWe are currently sourcing the below item${multi?'s':''} and collecting competitive offers. Please provide your best price, stock availability and <b>the certification</b> at your earliest:\n\n${lines}\n\nThank you.\nBest regards`;
-        return {subject:subj,plain,html};
-      }},
-      {label:'Option 10',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Dear Team,\n\nWe hope you are doing well. Please check your stock and advise on price, availability and the certification for the following item${multi?'s':''}:\n\n${lines}\n\nWe look forward to your reply.\nKind regards`;
-        const html=`Dear Team,\n\nWe hope you are doing well. Please check your stock and advise on price, availability and <b>the certification</b> for the following item${multi?'s':''}:\n\n${lines}\n\nWe look forward to your reply.\nKind regards`;
-        return {subject:subj,plain,html};
-      }},
-      {label:'Option 11',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Hello,\n\nDo you have the following item${multi?'s':''} in stock? If yes, please send price and the certification:\n\n${lines}\n\nThank you.`;
-        const html=`Hello,\n\nDo you have the following item${multi?'s':''} in stock? If yes, please send price and <b>the certification</b>:\n\n${lines}\n\nThank you.`;
-        return {subject:subj,plain,html};
-      }},
-      {label:'Option 12',build:(items)=>{
-        const multi=items.length>1;
-        const subj=multi?`RFQ PN's ${items.map(i=>i.pn).join(' / ')}`:`RFQ PN ${items[0].pn}`;
-        const lines=buildItemLines(items);
-        const plain=`Hello,\n\nWe are receiving multiple offers for the below item${multi?'s':''}. Please provide your absolute best price, availability and the certification to remain competitive:\n\n${lines}\n\nBest regards`;
-        const html=`Hello,\n\nWe are receiving multiple offers for the below item${multi?'s':''}. Please provide your absolute best price, availability and <b>the certification</b> to remain competitive:\n\n${lines}\n\nBest regards`;
-        return {subject:subj,plain,html};
-      }}
-    ];
-  }
-
-  let toolsRfqCurrentHtml='';
-  let toolsRfqCurrentPlain='';
-
-  function toolsRenderVariant(v, items){
-    const result=v.build(items);
-    toolsRfqCurrentPlain=result.plain;
-    const subjEl=document.getElementById('toolsRfqSubject');
-    if(subjEl && result.subject) subjEl.value=result.subject;
-    // Build styled HTML for display — bold + underline for "the certification"
-    const displayHtml=result.html
-      .replace(/\n/g,'<br>')
-      .replace(/<b>(the certification)<\/b>/gi,'<b style="font-weight:700;text-decoration:underline">$1</b>')
-      .replace(/<b>(AOG SITUATION)<\/b>/gi,'<b style="font-weight:700">$1</b>');
-    // Store rich HTML for clipboard (with sans-serif font wrapper)
-    toolsRfqCurrentHtml=`<div style="font-family:Arial,sans-serif;font-size:13px;line-height:1.75">${displayHtml}</div>`;
-    document.getElementById('toolsRfqOutput').innerHTML=displayHtml;
-  }
-
-  window.toolsRfqGenerate=function(){
-    const rows=[...document.getElementById('toolsRfqRows').children];
-    const items=[];
-    for(const row of rows){
-      const id=row.id.replace('toolsrfqrow-','');
-      const sel=document.getElementById('trfq-sel-'+id);
-      if(sel && !sel.checked) continue;
-      const pn=(document.getElementById('trfq-pn-'+id)||{}).value?.trim();
-      const alt=(document.getElementById('trfq-alt-'+id)||{}).value?.trim();
-      const desc=(document.getElementById('trfq-desc-'+id)||{}).value?.trim();
-      const qty=(document.getElementById('trfq-qty-'+id)||{}).value?.trim();
-      if(!pn) continue;
-      items.push({pn,alt,desc,qty});
-    }
-    if(!items.length){alert('Add at least one Part Number.');return;}
-
-    const wrap=document.getElementById('toolsRfqOutputWrap');
-    const tabBar=document.getElementById('toolsRfqVariantTabs');
-    const VARS=getVariants();
-
-    document.getElementById('toolsRfqCopyBtn').textContent='Copy';
-    wrap.style.display='block';
-    wrap.scrollIntoView({behavior:'smooth',block:'nearest'});
-
-    tabBar.innerHTML='';
-    VARS.forEach((v,i)=>{
-      const btn=document.createElement('button');
-      btn.className='rfq-vtab'+(i===0?' active':'');
-      btn.textContent=v.label;
-      btn.onclick=()=>{
-        document.querySelectorAll('#toolsRfqVariantTabs .rfq-vtab').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        toolsRenderVariant(v, items);
-        const cb=document.getElementById('toolsRfqCopyBtn');
-        cb.textContent='Copy';cb.style.background='var(--bg)';cb.style.color='var(--muted)';cb.style.borderColor='var(--border)';
-      };
-      tabBar.appendChild(btn);
-    });
-    toolsRenderVariant(VARS[0], items);
-  };
-
-  window.toolsRfqCopy=function(){
-    const btn=document.getElementById('toolsRfqCopyBtn');
-    // Try rich-text copy first (preserves bold + underline in email clients)
-    try {
-      const htmlBlob=new Blob([toolsRfqCurrentHtml],{type:'text/html'});
-      const textBlob=new Blob([toolsRfqCurrentPlain],{type:'text/plain'});
-      const item=new ClipboardItem({'text/html':htmlBlob,'text/plain':textBlob});
-      navigator.clipboard.write([item]).then(()=>{
-        btn.textContent='✓ Copied!';
-        btn.style.background='var(--green)';btn.style.color='#fff';btn.style.borderColor='var(--green)';
-        setTimeout(()=>{btn.textContent='Copy';btn.style.background='var(--bg)';btn.style.color='var(--muted)';btn.style.borderColor='var(--border)';},1800);
-      }).catch(()=>{
-        // Fallback to plain text
-        navigator.clipboard.writeText(toolsRfqCurrentPlain);
-        btn.textContent='✓ Copied';
-        btn.style.background='var(--green)';btn.style.color='#fff';btn.style.borderColor='var(--green)';
-        setTimeout(()=>{btn.textContent='Copy';btn.style.background='var(--bg)';btn.style.color='var(--muted)';btn.style.borderColor='var(--border)';},1800);
-      });
-    } catch(e){
-      navigator.clipboard.writeText(toolsRfqCurrentPlain);
-      btn.textContent='✓ Copied';
-      btn.style.background='var(--green)';btn.style.color='#fff';btn.style.borderColor='var(--green)';
-      setTimeout(()=>{btn.textContent='Copy';btn.style.background='var(--bg)';btn.style.color='var(--muted)';btn.style.borderColor='var(--border)';},1800);
-    }
-  };
-
-  window.toolsRfqClear=function(){
-    document.getElementById('toolsRfqRows').innerHTML='';
-    document.getElementById('toolsRfqOutputWrap').style.display='none';
-    toolsRfqRowId=0;
-    toolsRfqAddRow();
-  };
-
-  // Init with one row
-  toolsRfqAddRow();
-})();
-</script>
 
             <!-- ══ ROW 3: Sending Reminders + Follow-Up (side by side, tabbed) ══ -->
             <div style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
@@ -2437,6 +2173,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
   }
 
   // Build all tab bars
+  buildTabs('tools-rfq-tabs','tools-rfq-text','rfq');
   buildTabs('tools-s8-tabs','tools-s8-text','s8');
   buildTabs('tools-fu-tabs','tools-fu-text','fu');
   buildTabs('tools-inv-tabs','tools-inv-text','inv',['Single PN','Multi PN']);
@@ -2729,14 +2466,57 @@ function addCard(type,title,content,cv){
   let h=cv?`<div class="card-hr"><div class="card-title">${title}</div><button class="copy-btn" onclick="cpText('${cv}')">Copy</button></div>`:`<div class="card-hr"><div class="card-title">${title}</div></div>`;
   div.innerHTML=`${h}${content}`;document.getElementById("results").appendChild(div);
 }
+function getDomain(email){const m=email.match(/@([\w.-]+)/);return m?m[1].toLowerCase():null;}
+function blDomainRows(emails){return emails.map(e=>`<div class="ger"><span class="ge" style="color:var(--red)">${e}</span><button class="cib" onclick="cpText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');}
+function buildBlCard(c,obj,matchedEmails){
+  const em=obj.emails||[],reason=obj.reason||"";
+  const sh=matchedEmails||em;
+  const mainDomain=getDomain(c)||null;
+  // Find all other BL entries sharing the same domain
+  let domainSiblings=[];
+  if(mainDomain){
+    for(let other in blacklist){
+      if(other===c)continue;
+      const oObj=blacklist[other]||{},oEm=oObj.emails||[];
+      const oKey=other.toLowerCase();
+      const oMatches=oEm.filter(e=>getDomain(e)===mainDomain)||(oKey.includes('@')?[]:[]);
+      const keyDomain=oKey.startsWith('@')?oKey.slice(1):getDomain(other)||oKey;
+      if(keyDomain===mainDomain||oEm.some(e=>getDomain(e)===mainDomain)){
+        const sibEmails=oEm.length?oEm:[other];
+        domainSiblings.push({key:other,emails:sibEmails,reason:oObj.reason||''});
+      }
+    }
+  }
+  const rows=sh.map(e=>`<div class="ger"><span class="ge" style="color:var(--red)">${e}</span><button class="cib" onclick="cpText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');
+  let ddHtml='';
+  if(domainSiblings.length){
+    const uid='bldd'+Math.random().toString(36).slice(2,7);
+    const sibRows=domainSiblings.map(s=>`<div style="margin-bottom:4px"><div style="font-size:9px;font-weight:700;color:var(--red);opacity:.7;text-transform:uppercase;letter-spacing:.5px;padding:2px 4px">${s.key}</div>${blDomainRows(s.emails)}<div style="font-size:10px;color:var(--red);opacity:.7;padding:1px 6px">⚠ ${s.reason}</div></div>`).join('');
+    ddHtml=`<div class="bl-domain-toggle" onclick="(function(el){var dd=el.nextElementSibling;el.classList.toggle('open');dd.classList.toggle('open');})(this)"><span>⚠ ${domainSiblings.length} more from @${mainDomain}</span><span class="bl-dd-arrow">▼</span></div><div class="bl-domain-list">${sibRows}</div>`;
+  }
+  addCard("blacklist",c,`<div class="gel">${rows}</div><div class="bl-reason">⚠ ${reason}</div>${ddHtml}`,null);
+}
 function checkEmail(){
   const res=document.getElementById("results");res.innerHTML="";
   const iv=document.getElementById("searchInput").value.trim();
   if(!iv){res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:30px">Start typing to search</div>';document.getElementById("statusBar").innerText="Ready";return;}
   if(!dataLoaded){res.innerHTML='<div style="text-align:center;color:var(--orange);margin-top:20px;font-size:12px">⚠ No data.json loaded — contact search unavailable.</div>';return;}
   const kw=norm(domKey(iv));let count=0;function match(v){return norm(v).includes(kw);}
-  // ── BLACKLIST FIRST ──
-  if(cf==="all"||cf==="blacklist"){for(let c in blacklist){const obj=blacklist[c]||{},em=obj.emails||[],reason=obj.reason||"";const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length||match(reason)){const sh=cm?em:em2;const rows=sh.map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="cpText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');addCard("blacklist",c,`<div class="gel">${rows}</div><div class="bl-reason">⚠ ${reason}</div>`,null);count++;}}}
+  // ── BLACKLIST FIRST — with domain sibling grouping ──
+  if(cf==="all"||cf==="blacklist"){
+    const shownBLDomains=new Set();
+    for(let c in blacklist){
+      const obj=blacklist[c]||{},em=obj.emails||[],reason=obj.reason||"";
+      const cm=match(c),em2=em.filter(e=>match(e));
+      if(cm||em2.length||match(reason)){
+        const sh=cm?em:em2;
+        const mainDomain=getDomain(c)||(c.startsWith('@')?c.slice(1):null);
+        if(mainDomain&&shownBLDomains.has(mainDomain))continue;
+        if(mainDomain)shownBLDomains.add(mainDomain);
+        buildBlCard(c,obj,sh);count++;
+      }
+    }
+  }
   if(cf==="all"||cf==="direct"){for(let c in directContact){const em=directContact[c]||[];const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length){const sh=cm?em:em2;const rawEntry=window._originalDC&&window._originalDC[c]||[];const rows=sh.map(e=>{const eObj=rawEntry.find?rawEntry.find(o=>o&&o.email===e):null;const st2=eObj?statusBadge(eObj.status):'';const esc=e.replace(/'/g,"&apos;");return`<div class="ger"><span class="ge">${e}</span>${st2}<button class="cib" onclick="cpText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');addCard("direct",c,`<div class="gel">${rows}</div>`,null);count++;}}}
   if(cf==="all"||cf==="replace"){for(let old in replacements){if(match(old)||match(replacements[old])){addCard("replace","Replacement",`<small>Old:</small> ${old}<br><small>New:</small> ${replacements[old]}`,replacements[old]);count++;}}}
   document.getElementById("statusBar").innerText=count?`${count} result(s) for "${iv}"`:"No matches found";
@@ -3081,17 +2861,39 @@ function toggleCertSection(){
     // Blacklisted first
     filtered.sort((a,b)=>(a.type==='blacklist'?0:1)-(b.type==='blacklist'?0:1));
     if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
-    resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
+    // Group blacklist entries by domain — show siblings as dropdown
+    const shownBLDomains=new Set();
+    const rendered=[];
+    filtered.slice(0,40).forEach(c=>{
       const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
       const eObjs=c.emailObjs||((c.emails||[]).map(e=>({email:e,status:'Unknown'})));
-      const emails=eObjs.map(eo=>{
-        const badge=eo.status&&eo.status!=='Unknown'?statusBadge(eo.status):'';
-        const esc=eo.email.replace(/'/g,'&apos;');
-        return `<div class="ger"><span class="ge">${eo.email}</span>${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
-      }).join('');
-      const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
-      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`;
-    }).join('');
+      if(c.type==='blacklist'){
+        const mainDomain=getDomain(c.company||'')||(c.company&&c.company.startsWith('@')?c.company.slice(1):null)||(c.emails&&c.emails[0]?getDomain(c.emails[0]):null);
+        if(mainDomain&&shownBLDomains.has(mainDomain))return;
+        if(mainDomain)shownBLDomains.add(mainDomain);
+        const emails=eObjs.map(eo=>{const esc=eo.email.replace(/'/g,'&apos;');return`<div class="ger"><span class="ge" style="color:var(--red)">${eo.email}</span><button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');
+        const reason=c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
+        // Find siblings with same domain
+        let ddHtml='';
+        if(mainDomain){
+          const siblings=filtered.filter(s=>s!==c&&s.type==='blacklist'&&(getDomain(s.company||'')||( s.company&&s.company.startsWith('@')?s.company.slice(1):null)||(s.emails&&s.emails[0]?getDomain(s.emails[0]):null))===mainDomain);
+          if(siblings.length){
+            const sibRows=siblings.map(s=>{
+              const sEmails=(s.emails||[]).map(e=>`<div class="ger"><span class="ge" style="color:var(--red)">${e}</span><button class="cib" onclick="navigator.clipboard.writeText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');
+              return `<div style="margin-bottom:4px"><div style="font-size:9px;font-weight:700;color:var(--red);opacity:.7;text-transform:uppercase;letter-spacing:.5px;padding:2px 4px">${s.company||''}</div>${sEmails}<div style="font-size:10px;color:var(--red);opacity:.7;padding:1px 6px">⚠ ${s.reason||''}</div></div>`;
+            }).join('');
+            ddHtml=`<div class="bl-domain-toggle" onclick="(function(el){var dd=el.nextElementSibling;el.classList.toggle('open');dd.classList.toggle('open');})(this)"><span>⚠ ${siblings.length} more from @${mainDomain}</span><span class="bl-dd-arrow">▼</span></div><div class="bl-domain-list">${sibRows}</div>`;
+            siblings.forEach(s=>{const sd=getDomain(s.company||'')||mainDomain;shownBLDomains.add(sd);});
+          }
+        }
+        rendered.push(`<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}${ddHtml}</div>`);
+      } else {
+        const emails=eObjs.map(eo=>{const badge=eo.status&&eo.status!=='Unknown'?statusBadge(eo.status):'';const esc=eo.email.replace(/'/g,'&apos;');return`<div class="ger"><span class="ge">${eo.email}</span>${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');
+        const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
+        rendered.push(`<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`);
+      }
+    });
+    resultsEl.innerHTML=rendered.join('');
   };
 })();
 
@@ -3189,17 +2991,37 @@ window.clearClientEmail=function(){
       return abl-bbl;
     });
 
-    resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
+    const shownBLDomainsDoc=new Set();
+    const renderedDoc=[];
+    filtered.slice(0,40).forEach(c=>{
       const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
       const eObjs=c.emailObjs||((c.emails||[]).map(e=>({email:e,status:'Unknown'})));
-      const emails=eObjs.map(eo=>{
-        const badge=eo.status&&eo.status!=='Unknown'?statusBadge(eo.status):'';
-        const esc=eo.email.replace(/'/g,'&apos;');
-        return `<div class="ger"><span class="ge">${eo.email}</span>${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
-      }).join('');
-      const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
-      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`;
-    }).join('');
+      if(c.type==='blacklist'){
+        const mainDomain=getDomain(c.company||'')||(c.company&&c.company.startsWith('@')?c.company.slice(1):null)||(c.emails&&c.emails[0]?getDomain(c.emails[0]):null);
+        if(mainDomain&&shownBLDomainsDoc.has(mainDomain))return;
+        if(mainDomain)shownBLDomainsDoc.add(mainDomain);
+        const emails=eObjs.map(eo=>{const esc=eo.email.replace(/'/g,'&apos;');return`<div class="ger"><span class="ge" style="color:var(--red)">${eo.email}</span><button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');
+        const reason=c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
+        let ddHtml='';
+        if(mainDomain){
+          const siblings=filtered.filter(s=>s!==c&&s.type==='blacklist'&&(getDomain(s.company||'')||(s.company&&s.company.startsWith('@')?s.company.slice(1):null)||(s.emails&&s.emails[0]?getDomain(s.emails[0]):null))===mainDomain);
+          if(siblings.length){
+            const sibRows=siblings.map(s=>{
+              const sEmails=(s.emails||[]).map(e=>`<div class="ger"><span class="ge" style="color:var(--red)">${e}</span><button class="cib" onclick="navigator.clipboard.writeText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');
+              return `<div style="margin-bottom:4px"><div style="font-size:9px;font-weight:700;color:var(--red);opacity:.7;text-transform:uppercase;letter-spacing:.5px;padding:2px 4px">${s.company||''}</div>${sEmails}<div style="font-size:10px;color:var(--red);opacity:.7;padding:1px 6px">⚠ ${s.reason||''}</div></div>`;
+            }).join('');
+            ddHtml=`<div class="bl-domain-toggle" onclick="(function(el){var dd=el.nextElementSibling;el.classList.toggle('open');dd.classList.toggle('open');})(this)"><span>⚠ ${siblings.length} more from @${mainDomain}</span><span class="bl-dd-arrow">▼</span></div><div class="bl-domain-list">${sibRows}</div>`;
+            siblings.forEach(s=>{shownBLDomainsDoc.add(getDomain(s.company||'')||mainDomain);});
+          }
+        }
+        renderedDoc.push(`<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}${ddHtml}</div>`);
+      } else {
+        const emails=eObjs.map(eo=>{const badge=eo.status&&eo.status!=='Unknown'?statusBadge(eo.status):'';const esc=eo.email.replace(/'/g,'&apos;');return`<div class="ger"><span class="ge">${eo.email}</span>${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');
+        const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
+        renderedDoc.push(`<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`);
+      }
+    });
+    resultsEl.innerHTML=renderedDoc.join('');
   };
 })();
 
