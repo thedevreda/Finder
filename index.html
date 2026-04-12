@@ -280,30 +280,18 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 .fbtn.active{background:var(--brand);color:#fff;border-color:var(--brand)}
 .card{background:var(--white);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;margin-bottom:6px;font-size:13px;transition:box-shadow .12s}
 .card:hover{box-shadow:0 2px 8px rgba(26,86,219,.07)}
-.card.blacklist{background:var(--red-lt);border-color:#FECACA}
 .card.direct{border-color:#C7DEFF}
 .card.replace{border-color:#FDE68A}
 .card-hr{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;gap:8px}
 .card-title{font-weight:700;font-size:12px;color:var(--text);flex:1}
-.card.blacklist .card-title{color:var(--red)}
 .copy-btn{border:1px solid var(--border2);background:var(--white);padding:3px 9px;font-size:11px;border-radius:5px;cursor:pointer;font-weight:600;color:var(--muted);transition:.12s;font-family:var(--font)}
 .copy-btn:hover{background:var(--brand-lt);border-color:var(--brand);color:var(--brand)}
 .gel{display:flex;flex-direction:column;gap:2px}
 .ger{display:flex;align-items:center;padding:3px 7px;background:var(--bg);border-radius:var(--r);gap:6px}.ger .ge{flex:1;min-width:0}.ger .status-badge{margin-left:0;flex-shrink:0}.ger .cib{margin-left:auto;flex-shrink:0}
-.card.blacklist .ger{background:#FFF0EF}
 .ge{font-size:12px;color:var(--text);word-break:break-all;flex:1}
-.card.blacklist .ge{color:var(--red)}
 .cib{flex-shrink:0;border:1px solid var(--border);background:var(--white);padding:2px 7px;font-size:10px;border-radius:var(--r);cursor:pointer;font-weight:500;color:var(--muted);transition:.12s;font-family:var(--font)}
 .cib:hover{background:var(--brand-lt);color:var(--brand);border-color:var(--brand)}
-.bl-reason{font-size:11px;color:var(--red);margin-top:4px;padding-top:4px;border-top:1px dashed #FFCDD2;font-weight:500}
-/* ── BLACKLIST DOMAIN DROPDOWN ── */
-.bl-domain-toggle{display:flex;align-items:center;gap:6px;margin-top:6px;padding:4px 8px;background:#FFF0EF;border:1px dashed #FFCDD2;border-radius:5px;cursor:pointer;font-size:10px;font-weight:700;color:var(--red);user-select:none;transition:background .12s}
-.bl-domain-toggle:hover{background:#FFE4E1}
-.bl-domain-toggle .bl-dd-arrow{font-size:9px;margin-left:auto;transition:transform .2s}
-.bl-domain-toggle.open .bl-dd-arrow{transform:rotate(180deg)}
-.bl-domain-list{display:none;margin-top:4px;padding:4px 6px;background:#FFF8F8;border:1px solid #FECACA;border-radius:5px}
-.bl-domain-list.open{display:block}
-.bl-domain-list .ger{background:#FFF0EF}.data-notice{background:#FFFBEB;border:1px solid #FDE68A;border-left:3px solid var(--orange);border-radius:var(--r);padding:9px 13px;font-size:12px;color:#92400E;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.data-notice{background:#FFFBEB;border:1px solid #FDE68A;border-left:3px solid var(--orange);border-radius:var(--r);padding:9px 13px;font-size:12px;color:#92400E;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .status-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:.2px;white-space:nowrap;margin-left:auto;flex-shrink:0}
 .status-badge::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%}
 .status-badge.answer{background:#DCFCE7;color:#15803D;border:1px solid #BBF7D0}
@@ -314,6 +302,10 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 .status-badge.holiday::before{background:#EA580C}
 .status-badge.unknown{background:#F1F5F9;color:#64748B;border:1px solid #CBD5E1}
 .status-badge.unknown::before{background:#94A3B8}
+.status-badge.blacklisted{background:#FEF2F2;color:#991B1B;border:1px solid #FECACA}
+.status-badge.blacklisted::before{background:#DC2626}
+.ger.is-blacklisted{background:#FFF0EF}
+.ger.is-blacklisted .ge{color:#991B1B}
 
 /* ════════════════════════════════
    RESPONSIVE
@@ -1835,14 +1827,12 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
         .ed-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
         .ed-card{background:#fff;border:1.5px solid var(--border2);border-radius:14px;padding:14px 15px;transition:all .15s ease;cursor:default;display:flex;flex-direction:column;gap:8px}
         .ed-card:hover{border-color:#93B4F5;box-shadow:0 4px 14px rgba(15,111,222,.1);transform:translateY(-1px)}
-        .ed-card.bl-card{border-color:#FCA5A5;background:#FFF8F8}
-        .ed-card.bl-card:hover{border-color:var(--red)}
         .ed-card.dc-card{border-color:var(--border2); width: fit-content;}
         .ed-card.rp-card{border-color:#DDD6FE;background:#FAFAFF}
         .ed-card.rp-card:hover{border-color:var(--purple)}
         .ed-card-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px}
         .ed-card-icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:#EEF4FF}
-        .ed-card.bl-card .ed-card-icon{background:#FEE2E2}
+
         .ed-card.rp-card .ed-card-icon{background:#EDE9FE}
         .ed-company{font-size:12px;font-weight:700;color:var(--text);flex:1;line-height:1.3;margin-top:1px}
         .ed-actions{display:flex;gap:5px;flex-shrink:0}
@@ -1861,6 +1851,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
         .st-Holiday{background:#FFFBEB;color:#D97706}
         .st-Repair-Shop{background:#FFF7ED;color:#EA580C}
         .st-Not-Found{background:var(--red-lt);color:var(--muted)}
+        .st-Blacklisted{background:#FEF2F2;color:#991B1B;font-weight:800}
         .ed-reason{font-size:10px;color:var(--muted);margin-top:5px;padding:4px 8px;background:var(--orange-lt);border-radius:4px;border-left:2px solid var(--orange)}
         .ed-reparr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px}
         .ed-rep-from{color:var(--muted2);text-decoration:line-through;font-family:var(--mono)}
@@ -1895,7 +1886,6 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
         <div class="ed-topbar">
           <div class="ed-tabs">
             <button class="ed-tab active" onclick="edSwitch('dc',this)">Direct Contacts</button>
-            <button class="ed-tab" onclick="edSwitch('bl',this)">Blacklist</button>
             <button class="ed-tab" onclick="edSwitch('rp',this)">Replacements</button>
           </div>
           <div class="ed-swrap"><input class="ed-sinput" id="edSearch" type="text" placeholder="Search…" oninput="edRender()"></div>
@@ -1919,15 +1909,6 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
             <div class="ed-field"><label>Company Name</label><input type="text" id="edDCCompany" placeholder="COMPANY NAME"></div>
             <div class="ed-field"><label>Emails</label><div id="edDCEmails"></div><button class="ed-addemail" onclick="edAddEmailRow()">+ Add Email</button></div>
             <div class="ed-mactions"><button class="ed-mcancel" onclick="edCloseModal('edDCModal')">Cancel</button><button class="ed-mok" onclick="edSaveDC()">Save</button></div>
-          </div>
-        </div>
-        <!-- BL Modal -->
-        <div class="ed-overlay" id="edBLModal">
-          <div class="ed-modal">
-            <h3 id="edBLTitle">Add to Blacklist</h3>
-            <div class="ed-field"><label>Email / Domain</label><input type="text" id="edBLEmail" placeholder="email@domain.com or domain.com"></div>
-            <div class="ed-field"><label>Reason</label><input type="text" id="edBLReason" placeholder="e.g. Not answering, Mail not found…"></div>
-            <div class="ed-mactions"><button class="ed-mcancel" onclick="edCloseModal('edBLModal')">Cancel</button><button class="ed-mok red" onclick="edSaveBL()">Save</button></div>
           </div>
         </div>
         <!-- RP Modal -->
@@ -2259,7 +2240,7 @@ const FIREBASE_CONFIG = {
 };
 
 /* ── DATA ── */
-let blacklist={},replacements={},directContact={},exw={},dataLoaded=false;
+let replacements={},directContact={},exw={},dataLoaded=false;
 
 /* ── LAZY LOAD GATE ── */
 let _dataLoadPromise=null;
@@ -2279,15 +2260,7 @@ async function tryLoadDataJson(){
     if(!res.ok)throw new Error('not found');
     const data=await res.json();
     window._rawJSON=data;
-    const rawBl=data.blacklist||{};
-    blacklist={};
-    for(const key in rawBl){
-      const val=rawBl[key];
-      if(typeof val==="string"){const isEmail=key.includes("@");blacklist[key]={emails:isEmail?[key]:[],reason:val};}
-      else{blacklist[key]=val;}
-    }
     replacements=data.replacements||{};exw=data.exw||{};dataLoaded=true;
-    window.blacklist=blacklist;
     window.replacements=replacements;
     // directContact: array of {email, status} objects per company
     const rawDC=data.directContact||{};
@@ -2295,7 +2268,6 @@ async function tryLoadDataJson(){
     for(const c in rawDC){
       const v=rawDC[c];
       if(Array.isArray(v)){
-        // new format: [{email,status},...] or old format: ["email",...]
         if(v.length>0&&typeof v[0]==='object'&&v[0].email){
           directContact[c]=v.map(e=>e.email);
           v.forEach(e=>{window._emailStatus[e.email]=e.status||'Unknown';});
@@ -2309,14 +2281,14 @@ async function tryLoadDataJson(){
     window._contactData=[];
     for(const c in directContact){
       const emailObjs=(data.directContact[c]||[]).map(e=>typeof e==='object'?e:{email:e,status:'Unknown'});
-      window._contactData.push({company:c,emailObjs,emails:directContact[c]||[],type:'direct'});
+      const hasBlacklisted=emailObjs.some(e=>e.status==='Blacklisted');
+      window._contactData.push({company:c,emailObjs,emails:directContact[c]||[],type:'direct',hasBlacklisted});
     }
-    for(const c in blacklist){const obj=blacklist[c]||{};window._contactData.push({company:c,emailObjs:(obj.emails||[]).map(e=>({email:e,status:'Unknown'})),emails:obj.emails||[],notes:obj.reason||'',type:'blacklist',reason:obj.reason||''});}
     for(const old in replacements){window._contactData.push({company:'Replace: '+old,emailObjs:[{email:replacements[old],status:'Unknown'}],emails:[replacements[old]],type:'replace'});}
     let dcCount=0;for(let c in directContact)dcCount+=(directContact[c]||[]).length;
-    let blCount=Object.keys(blacklist).length;
+    const blCount=Object.values(data.directContact||{}).flat().filter(e=>e&&e.status==='Blacklisted').length;
     document.getElementById("fileName").textContent="✓ "+Object.keys(directContact).length+" companies";
-    document.getElementById("statusBar").innerText=`Ready — ${blCount} blacklist | ${dcCount} contacts (${Object.keys(directContact).length} cos) | ${Object.keys(replacements).length} replacements`;
+    document.getElementById("statusBar").innerText=`Ready — ${blCount} blacklisted | ${dcCount} contacts (${Object.keys(directContact).length} cos) | ${Object.keys(replacements).length} replacements`;
     document.getElementById("dataNotice").style.display="none";
   }catch(e){
     document.getElementById("fileName").textContent="⚠ No data.json";
@@ -2456,7 +2428,8 @@ function statusBadge(s){
     'Holiday':['holiday','✈ Holiday'],
     'Repair Shop':['holiday','🔧 Repair Shop'],
     'Not Found':['not-answering','✗ Not Found'],
-    'Unknown':['unknown','? Unknown']
+    'Unknown':['unknown','? Unknown'],
+    'Blacklisted':['blacklisted','⊘ Blacklisted']
   };
   const [cls,lbl]=m[s]||['unknown','? Unknown'];
   return '<span class="status-badge '+cls+'">'+lbl+'</span>';
@@ -2466,58 +2439,40 @@ function addCard(type,title,content,cv){
   let h=cv?`<div class="card-hr"><div class="card-title">${title}</div><button class="copy-btn" onclick="cpText('${cv}')">Copy</button></div>`:`<div class="card-hr"><div class="card-title">${title}</div></div>`;
   div.innerHTML=`${h}${content}`;document.getElementById("results").appendChild(div);
 }
-function getDomain(email){const m=email.match(/@([\w.-]+)/);return m?m[1].toLowerCase():null;}
-function blDomainRows(emails){return emails.map(e=>`<div class="ger"><span class="ge" style="color:var(--red)">${e}</span><button class="cib" onclick="cpText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');}
-function buildBlCard(c,obj,matchedEmails){
-  const em=obj.emails||[],reason=obj.reason||"";
-  const sh=matchedEmails||em;
-  const mainDomain=getDomain(c)||null;
-  // Find all other BL entries sharing the same domain
-  let domainSiblings=[];
-  if(mainDomain){
-    for(let other in blacklist){
-      if(other===c)continue;
-      const oObj=blacklist[other]||{},oEm=oObj.emails||[];
-      const oKey=other.toLowerCase();
-      const oMatches=oEm.filter(e=>getDomain(e)===mainDomain)||(oKey.includes('@')?[]:[]);
-      const keyDomain=oKey.startsWith('@')?oKey.slice(1):getDomain(other)||oKey;
-      if(keyDomain===mainDomain||oEm.some(e=>getDomain(e)===mainDomain)){
-        const sibEmails=oEm.length?oEm:[other];
-        domainSiblings.push({key:other,emails:sibEmails,reason:oObj.reason||''});
-      }
-    }
-  }
-  const rows=sh.map(e=>`<div class="ger"><span class="ge" style="color:var(--red)">${e}</span><button class="cib" onclick="cpText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');
-  let ddHtml='';
-  if(domainSiblings.length){
-    const uid='bldd'+Math.random().toString(36).slice(2,7);
-    const sibRows=domainSiblings.map(s=>`<div style="margin-bottom:4px"><div style="font-size:9px;font-weight:700;color:var(--red);opacity:.7;text-transform:uppercase;letter-spacing:.5px;padding:2px 4px">${s.key}</div>${blDomainRows(s.emails)}<div style="font-size:10px;color:var(--red);opacity:.7;padding:1px 6px">⚠ ${s.reason}</div></div>`).join('');
-    ddHtml=`<div class="bl-domain-toggle" onclick="(function(el){var dd=el.nextElementSibling;el.classList.toggle('open');dd.classList.toggle('open');})(this)"><span>⚠ ${domainSiblings.length} more from @${mainDomain}</span><span class="bl-dd-arrow">▼</span></div><div class="bl-domain-list">${sibRows}</div>`;
-  }
-  addCard("blacklist",c,`<div class="gel">${rows}</div><div class="bl-reason">⚠ ${reason}</div>${ddHtml}`,null);
-}
 function checkEmail(){
   const res=document.getElementById("results");res.innerHTML="";
   const iv=document.getElementById("searchInput").value.trim();
   if(!iv){res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:30px">Start typing to search</div>';document.getElementById("statusBar").innerText="Ready";return;}
   if(!dataLoaded){res.innerHTML='<div style="text-align:center;color:var(--orange);margin-top:20px;font-size:12px">⚠ No data.json loaded — contact search unavailable.</div>';return;}
   const kw=norm(domKey(iv));let count=0;function match(v){return norm(v).includes(kw);}
-  // ── BLACKLIST FIRST — with domain sibling grouping ──
-  if(cf==="all"||cf==="blacklist"){
-    const shownBLDomains=new Set();
-    for(let c in blacklist){
-      const obj=blacklist[c]||{},em=obj.emails||[],reason=obj.reason||"";
-      const cm=match(c),em2=em.filter(e=>match(e));
-      if(cm||em2.length||match(reason)){
-        const sh=cm?em:em2;
-        const mainDomain=getDomain(c)||(c.startsWith('@')?c.slice(1):null);
-        if(mainDomain&&shownBLDomains.has(mainDomain))continue;
-        if(mainDomain)shownBLDomains.add(mainDomain);
-        buildBlCard(c,obj,sh);count++;
+  // Collect matching direct-contact companies, sort blacklisted first
+  if(cf==="all"||cf==="direct"||cf==="blacklist"){
+    const matches=[];
+    for(let c in directContact){
+      const em=directContact[c]||[];const cm=match(c),em2=em.filter(e=>match(e));
+      if(cm||em2.length){
+        const rawEntry=window._originalDC&&window._originalDC[c]||[];
+        const hasBlacklisted=rawEntry.some(o=>o&&o.status==='Blacklisted');
+        if(cf==="blacklist"&&!hasBlacklisted)continue;
+        matches.push({c,em,cm,em2,rawEntry,hasBlacklisted});
       }
     }
+    // Sort: companies with any Blacklisted email first
+    matches.sort((a,b)=>(b.hasBlacklisted?1:0)-(a.hasBlacklisted?1:0));
+    for(const {c,em,cm,em2,rawEntry,hasBlacklisted} of matches){
+      const sh=cm?em:em2;
+      const rows=sh.map(e=>{
+        const eObj=rawEntry.find?rawEntry.find(o=>o&&o.email===e):null;
+        const st=eObj?eObj.status:'Unknown';
+        const badge=statusBadge(st);
+        const isbl=st==='Blacklisted';
+        const reason=isbl&&eObj&&eObj.blacklist_reason?`<span style="font-size:10px;color:#991B1B;opacity:.8;margin-left:4px">— ${eObj.blacklist_reason}</span>`:'';
+        const esc=e.replace(/'/g,"&apos;");
+        return`<div class="ger${isbl?' is-blacklisted':''}"><span class="ge">${e}</span>${reason}${badge}<button class="cib" onclick="cpText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
+      }).join('');
+      addCard("direct",c,`<div class="gel">${rows}</div>`,null);count++;
+    }
   }
-  if(cf==="all"||cf==="direct"){for(let c in directContact){const em=directContact[c]||[];const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length){const sh=cm?em:em2;const rawEntry=window._originalDC&&window._originalDC[c]||[];const rows=sh.map(e=>{const eObj=rawEntry.find?rawEntry.find(o=>o&&o.email===e):null;const st2=eObj?statusBadge(eObj.status):'';const esc=e.replace(/'/g,"&apos;");return`<div class="ger"><span class="ge">${e}</span>${st2}<button class="cib" onclick="cpText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');addCard("direct",c,`<div class="gel">${rows}</div>`,null);count++;}}}
   if(cf==="all"||cf==="replace"){for(let old in replacements){if(match(old)||match(replacements[old])){addCard("replace","Replacement",`<small>Old:</small> ${old}<br><small>New:</small> ${replacements[old]}`,replacements[old]);count++;}}}
   document.getElementById("statusBar").innerText=count?`${count} result(s) for "${iv}"`:"No matches found";
 }
@@ -2854,46 +2809,27 @@ function toggleCertSection(){
       return str.toLowerCase().includes(tk)||stripped.includes(tStripped);
     }
     let filtered=data.filter(c=>{
-      if(filterSearch!=='all'&&c.type!==filterSearch)return false;
+      if(filterSearch==='blacklist'&&!c.hasBlacklisted)return false;
+      if(filterSearch==='direct'&&c.type!=='direct')return false;
+      if(filterSearch==='replace'&&c.type!=='replace')return false;
       const emails=c.emails||[];
-      return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t))||tokenMatch(c.notes||'',t);
+      return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t));
     });
-    // Blacklisted first
-    filtered.sort((a,b)=>(a.type==='blacklist'?0:1)-(b.type==='blacklist'?0:1));
+    // Companies with any Blacklisted email first
+    filtered.sort((a,b)=>(b.hasBlacklisted?1:0)-(a.hasBlacklisted?1:0));
     if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
-    // Group blacklist entries by domain — show siblings as dropdown
-    const shownBLDomains=new Set();
-    const rendered=[];
-    filtered.slice(0,40).forEach(c=>{
-      const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
+    resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
+      const cls=c.type==='direct'?'direct':c.type==='replace'?'replace':'';
       const eObjs=c.emailObjs||((c.emails||[]).map(e=>({email:e,status:'Unknown'})));
-      if(c.type==='blacklist'){
-        const mainDomain=getDomain(c.company||'')||(c.company&&c.company.startsWith('@')?c.company.slice(1):null)||(c.emails&&c.emails[0]?getDomain(c.emails[0]):null);
-        if(mainDomain&&shownBLDomains.has(mainDomain))return;
-        if(mainDomain)shownBLDomains.add(mainDomain);
-        const emails=eObjs.map(eo=>{const esc=eo.email.replace(/'/g,'&apos;');return`<div class="ger"><span class="ge" style="color:var(--red)">${eo.email}</span><button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');
-        const reason=c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
-        // Find siblings with same domain
-        let ddHtml='';
-        if(mainDomain){
-          const siblings=filtered.filter(s=>s!==c&&s.type==='blacklist'&&(getDomain(s.company||'')||( s.company&&s.company.startsWith('@')?s.company.slice(1):null)||(s.emails&&s.emails[0]?getDomain(s.emails[0]):null))===mainDomain);
-          if(siblings.length){
-            const sibRows=siblings.map(s=>{
-              const sEmails=(s.emails||[]).map(e=>`<div class="ger"><span class="ge" style="color:var(--red)">${e}</span><button class="cib" onclick="navigator.clipboard.writeText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');
-              return `<div style="margin-bottom:4px"><div style="font-size:9px;font-weight:700;color:var(--red);opacity:.7;text-transform:uppercase;letter-spacing:.5px;padding:2px 4px">${s.company||''}</div>${sEmails}<div style="font-size:10px;color:var(--red);opacity:.7;padding:1px 6px">⚠ ${s.reason||''}</div></div>`;
-            }).join('');
-            ddHtml=`<div class="bl-domain-toggle" onclick="(function(el){var dd=el.nextElementSibling;el.classList.toggle('open');dd.classList.toggle('open');})(this)"><span>⚠ ${siblings.length} more from @${mainDomain}</span><span class="bl-dd-arrow">▼</span></div><div class="bl-domain-list">${sibRows}</div>`;
-            siblings.forEach(s=>{const sd=getDomain(s.company||'')||mainDomain;shownBLDomains.add(sd);});
-          }
-        }
-        rendered.push(`<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}${ddHtml}</div>`);
-      } else {
-        const emails=eObjs.map(eo=>{const badge=eo.status&&eo.status!=='Unknown'?statusBadge(eo.status):'';const esc=eo.email.replace(/'/g,'&apos;');return`<div class="ger"><span class="ge">${eo.email}</span>${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');
-        const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
-        rendered.push(`<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`);
-      }
-    });
-    resultsEl.innerHTML=rendered.join('');
+      const emails=eObjs.map(eo=>{
+        const isbl=eo.status==='Blacklisted';
+        const badge=statusBadge(eo.status||'Unknown');
+        const reason=isbl&&eo.blacklist_reason?`<span style="font-size:10px;color:#991B1B;opacity:.8;margin-left:4px">— ${eo.blacklist_reason}</span>`:'';
+        const esc=eo.email.replace(/'/g,'&apos;');
+        return `<div class="ger${isbl?' is-blacklisted':''}"><span class="ge">${eo.email}</span>${reason}${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
+      }).join('');
+      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div></div>`;
+    }).join('');
   };
 })();
 
@@ -2977,51 +2913,30 @@ window.clearClientEmail=function(){
     }
 
     let filtered=data.filter(c=>{
-      if(filterDoc!=='all'&&c.type!==filterDoc)return false;
+      if(filterDoc==='blacklist'&&!c.hasBlacklisted)return false;
+      if(filterDoc==='direct'&&c.type!=='direct')return false;
+      if(filterDoc==='replace'&&c.type!=='replace')return false;
       const emails=c.emails||[];
-      return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t))||tokenMatch(c.notes||'',t);
+      return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t));
     });
 
     if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
 
-    // Sort: blacklisted first
-    filtered.sort((a,b)=>{
-      const abl=a.type==='blacklist'?0:1;
-      const bbl=b.type==='blacklist'?0:1;
-      return abl-bbl;
-    });
+    // Sort: companies with Blacklisted emails first
+    filtered.sort((a,b)=>(b.hasBlacklisted?1:0)-(a.hasBlacklisted?1:0));
 
-    const shownBLDomainsDoc=new Set();
-    const renderedDoc=[];
-    filtered.slice(0,40).forEach(c=>{
-      const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
+    resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
+      const cls=c.type==='direct'?'direct':c.type==='replace'?'replace':'';
       const eObjs=c.emailObjs||((c.emails||[]).map(e=>({email:e,status:'Unknown'})));
-      if(c.type==='blacklist'){
-        const mainDomain=getDomain(c.company||'')||(c.company&&c.company.startsWith('@')?c.company.slice(1):null)||(c.emails&&c.emails[0]?getDomain(c.emails[0]):null);
-        if(mainDomain&&shownBLDomainsDoc.has(mainDomain))return;
-        if(mainDomain)shownBLDomainsDoc.add(mainDomain);
-        const emails=eObjs.map(eo=>{const esc=eo.email.replace(/'/g,'&apos;');return`<div class="ger"><span class="ge" style="color:var(--red)">${eo.email}</span><button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');
-        const reason=c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
-        let ddHtml='';
-        if(mainDomain){
-          const siblings=filtered.filter(s=>s!==c&&s.type==='blacklist'&&(getDomain(s.company||'')||(s.company&&s.company.startsWith('@')?s.company.slice(1):null)||(s.emails&&s.emails[0]?getDomain(s.emails[0]):null))===mainDomain);
-          if(siblings.length){
-            const sibRows=siblings.map(s=>{
-              const sEmails=(s.emails||[]).map(e=>`<div class="ger"><span class="ge" style="color:var(--red)">${e}</span><button class="cib" onclick="navigator.clipboard.writeText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');
-              return `<div style="margin-bottom:4px"><div style="font-size:9px;font-weight:700;color:var(--red);opacity:.7;text-transform:uppercase;letter-spacing:.5px;padding:2px 4px">${s.company||''}</div>${sEmails}<div style="font-size:10px;color:var(--red);opacity:.7;padding:1px 6px">⚠ ${s.reason||''}</div></div>`;
-            }).join('');
-            ddHtml=`<div class="bl-domain-toggle" onclick="(function(el){var dd=el.nextElementSibling;el.classList.toggle('open');dd.classList.toggle('open');})(this)"><span>⚠ ${siblings.length} more from @${mainDomain}</span><span class="bl-dd-arrow">▼</span></div><div class="bl-domain-list">${sibRows}</div>`;
-            siblings.forEach(s=>{shownBLDomainsDoc.add(getDomain(s.company||'')||mainDomain);});
-          }
-        }
-        renderedDoc.push(`<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}${ddHtml}</div>`);
-      } else {
-        const emails=eObjs.map(eo=>{const badge=eo.status&&eo.status!=='Unknown'?statusBadge(eo.status):'';const esc=eo.email.replace(/'/g,'&apos;');return`<div class="ger"><span class="ge">${eo.email}</span>${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');
-        const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
-        renderedDoc.push(`<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`);
-      }
-    });
-    resultsEl.innerHTML=renderedDoc.join('');
+      const emails=eObjs.map(eo=>{
+        const isbl=eo.status==='Blacklisted';
+        const badge=statusBadge(eo.status||'Unknown');
+        const reason=isbl&&eo.blacklist_reason?`<span style="font-size:10px;color:#991B1B;opacity:.8;margin-left:4px">— ${eo.blacklist_reason}</span>`:'';
+        const esc=eo.email.replace(/'/g,'&apos;');
+        return `<div class="ger${isbl?' is-blacklisted':''}"><span class="ge">${eo.email}</span>${reason}${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
+      }).join('');
+      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div></div>`;
+    }).join('');
   };
 })();
 
@@ -3055,7 +2970,7 @@ window.startReminderDoc=async function(){
 ══════════════════════════════════════════════ */
 (function(){
   const ALLOWED='reda@jadaero.com';
-  const STATUSES=['Unknown','Answering','Not Answering','Holiday','Repair Shop','Not Found'];
+  const STATUSES=['Unknown','Answering','Not Answering','Holiday','Repair Shop','Not Found','Blacklisted'];
   let edView='dc',edFilter='all',edEditMode=null,edPendingDel=null,edToastTmr;
 
   /* ── access check ── */
@@ -3100,12 +3015,10 @@ window.startReminderDoc=async function(){
   };
   window.edRender=function(){
     if(edView==='dc')edRenderDC();
-    else if(edView==='bl')edRenderBL();
     else edRenderRP();
   };
   window.edOpenAdd=function(){
     if(edView==='dc')edOpenDCModal(null);
-    else if(edView==='bl')edOpenBLModal(null);
     else edOpenRPModal(null);
   };
 
@@ -3145,7 +3058,7 @@ window.startReminderDoc=async function(){
         const st=c.status||'Unknown',sc='st-'+st.replace(/\s+/g,'-');
         return `<div class="ed-chip"><span class="eml">${H(c.email)}</span><button class="ed-stbadge ${sc}" onclick="edCycleStatus('${A(co)}',${i})">${H(st)}</button><button class="ed-cp" onclick="edCp('${A(c.email)}',this)">⎘</button><button class="ed-ibtn del" style="width:18px;height:18px;font-size:10px;border-radius:3px" onclick="edRemoveEmail('${A(co)}',${i})">✕</button></div>`;
       }).join('');
-      return `<div class="ed-card dc-card"><div class="ed-card-row"><div class="ed-card-icon">✉️</div><div style="flex:1;min-width:0"><span class="ed-company">${H(co)}</span></div><div class="ed-actions"><button class="ed-ibtn blk" title="Move to blacklist" onclick="edMoveToBlacklist('${A(co)}')">⊘</button><button class="ed-ibtn edt" title="Edit" onclick="edOpenDCModal('${A(co)}')">✎</button><button class="ed-ibtn del" title="Delete" onclick="edAskDelete('dc','${A(co)}')">✕</button></div></div><div class="ed-emails">${chips}</div></div>`;
+      return `<div class="ed-card dc-card"><div class="ed-card-row"><div class="ed-card-icon">✉️</div><div style="flex:1;min-width:0"><span class="ed-company">${H(co)}</span></div><div class="ed-actions"><button class="ed-ibtn edt" title="Edit" onclick="edOpenDCModal('${A(co)}')">✎</button><button class="ed-ibtn del" title="Delete" onclick="edAskDelete('dc','${A(co)}')">✕</button></div></div><div class="ed-emails">${chips}</div></div>`;
     }).join('')+'</div>';
   }
   window.edCycleStatus=function(co,i){
@@ -3160,32 +3073,6 @@ window.startReminderDoc=async function(){
     if(!dc[co].length){delete dc[co];delete(window.directContact||{})[co];}
     edRenderDC();edToast('Email removed');
   };
-  window.edMoveToBlacklist=function(co){
-    const dc=window._originalDC||{},arr=dc[co]||[];
-    arr.forEach(c=>{(window.blacklist=window.blacklist||{})[c.email]={emails:[c.email],reason:'Moved from Direct Contacts'};});
-    delete dc[co];delete(window.directContact||{})[co];
-    edRenderDC();edToast(co+' moved to Blacklist');
-  };
-
-  /* ─────────────────────────────────────────
-     RENDER — BLACKLIST
-  ───────────────────────────────────────── */
-  function edRenderBL(){
-    const bl=window.blacklist||{};
-    const q=(document.getElementById('edSearch').value||'').trim().toLowerCase();
-    const body=document.getElementById('edBody');
-    if(!q){document.getElementById('edCnt').textContent='';body.innerHTML='<div class="ed-empty" style="padding:40px 0;font-size:13px">&#128269; Type an email or reason to search</div>';return;}
-    let entries=Object.entries(bl).filter(([k,v])=>{
-      const r=typeof v==='object'?v.reason||'':String(v);
-      return k.toLowerCase().includes(q)||r.toLowerCase().includes(q);
-    });
-    document.getElementById('edCnt').textContent=entries.length+' entries';
-    if(!entries.length){body.innerHTML='<div class="ed-empty">∅ No blacklist entries</div>';return;}
-    body.innerHTML='<div class="ed-grid">'+entries.map(([k,v])=>{
-      const r=typeof v==='object'?v.reason||'':String(v)||'';
-      return `<div class="ed-card bl-card"><div class="ed-card-row"><div class="ed-card-icon">⛔</div><div style="flex:1;min-width:0"><span style="font-family:var(--mono);font-size:11px;color:var(--red);font-weight:700;word-break:break-all">${H(k)}</span></div><div class="ed-actions"><button class="ed-cp" style="border:1px solid var(--border2);padding:2px 8px;border-radius:4px" onclick="edCp('${A(k)}',this)">⎘</button><button class="ed-ibtn edt" onclick="edOpenBLModal('${A(k)}')">✎</button><button class="ed-ibtn del" onclick="edAskDelete('bl','${A(k)}')">✕</button></div></div>${r?`<div class="ed-reason">⚠ ${H(r)}</div>`:''}</div>`;
-    }).join('')+'</div>';
-  }
 
   /* ─────────────────────────────────────────
      RENDER — REPLACEMENTS
@@ -3213,7 +3100,6 @@ window.startReminderDoc=async function(){
     if(!edPendingDel)return;
     const{type,key}=edPendingDel;
     if(type==='dc'){delete(window._originalDC||{})[key];delete(window.directContact||{})[key];}
-    else if(type==='bl')delete(window.blacklist||{})[key];
     else if(type==='rp')delete(window.replacements||{})[key];
     edCloseModal('edDelModal');edRender();edToast('Entry deleted');edPendingDel=null;
   };
@@ -3247,26 +3133,6 @@ window.startReminderDoc=async function(){
   };
 
   /* ─────────────────────────────────────────
-     BL MODAL
-  ───────────────────────────────────────── */
-  window.edOpenBLModal=function(key){
-    edEditMode=key?{type:'bl',key}:null;
-    document.getElementById('edBLTitle').textContent=key?'Edit Blacklist Entry':'Add to Blacklist';
-    document.getElementById('edBLEmail').value=key||'';
-    const v=(window.blacklist||{})[key]||{};
-    document.getElementById('edBLReason').value=typeof v==='object'?v.reason||'':String(v)||'';
-    openM('edBLModal');
-  };
-  window.edSaveBL=function(){
-    const email=(document.getElementById('edBLEmail').value||'').trim();
-    const reason=(document.getElementById('edBLReason').value||'').trim();
-    if(!email){edToast('Email required',1);return;}
-    if(edEditMode&&edEditMode.key!==email)delete(window.blacklist||{})[edEditMode.key];
-    (window.blacklist=window.blacklist||{})[email]={emails:email.includes('@')?[email]:[],reason};
-    edCloseModal('edBLModal');edRenderBL();edShowFullJSON();edToast('Saved');
-  };
-
-  /* ─────────────────────────────────────────
      RP MODAL
   ───────────────────────────────────────── */
   window.edOpenRPModal=function(from){
@@ -3287,16 +3153,10 @@ window.startReminderDoc=async function(){
 
   /* ─────────────────────────────────────────
      SAVE JSON
-     Starts from the full _rawJSON that was stored
-     when data.json was fetched, then overlays ONLY
-     the three sections with current in-memory data.
-     Every other key in the original file is preserved.
   ───────────────────────────────────────── */
-    function edShowFullJSON(){
+  function edShowFullJSON(){
     var base=window._rawJSON?JSON.parse(JSON.stringify(window._rawJSON)):{};
-    var blOut={};
-    for(var k in(window.blacklist||{})){var v=window.blacklist[k];blOut[k]=typeof v==='object'?v.reason||'':String(v);}
-    base.blacklist=blOut;
+    delete base.blacklist;
     base.replacements=Object.assign({},window.replacements||{});
     base.directContact=Object.assign({},window._originalDC||{});
     var json=JSON.stringify(base,null,2);
@@ -3307,7 +3167,7 @@ window.startReminderDoc=async function(){
     p.style.cssText='position:fixed;top:0;right:0;bottom:0;width:500px;background:#0f1623;color:#e2e8f0;z-index:9000;display:flex;flex-direction:column;box-shadow:-4px 0 24px rgba(0,0,0,.35)';
     var safe=json.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     p.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#1e293b;border-bottom:1px solid #334155;flex-shrink:0">'
-      +'<span style="font-size:12px;font-weight:700;color:#94a3b8">&#10003; Full JSON — All Sections</span>'
+      +'<span style="font-size:12px;font-weight:700;color:#94a3b8">&#10003; Full JSON</span>'
       +'<div style="display:flex;gap:8px">'
       +'<button onclick="edSaveJSON();document.getElementById(\'edJSONPreview\').remove()" style="padding:5px 14px;background:#0F6FDE;color:#fff;border:none;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer">&#8595; Download JSON</button>'
       +'<button onclick="document.getElementById(\'edJSONPreview\').remove()" style="padding:5px 10px;background:#334155;color:#94a3b8;border:none;border-radius:5px;font-size:12px;cursor:pointer">&#10005;</button>'
@@ -3318,21 +3178,9 @@ window.startReminderDoc=async function(){
   }
 
 window.edSaveJSON=function(){
-    /* base = full original file (all keys intact) */
     const base=window._rawJSON ? JSON.parse(JSON.stringify(window._rawJSON)) : {};
-
-    /* overwrite blacklist — convert back to plain string format */
-    const blOut={};
-    for(const k in(window.blacklist||{})){
-      const v=window.blacklist[k];
-      blOut[k]=typeof v==='object'?v.reason||'':String(v);
-    }
-    base.blacklist=blOut;
-
-    /* overwrite replacements */
+    delete base.blacklist;
     base.replacements=Object.assign({},window.replacements||{});
-
-    /* overwrite directContact — already in {email,status}[] format */
     base.directContact=Object.assign({},window._originalDC||{});
 
     const blob=new Blob([JSON.stringify(base,null,2)],{type:'application/json'});
