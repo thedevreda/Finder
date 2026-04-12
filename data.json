@@ -1,254 +1,4 @@
 {
-  "blacklist": {
-    "a2aviation.com": "Blacklisted for higher price or not answering",
-    "sales@aahparts.com": "NOT EXIST",
-    "adaircraft.com": "Blacklisted for higher price or not answering",
-    "rfq@aero-bay.com": "Blacklisted for higher price or not answering",
-    "Zak@aerocomp.net": "mail not found",
-    "alouden@hawkaviation.com": "NOT FOUND",
-    "Lfaviation@talktalk.net": "NOT FOUND",
-    "Brandon.smith@aerfin.com": "NOT FOUND",
-    "teisenbarth@andersonaermotive.com": "NOT FOUND",
-    "aog@aeroned.com": "NOT FOUND",
-    "eusales@prime.com": "NOT FOUND",
-    "dave.rojas@olympicaerospace.com": "NOT FOUND",
-    "Daghestany@tcasaero.com": "NOT FOUND",
-    "sales@mtu-lease-services.com": "NOT FOUND",
-    "jasper@aeroned.com": "NOT FOUND",
-    "michael@royalaero.com": "NOT FOUND",
-    "Mark@aeroned.com": "NOT FOUND",
-    "Arjen.Verkooij@aeroned.com": "NOT FOUND",
-    "aeropartsaog.com": "Blacklisted for higher price or not answering",
-    "aeropb.com": "Blacklisted for higher price or not answering",
-    "ADIMAIL@aerospaceprecision.com": "mail not found",
-    "markv@aerospacerotables.com": "MAIL NOT FOUND",
-    "luan@aerospacetacticalsolutions.com": "NOT EXIST",
-    "luan@aerospacetechsolutions.com": "not deliverd",
-    "@aerotechnic-usa.com": "Blacklisted for higher price or not answering",
-    "aerotechnic-usa.com": "Blacklisted for higher price or not answering",
-    "@aeroned.com": "Blacklisted for higher price or not answering",
-    "parts@aerothrust.com": "mail not found",
-    "rspringthorpe@aeroturbine.com": "Mail not found",
-    "jgawlik@aerovision": "NOT FOUND",
-    "leo@aircapitalav.com": "mail not found",
-    "dennis@aircraftsparesintl.com": "MAIL NOT FOUND",
-    "airctrading.com": "Blacklisted for higher price or not answering",
-    "airhubaviation.com": "Blacklisted for higher price or not answering",
-    "@airpartstock.com": "Blacklisted for higher price or not answering",
-    "luke@all.aeros": "mail not found",
-    "@CAMARAC.COM": "Blacklisted for higher price or not answering",
-    "ammacaircraft.com": "Blacklisted for higher price or not answering",
-    "bryon@aoaaviation.com": "mail not found",
-    "sales@aogteamservices.com": "NOT EXIST",
-    "croberts7453@aol.com": "mail not found",
-    "ccuriel@apld.us": "mail not found",
-    "apocaviation.com": "Blacklisted for higher price or not answering",
-    "aaguiar@artmx.us": "mail not found",
-    "asaltd.uk": "MANAGER TELL",
-    "@asapsemi.com": "ASAP SEMI",
-    "wendy.foo@asia.thalesgroup.com": "NOT EXIST",
-    "Kathiek@asiaero.net": "NOT EXIST",
-    "sales@atxaeroparts.com": "NOT FOUND",
-    "kevin@avadag.com": "mail not found",
-    "avair.aero": "Blacklisted for higher price or not answering",
-    "robertas.negudinas@aviaam.com": "Blacklisted for higher price or not answering",
-    "s.shilin@aviaremcomponent.aero": "mail not found",
-    "supply@aviasap.com": "delivery incomplete",
-    "enquires@aviatechnique.co.uk": "mail not found",
-    "paola@aviationexcess.com": "NOT EXIST",
-    "karisma@aviationrotables.com": "Blacklisted for higher price or not answering",
-    "awsam.farjo@aviatorsolutions.com": "Blacklisted for higher price or not answering",
-    "aviatorsolutions.com": "Blacklisted for higher price or not answering",
-    "sales@aviodirect.com": "Blacklisted for higher price or not answering",
-    "jesus@aviodirect.com": "Blacklisted for higher price or not answering",
-    "aviodirect.com": "Blacklisted for higher price or not answering",
-    "sales@avitrading.net": "NOT FOUND",
-    "avsparessolutions.com": "Blacklisted for higher price or not answering",
-    "ales@avtrade.co.uk": "mail not found",
-    "repairquote@barfieldinc.com": "Blacklisted for higher price or not answering",
-    "bayviewaviation.com": "KYC PASS",
-    "tuba.ruacan@be-aero.com": "Blacklisted for higher price or not answering",
-    "erospace@beaerospace-systems.com": "NOT EXIST",
-    "ljabel@bfaerospace.com": "mail not found",
-    "wliang@bnyintl.com": "NOT EXIST",
-    "quotes@brancoraviation.com": "mail not found",
-    "info@brigmanaviation.com": "mail not found",
-    "brooks-maldini.net": "Blacklisted",
-    "callforquote@brownhelicopter.com": "MAIL NOT FOUND",
-    "contact@buyaircraftparts.com": "mail not found",
-    "bfeugret@cal-aviation.com": "Email blocked",
-    "feugret@cal-aviation.com": "Email blocked",
-    "sales@californiaairsales.com": "NOT FOUND",
-    "sales@chabaircraftparts.com": "Blacklisted for higher price or not answering",
-    "sebastian.hintze@chair.ch": "MAIL NOT FOUND",
-    "rfq@channelfor.com": "DELIVERY INCOMPLETE",
-    "parts@clubjet.ne": "mail not found",
-    "brian@cocoplumaero.com": "Blacklisted for higher price or not answering",
-    "cocoplumaero.com": "Blacklisted for higher price or not answering",
-    "crosswind.me": "Blacklisted for higher price or not answering",
-    "chris@crs-aero.com": "mail not found",
-    "cyoung@ctgnow.com": "Not found",
-    "dap-aero": "Blacklisted for higher price or not answering",
-    "sales@destinyaero.com": "NOT FOUND",
-    "supply@dorinaviation.com": "Blacklisted for higher price or not answering",
-    "eastair.com": "Blacklisted for higher price or not answering",
-    "sales@echoairo.com": "NOT FOUND",
-    "purchase@edaviation.net": "mail not found",
-    "info@eftec.aero": "mail not found",
-    "orangeair@email.com": "mail not found",
-    "maintenance@euinspectionservice.com": "Blacklisted for higher price or not answering",
-    "firstclassairsupport.com": "Blacklisted for higher price or not answering",
-    "fleetcareaero.com": "Blacklisted for higher price or not answering",
-    "erick.g@flighttheory.net": "mail not found",
-    "sales@flightwise.ae": "KYC PASS",
-    "sales@futureglobalaerospace.com": "NOT EXIST",
-    "gary@gahsm.com": "NOT FOUND",
-    "zach.mccrary@gecas.com": "mail not found",
-    "ezra@genairsupport.com": "mailt not found",
-    "gfa": "Blacklisted for higher price or not answering",
-    "@globalmena.aero": "Blacklisted for higher price or not answering",
-    "parts@globalmena.aero": "Blacklisted for higher price or not answering",
-    "sales@globalmena.aero": "Blacklisted for higher price or not answering",
-    "globalmena.aero": "Blacklisted for higher price or not answering",
-    "parts@globalmena.aeros": "Blacklisted for higher price or not answering",
-    "eden.aerothings@gmail.com": "Blacklisted for higher price or not answering",
-    "sandybosch7@gmail.com": "Blacklisted for higher price or not answering",
-    "aircraftpartsnsupplies@gmail.com": "Blacklisted for higher price or not answering",
-    "gmdcinc.com": "Blacklisted for higher price or not answering",
-    "mnur.arifin@gmf-aeroasia.co.id": "NOT FOUND",
-    "Tamam.Umara@gmf-aeroasia.co.id": "NOT FOUND",
-    "haps.aero": "Blacklisted for higher price or not answering",
-    "hawkquotes@hawkaviation.com": "Blacklisted for higher price or not answering",
-    "@hawkaviation.com": "Blacklisted for higher price or not answering",
-    "hawkaviation.com": "Blacklisted for higher price or not answering",
-    "op_domestic@hna-ml.com": "MAIL NOT FOUND",
-    "icrsaerospace.com": "Blacklisted for higher price or not answering",
-    "sales@intaircraftrepairs.com": "mail not found",
-    "parts@international-aviation.com": "BLAKCLISE",
-    "carmen.cordovac@its.aero": "mail not found",
-    "info@jetaire.com": "NOT EXIST",
-    "Jane@jetassets.com": "delivery incomplete",
-    "Ashley.Santee@jetmidwest.com": "NOT FOUND",
-    "Sales@jgenterprises.us": "mailt not found",
-    "jxavtech.com": "Blacklisted for higher price or not answering",
-    "leaerospace": "Blacklisted for higher price or not answering",
-    "sales@liberty-aero.com": "Blacklisted for higher price or not answering",
-    "dainius.meilunas@locatory.com": "MAIL NOT FOUND",
-    "Info@lotusaeroke.com": "Blacklisted for higher price or not answering",
-    "masslyaero.com": "Blacklisted for higher price or not answering",
-    "sales@midamaero.com": "message blocked",
-    "mtraviation.com": "Blacklisted for higher price or not answering",
-    "dale@nac.co.za": "MAIL NOT FOUND",
-    "neswair.com": "Blacklisted for higher price or not answering",
-    "sales@oapinc.com": "NOT EXIST",
-    "sales@oneskyav.com": "mail not found",
-    "mstemwedel@pat-pag.comm": "mail not found",
-    "nasser.arabiat@petraairline.com": "Message not delivered",
-    "shelby@platinumjet.ca": "mail not found",
-    "hennessey@powerjetaviation.com": "NOT EXIST",
-    "jsitkowski@presidioaircraftleasing.com": "delivery incomplete",
-    "mdamron@pts-aviation.com": "delivery incomplete",
-    "sandra@q1aviation.com": "mail not found",
-    "mtutor@qwestairparts.com": "mailt not found",
-    "Rmackey@rangeraav.com": "NOT FOUND",
-    "shreejismailbox@rediffmail.com": "mail not found",
-    "claudio@relianceaerospace.net": "mail not found",
-    "sales@rvmaerospace.com": "mail not found",
-    "info@satair.com": "message blocked",
-    "@sentry.aero": "Blacklisted for higher price or not answering",
-    "sentry.aero": "Blacklisted for higher price or not answering",
-    "raquel@shopaviationstore.com": "NOT EXIST",
-    "sales@skyairsupply.com": "Blacklisted for higher price or not answering",
-    "contact@skyfuture.aero": "NOT EXIST",
-    "@sourceonespares.com": "Blacklisted for higher price or not answering",
-    "sourceonespares.com": "Blacklisted for higher price or not answering",
-    "sales@staero-arl.com": "mail not found",
-    "rod@steint.com": "mail not found",
-    "aogsupplies@stengg.com": "NOT EXIST",
-    "aviation@stofanet.dk": "NOT FOUND",
-    "sales@szaviation.com": "mail not found",
-    "tallamond.aero": "Blacklisted for higher price or not answering",
-    "tasfzc.com": "Blacklisted for higher price or not answering",
-    "amy@tasrepair.aero": "MAIL NOT FOUND",
-    "sales@tcas-ltd.com": "mail not found",
-    "Faisal.Daghestany@tcasaero.com": "NOT EXIST",
-    "Nibal.Salim@tcasaero.com": "NOT EXIST",
-    "tecnicaaerospace.com": "Blacklisted for higher price or not answering",
-    "bmcguinness@texasaircomposites.com": "mail not found",
-    "TASA-RFQ@triumphgroup.com": "Mail not found",
-    "turbanasolutions.com": "Blacklisted for higher price or not answering",
-    "katya@turbanasolutions.com": "Blacklisted for higher price or not answering",
-    "jims@unicorpok.com": "mail not found",
-    "mwoodcock@uniquip.com": "MAIL NOT FOUND",
-    "cascencio@universalaircorp.com": "mail not found",
-    "sales@utdmro.com": "mail not found",
-    "ales@vcaerospace.com": "mail not found",
-    "rfq@volanttech.com": "delivery incomplete",
-    "sales@western-spark.com": "Blacklisted for higher price or not answering",
-    "Alandolfi@willisaero.com": "NOT EXIST",
-    "sales@wingedtycoons.com": "Blacklisted for higher price or not answering",
-    "@duncanaviation.com": "not found",
-    "sales@odsaerospace.com": "not found",
-    "lellsworth@worthingtonav.com": "not found",
-    "MarthaA@gatelesis.com": "not found",
-    "kozverir@primaaviation.com": "not found",
-    "ALynn@emeryair.net": "not found",
-    "j.escalante@landmerk.com": "not found",
-    "sales@av8aog.com": "not found",
-    "mjadczak@pilotshq.co": "not found",
-    "customer.support@leonardo.com": "not found",
-    "farah.alsafartee@atsaviation.com": "not found",
-    "sales@kakaair.com": "not found",
-    "mlahmar@chromalloy.com": "don't send to her, send to pattek",
-    "s.creanga@actc-aero.com": "not found",
-    "gavin.comer@aero-technics.com": "not found",
-    "sales@altamontaviation.com": "not found",
-    "airpartsme.com": "not found",
-    "sales@cal-aviation.com": "Not answering",
-    "blueair.aero": "Not answering",
-    "s3aerodefense.com": "Require end user",
-    "BLJ@aerolinkarizona.com": "Not answering",
-    "totalaerosupply.com": "Not exist",
-    "@beaerospace.com": "Not found",
-    "CustomerService@questcomp.co": "Not found",
-    "sales@aeroskysupplyllc.com": "BROKERS",
-    "atsrepairs.com": "BROKER",
-    "haaviation1@gmail.com": "BROKER",
-    "@tecnicaaerospace.com": "BROKER",
-    "aeroskysupplyllc.com": "BROKER",
-    "airborne-ind.com": "BROKER",
-    "Aog@world-pacific.com": "not found",
-    "john.larotonda@world-pacific.com": "not found",
-    "ricardo@discountaeroparts.com": "not found",
-    "stephanie@discountaeroparts.com": "not found",
-    "shaikh.moiez@airhubaviaition.com": "not found",
-    "sales_australia@intaeroservices.com": "not found",
-    "eas-aviation-services.com": "broker",
-    "osezen@ozindustrial.com": "PMA",
-    "Workshops@crs-technics.com": "MRO",
-    "rst@airplane.aero": "NOT FOUND",
-    "GEOFFD@ldgaviation.com": "NOT FOUND",
-    "RFQ@pelican-sales.com": "NOT FOUND",
-    "@international-aviation.com": "DO NOT SEND TO THEM",
-    "ectaviation.com": "PUSHLIST",
-    "joshw@ejs.aero": "can only assist with BAE 146/RJ parts.",
-    "s.gerard@harmony-aero.com": "NOT THE RIGHT PERSON",
-    "Jan.Hallmark@standardaero.com": "Only CFM56-7B engine material .",
-    "tramek-aero.com": "not found",
-    "jhon@tdaviationcenter.com": "not found",
-    "j.degroot@aeroned.com": "not found",
-    "brisac-aero.com": "not exist",
-    "piac.aero": "not exist",
-    "liz@vairinc.net": "not found",
-    "rfq@gadirect.us": "not found",
-    "rchamberlain@nordam.com": "NOT FOUND",
-    "fixprodistribution.com": "NOT FOUND",
-    "rfq@machnor.com": "NOT FOUND",
-    "juergen.buettgenbach@jbavicon.com": "NOT FOUND",
-    "sales@royalavi.com.": "NOT FOUND",
-    "fairfaxtrading.com": "BLAKCLISE",
-    "fifthtrip.com": "BLAKCLISE"
-  },
   "replacements": {
     "production@skysmart.co.uk": "callum@skysmart.co.uk",
     "aar-allen@app.partsrfq.com": "sales@aarcorp.com",
@@ -325,11 +75,13 @@
     "EAS AVIATION": [
       {
         "email": "maja.milojevic@eas-aviation-group.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "broker"
       },
       {
         "email": "inventory@eas-aviation-services.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "broker"
       }
     ],
     "10AERONAUTICA": [
@@ -487,11 +239,13 @@
     "A2AVIATION": [
       {
         "email": "malek@a2aviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "sales@a2aviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "A2GAVIATION": [
@@ -931,7 +685,8 @@
     "ACTC-AERO": [
       {
         "email": "s.creanga@actc-aero.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "Sales@actc-aero.com",
@@ -965,7 +720,8 @@
     "ADAIRCRAFT": [
       {
         "email": "danny@adaircraft.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "ADAMSAVIATION": [
@@ -1268,6 +1024,12 @@
         "status": "Unknown"
       }
     ],
+    "AERCON": [
+      {
+        "email": "p.pham@aercon.one",
+        "status": "Unknown"
+      }
+    ],
     "AEREO-CONSULTING": [
       {
         "email": "claudia@aereo-consulting.com",
@@ -1299,7 +1061,8 @@
       },
       {
         "email": "Brandon.smith@aerfin.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       },
       {
         "email": "Chloe.Tapp@aerfin.com",
@@ -1545,7 +1308,8 @@
     "AERO-TECHNICS": [
       {
         "email": "gavin.comer@aero-technics.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "AERO-WORX": [
@@ -1724,6 +1488,11 @@
       {
         "email": "geo.m@aerocomp.net",
         "status": "Unknown"
+      },
+      {
+        "email": "Zak@aerocomp.net",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "AEROCOMPONENTS": [
@@ -2044,6 +1813,11 @@
       {
         "email": "nv@aerolinkarizona.com",
         "status": "Unknown"
+      },
+      {
+        "email": "BLJ@aerolinkarizona.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Not answering"
       }
     ],
     "AEROMANAVIATION": [
@@ -2058,6 +1832,72 @@
       {
         "email": "sales@aeromanaviation.com",
         "status": "Unknown"
+      }
+    ],
+    "AEROMARINE": [
+      {
+        "email": "fred@ampfla.com",
+        "status": "Answering"
+      },
+      {
+        "email": "camoy@ampfla.com",
+        "status": "Answering"
+      },
+      {
+        "email": "lsabido@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "ayush@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "prince@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "aambalik@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "anoop@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "yuvraj@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "furkan@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "gaurav@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "herard@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "danish@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "Navdeep@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "RFQ@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "sales@amp-aero.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "kayra@amp-aero.com",
+        "status": "Answering"
       }
     ],
     "AEROMARINEAMERICA": [
@@ -2149,7 +1989,8 @@
     "AERONED": [
       {
         "email": "aog@aeroned.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       },
       {
         "email": "Arjen@aeroned.com",
@@ -2161,7 +2002,8 @@
       },
       {
         "email": "j.degroot@aeroned.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "jasper.degroot@aeroned.com",
@@ -2185,7 +2027,23 @@
       },
       {
         "email": "jasper@aeroned.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      },
+      {
+        "email": "Mark@aeroned.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      },
+      {
+        "email": "Arjen.Verkooij@aeroned.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      },
+      {
+        "email": "@aeroned.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AERONEGOCE": [
@@ -2281,11 +2139,13 @@
     "AEROPARTSAOG": [
       {
         "email": "sales@aeropartsaog.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "Italo@aeropartsaog.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AEROPARTSERVICE": [
@@ -2323,7 +2183,8 @@
     "AEROPB": [
       {
         "email": "nelly@aeropb.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AEROPLEX": [
@@ -2469,11 +2330,13 @@
     "AEROSKYSUPPLYLLC": [
       {
         "email": "sales@aeroskysupplyllc.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BROKERS"
       },
       {
         "email": "purchase@aeroskysupplyllc.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BROKER"
       }
     ],
     "AEROSOURCEASIA": [
@@ -2657,35 +2520,48 @@
     "AEROTECHNIC": [
       {
         "email": "mcherpeliyska@aerotechnic-bg.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "ehadzhiivanova@aerotechnic-bg.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "j.cante@aerotechnic-usa.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "ils@aerotechnic-usa.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "salesteam@aerotechnic-usa.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "j.farias@aerotechnic-usa.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "sales@aerotechnic-asia.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "sales@aerotechnic-group.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "@aerotechnic-usa.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AEROTECHSOLUTIONS": [
@@ -3201,11 +3077,13 @@
     "AIRBORNE-IND": [
       {
         "email": "purchasing1@airborne-ind.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BROKER"
       },
       {
         "email": "sales@airborne-ind.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BROKER"
       }
     ],
     "AIRBORNEC": [
@@ -3335,15 +3213,18 @@
     "AIRCRAFT TRADING": [
       {
         "email": "Out of office 15/12/2026 adriano@airctrading.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "tatianac@airctrading.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "admin@airctrading.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AIRCRAFTBATTERYSHOP": [
@@ -3483,23 +3364,28 @@
     "AIRHUB AVIATION": [
       {
         "email": "shaikh.moiez@airhubaviaition.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "orinta.mazrimaite@airhubaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "rfq@airhubaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "shaikh.moiez@airhubaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "tsira.gurgenidze@airhubaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AIRLINE-SERVICES": [
@@ -3686,12 +3572,18 @@
       {
         "email": "vafa.aliyeva@airpartstock.com",
         "status": "Unknown"
+      },
+      {
+        "email": "@airpartstock.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AIRPLANE": [
       {
         "email": "rst@airplane.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       },
       {
         "email": "ric@airplane.aero",
@@ -4110,6 +4002,11 @@
       {
         "email": "sales@all.aero",
         "status": "Unknown"
+      },
+      {
+        "email": "luke@all.aeros",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "ALLAERO": [
@@ -4255,7 +4152,8 @@
       },
       {
         "email": "sales@altamontaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "ALTIMATECHNOLOGIES": [
@@ -4403,7 +4301,8 @@
     "AMMACAIRCRAFT": [
       {
         "email": "spares@ammacaircraft.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AMMINISTRAZIONESTRAORDINARIAALITALIASAI": [
@@ -4413,6 +4312,12 @@
       },
       {
         "email": "paolo.lucatelli@amministrazionestraordinariaalitaliasai.con",
+        "status": "Unknown"
+      }
+    ],
+    "AMPFLA": [
+      {
+        "email": "sales@ampfla.com",
         "status": "Unknown"
       }
     ],
@@ -4592,6 +4497,11 @@
       {
         "email": "endusers@aogteamservices.com",
         "status": "Unknown"
+      },
+      {
+        "email": "sales@aogteamservices.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
     "AOL": [
@@ -4666,6 +4576,11 @@
       {
         "email": "wayneco1@aol.com",
         "status": "Unknown"
+      },
+      {
+        "email": "croberts7453@aol.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "APACS": [
@@ -4774,20 +4689,28 @@
       {
         "email": "sales@apld.us",
         "status": "Unknown"
+      },
+      {
+        "email": "ccuriel@apld.us",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "APOCAVIATION": [
       {
         "email": "sales@apocaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "v.rook@apocaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "c.skilton@apocaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "APP": [
@@ -5496,6 +5419,11 @@
       {
         "email": "egarcia@artmx.us",
         "status": "Unknown"
+      },
+      {
+        "email": "aaguiar@artmx.us",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "ARTS AERO": [
@@ -5523,23 +5451,28 @@
     "ASA": [
       {
         "email": "fleur.woodage@asa.uk.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "MANAGER TELL"
       },
       {
         "email": "imogen.woodage@asa.uk.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "MANAGER TELL"
       },
       {
         "email": "Sally@asaltd.uk",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "MANAGER TELL"
       },
       {
         "email": "fleur.woodage@asaltd.uk",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "MANAGER TELL"
       },
       {
         "email": "imogen.woodage@asaltd.uk",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "MANAGER TELL"
       }
     ],
     "ASAHCORP": [
@@ -5560,6 +5493,11 @@
       {
         "email": "geoff.n@asapsemi.com",
         "status": "Unknown"
+      },
+      {
+        "email": "@asapsemi.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "ASAP SEMI"
       }
     ],
     "ASASPARES": [
@@ -5604,6 +5542,11 @@
       {
         "email": "ww.traders@asia.thalesgroup.com",
         "status": "Unknown"
+      },
+      {
+        "email": "wendy.foo@asia.thalesgroup.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
     "ASIA-AERO": [
@@ -5628,6 +5571,11 @@
       {
         "email": "stefanp@asiaero.net",
         "status": "Unknown"
+      },
+      {
+        "email": "Kathiek@asiaero.net",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
     "ASKARI": [
@@ -5829,7 +5777,8 @@
     "ATSAVIATION": [
       {
         "email": "farah.alsafartee@atsaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "janelle.evans@atsaviation.com",
@@ -5865,7 +5814,8 @@
     "ATSREPAIRS": [
       {
         "email": "sales2@atsrepairs.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BROKER"
       }
     ],
     "ATSTEAM": [
@@ -5959,51 +5909,63 @@
     "AVAIR": [
       {
         "email": "arlaina.stephenson@avair.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "atheer.mustafa@avair.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "camden.kunkel@avair.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "emily.shea@avair.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "emmet.shiels@avair.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "gleigh@avair.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "graham.leigh@avair.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "mbianco@avair.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "Nathaniel.Taylor@avair.aero",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "rosette.abud@avair.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "sales@avair.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "tony.castro@avair.aero",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AVANTAERO": [
@@ -6182,6 +6144,11 @@
       {
         "email": "spareparts@aviaam.com",
         "status": "Unknown"
+      },
+      {
+        "email": "robertas.negudinas@aviaam.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AVIAAVIONICS": [
@@ -6306,6 +6273,11 @@
       {
         "email": "enquiries@aviatechnique.co.uk",
         "status": "Answering"
+      },
+      {
+        "email": "enquires@aviatechnique.co.uk",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "AVIATEK-SAS": [
@@ -6358,6 +6330,11 @@
       {
         "email": "krivera@aviationexcess.com",
         "status": "Answering"
+      },
+      {
+        "email": "paola@aviationexcess.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
     "AVIATION SOLUTIONS": [
@@ -6610,6 +6587,11 @@
       {
         "email": "sales1@aviationrotables.com",
         "status": "Unknown"
+      },
+      {
+        "email": "karisma@aviationrotables.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AVIATIONSCOUTS": [
@@ -6773,7 +6755,18 @@
     "AVIODIRECT": [
       {
         "email": "erickssen@aviodirect.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "sales@aviodirect.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "jesus@aviodirect.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AVIOE": [
@@ -7189,7 +7182,8 @@
     "AVSPARESSOLUTIONS": [
       {
         "email": "jjarquin@avsparessolutions.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "AVSTAT": [
@@ -7278,6 +7272,11 @@
       {
         "email": "sarah.owen@avtrade.com",
         "status": "Unknown"
+      },
+      {
+        "email": "ales@avtrade.co.uk",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "AVTURBINE": [
@@ -7420,6 +7419,11 @@
       {
         "email": "trading@barfieldinc.com",
         "status": "Unknown"
+      },
+      {
+        "email": "repairquote@barfieldinc.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "BARON SALES": [
@@ -7483,15 +7487,18 @@
     "BAYVIEWAVIATION": [
       {
         "email": "bbirkner@bayviewaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "KYC PASS"
       },
       {
         "email": "lpalmer@bayviewaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "KYC PASS"
       },
       {
         "email": "sales@bayviewaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "KYC PASS"
       }
     ],
     "BCA": [
@@ -7528,6 +7535,11 @@
       {
         "email": "mert.palancioglu@be-aero.com",
         "status": "Unknown"
+      },
+      {
+        "email": "tuba.ruacan@be-aero.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "BEACHAVIATION": [
@@ -7660,6 +7672,11 @@
       {
         "email": "slero@bfaerospace.com",
         "status": "Unknown"
+      },
+      {
+        "email": "ljabel@bfaerospace.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "BGAIRSUPPORT": [
@@ -7952,6 +7969,11 @@
       {
         "email": "sales@brancoraviation.com",
         "status": "Unknown"
+      },
+      {
+        "email": "quotes@brancoraviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "BRANDEX": [
@@ -7984,12 +8006,18 @@
       {
         "email": "alan@brigmanaviation.com",
         "status": "Unknown"
+      },
+      {
+        "email": "info@brigmanaviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "BRISAC-AERO": [
       {
         "email": "sales@brisac-aero.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not exist"
       }
     ],
     "BRISTOW": [
@@ -8035,7 +8063,8 @@
     "BROOKS-MALDINI": [
       {
         "email": "stockmarket@brooks-maldini.net",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted"
       }
     ],
     "BROWARDAV": [
@@ -8064,6 +8093,11 @@
       {
         "email": "rfq@brownhelicopter.com",
         "status": "Unknown"
+      },
+      {
+        "email": "callforquote@brownhelicopter.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "MAIL NOT FOUND"
       }
     ],
     "BTINTERNET": [
@@ -8229,7 +8263,18 @@
     "CAL-AVIATION": [
       {
         "email": "sales@cal-aviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Not answering"
+      },
+      {
+        "email": "bfeugret@cal-aviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Email blocked"
+      },
+      {
+        "email": "feugret@cal-aviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Email blocked"
       }
     ],
     "CALIBERSALES": [
@@ -8258,6 +8303,11 @@
       {
         "email": "tatiana@californiaairsales.com",
         "status": "Unknown"
+      },
+      {
+        "email": "sales@californiaairsales.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "CALJETINC": [
@@ -8622,6 +8672,11 @@
       {
         "email": "christian.fuentes@chabaircraftparts.com",
         "status": "Unknown"
+      },
+      {
+        "email": "sales@chabaircraftparts.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "CHARLOTT-ELECTRONIC": [
@@ -8685,7 +8740,8 @@
       },
       {
         "email": "mlahmar@chromalloy.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "don't send to her, send to pattek"
       },
       {
         "email": "rsmits@chromalloy.com",
@@ -9275,7 +9331,8 @@
     "CROSSWIND": [
       {
         "email": "imanauwar@crosswind.me",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "CRS AERO": [
@@ -9290,6 +9347,16 @@
       {
         "email": "sales@crs-technics.com",
         "status": "Unknown"
+      },
+      {
+        "email": "chris@crs-aero.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      },
+      {
+        "email": "Workshops@crs-technics.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "MRO"
       }
     ],
     "CRSJETSPARES": [
@@ -9378,6 +9445,11 @@
       {
         "email": "tom@ctgnow.com",
         "status": "Unknown"
+      },
+      {
+        "email": "cyoung@ctgnow.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Not found"
       }
     ],
     "CTLAERO": [
@@ -9739,11 +9811,13 @@
     "DISCOUNTAEROPARTS": [
       {
         "email": "ricardo@discountaeroparts.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "stephanie@discountaeroparts.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "DIVERSEAERO": [
@@ -9851,10 +9925,6 @@
       },
       {
         "email": "sales@dms-enterprise.com",
-        "status": "Unknown"
-      },
-      {
-        "email": "p.pham@dms-enterprise.com",
         "status": "Unknown"
       }
     ],
@@ -10062,6 +10132,11 @@
       {
         "email": "info@duncan-eng.com",
         "status": "Unknown"
+      },
+      {
+        "email": "@duncanaviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "DUNELMAVIATION": [
@@ -10201,27 +10276,33 @@
     "EASTAIR": [
       {
         "email": "aogteam@eastair.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "eastairassetsales@eastair.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "ILS@eastair.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "jnepola@eastair.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "mneri@eastair.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "pzimmermann@eastair.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "EASTERNSTONE": [
@@ -10287,23 +10368,28 @@
     "ECT AVIATION": [
       {
         "email": "dalia.hatem@ectaviation.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "PUSHLIST"
       },
       {
         "email": "karim.elsedawy@ectaviation.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "PUSHLIST"
       },
       {
         "email": "mahmoud.elshimy@ectaviation.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "PUSHLIST"
       },
       {
         "email": "abdelrahman.khedr@ectaviation.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "PUSHLIST"
       },
       {
         "email": "ectsales@ectaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "PUSHLIST"
       }
     ],
     "EDAVIATION": [
@@ -10314,6 +10400,11 @@
       {
         "email": "sales@edaviation.net",
         "status": "Unknown"
+      },
+      {
+        "email": "purchase@edaviation.net",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "EDCPMA": [
@@ -10364,6 +10455,11 @@
       {
         "email": "aog@eftec.aero",
         "status": "Unknown"
+      },
+      {
+        "email": "info@eftec.aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "EFTECH": [
@@ -10485,7 +10581,8 @@
       },
       {
         "email": "joshw@ejs.aero",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "can only assist with BAE 146/RJ parts."
       },
       {
         "email": "lee@ejs.aero",
@@ -10596,6 +10693,11 @@
       {
         "email": "aerofulcrum@email.com",
         "status": "Unknown"
+      },
+      {
+        "email": "orangeair@email.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "EMBRAER": [
@@ -11021,11 +11123,13 @@
     "FAIRFAXTRADING": [
       {
         "email": "ali@fairfaxtrading.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BLAKCLISE"
       },
       {
         "email": "sales@fairfaxtrading.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BLAKCLISE"
       }
     ],
     "FAITHAEROTECH": [
@@ -11171,15 +11275,18 @@
     "FIFTH TRIP": [
       {
         "email": "ceo@fifthtrip.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BLAKCLISE"
       },
       {
         "email": "ops@fifthtrip.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BLAKCLISE"
       },
       {
         "email": "finance@fifthtrip.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BLAKCLISE"
       }
     ],
     "FIRE-TECAERO": [
@@ -11213,39 +11320,48 @@
     "FIRSTCLASSAIRSUPPORT": [
       {
         "email": "aisiker@firstclassairsupport.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "agulbeyaz@firstclassairsupport.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "cjames@firstclassairsupport.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "dorellana@firstclassairsupport.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "dunal@firstclassairsupport.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "npferrman@firstclassairsupport.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "RRuiz@firstclassairsupport.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "sales@firstclassairsupport.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "wmccammon@firstclassairsupport.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "FIRSTCOASTAVIATION": [
@@ -11303,7 +11419,8 @@
     "FIXPRODISTRIBUTION": [
       {
         "email": "sales@fixprodistribution.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "FL TECHNICS": [
@@ -11932,6 +12049,11 @@
       {
         "email": "t.sirico@futureglobalaerospace.com",
         "status": "Unknown"
+      },
+      {
+        "email": "sales@futureglobalaerospace.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
     "GA TELESIS": [
@@ -11946,6 +12068,11 @@
       {
         "email": "jdiaz@gatelesis.com",
         "status": "Answering"
+      },
+      {
+        "email": "MarthaA@gatelesis.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "GABLESENG": [
@@ -11957,7 +12084,8 @@
     "GADIRECT": [
       {
         "email": "rfq@gadirect.us",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "GAINNOVATIONCHINA": [
@@ -12122,6 +12250,11 @@
       {
         "email": "odessa@genairsupport.com",
         "status": "Unknown"
+      },
+      {
+        "email": "ezra@genairsupport.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mailt not found"
       }
     ],
     "GENERAL-SUPPORT-AEROSPACE": [
@@ -12215,11 +12348,13 @@
     "GFA": [
       {
         "email": "rfq@gfa.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "sales@gfa.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "GHMRO": [
@@ -12689,7 +12824,8 @@
       },
       {
         "email": "haaviation1@gmail.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "BROKER"
       },
       {
         "email": "michaelhenry.straton@gmail.com",
@@ -12766,6 +12902,21 @@
       {
         "email": "ykaviation.yigal@gmail.com",
         "status": "Unknown"
+      },
+      {
+        "email": "eden.aerothings@gmail.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "sandybosch7@gmail.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "aircraftpartsnsupplies@gmail.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "GMAIR": [
@@ -12785,7 +12936,8 @@
     "GMDCINC": [
       {
         "email": "sales@gmdcinc.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "GME": [
@@ -12809,7 +12961,13 @@
       },
       {
         "email": "mnur.arifin@gmf-aeroasia.co.id",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      },
+      {
+        "email": "Tamam.Umara@gmf-aeroasia.co.id",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "GMKELECTRO": [
@@ -13183,7 +13341,8 @@
     "HAPS": [
       {
         "email": "info@haps.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "HARBORTECHCENTER": [
@@ -13207,7 +13366,8 @@
     "HARMONY-AERO": [
       {
         "email": "s.gerard@harmony-aero.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT THE RIGHT PERSON"
       }
     ],
     "HARTER": [
@@ -13245,63 +13405,88 @@
     "HAWKAVIATION": [
       {
         "email": "alouden@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       },
       {
         "email": "daiken@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "dmontenegro@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "ecampbell@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "enaroditsky@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "eperel@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "gmadover@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "HawkGlobalSalesTeam@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "janderson@hawkaviation.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "jasok@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "jbunce@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "jperez@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "nmadover@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "rfq@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "sales@hawkaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "hawkquotes@hawkaviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "@hawkaviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "HAYWARDANDGREEN": [
@@ -13995,7 +14180,8 @@
     "ICRSAEROSPACE": [
       {
         "email": "sales@icrsaerospace.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "IFEPRODUCTS": [
@@ -14564,6 +14750,11 @@
       {
         "email": "sales@its.aero",
         "status": "Unknown"
+      },
+      {
+        "email": "carmen.cordovac@its.aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "ITSPARTS": [
@@ -14847,7 +15038,8 @@
     "JBAVICON": [
       {
         "email": "juergen.buettgenbach@jbavicon.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "JCAEROSPACE": [
@@ -15050,6 +15242,11 @@
       {
         "email": "team5@jetmidwest.com",
         "status": "Unknown"
+      },
+      {
+        "email": "Ashley.Santee@jetmidwest.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "JETMXINC": [
@@ -15515,7 +15712,8 @@
     "JXAVTECH": [
       {
         "email": "terryluo@jxavtech.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "JYAEROHK": [
@@ -15593,7 +15791,8 @@
       },
       {
         "email": "sales@kakaair.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "KALITTAAIR": [
@@ -16039,7 +16238,8 @@
     "LDGAVIATION": [
       {
         "email": "GEOFFD@ldgaviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "LEAEROS": [
@@ -16312,6 +16512,11 @@
       {
         "email": "aog@locatory.com",
         "status": "Unknown"
+      },
+      {
+        "email": "dainius.meilunas@locatory.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "MAIL NOT FOUND"
       }
     ],
     "LOG-AIRPARTS": [
@@ -16572,6 +16777,11 @@
       {
         "email": "alex.palmer@machnor.com",
         "status": "Answering"
+      },
+      {
+        "email": "rfq@machnor.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "MAGEEPLASTICS": [
@@ -16875,7 +17085,8 @@
     "MASSLYAERO": [
       {
         "email": "sales@masslyaero.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "MASTERAIRPARTS": [
@@ -17264,6 +17475,11 @@
       {
         "email": "dmartin@midamaero.com",
         "status": "Unknown"
+      },
+      {
+        "email": "sales@midamaero.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "message blocked"
       }
     ],
     "MIDWEST AERO": [
@@ -17567,7 +17783,8 @@
     "MTRAVIATION": [
       {
         "email": "sales@mtraviation.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "MTU": [
@@ -17595,7 +17812,8 @@
       },
       {
         "email": "sales@mtu-lease-services.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       },
       {
         "email": "TOLga.Tatlidede@mtu-lease-services.com",
@@ -17843,7 +18061,8 @@
     "NESWAIR": [
       {
         "email": "sales@neswair.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "NETWORKAERO": [
@@ -18172,6 +18391,11 @@
       {
         "email": "NRD_Sales@nordam.com",
         "status": "Unknown"
+      },
+      {
+        "email": "rchamberlain@nordam.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "NORDIC AVIATION": [
@@ -18322,6 +18546,11 @@
       {
         "email": "rfqsales@oapinc.com",
         "status": "Unknown"
+      },
+      {
+        "email": "sales@oapinc.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
     "OAS-SNN": [
@@ -18357,7 +18586,8 @@
       },
       {
         "email": "sales@odsaerospace.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "sales1@odsaerospace.com",
@@ -18451,7 +18681,8 @@
     "OLYMPICAEROSPACE": [
       {
         "email": "dave.rojas@olympicaerospace.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       },
       {
         "email": "drojas@olympicaerospace.com",
@@ -18715,7 +18946,8 @@
     "OZINDUSTRIAL": [
       {
         "email": "osezen@ozindustrial.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "PMA"
       }
     ],
     "PAC-AIR": [
@@ -19037,7 +19269,8 @@
       },
       {
         "email": "RFQ@pelican-sales.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "PENGKUO": [
@@ -19147,11 +19380,13 @@
     "PIAC": [
       {
         "email": "dgm.ptc@piac.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not exist"
       },
       {
         "email": "gmptnl@piac.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not exist"
       }
     ],
     "PIEDMONTAVIATION": [
@@ -19178,6 +19413,11 @@
       {
         "email": "sales@pilotshq.com",
         "status": "Unknown"
+      },
+      {
+        "email": "mjadczak@pilotshq.co",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "PIN AIR TECH": [
@@ -19482,6 +19722,11 @@
       {
         "email": "sozturk@primaaviation.com",
         "status": "Unknown"
+      },
+      {
+        "email": "kozverir@primaaviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "PRIME AIR": [
@@ -19744,6 +19989,11 @@
       {
         "email": "Jeff@q1aviation.com",
         "status": "Unknown"
+      },
+      {
+        "email": "sandra@q1aviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "QAI": [
@@ -19880,6 +20130,11 @@
       {
         "email": "sales@rangeraav.com",
         "status": "Unknown"
+      },
+      {
+        "email": "Rmackey@rangeraav.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "RAPHAELAERO": [
@@ -20174,6 +20429,11 @@
       {
         "email": "will@relianceaerospace.net",
         "status": "Unknown"
+      },
+      {
+        "email": "claudio@relianceaerospace.net",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "RELIANCEAIRCRAFT": [
@@ -20415,7 +20675,8 @@
       },
       {
         "email": "michael@royalaero.com",
-        "status": "Not Found"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       },
       {
         "email": "sales@royalaero.com",
@@ -20438,6 +20699,11 @@
       {
         "email": "support@royalavi.com",
         "status": "Answering"
+      },
+      {
+        "email": "sales@royalavi.com.",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       }
     ],
     "ROYALEAGLE": [
@@ -20506,6 +20772,11 @@
       {
         "email": "ms@rvmaerospace.com",
         "status": "Unknown"
+      },
+      {
+        "email": "sales@rvmaerospace.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "RVRAIR": [
@@ -20533,11 +20804,13 @@
     "S3AERODEFENSE": [
       {
         "email": "AlexC@s3aerodefense.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Require end user"
       },
       {
         "email": "rfq@s3aerodefense.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Require end user"
       }
     ],
     "S7AEROSPACE": [
@@ -20820,6 +21093,11 @@
       {
         "email": "vwhiteman@satair.om",
         "status": "Unknown"
+      },
+      {
+        "email": "info@satair.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "message blocked"
       }
     ],
     "SATORI-MRO": [
@@ -21109,7 +21387,13 @@
     "SENTRY": [
       {
         "email": "adam@sentry.aero",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "@sentry.aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "SETAERO": [
@@ -21268,6 +21552,11 @@
       {
         "email": "sales@shopaviationstore.com",
         "status": "Unknown"
+      },
+      {
+        "email": "raquel@shopaviationstore.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
     "SHUNZEXINDA": [
@@ -21428,6 +21717,11 @@
       {
         "email": "yasmin@skyairsupply.com",
         "status": "Unknown"
+      },
+      {
+        "email": "sales@skyairsupply.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "SKYBOOTHAVIATION": [
@@ -21837,15 +22131,23 @@
     "SOURCEONESPARES": [
       {
         "email": "ILS-Sales@sourceonespares.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "locatory@sourceonespares.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
         "email": "quotes@sourceonespares.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "@sourceonespares.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "SOUTH SEAS": [
@@ -22176,6 +22478,11 @@
       {
         "email": "angeline.lee@stengg.com",
         "status": "Unknown"
+      },
+      {
+        "email": "aogsupplies@stengg.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
     "ST-AVIATION": [
@@ -22205,7 +22512,8 @@
     "STANDARD AERO": [
       {
         "email": "jan.hallmark@standardaero.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Only CFM56-7B engine material ."
       },
       {
         "email": "john.driehuis@standardaero.com",
@@ -22296,6 +22604,11 @@
       {
         "email": "sam@steint.com",
         "status": "Unknown"
+      },
+      {
+        "email": "rod@steint.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "STELLAR-AIR": [
@@ -22743,7 +23056,8 @@
     "TALLAMOND": [
       {
         "email": "sales@tallamond.aero",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "TALONAIRPARTNERS": [
@@ -22801,7 +23115,8 @@
     "TASFZC": [
       {
         "email": "rfq@tasfzc.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "TASI": [
@@ -22847,7 +23162,8 @@
     "TCASAERO": [
       {
         "email": "Daghestany@tcasaero.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
       },
       {
         "email": "F.Daghestany@tcasaero.com",
@@ -22880,6 +23196,16 @@
       {
         "email": "general.manager@tcasaero.com",
         "status": "Unknown"
+      },
+      {
+        "email": "Faisal.Daghestany@tcasaero.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
+      },
+      {
+        "email": "Nibal.Salim@tcasaero.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
     "TCAVIATION": [
@@ -23007,7 +23333,8 @@
       },
       {
         "email": "jhon@tdaviationcenter.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "richard@tdaviationcenter.com",
@@ -23113,7 +23440,13 @@
     "TECNICAAEROSPACE": [
       {
         "email": "sales@tecnicaaerospace.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "@tecnicaaerospace.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "BROKER"
       }
     ],
     "TEDAINC": [
@@ -23649,23 +23982,28 @@
     "TRAMEC AERO": [
       {
         "email": "katia@tramec-aero.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "Katia@tramek-aero.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "sales@tramek-aero.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "camille@tramec-aero.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "argaux@tramec-aero.com",
-        "status": "Answering"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "TRANAVIATION": [
@@ -23764,6 +24102,11 @@
       {
         "email": "TJHennessy@triumphgroup.com",
         "status": "Unknown"
+      },
+      {
+        "email": "TASA-RFQ@triumphgroup.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Mail not found"
       }
     ],
     "TRJAERO": [
@@ -23861,7 +24204,13 @@
     "TURBANASOLUTIONS": [
       {
         "email": "yasir@turbanasolutions.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      },
+      {
+        "email": "katya@turbanasolutions.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "TURBINEAERO": [
@@ -24230,6 +24579,11 @@
       {
         "email": "karenm@unicorpok.com",
         "status": "Unknown"
+      },
+      {
+        "email": "jims@unicorpok.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "UNIQUEAIRMOTIVE": [
@@ -24496,6 +24850,11 @@
       {
         "email": "sales@vcaerospace.com",
         "status": "Unknown"
+      },
+      {
+        "email": "ales@vcaerospace.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
       }
     ],
     "VCDISPLAYS": [
@@ -25036,6 +25395,11 @@
       {
         "email": "severa@western-spark.com",
         "status": "Unknown"
+      },
+      {
+        "email": "sales@western-spark.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       }
     ],
     "WESTERNAERO": [
@@ -25118,6 +25482,11 @@
       {
         "email": "TKuehn@willisaero.com",
         "status": "Unknown"
+      },
+      {
+        "email": "Alandolfi@willisaero.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
     "WILSONSYSTEMS": [
@@ -25213,7 +25582,8 @@
     "WORLD-PACIFIC": [
       {
         "email": "Aog@world-pacific.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "dilshan@world-pacific.com",
@@ -25225,7 +25595,8 @@
       },
       {
         "email": "john.larotonda@world-pacific.com",
-        "status": "Unknown"
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       },
       {
         "email": "larotonda@world-pacific.com",
@@ -25312,6 +25683,11 @@
       {
         "email": "s.barnes@worthingtonav.com",
         "status": "Unknown"
+      },
+      {
+        "email": "lellsworth@worthingtonav.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ],
     "WOWSA": [
@@ -25952,76 +26328,598 @@
         "status": "Answering"
       }
     ],
-    "AERO MARINE": [
+    "AAHPARTS": [
       {
-        "email": "fred@ampfla.com",
-        "status": "Answering"
-      },
-      {
-        "email": "camoy@ampfla.com",
-        "status": "Answering"
-      },
-      {
-        "email": "sales@ampfla.com",
-        "status": "Unknown"
+        "email": "sales@aahparts.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
       }
     ],
-    "AMP": [
+    "AERO BAY": [
       {
-        "email": "lsabido@amp-aero.com",
-        "status": "Unknown"
+        "email": "rfq@aero-bay.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "TALKTALK": [
+      {
+        "email": "Lfaviation@talktalk.net",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      }
+    ],
+    "ANDERSONAERMOTIVE": [
+      {
+        "email": "teisenbarth@andersonaermotive.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      }
+    ],
+    "PRIME": [
+      {
+        "email": "eusales@prime.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      }
+    ],
+    "AEROSPACEPRECISION": [
+      {
+        "email": "ADIMAIL@aerospaceprecision.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "AEROSPACEROTABLES": [
+      {
+        "email": "markv@aerospacerotables.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "MAIL NOT FOUND"
+      }
+    ],
+    "AEROSPACETACTICALSOLUTIONS": [
+      {
+        "email": "luan@aerospacetacticalsolutions.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
+      }
+    ],
+    "AEROSPACETECHSOLUTIONS": [
+      {
+        "email": "luan@aerospacetechsolutions.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "not deliverd"
+      }
+    ],
+    "AEROTHRUST": [
+      {
+        "email": "parts@aerothrust.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "AEROTURBINE": [
+      {
+        "email": "rspringthorpe@aeroturbine.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Mail not found"
+      }
+    ],
+    "AEROVISION": [
+      {
+        "email": "jgawlik@aerovision",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      }
+    ],
+    "AIRCAPITALAV": [
+      {
+        "email": "leo@aircapitalav.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "AIRCRAFTSPARESINTL": [
+      {
+        "email": "dennis@aircraftsparesintl.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "MAIL NOT FOUND"
+      }
+    ],
+    "CAMARAC": [
+      {
+        "email": "@CAMARAC.COM",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "AOAAVIATION": [
+      {
+        "email": "bryon@aoaaviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "ATXAEROPARTS": [
+      {
+        "email": "sales@atxaeroparts.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      }
+    ],
+    "AVADAG": [
+      {
+        "email": "kevin@avadag.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "AVIAREMCOMPONENT": [
+      {
+        "email": "s.shilin@aviaremcomponent.aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "AVIASAP": [
+      {
+        "email": "supply@aviasap.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "delivery incomplete"
+      }
+    ],
+    "AVIATORSOLUTIONS": [
+      {
+        "email": "awsam.farjo@aviatorsolutions.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "AVITRADING": [
+      {
+        "email": "sales@avitrading.net",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      }
+    ],
+    "BEAEROSPACE SYSTEMS": [
+      {
+        "email": "erospace@beaerospace-systems.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
+      }
+    ],
+    "BNYINTL": [
+      {
+        "email": "wliang@bnyintl.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
+      }
+    ],
+    "BUYAIRCRAFTPARTS": [
+      {
+        "email": "contact@buyaircraftparts.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "CHAIR": [
+      {
+        "email": "sebastian.hintze@chair.ch",
+        "status": "Blacklisted",
+        "blacklist_reason": "MAIL NOT FOUND"
+      }
+    ],
+    "CHANNELFOR": [
+      {
+        "email": "rfq@channelfor.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "DELIVERY INCOMPLETE"
+      }
+    ],
+    "CLUBJET": [
+      {
+        "email": "parts@clubjet.ne",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "COCOPLUMAERO": [
+      {
+        "email": "brian@cocoplumaero.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "DAP AERO": [
+      {
+        "email": "@dap-aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "DESTINYAERO": [
+      {
+        "email": "sales@destinyaero.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      }
+    ],
+    "DORINAVIATION": [
+      {
+        "email": "supply@dorinaviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "ECHOAIRO": [
+      {
+        "email": "sales@echoairo.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      }
+    ],
+    "EUINSPECTIONSERVICE": [
+      {
+        "email": "maintenance@euinspectionservice.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "FLEETCAREAERO": [
+      {
+        "email": "@fleetcareaero.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "FLIGHTTHEORY": [
+      {
+        "email": "erick.g@flighttheory.net",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "FLIGHTWISE": [
+      {
+        "email": "sales@flightwise.ae",
+        "status": "Blacklisted",
+        "blacklist_reason": "KYC PASS"
+      }
+    ],
+    "GAHSM": [
+      {
+        "email": "gary@gahsm.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      }
+    ],
+    "GECAS": [
+      {
+        "email": "zach.mccrary@gecas.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "GLOBALMENA": [
+      {
+        "email": "@globalmena.aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
-        "email": "ayush@amp-aero.com",
-        "status": "Unknown"
+        "email": "parts@globalmena.aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
-        "email": "prince@amp-aero.com",
-        "status": "Unknown"
+        "email": "sales@globalmena.aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
-        "email": "aambalik@amp-aero.com",
-        "status": "Unknown"
+        "email": "parts@globalmena.aeros",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "HNA ML": [
+      {
+        "email": "op_domestic@hna-ml.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "MAIL NOT FOUND"
+      }
+    ],
+    "INTAIRCRAFTREPAIRS": [
+      {
+        "email": "sales@intaircraftrepairs.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "INTERNATIONAL AVIATION": [
+      {
+        "email": "parts@international-aviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "BLAKCLISE"
       },
       {
-        "email": "anoop@amp-aero.com",
-        "status": "Unknown"
-      },
+        "email": "@international-aviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "DO NOT SEND TO THEM"
+      }
+    ],
+    "JETAIRE": [
       {
-        "email": "yuvraj@amp-aero.com",
-        "status": "Unknown"
-      },
+        "email": "info@jetaire.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
+      }
+    ],
+    "JETASSETS": [
       {
-        "email": "furkan@amp-aero.com",
-        "status": "Unknown"
-      },
+        "email": "Jane@jetassets.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "delivery incomplete"
+      }
+    ],
+    "JGENTERPRISES": [
       {
-        "email": "gaurav@amp-aero.com",
-        "status": "Unknown"
-      },
+        "email": "Sales@jgenterprises.us",
+        "status": "Blacklisted",
+        "blacklist_reason": "mailt not found"
+      }
+    ],
+    "LEAEROSPACE": [
       {
-        "email": "herard@amp-aero.com",
-        "status": "Unknown"
-      },
+        "email": "@leaerospace",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "LIBERTY AERO": [
       {
-        "email": "danish@amp-aero.com",
-        "status": "Unknown"
-      },
+        "email": "sales@liberty-aero.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "LOTUSAEROKE": [
       {
-        "email": "Navdeep@amp-aero.com",
-        "status": "Unknown"
-      },
+        "email": "Info@lotusaeroke.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "NAC": [
       {
-        "email": "RFQ@amp-aero.com",
-        "status": "Unknown"
-      },
+        "email": "dale@nac.co.za",
+        "status": "Blacklisted",
+        "blacklist_reason": "MAIL NOT FOUND"
+      }
+    ],
+    "ONESKYAV": [
       {
-        "email": "sales@amp-aero.com",
-        "status": "Unknown"
-      },
+        "email": "sales@oneskyav.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "PAT PAG": [
       {
-        "email": "kayra@amp-aero.com",
-        "status": "Answering"
+        "email": "mstemwedel@pat-pag.comm",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "PETRAAIRLINE": [
+      {
+        "email": "nasser.arabiat@petraairline.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Message not delivered"
+      }
+    ],
+    "PLATINUMJET": [
+      {
+        "email": "shelby@platinumjet.ca",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "POWERJETAVIATION": [
+      {
+        "email": "hennessey@powerjetaviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
+      }
+    ],
+    "PRESIDIOAIRCRAFTLEASING": [
+      {
+        "email": "jsitkowski@presidioaircraftleasing.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "delivery incomplete"
+      }
+    ],
+    "PTS AVIATION": [
+      {
+        "email": "mdamron@pts-aviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "delivery incomplete"
+      }
+    ],
+    "QWESTAIRPARTS": [
+      {
+        "email": "mtutor@qwestairparts.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mailt not found"
+      }
+    ],
+    "REDIFFMAIL": [
+      {
+        "email": "shreejismailbox@rediffmail.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "SKYFUTURE": [
+      {
+        "email": "contact@skyfuture.aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT EXIST"
+      }
+    ],
+    "STAERO ARL": [
+      {
+        "email": "sales@staero-arl.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "STOFANET": [
+      {
+        "email": "aviation@stofanet.dk",
+        "status": "Blacklisted",
+        "blacklist_reason": "NOT FOUND"
+      }
+    ],
+    "SZAVIATION": [
+      {
+        "email": "sales@szaviation.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "TASREPAIR": [
+      {
+        "email": "amy@tasrepair.aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "MAIL NOT FOUND"
+      }
+    ],
+    "TCAS LTD": [
+      {
+        "email": "sales@tcas-ltd.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "TEXASAIRCOMPOSITES": [
+      {
+        "email": "bmcguinness@texasaircomposites.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "UNIQUIP": [
+      {
+        "email": "mwoodcock@uniquip.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "MAIL NOT FOUND"
+      }
+    ],
+    "UNIVERSALAIRCORP": [
+      {
+        "email": "cascencio@universalaircorp.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "UTDMRO": [
+      {
+        "email": "sales@utdmro.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "mail not found"
+      }
+    ],
+    "VOLANTTECH": [
+      {
+        "email": "rfq@volanttech.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "delivery incomplete"
+      }
+    ],
+    "WINGEDTYCOONS": [
+      {
+        "email": "sales@wingedtycoons.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Blacklisted for higher price or not answering"
+      }
+    ],
+    "EMERYAIR": [
+      {
+        "email": "ALynn@emeryair.net",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
+      }
+    ],
+    "LANDMERK": [
+      {
+        "email": "j.escalante@landmerk.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
+      }
+    ],
+    "AV8AOG": [
+      {
+        "email": "sales@av8aog.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
+      }
+    ],
+    "LEONARDO": [
+      {
+        "email": "customer.support@leonardo.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
+      }
+    ],
+    "AIRPARTSME": [
+      {
+        "email": "@airpartsme.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
+      }
+    ],
+    "BLUEAIR": [
+      {
+        "email": "@blueair.aero",
+        "status": "Blacklisted",
+        "blacklist_reason": "Not answering"
+      }
+    ],
+    "TOTALAEROSUPPLY": [
+      {
+        "email": "@totalaerosupply.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Not exist"
+      }
+    ],
+    "BEAEROSPACE": [
+      {
+        "email": "@beaerospace.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "Not found"
+      }
+    ],
+    "QUESTCOMP": [
+      {
+        "email": "CustomerService@questcomp.co",
+        "status": "Blacklisted",
+        "blacklist_reason": "Not found"
+      }
+    ],
+    "INTAEROSERVICES": [
+      {
+        "email": "sales_australia@intaeroservices.com",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
+      }
+    ],
+    "VAIRINC": [
+      {
+        "email": "liz@vairinc.net",
+        "status": "Blacklisted",
+        "blacklist_reason": "not found"
       }
     ]
   }
