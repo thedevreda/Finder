@@ -280,17 +280,22 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 .fbtn.active{background:var(--brand);color:#fff;border-color:var(--brand)}
 .card{background:var(--white);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;margin-bottom:6px;font-size:13px;transition:box-shadow .12s}
 .card:hover{box-shadow:0 2px 8px rgba(26,86,219,.07)}
+.card.blacklist{background:var(--red-lt);border-color:#FECACA}
 .card.direct{border-color:#C7DEFF}
 .card.replace{border-color:#FDE68A}
 .card-hr{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;gap:8px}
 .card-title{font-weight:700;font-size:12px;color:var(--text);flex:1}
+.card.blacklist .card-title{color:var(--red)}
 .copy-btn{border:1px solid var(--border2);background:var(--white);padding:3px 9px;font-size:11px;border-radius:5px;cursor:pointer;font-weight:600;color:var(--muted);transition:.12s;font-family:var(--font)}
 .copy-btn:hover{background:var(--brand-lt);border-color:var(--brand);color:var(--brand)}
 .gel{display:flex;flex-direction:column;gap:2px}
 .ger{display:flex;align-items:center;padding:3px 7px;background:var(--bg);border-radius:var(--r);gap:6px}.ger .ge{flex:1;min-width:0}.ger .status-badge{margin-left:0;flex-shrink:0}.ger .cib{margin-left:auto;flex-shrink:0}
+.card.blacklist .ger{background:#FFF0EF}
 .ge{font-size:12px;color:var(--text);word-break:break-all;flex:1}
+.card.blacklist .ge{color:var(--red)}
 .cib{flex-shrink:0;border:1px solid var(--border);background:var(--white);padding:2px 7px;font-size:10px;border-radius:var(--r);cursor:pointer;font-weight:500;color:var(--muted);transition:.12s;font-family:var(--font)}
 .cib:hover{background:var(--brand-lt);color:var(--brand);border-color:var(--brand)}
+.bl-reason{font-size:11px;color:var(--red);margin-top:4px;padding-top:4px;border-top:1px dashed #FFCDD2;font-weight:500}
 .data-notice{background:#FFFBEB;border:1px solid #FDE68A;border-left:3px solid var(--orange);border-radius:var(--r);padding:9px 13px;font-size:12px;color:#92400E;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .status-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:.2px;white-space:nowrap;margin-left:auto;flex-shrink:0}
 .status-badge::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%}
@@ -302,10 +307,6 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
 .status-badge.holiday::before{background:#EA580C}
 .status-badge.unknown{background:#F1F5F9;color:#64748B;border:1px solid #CBD5E1}
 .status-badge.unknown::before{background:#94A3B8}
-.status-badge.blacklisted{background:#FEF2F2;color:#991B1B;border:1px solid #FECACA}
-.status-badge.blacklisted::before{background:#DC2626}
-.ger.is-blacklisted{background:#FFF0EF}
-.ger.is-blacklisted .ge{color:#991B1B}
 
 /* ════════════════════════════════
    RESPONSIVE
@@ -1827,12 +1828,14 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
         .ed-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
         .ed-card{background:#fff;border:1.5px solid var(--border2);border-radius:14px;padding:14px 15px;transition:all .15s ease;cursor:default;display:flex;flex-direction:column;gap:8px}
         .ed-card:hover{border-color:#93B4F5;box-shadow:0 4px 14px rgba(15,111,222,.1);transform:translateY(-1px)}
+        .ed-card.bl-card{border-color:#FCA5A5;background:#FFF8F8}
+        .ed-card.bl-card:hover{border-color:var(--red)}
         .ed-card.dc-card{border-color:var(--border2); width: fit-content;}
         .ed-card.rp-card{border-color:#DDD6FE;background:#FAFAFF}
         .ed-card.rp-card:hover{border-color:var(--purple)}
         .ed-card-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px}
         .ed-card-icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:#EEF4FF}
-
+        .ed-card.bl-card .ed-card-icon{background:#FEE2E2}
         .ed-card.rp-card .ed-card-icon{background:#EDE9FE}
         .ed-company{font-size:12px;font-weight:700;color:var(--text);flex:1;line-height:1.3;margin-top:1px}
         .ed-actions{display:flex;gap:5px;flex-shrink:0}
@@ -1851,7 +1854,6 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
         .st-Holiday{background:#FFFBEB;color:#D97706}
         .st-Repair-Shop{background:#FFF7ED;color:#EA580C}
         .st-Not-Found{background:var(--red-lt);color:var(--muted)}
-        .st-Blacklisted{background:#FEF2F2;color:#991B1B;font-weight:800}
         .ed-reason{font-size:10px;color:var(--muted);margin-top:5px;padding:4px 8px;background:var(--orange-lt);border-radius:4px;border-left:2px solid var(--orange)}
         .ed-reparr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px}
         .ed-rep-from{color:var(--muted2);text-decoration:line-through;font-family:var(--mono)}
@@ -1886,6 +1888,7 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
         <div class="ed-topbar">
           <div class="ed-tabs">
             <button class="ed-tab active" onclick="edSwitch('dc',this)">Direct Contacts</button>
+            <button class="ed-tab" onclick="edSwitch('bl',this)">Blacklist</button>
             <button class="ed-tab" onclick="edSwitch('rp',this)">Replacements</button>
           </div>
           <div class="ed-swrap"><input class="ed-sinput" id="edSearch" type="text" placeholder="Search…" oninput="edRender()"></div>
@@ -1909,6 +1912,15 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
             <div class="ed-field"><label>Company Name</label><input type="text" id="edDCCompany" placeholder="COMPANY NAME"></div>
             <div class="ed-field"><label>Emails</label><div id="edDCEmails"></div><button class="ed-addemail" onclick="edAddEmailRow()">+ Add Email</button></div>
             <div class="ed-mactions"><button class="ed-mcancel" onclick="edCloseModal('edDCModal')">Cancel</button><button class="ed-mok" onclick="edSaveDC()">Save</button></div>
+          </div>
+        </div>
+        <!-- BL Modal -->
+        <div class="ed-overlay" id="edBLModal">
+          <div class="ed-modal">
+            <h3 id="edBLTitle">Add to Blacklist</h3>
+            <div class="ed-field"><label>Email / Domain</label><input type="text" id="edBLEmail" placeholder="email@domain.com or domain.com"></div>
+            <div class="ed-field"><label>Reason</label><input type="text" id="edBLReason" placeholder="e.g. Not answering, Mail not found…"></div>
+            <div class="ed-mactions"><button class="ed-mcancel" onclick="edCloseModal('edBLModal')">Cancel</button><button class="ed-mok red" onclick="edSaveBL()">Save</button></div>
           </div>
         </div>
         <!-- RP Modal -->
@@ -2012,20 +2024,316 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
               </div>
             </div>
 
-            <!-- ══ ROW 2: RFQ Templates (full width, tabbed) ══ -->
-            <div style="margin:10px; background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
-              <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
+            <!-- ══ ROW 2: Creating Template — Full RFQ Email Builder ══ -->
+            <div style="margin:10px;background:var(--white);border:1px solid var(--border2);border-radius:10px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
+
+              <!-- Header -->
+              <div style="padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
                 <div style="display:flex;align-items:center;gap:7px">
                   <span style="font-size:13px">📝</span>
                   <span style="font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.5px">Creating Template</span>
                 </div>
-                <div style="display:flex;gap:3px;flex-wrap:wrap" id="tools-rfq-tabs"></div>
+                <button onclick="tRfqAddRow()" style="padding:4px 12px;background:var(--brand);color:#fff;border:none;border-radius:20px;font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">+ Add PN</button>
               </div>
-              <div style="padding:14px 14px 14px;position:relative">
-                <div id="tools-rfq-text" style="font-size:12px;color:var(--text);line-height:1.75;white-space:pre-line;font-family:var(--mono);padding-right:70px"></div>
-                <button onclick="toolsCopyTpl('tools-rfq-text',this)" style="position:absolute;right:12px;top:12px;background:var(--bg);border:1px solid var(--border2);border-radius:5px;font-size:10px;font-weight:600;padding:4px 11px;cursor:pointer;color:var(--muted);transition:.12s;font-family:var(--font)" onmouseover="this.style.background='var(--brand)';this.style.color='#fff'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)'">Copy</button>
+
+              <!-- Column headers -->
+              <div style="display:grid;grid-template-columns:28px 1fr 1fr 1.4fr 70px 32px;gap:6px;padding:6px 12px 4px;background:var(--bg);border-bottom:1px solid var(--border2)">
+                <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Use</span>
+                <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Part Number</span>
+                <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">ALT PN <span style="font-weight:400;opacity:.7">(opt.)</span></span>
+                <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Description</span>
+                <span style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">QTY</span>
+                <span></span>
               </div>
+
+              <!-- PN rows -->
+              <div id="tRfqRows" style="padding:6px 12px 10px;display:flex;flex-direction:column;gap:6px"></div>
+
+              <!-- Subject line -->
+              <div style="padding:0 12px 0;border-top:1px solid var(--border2)">
+                <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r);margin:10px 0 0">
+                  <span style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;flex-shrink:0">Subject</span>
+                  <input type="text" id="tRfqSubject" placeholder="Auto-generated — edit if needed" style="flex:1;border:none;outline:none;font-size:12px;font-family:var(--font);background:transparent;color:var(--text)" autocomplete="off">
+                  <button onclick="(function(){var el=document.getElementById('tRfqSubject');if(!el||!el.value)return;navigator.clipboard.writeText(el.value);var b=event.target;var o=b.textContent;b.textContent='✓';setTimeout(function(){b.textContent=o},1400)})()" style="padding:3px 9px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font);flex-shrink:0">Copy</button>
+                </div>
+              </div>
+
+              <!-- Generate / Clear -->
+              <div style="padding:10px 12px;border-top:1px solid var(--border2);margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                <button onclick="tRfqGenerate()" style="padding:8px 20px;background:var(--brand);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer" onmouseover="this.style.background='var(--brand-d)'" onmouseout="this.style.background='var(--brand)'">Generate Template</button>
+                <button onclick="tRfqClear()" style="padding:8px 14px;background:var(--bg2);color:var(--muted);border:1.5px solid var(--border);border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--font);cursor:pointer" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Clear All</button>
+              </div>
+
+              <!-- Output area -->
+              <div id="tRfqOutputWrap" style="display:none;border-top:1px solid var(--border2)">
+                <div id="tRfqVariantTabs" style="display:flex;flex-wrap:wrap;gap:4px;padding:10px 12px 0;background:var(--bg2);border-bottom:1px solid var(--border2)"></div>
+                <div style="position:relative;padding:14px">
+                  <!-- Output rendered as styled HTML (sans-serif, bold+underline on "the certification") -->
+                  <div id="tRfqOutput" style="font-family:'Inter',-apple-system,Arial,sans-serif;font-size:13px;color:var(--text);line-height:1.8;white-space:pre-wrap;word-break:break-word;padding-right:80px"></div>
+                  <button id="tRfqCopyBtn" onclick="tRfqCopy()" style="position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);font-size:10px;font-weight:600;padding:4px 10px;cursor:pointer;color:var(--muted);font-family:var(--font);transition:.12s" onmouseover="this.style.background='var(--brand)';this.style.color='#fff';this.style.borderColor='var(--brand)'" onmouseout="this.style.background='var(--bg)';this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Copy</button>
+                </div>
+              </div>
+
             </div>
+
+            <script>
+            (function(){
+              var tRfqRowId=0;
+              var tRfqCurrentPlain='';
+              var tRfqCurrentHtml='';
+
+              function tMkRow(){
+                var id=++tRfqRowId;
+                var row=document.createElement('div');
+                row.id='trfqrow-'+id;
+                row.style.cssText='display:grid;grid-template-columns:28px 1fr 1fr 1.4fr 70px 32px;gap:6px;align-items:center';
+                row.innerHTML=
+                  '<input type="checkbox" id="trfq-sel-'+id+'" checked style="width:16px;height:16px;accent-color:var(--brand);cursor:pointer;margin:0 auto;display:block">'
+                  +'<input class="rfq-row-input" id="trfq-pn-'+id+'" placeholder="e.g. 0123FA2" autocomplete="off">'
+                  +'<input class="rfq-row-input" id="trfq-alt-'+id+'" placeholder="ALT PN (opt.)" autocomplete="off">'
+                  +'<input class="rfq-row-input" id="trfq-desc-'+id+'" placeholder="e.g. SENSOR - LOW FLOW" autocomplete="off">'
+                  +'<input class="rfq-row-input" id="trfq-qty-'+id+'" placeholder="QTY" type="number" min="1" style="text-align:center" autocomplete="off">'
+                  +'<button class="rfq-del" onclick="tRfqRemoveRow('+id+')" title="Remove">\u00d7</button>';
+                return row;
+              }
+
+              window.tRfqAddRow=function(){
+                document.getElementById('tRfqRows').appendChild(tMkRow());
+              };
+              window.tRfqRemoveRow=function(id){
+                var el=document.getElementById('trfqrow-'+id);
+                if(el)el.remove();
+              };
+
+              function tBuildItemLines(items){
+                return items.map(function(i){
+                  var l=i.pn;
+                  if(i.alt){l+=' / ALT: '+i.alt;if(i.desc)l+=' / '+i.desc;}
+                  else{if(i.desc)l+=' / '+i.desc;}
+                  if(i.qty)l+=' / QTY: '+i.qty;
+                  return l;
+                }).join('\n');
+              }
+
+              var T_VARIANTS=[
+                {label:'Check Availability',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var body="Dear team,\n\nIs this offer still valid for:\n\n"+lines+"\n\nThank you.";
+                  return{subject:subj,plain:body,html:body};
+                }},
+                {label:'Option 1',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Hello,\n\nPlease provide your best price quote and stock availability and the certification for the following item"+(multi?'s':'')+":\n\n"+lines+"\n\nThank you.\nBest regards";
+                  var html="Hello,\n\nPlease provide your best price quote and stock availability and <b>the certification</b> for the following item"+(multi?'s':'')+":\n\n"+lines+"\n\nThank you.\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 2',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Good day,\n\nWe would appreciate your best price, availability and the certification for the item"+(multi?'s':'')+" below:\n\n"+lines+"\n\nWe look forward to your response.\nKind regards";
+                  var html="Good day,\n\nWe would appreciate your best price, availability and <b>the certification</b> for the item"+(multi?'s':'')+" below:\n\n"+lines+"\n\nWe look forward to your response.\nKind regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 3',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Hi,\n\nQuick RFQ \u2014 please send best price, availability & the certification:\n\n"+lines+"\n\nThanks!";
+                  var html="Hi,\n\nQuick RFQ \u2014 please send best price, availability & <b>the certification</b>:\n\n"+lines+"\n\nThanks!";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 5',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Hello,\n\nCould you please provide your most competitive price, current availability and the certification for the following item"+(multi?'s':'')+"?\n\n"+lines+"\n\nWe look forward to your offer.\nBest regards";
+                  var html="Hello,\n\nCould you please provide your most competitive price, current availability and <b>the certification</b> for the following item"+(multi?'s':'')+"?\n\n"+lines+"\n\nWe look forward to your offer.\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 6',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Hello,\n\nWe need your best price, stock availability and the certification for the following item"+(multi?'s':'')+". Please reply at your earliest convenience.\n\n"+lines+"\n\nThank you.\nBest regards";
+                  var html="Hello,\n\nWe need your best price, stock availability and <b>the certification</b> for the following item"+(multi?'s':'')+". Please reply at your earliest convenience.\n\n"+lines+"\n\nThank you.\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 7 \u2014 AOG',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"AOG \u2014 RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"AOG \u2014 RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Dear Team,\n\nAOG SITUATION \u2014 We urgently require your best price, stock availability and the certification for the following item"+(multi?'s':'')+". Please revert ASAP.\n\n"+lines+"\n\nThank you.\nBest regards";
+                  var html="Dear Team,\n\n<b>AOG SITUATION</b> \u2014 We urgently require your best price, stock availability and <b>the certification</b> for the following item"+(multi?'s':'')+". Please revert ASAP.\n\n"+lines+"\n\nThank you.\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 8',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Dear Partner,\n\nHope you are well. We have a sourcing requirement and would appreciate your best offer, including availability and the certification:\n\n"+lines+"\n\nLooking forward to your feedback.\nBest regards";
+                  var html="Dear Partner,\n\nHope you are well. We have a sourcing requirement and would appreciate your best offer, including availability and <b>the certification</b>:\n\n"+lines+"\n\nLooking forward to your feedback.\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 9',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Hello,\n\nWe are currently sourcing the below item"+(multi?'s':'')+" and collecting competitive offers. Please provide your best price, stock availability and the certification at your earliest:\n\n"+lines+"\n\nThank you.\nBest regards";
+                  var html="Hello,\n\nWe are currently sourcing the below item"+(multi?'s':'')+" and collecting competitive offers. Please provide your best price, stock availability and <b>the certification</b> at your earliest:\n\n"+lines+"\n\nThank you.\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 10',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Dear Team,\n\nWe hope you are doing well. Please check your stock and advise on price, availability and the certification for the following item"+(multi?'s':'')+":\n\n"+lines+"\n\nWe look forward to your reply.\nKind regards";
+                  var html="Dear Team,\n\nWe hope you are doing well. Please check your stock and advise on price, availability and <b>the certification</b> for the following item"+(multi?'s':'')+":\n\n"+lines+"\n\nWe look forward to your reply.\nKind regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 11',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Hello,\n\nDo you have the following item"+(multi?'s':'')+" in stock? If yes, please send price and the certification:\n\n"+lines+"\n\nThank you.";
+                  var html="Hello,\n\nDo you have the following item"+(multi?'s':'')+" in stock? If yes, please send price and <b>the certification</b>:\n\n"+lines+"\n\nThank you.";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 12',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Hello,\n\nWe are receiving multiple offers for the below item"+(multi?'s':'')+". Please provide your absolute best price, availability and the certification to remain competitive:\n\n"+lines+"\n\nBest regards";
+                  var html="Hello,\n\nWe are receiving multiple offers for the below item"+(multi?'s':'')+". Please provide your absolute best price, availability and <b>the certification</b> to remain competitive:\n\n"+lines+"\n\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 13',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Dear Sales Team,\n\nWe are reaching out to you directly regarding the following part"+(multi?'s':'')+". Could you please advise on availability, lead time, price and the certification?\n\n"+lines+"\n\nThank you for your time.\nBest regards";
+                  var html="Dear Sales Team,\n\nWe are reaching out to you directly regarding the following part"+(multi?'s':'')+". Could you please advise on availability, lead time, price and <b>the certification</b>?\n\n"+lines+"\n\nThank you for your time.\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 14',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Hello,\n\nApologies for reaching out outside business hours. We have an urgent requirement for the below item"+(multi?'s':'')+". Please quote price, availability and the certification as soon as you are available:\n\n"+lines+"\n\nThank you.\nBest regards";
+                  var html="Hello,\n\nApologies for reaching out outside business hours. We have an urgent requirement for the below item"+(multi?'s':'')+". Please quote price, availability and <b>the certification</b> as soon as you are available:\n\n"+lines+"\n\nThank you.\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 15',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Hello,\n\nWe have a new requirement for the item"+(multi?'s':'')+" below and would like to work with you again. Please provide your best pricing, availability and the certification:\n\n"+lines+"\n\nLooking forward to your offer.\nBest regards";
+                  var html="Hello,\n\nWe have a new requirement for the item"+(multi?'s':'')+" below and would like to work with you again. Please provide your best pricing, availability and <b>the certification</b>:\n\n"+lines+"\n\nLooking forward to your offer.\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }},
+                {label:'Option 16',build:function(items){
+                  var multi=items.length>1;
+                  var subj=multi?"RFQ PN's "+items.map(function(i){return i.pn}).join(' / '):"RFQ PN "+items[0].pn;
+                  var lines=tBuildItemLines(items);
+                  var plain="Hello,\n\nWe are open to any airworthy condition (OH, SV, RP, NE). Please provide your best price, stock availability and the certification for the following item"+(multi?'s':'')+":\n\n"+lines+"\n\nThank you.\nBest regards";
+                  var html="Hello,\n\nWe are open to any airworthy condition (OH, SV, RP, NE). Please provide your best price, stock availability and <b>the certification</b> for the following item"+(multi?'s':'')+":\n\n"+lines+"\n\nThank you.\nBest regards";
+                  return{subject:subj,plain:plain,html:html};
+                }}
+              ];
+
+              function tRenderVariant(v,items){
+                var result=v.build(items);
+                tRfqCurrentPlain=result.plain;
+                var subjEl=document.getElementById('tRfqSubject');
+                if(subjEl&&result.subject)subjEl.value=result.subject;
+                // Display: convert \n to <br>, bold+underline "the certification", bold AOG SITUATION
+                var display=result.html
+                  .replace(/\n/g,'<br>')
+                  .replace(/<b>(the certification)<\/b>/gi,'<b style="font-weight:700;text-decoration:underline">$1</b>')
+                  .replace(/<b>(AOG SITUATION)<\/b>/gi,'<b style="font-weight:700">$1</b>');
+                document.getElementById('tRfqOutput').innerHTML=display;
+                // Rich HTML for clipboard — wraps in sans-serif div so email clients respect font
+                tRfqCurrentHtml='<div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.8">'+display+'</div>';
+              }
+
+              window.tRfqGenerate=function(){
+                var rows=[].slice.call(document.getElementById('tRfqRows').children);
+                var items=[];
+                rows.forEach(function(row){
+                  var id=row.id.replace('trfqrow-','');
+                  var sel=document.getElementById('trfq-sel-'+id);
+                  if(sel&&!sel.checked)return;
+                  var pn=(document.getElementById('trfq-pn-'+id)||{}).value;pn=pn?pn.trim():'';
+                  var alt=(document.getElementById('trfq-alt-'+id)||{}).value;alt=alt?alt.trim():'';
+                  var desc=(document.getElementById('trfq-desc-'+id)||{}).value;desc=desc?desc.trim():'';
+                  var qty=(document.getElementById('trfq-qty-'+id)||{}).value;qty=qty?qty.trim():'';
+                  if(pn)items.push({pn:pn,alt:alt,desc:desc,qty:qty});
+                });
+                if(!items.length){alert('Add at least one Part Number.');return;}
+
+                var wrap=document.getElementById('tRfqOutputWrap');
+                var tabBar=document.getElementById('tRfqVariantTabs');
+                wrap.style.display='block';
+                wrap.scrollIntoView({behavior:'smooth',block:'nearest'});
+                var copyBtn=document.getElementById('tRfqCopyBtn');
+                copyBtn.textContent='Copy';
+                copyBtn.style.background='var(--bg)';
+                copyBtn.style.color='var(--muted)';
+                copyBtn.style.borderColor='var(--border)';
+
+                tabBar.innerHTML='';
+                T_VARIANTS.forEach(function(v,i){
+                  var btn=document.createElement('button');
+                  btn.className='rfq-vtab'+(i===0?' active':'');
+                  btn.textContent=v.label;
+                  btn.onclick=function(){
+                    tabBar.querySelectorAll('.rfq-vtab').forEach(function(b){b.classList.remove('active');});
+                    btn.classList.add('active');
+                    tRenderVariant(v,items);
+                    copyBtn.textContent='Copy';
+                    copyBtn.style.background='var(--bg)';
+                    copyBtn.style.color='var(--muted)';
+                    copyBtn.style.borderColor='var(--border)';
+                  };
+                  tabBar.appendChild(btn);
+                });
+                tRenderVariant(T_VARIANTS[0],items);
+              };
+
+              window.tRfqCopy=function(){
+                var btn=document.getElementById('tRfqCopyBtn');
+                function flash(ok){
+                  btn.textContent=ok?'\u2713 Copied!':'Copied';
+                  btn.style.background='var(--green)';btn.style.color='#fff';btn.style.borderColor='var(--green)';
+                  setTimeout(function(){btn.textContent='Copy';btn.style.background='var(--bg)';btn.style.color='var(--muted)';btn.style.borderColor='var(--border)';},1800);
+                }
+                // Rich-text copy: HTML blob carries bold+underline+sans-serif into email clients
+                try{
+                  var htmlBlob=new Blob([tRfqCurrentHtml],{type:'text/html'});
+                  var textBlob=new Blob([tRfqCurrentPlain],{type:'text/plain'});
+                  navigator.clipboard.write([new ClipboardItem({'text/html':htmlBlob,'text/plain':textBlob})])
+                    .then(function(){flash(true);})
+                    .catch(function(){navigator.clipboard.writeText(tRfqCurrentPlain).then(function(){flash(false);});});
+                }catch(e){
+                  navigator.clipboard.writeText(tRfqCurrentPlain).then(function(){flash(false);});
+                }
+              };
+
+              window.tRfqClear=function(){
+                document.getElementById('tRfqRows').innerHTML='';
+                document.getElementById('tRfqOutputWrap').style.display='none';
+                tRfqRowId=0;
+                tRfqAddRow();
+              };
+
+              // Initialise with one empty row
+              tRfqAddRow();
+            })();
+            </script>
 
             <!-- ══ ROW 3: Sending Reminders + Follow-Up (side by side, tabbed) ══ -->
             <div style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
@@ -2154,7 +2462,6 @@ Best regards,</div><button class="tpl-copy" onclick="cpTpl('teF6',this)">Copy</b
   }
 
   // Build all tab bars
-  buildTabs('tools-rfq-tabs','tools-rfq-text','rfq');
   buildTabs('tools-s8-tabs','tools-s8-text','s8');
   buildTabs('tools-fu-tabs','tools-fu-text','fu');
   buildTabs('tools-inv-tabs','tools-inv-text','inv',['Single PN','Multi PN']);
@@ -2240,7 +2547,7 @@ const FIREBASE_CONFIG = {
 };
 
 /* ── DATA ── */
-let replacements={},directContact={},exw={},dataLoaded=false;
+let blacklist={},replacements={},directContact={},exw={},dataLoaded=false;
 
 /* ── LAZY LOAD GATE ── */
 let _dataLoadPromise=null;
@@ -2260,7 +2567,15 @@ async function tryLoadDataJson(){
     if(!res.ok)throw new Error('not found');
     const data=await res.json();
     window._rawJSON=data;
+    const rawBl=data.blacklist||{};
+    blacklist={};
+    for(const key in rawBl){
+      const val=rawBl[key];
+      if(typeof val==="string"){const isEmail=key.includes("@");blacklist[key]={emails:isEmail?[key]:[],reason:val};}
+      else{blacklist[key]=val;}
+    }
     replacements=data.replacements||{};exw=data.exw||{};dataLoaded=true;
+    window.blacklist=blacklist;
     window.replacements=replacements;
     // directContact: array of {email, status} objects per company
     const rawDC=data.directContact||{};
@@ -2268,6 +2583,7 @@ async function tryLoadDataJson(){
     for(const c in rawDC){
       const v=rawDC[c];
       if(Array.isArray(v)){
+        // new format: [{email,status},...] or old format: ["email",...]
         if(v.length>0&&typeof v[0]==='object'&&v[0].email){
           directContact[c]=v.map(e=>e.email);
           v.forEach(e=>{window._emailStatus[e.email]=e.status||'Unknown';});
@@ -2281,14 +2597,14 @@ async function tryLoadDataJson(){
     window._contactData=[];
     for(const c in directContact){
       const emailObjs=(data.directContact[c]||[]).map(e=>typeof e==='object'?e:{email:e,status:'Unknown'});
-      const hasBlacklisted=emailObjs.some(e=>e.status==='Blacklisted');
-      window._contactData.push({company:c,emailObjs,emails:directContact[c]||[],type:'direct',hasBlacklisted});
+      window._contactData.push({company:c,emailObjs,emails:directContact[c]||[],type:'direct'});
     }
+    for(const c in blacklist){const obj=blacklist[c]||{};window._contactData.push({company:c,emailObjs:(obj.emails||[]).map(e=>({email:e,status:'Unknown'})),emails:obj.emails||[],notes:obj.reason||'',type:'blacklist',reason:obj.reason||''});}
     for(const old in replacements){window._contactData.push({company:'Replace: '+old,emailObjs:[{email:replacements[old],status:'Unknown'}],emails:[replacements[old]],type:'replace'});}
     let dcCount=0;for(let c in directContact)dcCount+=(directContact[c]||[]).length;
-    const blCount=Object.values(data.directContact||{}).flat().filter(e=>e&&e.status==='Blacklisted').length;
+    let blCount=Object.keys(blacklist).length;
     document.getElementById("fileName").textContent="✓ "+Object.keys(directContact).length+" companies";
-    document.getElementById("statusBar").innerText=`Ready — ${blCount} blacklisted | ${dcCount} contacts (${Object.keys(directContact).length} cos) | ${Object.keys(replacements).length} replacements`;
+    document.getElementById("statusBar").innerText=`Ready — ${blCount} blacklist | ${dcCount} contacts (${Object.keys(directContact).length} cos) | ${Object.keys(replacements).length} replacements`;
     document.getElementById("dataNotice").style.display="none";
   }catch(e){
     document.getElementById("fileName").textContent="⚠ No data.json";
@@ -2428,8 +2744,7 @@ function statusBadge(s){
     'Holiday':['holiday','✈ Holiday'],
     'Repair Shop':['holiday','🔧 Repair Shop'],
     'Not Found':['not-answering','✗ Not Found'],
-    'Unknown':['unknown','? Unknown'],
-    'Blacklisted':['blacklisted','⊘ Blacklisted']
+    'Unknown':['unknown','? Unknown']
   };
   const [cls,lbl]=m[s]||['unknown','? Unknown'];
   return '<span class="status-badge '+cls+'">'+lbl+'</span>';
@@ -2445,34 +2760,9 @@ function checkEmail(){
   if(!iv){res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:30px">Start typing to search</div>';document.getElementById("statusBar").innerText="Ready";return;}
   if(!dataLoaded){res.innerHTML='<div style="text-align:center;color:var(--orange);margin-top:20px;font-size:12px">⚠ No data.json loaded — contact search unavailable.</div>';return;}
   const kw=norm(domKey(iv));let count=0;function match(v){return norm(v).includes(kw);}
-  // Collect matching direct-contact companies, sort blacklisted first
-  if(cf==="all"||cf==="direct"||cf==="blacklist"){
-    const matches=[];
-    for(let c in directContact){
-      const em=directContact[c]||[];const cm=match(c),em2=em.filter(e=>match(e));
-      if(cm||em2.length){
-        const rawEntry=window._originalDC&&window._originalDC[c]||[];
-        const hasBlacklisted=rawEntry.some(o=>o&&o.status==='Blacklisted');
-        if(cf==="blacklist"&&!hasBlacklisted)continue;
-        matches.push({c,em,cm,em2,rawEntry,hasBlacklisted});
-      }
-    }
-    // Sort: companies with any Blacklisted email first
-    matches.sort((a,b)=>(b.hasBlacklisted?1:0)-(a.hasBlacklisted?1:0));
-    for(const {c,em,cm,em2,rawEntry,hasBlacklisted} of matches){
-      const sh=cm?em:em2;
-      const rows=sh.map(e=>{
-        const eObj=rawEntry.find?rawEntry.find(o=>o&&o.email===e):null;
-        const st=eObj?eObj.status:'Unknown';
-        const badge=statusBadge(st);
-        const isbl=st==='Blacklisted';
-        const reason=isbl&&eObj&&eObj.blacklist_reason?`<span style="font-size:10px;color:#991B1B;opacity:.8;margin-left:4px">— ${eObj.blacklist_reason}</span>`:'';
-        const esc=e.replace(/'/g,"&apos;");
-        return`<div class="ger${isbl?' is-blacklisted':''}"><span class="ge">${e}</span>${reason}${badge}<button class="cib" onclick="cpText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
-      }).join('');
-      addCard("direct",c,`<div class="gel">${rows}</div>`,null);count++;
-    }
-  }
+  // ── BLACKLIST FIRST ──
+  if(cf==="all"||cf==="blacklist"){for(let c in blacklist){const obj=blacklist[c]||{},em=obj.emails||[],reason=obj.reason||"";const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length||match(reason)){const sh=cm?em:em2;const rows=sh.map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="cpText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');addCard("blacklist",c,`<div class="gel">${rows}</div><div class="bl-reason">⚠ ${reason}</div>`,null);count++;}}}
+  if(cf==="all"||cf==="direct"){for(let c in directContact){const em=directContact[c]||[];const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length){const sh=cm?em:em2;const rawEntry=window._originalDC&&window._originalDC[c]||[];const rows=sh.map(e=>{const eObj=rawEntry.find?rawEntry.find(o=>o&&o.email===e):null;const st2=eObj?statusBadge(eObj.status):'';const esc=e.replace(/'/g,"&apos;");return`<div class="ger"><span class="ge">${e}</span>${st2}<button class="cib" onclick="cpText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');addCard("direct",c,`<div class="gel">${rows}</div>`,null);count++;}}}
   if(cf==="all"||cf==="replace"){for(let old in replacements){if(match(old)||match(replacements[old])){addCard("replace","Replacement",`<small>Old:</small> ${old}<br><small>New:</small> ${replacements[old]}`,replacements[old]);count++;}}}
   document.getElementById("statusBar").innerText=count?`${count} result(s) for "${iv}"`:"No matches found";
 }
@@ -2809,26 +3099,23 @@ function toggleCertSection(){
       return str.toLowerCase().includes(tk)||stripped.includes(tStripped);
     }
     let filtered=data.filter(c=>{
-      if(filterSearch==='blacklist'&&!c.hasBlacklisted)return false;
-      if(filterSearch==='direct'&&c.type!=='direct')return false;
-      if(filterSearch==='replace'&&c.type!=='replace')return false;
+      if(filterSearch!=='all'&&c.type!==filterSearch)return false;
       const emails=c.emails||[];
-      return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t));
+      return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t))||tokenMatch(c.notes||'',t);
     });
-    // Companies with any Blacklisted email first
-    filtered.sort((a,b)=>(b.hasBlacklisted?1:0)-(a.hasBlacklisted?1:0));
+    // Blacklisted first
+    filtered.sort((a,b)=>(a.type==='blacklist'?0:1)-(b.type==='blacklist'?0:1));
     if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
     resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
-      const cls=c.type==='direct'?'direct':c.type==='replace'?'replace':'';
+      const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
       const eObjs=c.emailObjs||((c.emails||[]).map(e=>({email:e,status:'Unknown'})));
       const emails=eObjs.map(eo=>{
-        const isbl=eo.status==='Blacklisted';
-        const badge=statusBadge(eo.status||'Unknown');
-        const reason=isbl&&eo.blacklist_reason?`<span style="font-size:10px;color:#991B1B;opacity:.8;margin-left:4px">— ${eo.blacklist_reason}</span>`:'';
+        const badge=eo.status&&eo.status!=='Unknown'?statusBadge(eo.status):'';
         const esc=eo.email.replace(/'/g,'&apos;');
-        return `<div class="ger${isbl?' is-blacklisted':''}"><span class="ge">${eo.email}</span>${reason}${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
+        return `<div class="ger"><span class="ge">${eo.email}</span>${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
       }).join('');
-      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div></div>`;
+      const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
+      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`;
     }).join('');
   };
 })();
@@ -2913,29 +3200,30 @@ window.clearClientEmail=function(){
     }
 
     let filtered=data.filter(c=>{
-      if(filterDoc==='blacklist'&&!c.hasBlacklisted)return false;
-      if(filterDoc==='direct'&&c.type!=='direct')return false;
-      if(filterDoc==='replace'&&c.type!=='replace')return false;
+      if(filterDoc!=='all'&&c.type!==filterDoc)return false;
       const emails=c.emails||[];
-      return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t));
+      return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t))||tokenMatch(c.notes||'',t);
     });
 
     if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
 
-    // Sort: companies with Blacklisted emails first
-    filtered.sort((a,b)=>(b.hasBlacklisted?1:0)-(a.hasBlacklisted?1:0));
+    // Sort: blacklisted first
+    filtered.sort((a,b)=>{
+      const abl=a.type==='blacklist'?0:1;
+      const bbl=b.type==='blacklist'?0:1;
+      return abl-bbl;
+    });
 
     resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
-      const cls=c.type==='direct'?'direct':c.type==='replace'?'replace':'';
+      const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
       const eObjs=c.emailObjs||((c.emails||[]).map(e=>({email:e,status:'Unknown'})));
       const emails=eObjs.map(eo=>{
-        const isbl=eo.status==='Blacklisted';
-        const badge=statusBadge(eo.status||'Unknown');
-        const reason=isbl&&eo.blacklist_reason?`<span style="font-size:10px;color:#991B1B;opacity:.8;margin-left:4px">— ${eo.blacklist_reason}</span>`:'';
+        const badge=eo.status&&eo.status!=='Unknown'?statusBadge(eo.status):'';
         const esc=eo.email.replace(/'/g,'&apos;');
-        return `<div class="ger${isbl?' is-blacklisted':''}"><span class="ge">${eo.email}</span>${reason}${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
+        return `<div class="ger"><span class="ge">${eo.email}</span>${badge}<button class="cib" onclick="navigator.clipboard.writeText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;
       }).join('');
-      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div></div>`;
+      const reason=c.type==='blacklist'&&c.reason?`<div class="bl-reason">⚠ ${c.reason}</div>`:'';
+      return `<div class="card ${cls}"><div class="card-hr"><span class="card-title">${c.company||''}</span><button class="copy-btn" onclick="navigator.clipboard.writeText('${(c.emails||[]).join('; ').replace(/'/g,'&apos;')}')">Copy All</button></div><div class="gel">${emails}</div>${reason}</div>`;
     }).join('');
   };
 })();
@@ -2970,7 +3258,7 @@ window.startReminderDoc=async function(){
 ══════════════════════════════════════════════ */
 (function(){
   const ALLOWED='reda@jadaero.com';
-  const STATUSES=['Unknown','Answering','Not Answering','Holiday','Repair Shop','Not Found','Blacklisted'];
+  const STATUSES=['Unknown','Answering','Not Answering','Holiday','Repair Shop','Not Found'];
   let edView='dc',edFilter='all',edEditMode=null,edPendingDel=null,edToastTmr;
 
   /* ── access check ── */
@@ -3015,10 +3303,12 @@ window.startReminderDoc=async function(){
   };
   window.edRender=function(){
     if(edView==='dc')edRenderDC();
+    else if(edView==='bl')edRenderBL();
     else edRenderRP();
   };
   window.edOpenAdd=function(){
     if(edView==='dc')edOpenDCModal(null);
+    else if(edView==='bl')edOpenBLModal(null);
     else edOpenRPModal(null);
   };
 
@@ -3058,7 +3348,7 @@ window.startReminderDoc=async function(){
         const st=c.status||'Unknown',sc='st-'+st.replace(/\s+/g,'-');
         return `<div class="ed-chip"><span class="eml">${H(c.email)}</span><button class="ed-stbadge ${sc}" onclick="edCycleStatus('${A(co)}',${i})">${H(st)}</button><button class="ed-cp" onclick="edCp('${A(c.email)}',this)">⎘</button><button class="ed-ibtn del" style="width:18px;height:18px;font-size:10px;border-radius:3px" onclick="edRemoveEmail('${A(co)}',${i})">✕</button></div>`;
       }).join('');
-      return `<div class="ed-card dc-card"><div class="ed-card-row"><div class="ed-card-icon">✉️</div><div style="flex:1;min-width:0"><span class="ed-company">${H(co)}</span></div><div class="ed-actions"><button class="ed-ibtn edt" title="Edit" onclick="edOpenDCModal('${A(co)}')">✎</button><button class="ed-ibtn del" title="Delete" onclick="edAskDelete('dc','${A(co)}')">✕</button></div></div><div class="ed-emails">${chips}</div></div>`;
+      return `<div class="ed-card dc-card"><div class="ed-card-row"><div class="ed-card-icon">✉️</div><div style="flex:1;min-width:0"><span class="ed-company">${H(co)}</span></div><div class="ed-actions"><button class="ed-ibtn blk" title="Move to blacklist" onclick="edMoveToBlacklist('${A(co)}')">⊘</button><button class="ed-ibtn edt" title="Edit" onclick="edOpenDCModal('${A(co)}')">✎</button><button class="ed-ibtn del" title="Delete" onclick="edAskDelete('dc','${A(co)}')">✕</button></div></div><div class="ed-emails">${chips}</div></div>`;
     }).join('')+'</div>';
   }
   window.edCycleStatus=function(co,i){
@@ -3073,6 +3363,32 @@ window.startReminderDoc=async function(){
     if(!dc[co].length){delete dc[co];delete(window.directContact||{})[co];}
     edRenderDC();edToast('Email removed');
   };
+  window.edMoveToBlacklist=function(co){
+    const dc=window._originalDC||{},arr=dc[co]||[];
+    arr.forEach(c=>{(window.blacklist=window.blacklist||{})[c.email]={emails:[c.email],reason:'Moved from Direct Contacts'};});
+    delete dc[co];delete(window.directContact||{})[co];
+    edRenderDC();edToast(co+' moved to Blacklist');
+  };
+
+  /* ─────────────────────────────────────────
+     RENDER — BLACKLIST
+  ───────────────────────────────────────── */
+  function edRenderBL(){
+    const bl=window.blacklist||{};
+    const q=(document.getElementById('edSearch').value||'').trim().toLowerCase();
+    const body=document.getElementById('edBody');
+    if(!q){document.getElementById('edCnt').textContent='';body.innerHTML='<div class="ed-empty" style="padding:40px 0;font-size:13px">&#128269; Type an email or reason to search</div>';return;}
+    let entries=Object.entries(bl).filter(([k,v])=>{
+      const r=typeof v==='object'?v.reason||'':String(v);
+      return k.toLowerCase().includes(q)||r.toLowerCase().includes(q);
+    });
+    document.getElementById('edCnt').textContent=entries.length+' entries';
+    if(!entries.length){body.innerHTML='<div class="ed-empty">∅ No blacklist entries</div>';return;}
+    body.innerHTML='<div class="ed-grid">'+entries.map(([k,v])=>{
+      const r=typeof v==='object'?v.reason||'':String(v)||'';
+      return `<div class="ed-card bl-card"><div class="ed-card-row"><div class="ed-card-icon">⛔</div><div style="flex:1;min-width:0"><span style="font-family:var(--mono);font-size:11px;color:var(--red);font-weight:700;word-break:break-all">${H(k)}</span></div><div class="ed-actions"><button class="ed-cp" style="border:1px solid var(--border2);padding:2px 8px;border-radius:4px" onclick="edCp('${A(k)}',this)">⎘</button><button class="ed-ibtn edt" onclick="edOpenBLModal('${A(k)}')">✎</button><button class="ed-ibtn del" onclick="edAskDelete('bl','${A(k)}')">✕</button></div></div>${r?`<div class="ed-reason">⚠ ${H(r)}</div>`:''}</div>`;
+    }).join('')+'</div>';
+  }
 
   /* ─────────────────────────────────────────
      RENDER — REPLACEMENTS
@@ -3100,6 +3416,7 @@ window.startReminderDoc=async function(){
     if(!edPendingDel)return;
     const{type,key}=edPendingDel;
     if(type==='dc'){delete(window._originalDC||{})[key];delete(window.directContact||{})[key];}
+    else if(type==='bl')delete(window.blacklist||{})[key];
     else if(type==='rp')delete(window.replacements||{})[key];
     edCloseModal('edDelModal');edRender();edToast('Entry deleted');edPendingDel=null;
   };
@@ -3133,6 +3450,26 @@ window.startReminderDoc=async function(){
   };
 
   /* ─────────────────────────────────────────
+     BL MODAL
+  ───────────────────────────────────────── */
+  window.edOpenBLModal=function(key){
+    edEditMode=key?{type:'bl',key}:null;
+    document.getElementById('edBLTitle').textContent=key?'Edit Blacklist Entry':'Add to Blacklist';
+    document.getElementById('edBLEmail').value=key||'';
+    const v=(window.blacklist||{})[key]||{};
+    document.getElementById('edBLReason').value=typeof v==='object'?v.reason||'':String(v)||'';
+    openM('edBLModal');
+  };
+  window.edSaveBL=function(){
+    const email=(document.getElementById('edBLEmail').value||'').trim();
+    const reason=(document.getElementById('edBLReason').value||'').trim();
+    if(!email){edToast('Email required',1);return;}
+    if(edEditMode&&edEditMode.key!==email)delete(window.blacklist||{})[edEditMode.key];
+    (window.blacklist=window.blacklist||{})[email]={emails:email.includes('@')?[email]:[],reason};
+    edCloseModal('edBLModal');edRenderBL();edShowFullJSON();edToast('Saved');
+  };
+
+  /* ─────────────────────────────────────────
      RP MODAL
   ───────────────────────────────────────── */
   window.edOpenRPModal=function(from){
@@ -3153,10 +3490,16 @@ window.startReminderDoc=async function(){
 
   /* ─────────────────────────────────────────
      SAVE JSON
+     Starts from the full _rawJSON that was stored
+     when data.json was fetched, then overlays ONLY
+     the three sections with current in-memory data.
+     Every other key in the original file is preserved.
   ───────────────────────────────────────── */
-  function edShowFullJSON(){
+    function edShowFullJSON(){
     var base=window._rawJSON?JSON.parse(JSON.stringify(window._rawJSON)):{};
-    delete base.blacklist;
+    var blOut={};
+    for(var k in(window.blacklist||{})){var v=window.blacklist[k];blOut[k]=typeof v==='object'?v.reason||'':String(v);}
+    base.blacklist=blOut;
     base.replacements=Object.assign({},window.replacements||{});
     base.directContact=Object.assign({},window._originalDC||{});
     var json=JSON.stringify(base,null,2);
@@ -3167,7 +3510,7 @@ window.startReminderDoc=async function(){
     p.style.cssText='position:fixed;top:0;right:0;bottom:0;width:500px;background:#0f1623;color:#e2e8f0;z-index:9000;display:flex;flex-direction:column;box-shadow:-4px 0 24px rgba(0,0,0,.35)';
     var safe=json.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     p.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#1e293b;border-bottom:1px solid #334155;flex-shrink:0">'
-      +'<span style="font-size:12px;font-weight:700;color:#94a3b8">&#10003; Full JSON</span>'
+      +'<span style="font-size:12px;font-weight:700;color:#94a3b8">&#10003; Full JSON — All Sections</span>'
       +'<div style="display:flex;gap:8px">'
       +'<button onclick="edSaveJSON();document.getElementById(\'edJSONPreview\').remove()" style="padding:5px 14px;background:#0F6FDE;color:#fff;border:none;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer">&#8595; Download JSON</button>'
       +'<button onclick="document.getElementById(\'edJSONPreview\').remove()" style="padding:5px 10px;background:#334155;color:#94a3b8;border:none;border-radius:5px;font-size:12px;cursor:pointer">&#10005;</button>'
@@ -3178,9 +3521,21 @@ window.startReminderDoc=async function(){
   }
 
 window.edSaveJSON=function(){
+    /* base = full original file (all keys intact) */
     const base=window._rawJSON ? JSON.parse(JSON.stringify(window._rawJSON)) : {};
-    delete base.blacklist;
+
+    /* overwrite blacklist — convert back to plain string format */
+    const blOut={};
+    for(const k in(window.blacklist||{})){
+      const v=window.blacklist[k];
+      blOut[k]=typeof v==='object'?v.reason||'':String(v);
+    }
+    base.blacklist=blOut;
+
+    /* overwrite replacements */
     base.replacements=Object.assign({},window.replacements||{});
+
+    /* overwrite directContact — already in {email,status}[] format */
     base.directContact=Object.assign({},window._originalDC||{});
 
     const blob=new Blob([JSON.stringify(base,null,2)],{type:'application/json'});
