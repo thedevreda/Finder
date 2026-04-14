@@ -802,7 +802,7 @@
       },
       {
         "email": "alexander.lindberg@advantageavio.se",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "evelina.andersson@advantageavio.se",
@@ -1219,7 +1219,7 @@
     "AERO VIM": [
       {
         "email": "V.Zakeri@aero-vim.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Niki.Arai@aero-vim.com",
@@ -1511,7 +1511,7 @@
       },
       {
         "email": "Scott.Carpenter@aerocontrols.com",
-        "status": "Holiday"
+        "status": "Answering"
       },
       {
         "email": "Suresh.Goraphy@aerocontrols.com",
@@ -1615,7 +1615,7 @@
     "AEROENGINESESERVICES": [
       {
         "email": "grichardson@aeroenginesolutions.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "charlotte@aeroengineservices.com",
@@ -2797,6 +2797,10 @@
       {
         "email": "Skylar.Woods@aersale.com",
         "status": "Unknown"
+      },
+      {
+        "email": "Ryan.VandenBrook@aersale.com",
+        "status": "Answering"
       }
     ],
     "AERTOK": [
@@ -3062,7 +3066,7 @@
     "AIRBALTIC": [
       {
         "email": "cgd@airbaltic.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "surplus@airbaltic.com",
@@ -3792,7 +3796,7 @@
       },
       {
         "email": "Freddie.perry@ajw-group.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "hilal.azak@ajw-group.com",
@@ -3854,7 +3858,7 @@
       },
       {
         "email": "jovanii@alarisaero.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "schatterjee@alarisaero.com",
@@ -3894,7 +3898,7 @@
       },
       {
         "email": "rmalviya@alarisaero.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "relvrom@alarisaero.com",
@@ -3907,6 +3911,10 @@
       {
         "email": "YPushkar@alarisaero.com",
         "status": "Unknown"
+      },
+      {
+        "email": "MWadhwa@alarisaero.com",
+        "status": "Answering"
       }
     ],
     "ALASKA": [
@@ -6581,8 +6589,11 @@
       },
       {
         "email": "karisma@aviationrotables.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
+      },
+      {
+        "email": "sales1@aviationrotables.com",
+        "status": "Not Found"
       }
     ],
     "AVIATIONSCOUTS": [
@@ -7834,6 +7845,10 @@
       {
         "email": "bruno-be23@bluewin.ch",
         "status": "Unknown"
+      },
+      {
+        "email": "cmisarl@bluewin.ch",
+        "status": "Answering"
       }
     ],
     "BLUEWINGAVIATION": [
@@ -7980,7 +7995,7 @@
     "BREAL PRODCUTS": [
       {
         "email": "rfq@brealproducts.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "breanna@brealproducts.com",
@@ -8390,7 +8405,7 @@
       },
       {
         "email": "ziggy@caps.aero",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "CAPSAVIATION": [
@@ -8830,7 +8845,7 @@
       },
       {
         "email": "Jared.L@cla.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Jasmine.K@cla.aero",
@@ -8847,6 +8862,14 @@
       {
         "email": "xteam@cla.aero",
         "status": "Unknown"
+      },
+      {
+        "email": "Natalie.D@cla.aero",
+        "status": "Answering"
+      },
+      {
+        "email": "bteam@cla.aero",
+        "status": "Answering"
       }
     ],
     "CLAEROSPACE": [
@@ -9001,6 +9024,10 @@
       {
         "email": "winslowliferaft@collins.com",
         "status": "Unknown"
+      },
+      {
+        "email": "edna.york@collins.com",
+        "status": "Answering"
       }
     ],
     "COLOSSUS AIR": [
@@ -10326,6 +10353,10 @@
       {
         "email": "eatonmiddleeastenquiries@eaton.com",
         "status": "Unknown"
+      },
+      {
+        "email": "CamieMMeltonhanily@eaton.com",
+        "status": "Answering"
       }
     ],
     "EB1": [
@@ -10467,8 +10498,8 @@
     ],
     "EIRTRADE AVIATION": [
       {
-        "email": "engine@eirtradeaviation.com",
-        "status": "Unknown"
+        "email": "FOR Engine Parts: engine@eirtradeaviation.com",
+        "status": "Answering"
       },
       {
         "email": "a.usov@eirtradeaviation.com",
@@ -11415,7 +11446,7 @@
       },
       {
         "email": "aog@fltechnics.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "etrd@fltechnics.com",
@@ -11443,7 +11474,7 @@
       },
       {
         "email": "natalja.melnikova@fltechnics.com",
-        "status": "Unknown"
+        "status": "Not Answering"
       },
       {
         "email": "nazrin.aliyeva@fltechnics.com",
@@ -12052,8 +12083,11 @@
       },
       {
         "email": "MarthaA@gatelesis.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "not found"
+        "status": "Unknown"
+      },
+      {
+        "email": "cdelahoz@gatelesis.com",
+        "status": "Answering"
       }
     ],
     "GABLESENG": [
@@ -13084,7 +13118,7 @@
     "GRGAIRCRAFT": [
       {
         "email": "glen@grgaircraft.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "noah@grgaircraft.com",
@@ -13386,88 +13420,75 @@
     "HAWKAVIATION": [
       {
         "email": "alouden@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "NOT FOUND"
+        "status": "Unknown"
       },
       {
         "email": "daiken@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "dmontenegro@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "ecampbell@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "enaroditsky@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "eperel@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "gmadover@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "HawkGlobalSalesTeam@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "janderson@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Answering"
       },
       {
         "email": "jasok@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "jbunce@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Answering"
       },
       {
         "email": "jperez@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "nmadover@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "rfq@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "sales@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "hawkquotes@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "@hawkaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
+      },
+      {
+        "email": "lwmiller@hawkaviation.com",
+        "status": "Answering"
       }
     ],
     "HAYWARDANDGREEN": [
@@ -13953,7 +13974,7 @@
     "HS-SHANGHAI": [
       {
         "email": "info@hs-shanghai.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "HSAERO": [
@@ -14174,7 +14195,7 @@
     "IFLY GSE": [
       {
         "email": "Sam: sales4@iflygse.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "mark@iflygse.com",
@@ -14596,7 +14617,7 @@
     "INTERTRADE A COLLINS": [
       {
         "email": "kimberley.jackson@collins.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "INVOICENINJA": [
@@ -14698,7 +14719,7 @@
     "ITS": [
       {
         "email": "derek.oeur@its.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "engines@its.aero",
@@ -14726,7 +14747,7 @@
       },
       {
         "email": "Dylan.Eubanks@its.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@its.aero",
@@ -14734,7 +14755,7 @@
       },
       {
         "email": "carmen.cordovac@its.aero",
-        "status": "Blacklisted",
+        "status": "Answering",
         "blacklist_reason": "mail not found"
       }
     ],
@@ -15381,7 +15402,7 @@
     "JETTECHINTL": [
       {
         "email": "adonadio@jettechintl.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "jrivera@jettechintl.com",
@@ -15768,7 +15789,7 @@
       },
       {
         "email": "quote@kakaair.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@kakaair.com",
@@ -16258,7 +16279,7 @@
     "LEKI": [
       {
         "email": "SEND DIRECTLY TO: jonh@lekiaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "emily.sellick@lekiaviation.com",
@@ -16274,7 +16295,7 @@
       },
       {
         "email": "jonh@lekiaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "rfq@lekiaviation.com",
@@ -16446,7 +16467,7 @@
     "LJS-AVIATION": [
       {
         "email": "joe@ljs-aviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Quotes@ljs-aviation.com",
@@ -16454,7 +16475,7 @@
       },
       {
         "email": "sales@ljs-aviation.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "LJWALCH": [
@@ -16769,92 +16790,6 @@
       {
         "email": "skelly@mageeplastics.com",
         "status": "Unknown"
-      }
-    ],
-    "MAGELLAN": [
-      {
-        "email": "engineparts@magellan.com",
-        "status": "Unknown"
-      },
-      {
-        "email": "conor.twomey@magellangroup.net",
-        "status": "Answering"
-      },
-      {
-        "email": "aog.SNN@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "asiaRFQs@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "chris.mcconnell@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "clt.engines@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "ella.rice@magellangroup.net",
-        "status": "Not Found"
-      },
-      {
-        "email": "EngineParts@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "george.mcmurray@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "og.SNN@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "Regina.Murphy@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "roisin.bugler@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "sales.expendables@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "SALES@magellangroup.net",
-        "status": "Answering"
-      },
-      {
-        "email": "salesusa@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "Sandra.Fernandes@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "tricia.allen@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "will.williams@magellangroup.net",
-        "status": "Unknown"
-      },
-      {
-        "email": "Joe.Montopoli@magellangroup.net",
-        "status": "Answering"
-      },
-      {
-        "email": "exp.rfqs@magellangroup.net",
-        "status": "Answering"
-      },
-      {
-        "email": "Timothy's Chef/ Chris.McConnell@magellangroup.net",
-        "status": "Answering"
       }
     ],
     "MAGNETIC MRO": [
@@ -18008,7 +17943,7 @@
       },
       {
         "email": "Keith@nelkuhr.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Partsbase@nelkuhr.com",
@@ -18028,7 +17963,7 @@
     "NELSONAIRCRAFTPARTS": [
       {
         "email": "a.petrov@nelsonaircraftparts.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@nelsonaircraftparts.com",
@@ -18588,7 +18523,7 @@
       },
       {
         "email": "sales3@odsaerospace.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sonu@odsaerospace.com",
@@ -18640,7 +18575,7 @@
       },
       {
         "email": "jhernandez@ohc.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "justin@ohc.aero",
@@ -18722,6 +18657,10 @@
       {
         "email": "RFQ@omsaero.com",
         "status": "Unknown"
+      },
+      {
+        "email": "OmsProjects@omsaero.com",
+        "status": "Answering"
       }
     ],
     "ONAV": [
@@ -18986,7 +18925,15 @@
     "PACEGROUPAVIATION": [
       {
         "email": "quotations@pacegroupaviation.com",
-        "status": "Unknown"
+        "status": "Answering"
+      },
+      {
+        "email": "MaxKahn@pacegroupaviation.com",
+        "status": "Answering"
+      },
+      {
+        "email": "MariyahM@pacegroupaviation.com",
+        "status": "Answering"
       }
     ],
     "PACIFIC": [
@@ -19696,7 +19643,7 @@
       },
       {
         "email": "sales@prestigeaeroservices.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "PRIMA AVIATION": [
@@ -20133,8 +20080,11 @@
       },
       {
         "email": "Rmackey@rangeraav.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "NOT FOUND"
+        "status": "Unknown"
+      },
+      {
+        "email": "EMartin@rangeraav.com",
+        "status": "Answering"
       }
     ],
     "RAPHAELAERO": [
@@ -20164,6 +20114,14 @@
       },
       {
         "email": "parts@ras.de",
+        "status": "Answering"
+      },
+      {
+        "email": "m.waldmann@ras.de",
+        "status": "Unknown"
+      },
+      {
+        "email": "t.manrique@ras.de",
         "status": "Unknown"
       }
     ],
@@ -20585,6 +20543,14 @@
     "ROCHEAVIATION": [
       {
         "email": "mike@rocheaviation.com",
+        "status": "Not Answering"
+      },
+      {
+        "email": "sales@rocheaviation.com",
+        "status": "Answering"
+      },
+      {
+        "email": "qc@rocheaviation.com",
         "status": "Unknown"
       }
     ],
@@ -20909,7 +20875,19 @@
         "status": "Unknown"
       },
       {
-        "email": "patrice.sanchez@safrangroup.com",
+        "email": "Landing Systems : patrice.sanchez@safrangroup.com",
+        "status": "Answering"
+      },
+      {
+        "email": "Engine: cfm.csc@safrangroup.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "Electrical : rfq.cmc@safrangroup.com",
+        "status": "Answering"
+      },
+      {
+        "email": "Cabin: cabin.spares.tls@safrangroup.com",
         "status": "Answering"
       }
     ],
@@ -21070,7 +21048,7 @@
       },
       {
         "email": "RFQ@sas-miami.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "SATAIR": [
@@ -21239,7 +21217,7 @@
     "SEAL DYNAMICS": [
       {
         "email": "customerservice@sealdynamics.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "KristaDeLuca@sealdynamics.com",
@@ -21450,6 +21428,14 @@
       {
         "email": "Abir.Bounekoub@setnaio.com",
         "status": "Answering"
+      },
+      {
+        "email": "lauren.moore@setnaio.com",
+        "status": "Answering"
+      },
+      {
+        "email": "Shelby.McNeal@setnaio.com",
+        "status": "Answering"
       }
     ],
     "SEYTEC": [
@@ -21555,7 +21541,7 @@
       },
       {
         "email": "raquel@shopaviationstore.com",
-        "status": "Blacklisted",
+        "status": "Not Answering",
         "blacklist_reason": "NOT EXIST"
       }
     ],
@@ -21739,7 +21725,7 @@
     "SKYFIX-TOOLS": [
       {
         "email": "sales@skyfix-tools.com",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "SKYGLOBALSUPPORT": [
@@ -22398,6 +22384,10 @@
       {
         "email": "sales@spiritaero.com",
         "status": "Unknown"
+      },
+      {
+        "email": "spares@spiritaero.com",
+        "status": "Unknown"
       }
     ],
     "SPIRITAERONAUTICS": [
@@ -23050,6 +23040,10 @@
       {
         "email": "Steven@tag-aviation.co.uk",
         "status": "Unknown"
+      },
+      {
+        "email": "louise@tag-aviation.co.uk",
+        "status": "Answering"
       }
     ],
     "TAHOEAERO": [
@@ -23204,7 +23198,7 @@
       },
       {
         "email": "engineering@tcasaero.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "info@tcasaero.com",
@@ -23212,11 +23206,11 @@
       },
       {
         "email": "business.development@tcasaero.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "general.manager@tcasaero.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "Faisal.Daghestany@tcasaero.com",
@@ -23354,7 +23348,7 @@
       },
       {
         "email": "jhon@tdaviationcenter.com",
-        "status": "Blacklisted",
+        "status": "Not Found",
         "blacklist_reason": "not found"
       },
       {
@@ -23985,7 +23979,7 @@
       },
       {
         "email": "toby@trade-air.co.uk",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "TRADENA": [
@@ -24713,6 +24707,10 @@
       {
         "email": "thales.trading@us.thalesgroup.com",
         "status": "Unknown"
+      },
+      {
+        "email": "US-ASW-Distribution@us.thalesgroup.com",
+        "status": "Answering"
       }
     ],
     "USAEROSPACEHOLDING": [
@@ -26109,16 +26107,6 @@
         "status": "Answering"
       }
     ],
-    "C & L AVIATION": [
-      {
-        "email": "Natalie.D@cla.aero",
-        "status": "Answering"
-      },
-      {
-        "email": "bteam@cla.aero",
-        "status": "Answering"
-      }
-    ],
     "DALLAS AVIATION": [
       {
         "email": "mikejr@dallasaviation.com",
@@ -26210,6 +26198,14 @@
     "HALE AIRCRAFT": [
       {
         "email": "ttew@haleaircraft.com",
+        "status": "Answering"
+      },
+      {
+        "email": "bralston@haleaircraft.com",
+        "status": "Answering"
+      },
+      {
+        "email": "hluque@haleaircraft.com",
         "status": "Answering"
       }
     ],
@@ -26974,6 +26970,138 @@
         "email": "p.pham@aercon.one",
         "status": "Answering"
       }
+    ],
+    "AJW GROUP UK": [
+      {
+        "email": "Ilssales@ajw-group.com",
+        "status": "Answering"
+      }
+    ],
+    "AV-SPAREPARTS": [
+      {
+        "email": "sales@av-spareparts.com",
+        "status": "Not Answering"
+      }
+    ],
+    "MAGELLAN AVIATION GROUP (IRLAND)": [
+      {
+        "email": "Engine: timothy.owens@magellangroup.net",
+        "status": "Answering"
+      },
+      {
+        "email": "conor.twomey@magellangroup.net",
+        "status": "Answering"
+      },
+      {
+        "email": "ella.rice@magellangroup.net",
+        "status": "Answering"
+      },
+      {
+        "email": "Sales@magellangroup.net",
+        "status": "Answering"
+      },
+      {
+        "email": "Timothy's Chef/ Chris.McConnell@magellangroup.net",
+        "status": "Answering"
+      }
+    ],
+    "MAGELLAN EXPENDABLES": [
+      {
+        "email": "engineparts@magellan.com",
+        "status": "Unknown"
+      },
+      {
+        "email": "aog.SNN@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "asiaRFQs@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "chris.mcconnell@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "clt.engines@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "ella.rice@magellangroup.net",
+        "status": "Not Found"
+      },
+      {
+        "email": "EngineParts@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "george.mcmurray@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "og.SNN@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "Regina.Murphy@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "roisin.bugler@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "sales.expendables@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "salesusa@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "Sandra.Fernandes@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "tricia.allen@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "will.williams@magellangroup.net",
+        "status": "Unknown"
+      },
+      {
+        "email": "Joe.Montopoli@magellangroup.net",
+        "status": "Answering"
+      },
+      {
+        "email": "exp.rfqs@magellangroup.net",
+        "status": "Answering"
+      }
+    ],
+    "CLA UK": [
+      {
+        "email": "sales@aclastechnics.com",
+        "status": "Answering"
+      }
+    ],
+    "HIFLY": [
+      {
+        "email": "ageada@hifly.aero",
+        "status": "Answering"
+      }
+    ],
+    "GHAAVIATION": [
+      {
+        "email": "lidyanatalia@ghaaviation.com",
+        "status": "Answering"
+      }
+    ],
+    "AIRCRAFT SPARES NETWORK": [
+      {
+        "email": "lisa@aircraftsparesnetwork.net",
+        "status": "Answering"
+      }
     ]
   },
   "blacklist": {
@@ -26988,6 +27116,17 @@
     "aiscaero.com": "NOT FOUND",
     "pds.customerservice@ametek.com": "NOT FOUND",
     "NHBBsales@nhbb.com": "NOT FOUND",
-    "@avair.aero": "HIGH PRICES"
+    "@avair.aero": "HIGH PRICES",
+    "AVTRADE.COM": "BLAKCLISE",
+    "international-aviation.com": "BLAKCLISE",
+    "goldenfalconaviation.com": "BLAKCLISE",
+    "gmdcinc.com": "BLAKCLISE",
+    "cal-aviation.com": "NOT FOUND",
+    "mtiaviation.com": "NO FOUND",
+    "prime-aero.com": "NOT FOUND",
+    "oneskyav.com": "NOT FOUND",
+    "echoairo.com": "NOT FOUND",
+    "@nlae.se": "NOT FOUND",
+    "tmgavia.com": "NOT FOUND"
   }
 }
