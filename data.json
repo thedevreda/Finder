@@ -810,7 +810,7 @@
       },
       {
         "email": "ida.pettersson@advantageavio.se",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "james.norris@advantageavio.se",
@@ -834,7 +834,7 @@
     "AECIRELAND": [
       {
         "email": "Gary@aecireland.com",
-        "status": "Unknown"
+        "status": "Not Found"
       },
       {
         "email": "sales@aecireland.com",
@@ -1334,7 +1334,7 @@
       },
       {
         "email": "gary.neville@aero-zone.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "michael.keyes@aero-zone.com",
@@ -1894,6 +1894,10 @@
       },
       {
         "email": "kayra@amp-aero.com",
+        "status": "Answering"
+      },
+      {
+        "email": "Roy@amp-aero.com",
         "status": "Answering"
       }
     ],
@@ -3369,28 +3373,27 @@
     "AIRHUB AVIATION": [
       {
         "email": "shaikh.moiez@airhubaviaition.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "not found"
+        "status": "Unknown"
       },
       {
         "email": "orinta.mazrimaite@airhubaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "rfq@airhubaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "shaikh.moiez@airhubaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
       },
       {
         "email": "tsira.gurgenidze@airhubaviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "Blacklisted for higher price or not answering"
+        "status": "Unknown"
+      },
+      {
+        "email": "lukas.bradauskas@airhubaviation.com",
+        "status": "Answering"
       }
     ],
     "AIRLINE-SERVICES": [
@@ -4161,7 +4164,7 @@
       },
       {
         "email": "sales@altamontaviation.com",
-        "status": "Blacklisted",
+        "status": "Not Found",
         "blacklist_reason": "not found"
       }
     ],
@@ -8211,7 +8214,7 @@
     "C8AV": [
       {
         "email": "jw@c8av.com",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@c8av.com",
@@ -12413,7 +12416,7 @@
     "GKNAEROSPACE": [
       {
         "email": "emile.griffith@gknaerospace.com",
-        "status": "Unknown"
+        "status": "Not Found"
       },
       {
         "email": "tor.grahn@gknaerospace.com",
@@ -12596,6 +12599,10 @@
       {
         "email": "TPena@globalaviation.aero",
         "status": "Unknown"
+      },
+      {
+        "email": "ZBradley@globalaviation.aero",
+        "status": "Answering"
       }
     ],
     "GLOBALAVIATIONSPARES": [
@@ -15288,7 +15295,11 @@
       },
       {
         "email": "Vanessa.Smith@jetpower.aero",
-        "status": "Unknown"
+        "status": "Answering"
+      },
+      {
+        "email": "samantha.bunk@jetpower.aero",
+        "status": "Answering"
       }
     ],
     "JETPOWERAVIATION": [
@@ -17126,7 +17137,7 @@
       },
       {
         "email": "Laura@mdturbines.com",
-        "status": "Unknown"
+        "status": "Not Found"
       },
       {
         "email": "liliana@mdturbines.com",
@@ -19559,7 +19570,7 @@
     "PR-INTERNATIONAL": [
       {
         "email": "SPARES@pr-international.com",
-        "status": "Unknown"
+        "status": "Not Found"
       },
       {
         "email": "spares@pr-international.com.my",
@@ -22974,6 +22985,10 @@
       {
         "email": "sales@swissteknik.com",
         "status": "Unknown"
+      },
+      {
+        "email": "geo@swissteknik.com",
+        "status": "Answering"
       }
     ],
     "SWTEKNIK": [
@@ -27102,6 +27117,18 @@
         "email": "lisa@aircraftsparesnetwork.net",
         "status": "Answering"
       }
+    ],
+    "EURO-COMMERCE": [
+      {
+        "email": "rfq@euro-commerce.ch",
+        "status": "Not Found"
+      }
+    ],
+    "XHIGHGROUP": [
+      {
+        "email": "team@xhighgroup.com",
+        "status": "Not Found"
+      }
     ]
   },
   "blacklist": {
@@ -27127,6 +27154,11 @@
     "oneskyav.com": "NOT FOUND",
     "echoairo.com": "NOT FOUND",
     "@nlae.se": "NOT FOUND",
-    "tmgavia.com": "NOT FOUND"
+    "tmgavia.com": "NOT FOUND",
+    "aerospacetacticalsolutions.com": "NOT FOUND",
+    "channelfor.com": "NOT FOUND",
+    "@atsmro.com": "NOT FOUND",
+    "gadirect.us": "NOT FOUND",
+    "avitrading.net": "NOT FOUND"
   }
 }
