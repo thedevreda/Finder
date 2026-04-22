@@ -59,7 +59,11 @@
     "S.Harris@s3aerodefense.com": "RyanP@s3aerodefense.com",
     "purchasing02@swteknik.com": "sales@swissteknik.com",
     "@allflight.com": "@infinityair.com",
-    "RFQ@topgse.com": "rfq@aerotop.es"
+    "RFQ@topgse.com": "rfq@aerotop.es",
+    "Tom.Heckman@blueravencorp.com": "adam@ctgnow.com",
+    "weststaraviation.com": "dasaviation.com",
+    "gwahnich@aerocanada.aero": "spares@aerocanada.aero / ancillaries@aerocanada.aero",
+    "sales@genesys-aerosystems.com": "alarson3@moog.com"
   },
   "exw": {
     "reda": "reda"
@@ -2546,7 +2550,7 @@
       },
       {
         "email": "j.farias@aerotechnic-usa.com",
-        "status": "Blacklisted",
+        "status": "Answering",
         "blacklist_reason": "Blacklisted for higher price or not answering"
       },
       {
@@ -7969,20 +7973,23 @@
     "BRANCOR AVIATION": [
       {
         "email": "vp@brancoraviation.com",
-        "status": "Unknown"
+        "status": "Not Found"
       },
       {
         "email": "mdiaz@brancoraviation.com",
-        "status": "Unknown"
+        "status": "Not Found"
       },
       {
         "email": "sales@brancoraviation.com",
-        "status": "Unknown"
+        "status": "Not Found"
       },
       {
         "email": "quotes@brancoraviation.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "mail not found"
+        "status": "Not Found"
+      },
+      {
+        "email": "@brancoraviation.com",
+        "status": "Not Found"
       }
     ],
     "BRANDEX": [
@@ -9569,6 +9576,14 @@
       {
         "email": "sales@dakotaairparts.com",
         "status": "Unknown"
+      },
+      {
+        "email": "ian@dakotaairparts.com",
+        "status": "Answering"
+      },
+      {
+        "email": "ryan@dakotaairparts.com",
+        "status": "Answering"
       }
     ],
     "DALAVIATION": [
@@ -13334,6 +13349,10 @@
       {
         "email": "trade@hangxin.com",
         "status": "Unknown"
+      },
+      {
+        "email": "liyiling@hangxin.com",
+        "status": "Answering"
       }
     ],
     "HANSAIR": [
@@ -13388,8 +13407,15 @@
     "HARMONY-AERO": [
       {
         "email": "s.gerard@harmony-aero.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "NOT THE RIGHT PERSON"
+        "status": "Unknown"
+      },
+      {
+        "email": "harmony-aero.com",
+        "status": "Not Found"
+      },
+      {
+        "email": "s.heber@harmony-aero.com",
+        "status": "Not Found"
       }
     ],
     "HARTER": [
@@ -18501,11 +18527,11 @@
       },
       {
         "email": "CQ@oceanair.aero",
-        "status": "Unknown"
+        "status": "Answering"
       },
       {
         "email": "sales@oceanair.aero",
-        "status": "Unknown"
+        "status": "Answering"
       }
     ],
     "OCTRAXLTD": [
@@ -22381,6 +22407,10 @@
       {
         "email": "sales@spirit-aerospace.com",
         "status": "Unknown"
+      },
+      {
+        "email": "DJ@spirit-aerospace.com",
+        "status": "Answering"
       }
     ],
     "SPIRITAERO": [
@@ -22524,7 +22554,11 @@
     "ST-AVIATION": [
       {
         "email": "sales@st-aviation.com",
-        "status": "Unknown"
+        "status": "Not Found"
+      },
+      {
+        "email": "st-aviation.com",
+        "status": "Not Found"
       }
     ],
     "STA-REPAIRS": [
@@ -23734,7 +23768,11 @@
     "TKSAINC": [
       {
         "email": "sales@tksainc.com",
-        "status": "Unknown"
+        "status": "Not Found"
+      },
+      {
+        "email": "tksainc.com",
+        "status": "Not Found"
       }
     ],
     "TLALOCK-TECHNICS": [
@@ -26363,8 +26401,11 @@
     "AAHPARTS": [
       {
         "email": "sales@aahparts.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "NOT EXIST"
+        "status": "Unknown"
+      },
+      {
+        "email": "aahparts.com",
+        "status": "Not Found"
       }
     ],
     "AERO BAY": [
@@ -26573,8 +26614,11 @@
     "DESTINYAERO": [
       {
         "email": "sales@destinyaero.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "NOT FOUND"
+        "status": "Unknown"
+      },
+      {
+        "email": "destinyaero.com",
+        "status": "Not Found"
       }
     ],
     "DORINAVIATION": [
@@ -26684,8 +26728,11 @@
     "JETAIRE": [
       {
         "email": "info@jetaire.com",
-        "status": "Blacklisted",
-        "blacklist_reason": "NOT EXIST"
+        "status": "Unknown"
+      },
+      {
+        "email": "jetaire.com",
+        "status": "Not Found"
       }
     ],
     "JETASSETS": [
@@ -27009,7 +27056,7 @@
       },
       {
         "email": "ella.rice@magellangroup.net",
-        "status": "Answering"
+        "status": "Not Answering"
       },
       {
         "email": "Sales@magellangroup.net",
@@ -27128,6 +27175,22 @@
       {
         "email": "team@xhighgroup.com",
         "status": "Not Found"
+      }
+    ],
+    "AJW EMIRATES": [
+      {
+        "email": "marwan.musleh@ajw-me.com",
+        "status": "Answering"
+      },
+      {
+        "email": "sales_enquiry@ajw-me.com",
+        "status": "Answering"
+      }
+    ],
+    "DAKOTA AIR PARTS/ ASI MRO": [
+      {
+        "email": "jonathan@asimro.com",
+        "status": "Answering"
       }
     ]
   },
