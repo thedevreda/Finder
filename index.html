@@ -2830,24 +2830,29 @@ function buildHomeGrid(){
 
 let _stepGlowTimer=null;
 function runStepGlow(){
+if (_stepGlowTimer) return; // prevent duplicate loops
   const prompt=document.getElementById('homeGridPrompt');
   const cards=[...document.querySelectorAll('#hgWorkflow .hg-card.step')];
   if(!cards.length)return;
   // Show prompt
   if(prompt){prompt.classList.add('show');}
   let idx=0;
-  function glowNext(){
-    cards.forEach(c=>c.classList.remove('step-glow'));
-    if(idx<cards.length){
-      cards[idx].classList.add('step-glow');
-      idx++;
-      _stepGlowTimer=setTimeout(glowNext, 520);
-    } else {
-      // All done: remove glow, leave prompt
-      cards.forEach(c=>c.classList.remove('step-glow'));
-      _stepGlowTimer=null;
-    }
+function glowNext(){
+  cards.forEach(c => c.classList.remove('step-glow'));
+
+  if(idx < cards.length){
+    cards[idx].classList.add('step-glow');
+    idx++;
+    _stepGlowTimer = setTimeout(glowNext, 1000);
+  } else {
+    // Finished one full run
+    cards.forEach(c => c.classList.remove('step-glow'));
+    idx = 0; // reset
+
+    // ⏳ wait 30s before restarting
+    _stepGlowTimer = setTimeout(glowNext, 20000);
   }
+}
   glowNext();
 }
 
