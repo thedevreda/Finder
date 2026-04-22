@@ -109,7 +109,30 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13
 .hg-title{font-size:12px;font-weight:600;color:var(--text);line-height:1.3}
 .hg-sub{font-size:10px;color:var(--muted);line-height:1.35}
 
-.loading-overlay{position:fixed;inset:0;background:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;z-index:500;font-size:13px;color:var(--text);font-weight:600;backdrop-filter:blur(2px)}
+.hg-card.step-glow{
+  border-color:var(--brand)!important;
+  box-shadow:0 0 0 3px rgba(26,86,219,.18),0 0 18px 4px rgba(26,86,219,.22)!important;
+  transform:scale(1.025);
+  transition:box-shadow .35s,border-color .35s,transform .25s;
+  z-index:2;
+  position:relative;
+}
+@keyframes stepPulse{
+  0%{box-shadow:0 0 0 3px rgba(26,86,219,.18),0 0 18px 4px rgba(26,86,219,.22);}
+  50%{box-shadow:0 0 0 6px rgba(26,86,219,.10),0 0 28px 8px rgba(26,86,219,.30);}
+  100%{box-shadow:0 0 0 3px rgba(26,86,219,.18),0 0 18px 4px rgba(26,86,219,.22);}
+}
+.hg-card.step-glow{animation:stepPulse 1.1s ease-in-out infinite;}
+#homeGridPrompt{
+  font-size:13px;font-weight:600;color:var(--brand);
+  text-align:center;margin-bottom:14px;
+  min-height:22px;
+  letter-spacing:.01px;
+  opacity:0;
+  transition:opacity .4s;
+}
+#homeGridPrompt.show{opacity:1;}
+
 .loading-overlay.hidden{display:none}
 
 /* ════════════════════════════════
@@ -451,6 +474,7 @@ mark.hl{background:#FEF08A;border-radius:2px;padding:0 1px;color:inherit}
               <!-- WORKFLOW STEPS grid -->
               <div style="margin-bottom:4px">
                 <div style="font-size:9px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px">Workflow Steps</div>
+                <div id="homeGridPrompt">👆 Where are you at right now?</div>
                 <div class="hg-grid" id="hgWorkflow"></div>
               </div>
 
@@ -2760,10 +2784,10 @@ function checkEmail(){
   if(!iv){res.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:30px">Start typing to search</div>';document.getElementById("statusBar").innerText="Ready";return;}
   if(!dataLoaded){res.innerHTML='<div style="text-align:center;color:var(--orange);margin-top:20px;font-size:12px">⚠ No data.json loaded — contact search unavailable.</div>';return;}
   const kw=norm(domKey(iv));let count=0;function match(v){return norm(v).includes(kw);}
-  // ── BLACKLIST FIRST ──
+  // ── BLACKLIST FIRST, REPLACE SECOND, DIRECT LAST ──
   if(cf==="all"||cf==="blacklist"){for(let c in blacklist){const obj=blacklist[c]||{},em=obj.emails||[],reason=obj.reason||"";const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length||match(reason)){const sh=cm?em:em2;const rows=sh.map(e=>`<div class="ger"><span class="ge">${e}</span><button class="cib" onclick="cpText('${e.replace(/'/g,"&apos;")}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`).join('');addCard("blacklist",c,`<div class="gel">${rows}</div><div class="bl-reason">⚠ ${reason}</div>`,null);count++;}}}
-  if(cf==="all"||cf==="direct"){for(let c in directContact){const em=directContact[c]||[];const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length){const sh=cm?em:em2;const rawEntry=window._originalDC&&window._originalDC[c]||[];const rows=sh.map(e=>{const eObj=rawEntry.find?rawEntry.find(o=>o&&o.email===e):null;const st2=eObj?statusBadge(eObj.status):'';const esc=e.replace(/'/g,"&apos;");return`<div class="ger"><span class="ge">${e}</span>${st2}<button class="cib" onclick="cpText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');addCard("direct",c,`<div class="gel">${rows}</div>`,null);count++;}}}
   if(cf==="all"||cf==="replace"){for(let old in replacements){if(match(old)||match(replacements[old])){addCard("replace","Replacement",`<small>Old:</small> ${old}<br><small>New:</small> ${replacements[old]}`,replacements[old]);count++;}}}
+  if(cf==="all"||cf==="direct"){for(let c in directContact){const em=directContact[c]||[];const cm=match(c),em2=em.filter(e=>match(e));if(cm||em2.length){const sh=cm?em:em2;const rawEntry=window._originalDC&&window._originalDC[c]||[];const rows=sh.map(e=>{const eObj=rawEntry.find?rawEntry.find(o=>o&&o.email===e):null;const st2=eObj?statusBadge(eObj.status):'';const esc=e.replace(/'/g,"&apos;");return`<div class="ger"><span class="ge">${e}</span>${st2}<button class="cib" onclick="cpText('${esc}');this.textContent='✓';setTimeout(()=>this.textContent='Copy',1200)">Copy</button></div>`;}).join('');addCard("direct",c,`<div class="gel">${rows}</div>`,null);count++;}}}
   document.getElementById("statusBar").innerText=count?`${count} result(s) for "${iv}"`:"No matches found";
 }
 
@@ -2800,19 +2824,53 @@ function buildHomeGrid(){
     card.onclick=()=>showPage(pg.id);
     (pg.step?wf:rf).appendChild(card);
   });
+  // Run glow animation
+  setTimeout(runStepGlow, 400);
+}
+
+let _stepGlowTimer=null;
+function runStepGlow(){
+  const prompt=document.getElementById('homeGridPrompt');
+  const cards=[...document.querySelectorAll('#hgWorkflow .hg-card.step')];
+  if(!cards.length)return;
+  // Show prompt
+  if(prompt){prompt.classList.add('show');}
+  let idx=0;
+  function glowNext(){
+    cards.forEach(c=>c.classList.remove('step-glow'));
+    if(idx<cards.length){
+      cards[idx].classList.add('step-glow');
+      idx++;
+      _stepGlowTimer=setTimeout(glowNext, 520);
+    } else {
+      // All done: remove glow, leave prompt
+      cards.forEach(c=>c.classList.remove('step-glow'));
+      _stepGlowTimer=null;
+    }
+  }
+  glowNext();
+}
+
+function stopStepGlow(){
+  if(_stepGlowTimer){clearTimeout(_stepGlowTimer);_stepGlowTimer=null;}
+  document.querySelectorAll('#hgWorkflow .hg-card.step').forEach(c=>c.classList.remove('step-glow'));
 }
 
 function goHome(){
   stopAutoReturn();
   stopFlashing();
+  stopStepGlow();
   document.getElementById('homeGrid').style.display='flex';
   document.getElementById('docsContent').style.display='none';
   document.getElementById('stepNav').style.display='none';
   window._currentStepId=null;
   document.querySelectorAll('.doc-page').forEach(p=>p.classList.remove('active'));
+  // Re-run glow when returning home
+  setTimeout(runStepGlow, 300);
 }
 
 function showPage(name, _unused){
+  stopStepGlow();
   document.querySelectorAll('.doc-page').forEach(p=>p.classList.remove('active'));
   const pg=document.getElementById('pg-'+name);
   if(pg){
@@ -3103,8 +3161,11 @@ function toggleCertSection(){
       const emails=c.emails||[];
       return tokenMatch(c.company||'',t)||emails.some(e=>tokenMatch(e,t))||tokenMatch(c.notes||'',t);
     });
-    // Blacklisted first
-    filtered.sort((a,b)=>(a.type==='blacklist'?0:1)-(b.type==='blacklist'?0:1));
+    // Blacklist + Replace first, then direct
+    filtered.sort((a,b)=>{
+      const rank=t=>t==='blacklist'?0:t==='replace'?1:2;
+      return rank(a.type)-rank(b.type);
+    });
     if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
     resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
       const cls=c.type==='blacklist'?'blacklist':c.type==='direct'?'direct':c.type==='replace'?'replace':'';
@@ -3207,11 +3268,10 @@ window.clearClientEmail=function(){
 
     if(!filtered.length){resultsEl.innerHTML='<div style="text-align:center;color:var(--muted2);margin-top:20px;font-size:13px">No results found</div>';return;}
 
-    // Sort: blacklisted first
+    // Sort: blacklist + replace first, then direct
     filtered.sort((a,b)=>{
-      const abl=a.type==='blacklist'?0:1;
-      const bbl=b.type==='blacklist'?0:1;
-      return abl-bbl;
+      const rank=t=>t==='blacklist'?0:t==='replace'?1:2;
+      return rank(a.type)-rank(b.type);
     });
 
     resultsEl.innerHTML=filtered.slice(0,40).map(c=>{
